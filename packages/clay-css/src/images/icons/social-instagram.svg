@@ -4,8 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline lx-social-instagram-body" d="M352,64c52.9,0,96,43.1,96,96v192c0,52.9-43.1,96-96,96H160c-52.9,0-96-43.1-96-96V160c0-52.9,43.1-96,96-96H352 M352,0H160C72,0,0,72,0,160v192c0,88,72,160,160,160h192c88,0,160-72,160-160V160C512,72,440,0,352,0L352,0z"/>
-	<path class="lexicon-icon-outline lx-social-instagram-viewfinder" d="M384,96c-17.7,0-32,14.3-32,32s14.3,32,32,32s32-14.3,32-32S401.7,96,384,96L384,96z"/>
-	<path class="lexicon-icon-outline lx-social-instagram-shutter" d="M320,256c0,86.2-128,88.1-128,0C192,173.6,320,169.8,320,256z M128,256c4.4,167.7,252.5,168.6,256,0C377.7,83.5,134.3,88.3,128,256z"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.003a.999.999 0 1 0 0 2 .999.999 0 1 0 0-2Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4 8.003c.138 5.24 7.89 5.269 8 0-.197-5.39-7.803-5.24-8 0Zm6 0c0 2.694-4 2.753-4 0 0-2.575 4-2.694 4 0Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11 .003H5c-2.75 0-5 2.25-5 5v6c0 2.75 2.25 5 5 5h6c2.75 0 5-2.25 5-5v-6c0-2.75-2.25-5-5-5Zm0 2c1.653 0 3 1.347 3 3v6c0 1.653-1.347 3-3 3H5c-1.653 0-3-1.347-3-3v-6c0-1.653 1.347-3 3-3h6Z"/></svg>

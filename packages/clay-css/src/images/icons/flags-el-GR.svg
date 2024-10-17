@@ -4,18 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<rect y="64" fill="#B0BEC9" width="512" height="384"></rect>
-	<rect x="16" y="80" fill="#0035A0" width="480" height="39.1"></rect>
-	<rect x="16" y="119.1" fill="#FFFFFF" width="480" height="39.1"></rect>
-	<rect x="16" y="197.3" fill="#FFFFFF" width="480" height="39.1"></rect>
-	<rect x="16" y="236.4" fill="#0035A0" width="480" height="39.1"></rect>
-	<rect x="16" y="275.6" fill="#FFFFFF" width="480" height="39.1"></rect>
-	<rect x="16" y="314.7" fill="#0035A0" width="480" height="39.1"></rect>
-	<rect x="16" y="353.8" fill="#FFFFFF" width="480" height="39.1"></rect>
-	<rect x="16" y="392.9" fill="#0035A0" width="480" height="39.1"></rect>
-	<rect x="16.1" y="80" fill="#0035A0" width="207.9" height="195.6"></rect>
-	<rect x="16" y="158.2" fill="#0035A0" width="480" height="39.1"></rect>
-	<rect x="100.2" y="80" fill="#FFFFFF" width="39.1" height="195.6"></rect>
-	<rect x="16.5" y="158.2" fill="#FFFFFF" width="207.8" height="39.1"></rect>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H0v12h16V2Z" fill="#B0BEC9"/><path d="M15.5 2.5H.5v1.222h15V2.5Z" fill="#0035A0"/><path d="M15.5 3.722H.5v1.222h15V3.722Zm0 2.444H.5v1.222h15V6.166Z" fill="#fff"/><path d="M15.5 7.387H.5V8.61h15V7.387Z" fill="#0035A0"/><path d="M15.5 8.613H.5v1.221h15V8.613Z" fill="#fff"/><path d="M15.5 9.834H.5v1.222h15V9.834Z" fill="#0035A0"/><path d="M15.5 11.056H.5v1.222h15v-1.222Z" fill="#fff"/><path d="M15.5 12.278H.5V13.5h15v-1.222ZM7 2.5H.503v6.113H7V2.5Z" fill="#0035A0"/><path d="M15.5 4.944H.5v1.222h15V4.944Z" fill="#0035A0"/><path d="M4.353 2.5H3.131v6.113h1.222V2.5Z" fill="#fff"/><path d="M7.01 4.944H.515v1.222h6.493V4.944Z" fill="#fff"/></svg>

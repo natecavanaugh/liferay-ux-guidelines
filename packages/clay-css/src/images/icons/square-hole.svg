@@ -4,6 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline" d="M448,0H64A64,64,0,0,0,0,64V448a64,64,0,0,0,64,64H448a64,64,0,0,0,64-64V64A64,64,0,0,0,448,0ZM352,352H160V160H352Z"></path>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14 .003H2c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2Zm-3 11H5v-6h6v6Z"/></svg>

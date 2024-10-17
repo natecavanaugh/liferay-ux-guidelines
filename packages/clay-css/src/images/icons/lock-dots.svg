@@ -4,10 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<circle class="lexicon-icon-outline lock-dots-dot1" cx="464" cy="48" r="48"></circle>
-	<circle class="lexicon-icon-outline lock-dots-dot2" cx="464" cy="240" r="48"></circle>
-	<circle class="lexicon-icon-outline lock-dots-dot3" cx="464" cy="432" r="48"></circle>
-	<polygon class="lexicon-icon-outline lock-dots-connector" points="288,192 384,96 352,96 288,160 "></polygon>
-	<path class="lexicon-icon-outline lock-dots-lock" d="M384,224H96v-96c0-84,128-84,128,0v31.5h32V128C256,1,64,0,64,128v96H44.8C16.6,224,0,247,0,275.2v153.6C0,457,16.6,480,44.8,480h224c28.2,0,51.2-23,51.2-51.2v-87.5l64,42.7v-32l-64-42.7l0.5-53.3H384V224z M192,416h-64v-96h64V416z"></path>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 1.504a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm-4-10.5-3 3v-1l2-2h1Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5 7.004h7v1h-1.984L10 9.67l2 1.334v1l-2-1.334v2.734c0 .882-.719 1.6-1.6 1.6h-7c-.881 0-1.4-.718-1.4-1.6v-4.8c0-.738.364-1.362 1-1.545V5.002A4 4 0 0 1 7.71 2.06a.998.998 0 0 1-.6 1.8c-.292 0-.467-.118-.696-.272A2 2 0 0 0 3 5.002v2h2v.002Zm1 3v3H4v-3h2Z"/></svg>

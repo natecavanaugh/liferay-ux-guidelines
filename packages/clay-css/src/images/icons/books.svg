@@ -4,14 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline books-1-spine-top" d="M96.1,32h-64c-17.7,0-32,14.3-32,32v32h128V64C128.1,46.3,113.8,32,96.1,32z"/>
-	<path class="lexicon-icon-outline books-1-spine-bottom" d="M0.1,448c0,17.7,14.3,32,32,32h64c17.7,0,32-14.3,32-32v-32H0.1V448z"/>
-	<rect class="lexicon-icon-outline books-1-spine" x="0.1" y="128" width="128" height="256"/>
-	<path class="lexicon-icon-outline books-2-spine-top" d="M256.1,32h-64c-17.7,0-32,14.3-32,32v32h128V64C288.1,46.3,273.8,32,256.1,32z"/>
-	<path class="lexicon-icon-outline books-2-spine-bottom" d="M160.1,448c0,17.7,14.3,32,32,32h64c17.7,0,32-14.3,32-32v-32h-128V448z"/>
-	<rect class="lexicon-icon-outline books-2-spine" x="160.1" y="128" width="128" height="256"/>
-	<path class="lexicon-icon-outline books-3-spine-top" d="M359.2,35.2l-31,8.1c-17.1,4.5-27.4,21.9-22.9,39l8.1,31l92.9-24.2l-8.1-31C393.7,41,376.3,30.7,359.2,35.2z"/>
-	<rect class="lexicon-icon-outline books-3-spine" x="352.1" y="128" transform="matrix(0.9678 -0.2518 0.2518 0.9678 -51.571 108.9927)" width="96" height="256"/>
-	<path class="lexicon-icon-outline books-3-spine-bottom" d="M402,453.9c4.5,17.1,21.9,27.4,39,22.9l31-8.1c17.1-4.5,27.4-21.9,22.9-39l-8.1-31l-92.9,24.2L402,453.9z"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2.994 1.002H.998a.998.998 0 0 0-.998 1v1h3.992v-1c0-.553-.446-1-.998-1ZM0 14.002c0 .553.446 1 .998 1h1.996a.998.998 0 0 0 .998-1v-1H0v1Zm3.992-10H0v8h3.992v-8Zm3.992-3H5.988a.998.998 0 0 0-.998 1v1h3.99v-1c0-.553-.445-1-.997-1Zm-2.994 13c0 .553.446 1 .998 1h1.996a.998.998 0 0 0 .997-1v-1H4.99v1Zm3.991-10H4.99v8h3.99v-8Zm2.754-2.9-.966.253a.999.999 0 0 0-.715 1.22l.253.968 2.897-.756-.253-.969a.996.996 0 0 0-1.216-.716Zm1.721 2.651-2.897.756 2.01 7.742 2.897-.755-2.01-7.743Zm-.386 10.434a.996.996 0 0 0 1.216.715l.967-.253a.999.999 0 0 0 .714-1.218l-.253-.97-2.897.757.253.969Z"/></svg>

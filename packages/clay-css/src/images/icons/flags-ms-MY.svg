@@ -4,11 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24">
-	<path d="M0,0h32v24H0V0z" fill="#B0BEC9"/>
-	<path d="M1,1h30v22H1V1z" fill="#E03232"/>
-	<path d="M1,3h30v2H1V3z M1,7h30v2H1V7z M1,11h30v2H1V11z M1,15h30v2H1V15z M1,19h30v2H1V19z" fill="#FFF"/>
-	<path d="M1,1h16v12H1V1z" fill="#00206A"/>
-	<path d="M5.6,7c0-1.9,1.4-3.5,3.2-3.9C8.6,3.1,8.3,3,8,3C5.8,3,4,4.8,4,7s1.8,4,4,4c0.3,0,0.5,0,0.8-0.1C7,10.6,5.6,9,5.6,7z" fill="#FCD638"/>
-	<path d="M11.5,4.5c3.1,0,3.3,5,0,5C8.4,9.5,8.3,4.5,11.5,4.5z" fill="#FCD638"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M0 2h16v12H0V2Z" fill="#B0BEC9"/><path d="M.5 2.5h15v11H.5v-11Z" fill="#E03232"/><path d="M.5 3.5h15v1H.5v-1Zm0 2h15v1H.5v-1Zm0 2h15v1H.5v-1Zm0 2h15v1H.5v-1Zm0 2h15v1H.5v-1Z" fill="#fff"/><path d="M.5 2.5h8v6h-8v-6Z" fill="#00206A"/><path d="M2.8 5.5c0-.95.7-1.75 1.6-1.95-.1 0-.25-.05-.4-.05-1.1 0-2 .9-2 2s.9 2 2 2c.15 0 .25 0 .4-.05-.9-.15-1.6-.95-1.6-1.95Z" fill="#FCD638"/><path d="M5.75 4.25c1.55 0 1.65 2.5 0 2.5-1.55 0-1.6-2.5 0-2.5Z" fill="#FCD638"/></svg>

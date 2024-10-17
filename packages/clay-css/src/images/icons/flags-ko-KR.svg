@@ -4,13 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<rect y="64" fill="#B0BEC9" width="512" height="384"></rect>
-	<rect x="16" y="81.3" fill="#FFFFFF" width="480" height="352"></rect>
-	<path fill="#E03232" d="M256,176c-44.2,0-80,35.8-80,80h160C336,211.8,300.2,176,256,176z"></path>
-	<path fill="#0035A0" d="M256,336c44.2,0,80-35.8,80-80H176C176,300.2,211.8,336,256,336z"></path>
-	<line fill="none" stroke="#000000" stroke-width="16" stroke-miterlimit="10" x1="384" y1="128" x2="448" y2="192"></line>
-	<line fill="none" stroke="#000000" stroke-width="16" stroke-miterlimit="10" x1="64" y1="192" x2="128" y2="128"></line>
-	<line fill="none" stroke="#000000" stroke-width="16" stroke-miterlimit="10" x1="128" y1="384" x2="64" y2="320"></line>
-	<line fill="none" stroke="#000000" stroke-width="16" stroke-miterlimit="10" x1="448" y1="320" x2="384" y2="384"></line>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H0v12h16V2Z" fill="#B0BEC9"/><path d="M15 3H1v10h14V3Z" fill="#fff"/><path d="M8 6a2 2 0 0 0-2 2h4a2 2 0 0 0-2-2Z" fill="#E03232"/><path d="M8 10a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2Z" fill="#0035A0"/><path fill-rule="evenodd" clip-rule="evenodd" d="m2.354 6.354 2-2-.708-.708-2 2 .708.708Zm9.292-2 2 2 .708-.708-2-2-.707.708ZM2.354 9.646l2 2-.708.708-2-2 .708-.708Zm11.293 0-2 2 .707.708 2-2-.707-.708Z" fill="#000"/></svg>

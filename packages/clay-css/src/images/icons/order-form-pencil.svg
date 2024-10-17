@@ -4,10 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline lx-order-form-pencil-border" d="M64,64h336c0,41.3,64,41.3,64,0c0-35.3-28.7-64-64-64H64C28.7,0,0,28.7,0,64v384c0,35.3,28.7,64,64,64h192c41.3,0,41.3-64,0-64H64V64z"/>
-	<path class="lexicon-icon-outline lx-order-form-pencil-line-1" d="M160,128h144c41.3,0,41.3,64,0,64H160C118.7,192,118.7,128,160,128z"/>
-	<path class="lexicon-icon-outline lx-order-form-pencil-line-2" d="M160,224h96c41.3,0,41.3,64,0,64h-96C118.7,288,118.7,224,160,224z"/>
-	<path class="lexicon-icon-outline lx-order-form-pencil-line-3" d="M160,320c-41.3,0-41.3,64,0,64h96c41.3,0,41.3-64,0-64H160z"/>
-	<path class="lexicon-icon-outline lx-order-form-pencil-pencil" d="M339,425.5l0.1-219.1l86.4-84.1L512,208v217.6C512,540,339,541.6,339,425.5z M425.4,206.4l-28.8,28.5l0.1,117.1l57.6,0l-0.1-117.1L425.4,206.4z M454.2,416l-57.6,0C389.7,467,460.6,467.7,454.2,416z" clip-rule="evenodd" fill-rule="evenodd"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2 2.002h10.5c0 1.29 2 1.29 2 0 0-1.103-.897-2-2-2H2c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h6c1.29 0 1.29-2 0-2H2v-12Z"/><path d="M5 4.002h4.5c1.29 0 1.29 2 0 2H5c-1.29 0-1.29-2 0-2Zm3 3H5c-1.29 0-1.29 2 0 2h3c1.29 0 1.29-2 0-2Zm-3 3c-1.29 0-1.29 2 0 2h3c1.29 0 1.29-2 0-2H5Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="m10.597 6.452-.003 6.847c0 3.628 5.406 3.578 5.406.003v-6.8l-2.703-2.678-2.7 2.628Zm1.797.89.9-.89.9.89.003 3.66h-1.8l-.003-3.66Zm1.8 5.66h-1.8c-.216 1.594 2 1.616 1.8 0Z"/></svg>

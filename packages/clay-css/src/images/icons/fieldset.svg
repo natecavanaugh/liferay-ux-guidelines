@@ -4,11 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline lx-fieldset-bracket-start" d="M128,64c0-17.7-14.3-32-32-32H64C28.7,32,0,60.7,0,96v320c0,35.3,28.7,64,64,64h32c17.7,0,32-14.3,32-32s-14.3-32-32-32H64V96h32C113.7,96,128,81.7,128,64z"/>
-	<path class="lexicon-icon-outline lx-fieldset-bracket-end" d="M512,416c0,35.3-28.7,64-64,64h-32c-17.7,0-32-14.3-32-32s14.3-32,32-32h32V96h-32c-17.7,0-32-14.3-32-32s14.3-32,32-32h32c35.3,0,64,28.7,64,64V416z"/>
-	<path class="lexicon-icon-outline lx-fieldset-line-1-dot" d="M128,224c17.7,0,32-14.3,32-32s-14.3-32-32-32s-32,14.3-32,32S110.3,224,128,224z"/>
-	<path class="lexicon-icon-outline lx-fieldset-line-1-line" d="M224,160h160c17.7,0,32,14.3,32,32s-14.3,32-32,32H224c-17.7,0-32-14.3-32-32S206.3,160,224,160z"/>
-	<path class="lexicon-icon-outline lx-fieldset-line-2-dot" d="M384,288H224c-17.7,0-32,14.3-32,32s14.3,32,32,32h160c17.7,0,32-14.3,32-32S401.7,288,384,288z"/>
-	<path class="lexicon-icon-outline lx-fieldset-line-2-line" d="M128,352c17.7,0,32-14.3,32-32s-14.3-32-32-32s-32,14.3-32,32S110.3,352,128,352z"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.002a1 1 0 0 0-1-1H2c-1.104 0-2 .897-2 2v10c0 1.103.896 2 2 2h1a1 1 0 1 0 0-2H2v-10h1a1 1 0 0 0 1-1Zm12 11c0 1.103-.896 2-2 2h-1a1 1 0 1 1 0-2h1v-10h-1a1 1 0 1 1 0-2h1c1.104 0 2 .897 2 2v10Z"/><path d="M4 7.002a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3-2h5a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2Zm5 4H7a1 1 0 1 0 0 2h5a1 1 0 1 0 0-2Zm-8 2a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg>

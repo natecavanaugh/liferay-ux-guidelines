@@ -4,9 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<rect y="64" fill="#B0BEC9" width="512" height="384"></rect>
-	<rect x="16" y="80.3" fill="#FCD638" width="480" height="112"></rect>
-	<rect x="16" y="320" fill="#E03232" width="480" height="112"></rect>
-	<rect x="16" y="192" fill="#75BD4A" width="480" height="128"></rect>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H0v12h16V2Z" fill="#B0BEC9"/><path d="M15.5 2.51H.5v3.5h15v-3.5Z" fill="#FCD638"/><path d="M15.5 10H.5v3.5h15V10Z" fill="#E03232"/><path d="M15.5 6H.5v4h15V6Z" fill="#75BD4A"/></svg>

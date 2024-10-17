@@ -4,4 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path class="lexicon-icon-outline" fill-rule="evenodd" clip-rule="evenodd" d="M235.363 338.109c11.92-10.059 29.355-10.059 41.275 0l107.363 90.599V64h-256v364.708l107.362-90.599Zm20.638 66.946 113.271 95.586c31.264 26.382 78.729 4.57 78.729-36.641V64c0-35.793-28.654-64-64-64h-256C92.655 0 64 28.207 64 64v400c0 41.211 47.466 63.023 78.73 36.641l113.271-95.586Z"/></svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.355 10.568a1 1 0 0 1 1.29 0L12 13.4V2.002H4V13.4l3.355-2.83ZM8 12.66l3.54 2.987A1.49 1.49 0 0 0 14 14.502v-12.5c0-1.118-.895-2-2-2H4c-1.105 0-2 .882-2 2v12.5a1.491 1.491 0 0 0 2.46 1.145L8 12.66Z"/></svg>

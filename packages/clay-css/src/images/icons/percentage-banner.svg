@@ -4,9 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline lx-percentage-banner-line" d="M164.7,292.7c-14.6,14.6,8,37.2,22.6,22.6l160-160c14.6-14.6-8-37.2-22.6-22.6L164.7,292.7z"/>
-	<path class="lexicon-icon-outline lx-percentage-banner-border" d="M0,64c0,0,0,221.6,0,372.5c0,28.3,34.7,42.8,59,28.5c96.4-56.9,119.5,47,197,47c76,0,106.1-102.2,194.4-51.5c25.1,14.4,61.6,0.1,61.6-28.9V64c0-35.3-28.7-64-64-64H64C28.7,0,0,28.7,0,64z M256,448c-64,0-69.1-83.3-192-62.5V64h384v321.5C326.8,367.1,324.7,448,256,448z" clip-rule="evenodd" fill-rule="evenodd"/>
-	<circle class="lexicon-icon-outline lx-percentage-banner-dot-1" cx="192" cy="160" r="32"/>
-	<circle class="lexicon-icon-outline lx-percentage-banner-dot-2" cx="320" cy="288" r="32"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M5.853 9.855c-.456.457-1.162-.25-.706-.706l5-5c.456-.456 1.162.25.706.706l-5 5ZM6 6.002a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm5 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M0 13.643V2.003c0-1.104.897-2 2-2h12c1.103 0 2 .896 2 2V13.49c0 .906-1.14 1.353-1.925.903-1.628-.935-2.623-.206-3.653.548-.716.525-1.448 1.061-2.422 1.061-.972 0-1.67-.523-2.353-1.034-1.017-.763-2-1.499-3.803-.434-.76.446-1.844-.007-1.844-.891Zm6.146-.503c.558.454 1.061.862 1.854.862.876 0 1.406-.421 1.984-.88.837-.667 1.775-1.413 4.016-1.073V2.002H2V12.05c2.319-.392 3.296.401 4.146 1.091Z"/></svg>

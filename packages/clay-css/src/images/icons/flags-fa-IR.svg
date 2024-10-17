@@ -4,38 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<rect y="64" fill="#B0BEC9" width="512" height="384"></rect>
-	<rect x="16" y="80" fill="#75BD4A" width="480" height="96"></rect>
-	<rect x="16" y="336" fill="#E03232" width="480" height="96"></rect>
-	<rect x="16" y="176" fill="#FFFFFF" width="480" height="160"></rect>
-	<rect x="32" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="65.2" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="98.4" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="131.6" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="164.7" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="197.9" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="231.1" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="264.3" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="297.5" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="330.7" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="363.9" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="397" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="430.2" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="463.4" y="143.4" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="32" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="65.2" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="98.4" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="131.6" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="164.7" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="197.9" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="231.1" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="264.3" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="297.5" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="330.7" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="363.9" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="397" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="430.2" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<rect x="463.4" y="352" opacity="0.5" fill="#FFFFFF" width="16.6" height="16.6"></rect>
-	<circle fill="#E03232" cx="254" cy="252" r="40"></circle>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H0v12h16V2Z" fill="#B0BEC9"/><path d="M15.5 2.5H.5v3h15v-3Z" fill="#75BD4A"/><path d="M15.5 10.5H.5v3h15v-3Z" fill="#E03232"/><path d="M15.5 5.5H.5v5h15v-5Z" fill="#fff"/><path opacity=".5" d="M1.519 4.481H1V5h.519v-.52Zm1.037 0h-.519V5h.52v-.52Zm1.038 0h-.519V5h.519v-.52Zm1.037 0h-.518V5h.518v-.52Zm1.035 0h-.52V5h.52v-.52Zm1.037 0h-.519V5h.52v-.52Zm1.037 0h-.518V5h.519v-.52Zm1.038 0H8.26V5h.52v-.52Zm1.038 0h-.52V5h.52v-.52Zm1.037 0h-.519V5h.52v-.52Zm1.037 0h-.518V5h.519v-.52Zm1.035 0h-.519V5h.519v-.52Zm1.038 0h-.52V5h.52v-.52Zm1.037 0h-.519V5H15v-.52ZM1.519 11H1v.519h.519V11Zm1.037 0h-.519v.519h.52V11Zm1.038 0h-.519v.519h.519V11Zm1.037 0h-.518v.519h.518V11Zm1.035 0h-.52v.519h.52V11Zm1.037 0h-.519v.519h.52V11Zm1.037 0h-.518v.519h.519V11Zm1.038 0H8.26v.519h.52V11Zm1.038 0h-.52v.519h.52V11Zm1.037 0h-.519v.519h.52V11Zm1.037 0h-.518v.519h.519V11Zm1.035 0h-.519v.519h.519V11Zm1.038 0h-.52v.519h.52V11ZM15 11h-.519v.519H15V11Z" fill="#fff"/><path d="M7.938 9.125a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z" fill="#E03232"/></svg>

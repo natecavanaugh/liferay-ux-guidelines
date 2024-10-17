@@ -4,7 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<rect class="lexicon-icon-outline lx-closed-book-cover" fill="none" x="160" y="64" width="224" height="224"/>
-	<path class="lexicon-icon-outline lx-closed-book-case" d="M416,0H160c-53,0-96,46.3-96,96v320c0,0,0,64,80.2,63.7c0.1,0,4.7,0.3,15.8,0.3v-32h-16 c-64.1-0.1-63.9-96.1,0.2-96H416c17.7-0.1,32-15.4,32-32V32C448,15.4,433.7,0,416,0z M384,288H160V64h224V288z M192,512l48-32l48,32 v-96h112c23.1-1.6,19.4-31.7,0-32H143.8c-20.1,0.3-22.2,31,0,32H192V512z M432,480c0,0-52,0-112,0v-32l112,0.1 C452.9,449.3,453.6,478.7,432,480z"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 .002H5c-1.656 0-3 1.447-3 3v10s0 2 2.506 1.99c.003 0 .147.01.494.01v-1h-.5c-2.003-.003-1.997-3.003.006-3H13c.553-.003 1-.48 1-1v-9c0-.518-.447-1-1-1Zm-1 9H5v-7h7v7Zm-6 7 1.5-1 1.5 1v-3h3.5c.722-.05.606-.99 0-1H4.494c-.628.01-.694.97 0 1H6v3Zm7.5-1H10v-1l3.5.003c.653.038.675.957 0 .997Z"/></svg>

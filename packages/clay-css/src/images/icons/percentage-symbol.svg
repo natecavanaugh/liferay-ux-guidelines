@@ -4,8 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline lx-percentage-symbol-dot-1" d="M64.1,144c0,103.1,160,103.1,160,0C224,40.9,64.1,40.9,64.1,144z M112,144c0,41.3,64,41.3,64,0C176,102.8,112,102.8,112,144z" clip-rule="evenodd" fill-rule="evenodd"/>
-	<path class="lexicon-icon-outline lx-percentage-symbol-line" d="M73.4,393.4l320-320c29.2-29.2,74.4,16.1,45.2,45.2l-320,320C89.5,467.7,44.3,422.5,73.4,393.4z"/>
-	<path class="lexicon-icon-outline lx-percentage-symbol-dot-2" d="M288,368c0-103.1,160-103.1,160,0C447.9,471.1,288,471.1,288,368z M336,368c0-41.3,64-41.3,64,0C400,409.2,336,409.2,336,368z" clip-rule="evenodd" fill-rule="evenodd"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m2.293 12.296 10-9.999c.912-.912 2.324.503 1.412 1.412l-10 10c-.909.909-2.32-.503-1.412-1.413Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2.003 4.503c0 3.222 5 3.222 5 0-.004-3.222-5-3.222-5 0Zm1.497 0c0 1.29 2 1.29 2 0 0-1.287-2-1.287-2 0ZM9 11.502c0-3.221 4.999-3.221 4.999 0-.003 3.222-5 3.222-5 0Zm1.499 0c0-1.29 2-1.29 2 0 0 1.288-2 1.288-2 0Z"/></svg>

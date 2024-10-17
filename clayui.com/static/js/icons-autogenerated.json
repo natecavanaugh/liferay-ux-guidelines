@@ -652,6 +652,10 @@
         "aliases": ["field", "area"]
     },
     {
+        "name": "field",
+        "aliases": [""]
+    },
+    {
         "name": "fieldset",
         "aliases": [""]
     },
@@ -796,10 +800,6 @@
         "aliases": ["line", "minus", "rectangle"]
     },
     {
-        "name": "icon-rule-builder",
-        "aliases": ["rules", "rule-builder", "logic"]
-    },
-    {
         "name": "import-export",
         "aliases": ["deprecated"]
     },
@@ -890,6 +890,10 @@
     {
         "name": "lock-dots",
         "aliases": ["access", "close", "multiple", "security"]
+    },
+    {
+        "name": "lock-wireless",
+        "aliases": [""]
     },
     {
         "name": "lock",
@@ -1242,6 +1246,10 @@
     {
         "name": "rss",
         "aliases": ["notification", "updates"]
+    },
+    {
+        "name": "rule-builder",
+        "aliases": [""]
     },
     {
         "name": "ruler",

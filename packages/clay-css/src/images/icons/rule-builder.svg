@@ -1,0 +1,7 @@
+<!--
+* SPDX-FileCopyrightText: © 2024 Liferay, Inc. <https://liferay.com>
+* SPDX-FileCopyrightText: © 2024 Contributors to the project Clay <https://github.com/liferay/clay/graphs/contributors>
+*
+* SPDX-License-Identifier: BSD-3-Clause
+-->
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.999 2.97a.952.952 0 0 0-.152.197H5.705V1.74a.95.95 0 0 0-.951-.95H.95a.95.95 0 0 0-.95.95v3.804c0 .525.426.95.95.95h3.804a.95.95 0 0 0 .95-.95V4.118h2.144a1.915 1.915 0 0 0-.264.973v6.157c0 .788-.639 1.427-1.427 1.427h-.452l-.04.001a2.853 2.853 0 1 0 0 .948.462.462 0 0 0 .04.001h.452a2.377 2.377 0 0 0 2.377-2.377V5.091c0-.337.172-.635.433-.81a.34.34 0 0 0 .032.034l2.689 2.689a.95.95 0 0 0 1.344 0l2.69-2.69a.95.95 0 0 0 0-1.344L13.032.28a.95.95 0 0 0-1.344 0l-2.69 2.69ZM1.902 4.593h1.901V2.692H1.902v1.901Zm.95 9.508a.95.95 0 1 1 0-1.902.95.95 0 0 1 0 1.902Zm8.163-10.459 1.345 1.345 1.345-1.345-1.345-1.344-1.345 1.344Z"/></svg>

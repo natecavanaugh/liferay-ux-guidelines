@@ -4,15 +4,5 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<rect y="64" fill="#C0CFD8" width="512" height="384"></rect>
-	<rect x="16" y="80" fill="#FCD638" width="480" height="39.1"></rect>
-	<rect x="16" y="119.1" fill="#E03232" width="480" height="39.1"></rect>
-	<rect x="16" y="158.2" fill="#FCD638" width="480" height="39.1"></rect>
-	<rect x="16" y="197.3" fill="#E03232" width="480" height="39.1"></rect>
-	<rect x="16" y="236.4" fill="#FCD638" width="480" height="39.1"></rect>
-	<rect x="16" y="275.6" fill="#E03232" width="480" height="39.1"></rect>
-	<rect x="16" y="314.7" fill="#FCD638" width="480" height="39.1"></rect>
-	<rect x="16" y="353.8" fill="#E03232" width="480" height="39.1"></rect>
-	<rect x="16" y="392.9" fill="#FCD638" width="480" height="39.1"></rect>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H0v12h16V2Z" fill="#C0CFD8"/><path d="M15.5 2.5H.5v1.222h15V2.5Z" fill="#FCD638"/><path d="M15.5 3.722H.5v1.222h15V3.722Z" fill="#E03232"/><path d="M15.5 4.944H.5v1.222h15V4.944Z" fill="#FCD638"/><path d="M15.5 6.166H.5v1.222h15V6.166Z" fill="#E03232"/><path d="M15.5 7.387H.5V8.61h15V7.387Z" fill="#FCD638"/><path d="M15.5 8.613H.5v1.221h15V8.613Z" fill="#E03232"/><path d="M15.5 9.834H.5v1.222h15V9.834Z" fill="#FCD638"/><path d="M15.5 11.056H.5v1.222h15v-1.222Z" fill="#E03232"/><path d="M15.5 12.278H.5V13.5h15v-1.222Z" fill="#FCD638"/></svg>
+

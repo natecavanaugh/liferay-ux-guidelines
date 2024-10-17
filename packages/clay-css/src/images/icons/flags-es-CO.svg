@@ -4,9 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg viewBox="0 0 512 384" xmlns="http://www.w3.org/2000/svg">
-	<path d="M512 0H0V384H512V0Z" fill="#C0CFD8"/>
-	<path d="M496 16H16V176H496V16Z" fill="#FFDB3E"/>
-	<path d="M496 272H16V368H496V272Z" fill="#E03232"/>
-	<path d="M496 176H16V272H496V176Z" fill="#2E5AAC"/>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M16 2H0v12h16V2Z" fill="#C0CFD8"/><path d="M15.5 2.5H.5v5h15v-5Z" fill="#FFDB3E"/><path d="M15.5 10.5H.5v3h15v-3Z" fill="#E03232"/><path d="M15.5 7.5H.5v3h15v-3Z" fill="#2E5AAC"/></svg>

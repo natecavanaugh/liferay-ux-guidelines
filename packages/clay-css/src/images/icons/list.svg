@@ -4,11 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline list-li-bullet-1" d="M96.037 0h-64c-17.664 0-32 14.336-32 32s14.336 32 32 32h64c17.664 0 32-14.336 32-32s-14.336-32-32-32z"></path>
-	<path class="lexicon-icon-outline list-li-bullet-2" d="M96.037 224h-64c-17.664 0-32 14.336-32 32s14.336 32 32 32h64c17.664 0 32-14.336 32-32s-14.336-32-32-32z"></path>
-	<path class="lexicon-icon-outline list-li-bullet-3" d="M96.037 448h-64c-17.664 0-32 14.336-32 32s14.336 32 32 32h64c17.664 0 32-14.336 32-32s-14.336-32-32-32z"></path>
-	<path class="lexicon-icon-outline list-li-item-2" d="M480 288h-256c-17.6 0-32-14.4-32-32v0c0-17.6 14.4-32 32-32h256c17.6 0 32 14.4 32 32v0c0 17.6-14.4 32-32 32z"></path>
-	<path class="lexicon-icon-outline list-li-item-1" d="M480 64h-256c-17.6 0-32-14.4-32-32v0c0-17.6 14.4-32 32-32h256c17.6 0 32 14.4 32 32v0c0 17.6-14.4 32-32 32z"></path>
-	<path class="lexicon-icon-outline list-li-item-3" d="M480 512h-256c-17.6 0-32-14.4-32-32v0c0-17.6 14.4-32 32-32h256c17.6 0 32 14.4 32 32v0c0 17.6-14.4 32-32 32z"></path>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M1.001.002h2a1 1 0 0 1 0 2h-2a1 1 0 0 1 0-2Zm0 7h2a1 1 0 0 1 0 2h-2a1 1 0 0 1 0-2Zm2 7h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2Zm3.999-5h8c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1Zm8-7H7c-.55 0-1-.45-1-1s.45-1 1-1h8c.55 0 1 .45 1 1s-.45 1-1 1Zm-8 14h8c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1Z"/></svg>

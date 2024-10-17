@@ -4,9 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline box-container-border" d="M448,64v384H64V64H448 M448,0H64C28.7,0,0,28.7,0,64v384c0,35.3,28.7,64,64,64h384c35.3,0,64-28.7,64-64V64C512,28.7,483.3,0,448,0L448,0z"></path>
-	<path class="lexicon-icon-outline box-container-square1" d="M384,256h-64c-17.7,0-32-14.3-32-32v-64c0-17.7,14.3-32,32-32h64c17.7,0,32,14.3,32,32v64C416,241.7,401.7,256,384,256z"></path>
-	<path class="lexicon-icon-outline box-container-square2" d="M384,416h-64c-17.7,0-32-14.3-32-32v-64c0-17.7,14.3-32,32-32h64c17.7,0,32,14.3,32,32v64C416,401.7,401.7,416,384,416z"></path>
-	<path class="lexicon-icon-outline box-container-square3" d="M224,416h-64c-17.7,0-32-14.3-32-32v-64c0-17.7,14.3-32,32-32h64c17.7,0,32,14.3,32,32v64C256,401.7,241.7,416,224,416z"></path>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M10.002 8.002h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1Zm2 5h-2a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1Zm-7.001 0h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.002.002h-12c-1.104 0-2 .897-2 2v12c0 1.103.896 2 2 2h12c1.103 0 2-.897 2-2v-12c0-1.103-.897-2-2-2Zm-12 2h12v12h-12v-12Z"/></svg>

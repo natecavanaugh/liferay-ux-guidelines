@@ -4,10 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="lexicon-icon-outline web-content-border" d="M0,64v384c0,35.3,28.7,64,64,64h384c35.3,0,64-28.7,64-64V64c0-35.3-28.7-64-64-64H64C28.7,0,0,28.7,0,64z M448,448H64V64h384V448z"></path>
-	<path class="lexicon-icon-outline web-content-text-1" d="M144,320h224c22,0,21-32,0-32H144C123,288,123,320,144,320z"></path>
-	<path class="lexicon-icon-outline web-content-text-2" d="M144,384h160c22,0,20-32,0-32H144C123,352,122,384,144,384z"></path>
-	<circle class="lexicon-icon-outline web-content-circle" cx="320" cy="160" r="64"></circle>
-	<polygon class="lexicon-icon-outline web-content-triangle" points="128,224 192,96 256,224 "></polygon>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 14.003v-12c0-1.103.896-2 2-2h12c1.104 0 2 .897 2 2v12c0 1.103-.896 2-2 2H2c-1.104 0-2-.897-2-2Zm14 0v-12H2v12h12Zm-2.5-4c.688 0 .656-1 0-1h-7c-.656 0-.656 1 0 1h7Zm-2 2h-5c-.688 0-.656-1 0-1h5c.625 0 .688 1 0 1Zm.5-5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm-4-4-2 4h4l-2-4Z"/></svg>

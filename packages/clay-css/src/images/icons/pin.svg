@@ -4,7 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<polygon class="lexicon-icon-outline pin-tack" points="0,512 140,295.5 217.6,372.9 "></polygon>
-	<path class="lexicon-icon-outline pin-body" d="M501.9,140.7l-129.2-129c-35.4-32-76.7,8.8-58.1,41.9l-175.4,85.8c-34.8-34.8-84.3,14.6-50.9,52.9L321,424.5c29.6,29.4,87.9-11.4,51.7-51.6l85.9-175.1C494.5,216.7,529.9,173.3,501.9,140.7z"></path>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m11.646.368 4.037 4.031c.875 1.019-.23 2.375-1.353 1.785l-2.684 5.471c1.131 1.257-.69 2.532-1.616 1.613L2.758 6.012c-1.043-1.197.503-2.74 1.591-1.653L9.83 1.677c-.581-1.034.71-2.31 1.816-1.31ZM4.375 9.237 0 16.002l6.8-4.347-2.425-2.418Z"/></svg>

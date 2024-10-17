@@ -4,21 +4,4 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-	<path class="calendar-border lexicon-icon-outline" d="M512,160c0-35-28.7-64-63.7-64l-0.3,0v-64c0-44-64-41-64,0v64h-96v-64c0-40-64-44-64,0v64h-96v-64c0-45-64-40-64,0v64l-0.3,0c-35,0-63.7,29-63.7,64V448c0,35,29,64,64,64h352l96-96V160z M384,448.1v-64h64L384,448.1z M448,320H320v128H64V160h384V320z"></path>
-	<rect class="calendar-date lexicon-icon-outline" x="96" y="192" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="160" y="192" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="224" y="192" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="288" y="192" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="352" y="192" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="96" y="256" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="160" y="256" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="224" y="256" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="288" y="256" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="352" y="256" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="96" y="320" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="96" y="384" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="160" y="384" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="160" y="320" width="32" height="32"></rect>
-	<rect class="calendar-date lexicon-icon-outline" x="224" y="320" width="32" height="32"></rect>
-</svg>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M2.994 6.001h1v1h-1v-1Zm3.003 0H4.996v1h1.001v-1Zm2.003 0H6.998v1H8v-1Zm2.002 0H9v1h1v-1Zm2.002 0h-1.001v1h1.001v-1ZM3.995 8H2.994v1h1V8Zm2.002 0H4.996v1h1.001V8ZM8 8H6.998v1H8V8Zm2.002 0H9v1h1V8Zm2.002 0h-1.001v1h1.001V8Zm-8.009 2H2.994v1h1v-1Zm0 2H2.994v1h1v-1Zm2.002 0H4.996v1h1.001v-1Zm0-2H4.996v1h1.001v-1ZM8 10H6.998v1H8v-1Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.001.002a2 2 0 0 1 2 2v9.757a3 3 0 0 1-.881 2.123l-1.245 1.243a3 3 0 0 1-2.12.877H1.984C.889 16.002 0 14.96 0 13.865V4.983l.001-.063V2.002a2 2 0 0 1 2-2h12Zm-11.999 5v8.86c0 .04.032.1.063.138h8.928l.002-2a1 1 0 0 1 1-1h2.003V5.002H2.002Z"/></svg>
