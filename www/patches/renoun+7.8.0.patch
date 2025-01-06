@@ -1,0 +1,37 @@
+diff --git a/node_modules/renoun/dist/collections/index.d.ts b/node_modules/renoun/dist/collections/index.d.ts
+index 55ba2f9..c9849b6 100644
+--- a/node_modules/renoun/dist/collections/index.d.ts
++++ b/node_modules/renoun/dist/collections/index.d.ts
+@@ -138,6 +138,7 @@ export interface CollectionOptions<Exports extends FileExports> {
+     schema?: {
+         [Name in keyof Exports]?: (value: Exports[Name]) => Exports[Name];
+     };
++    rewrites?: (path: string) => string;
+ }
+ /**
+  * Creates a collection of file system sources based on a file pattern.
+diff --git a/node_modules/renoun/dist/collections/index.js b/node_modules/renoun/dist/collections/index.js
+index 74c64f6..a335c50 100644
+--- a/node_modules/renoun/dist/collections/index.js
++++ b/node_modules/renoun/dist/collections/index.js
+@@ -512,6 +512,7 @@ export class Collection {
+         this._sourcePathMap = getSourceFilesPathMap(projectRootDirectory, {
+             baseDirectory: this.options.baseDirectory,
+             basePath: options.basePath,
++            rewrites: options.rewrites,
+         });
+     }
+     async _getFileSystemSource(sourceFileOrDirectory, compositeCollection) {
+diff --git a/node_modules/renoun/dist/utils/get-source-files-path-map.js b/node_modules/renoun/dist/utils/get-source-files-path-map.js
+index 6aaf25b..149883c 100644
+--- a/node_modules/renoun/dist/utils/get-source-files-path-map.js
++++ b/node_modules/renoun/dist/utils/get-source-files-path-map.js
+@@ -10,7 +10,7 @@ export function getSourceFilesPathMap(baseDirectory, options) {
+         for (const sourceFile of sourceFiles) {
+             const filePath = sourceFile.getFilePath();
+             const filePathname = filePathToPathname(filePath, options?.baseDirectory, options?.basePath);
+-            sourcePathMap.set(filePath, filePathname);
++            sourcePathMap.set(filePath, options.rewrites ? options.rewrites(filePathname) : filePathname);
+         }
+         for (const subDirectory of directory.getDirectories()) {
+             collectSourceFiles(subDirectory);

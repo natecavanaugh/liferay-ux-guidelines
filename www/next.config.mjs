@@ -1,16 +1,18 @@
-import clay from '@clayui/css';
-import {createMdxtsPlugin} from 'mdxts/next';
+import createMDXPlugin from '@next/mdx';
 import rehypeMdxCodeProps from 'rehype-mdx-code-props';
-import remarkGfm from 'remark-gfm';
+import {remarkPlugins, rehypePlugins} from 'renoun/mdx';
 import webpack from 'webpack';
+import path from 'path';
 
-const withMDX = createMdxtsPlugin({
-	gitSource: 'https://github.com/liferay/clay',
+// @ts-ignore
+import clay from '@clayui/css';
+
+const withMDX = createMDXPlugin({
+	extension: /\.mdx?$/,
 	options: {
-		rehypePlugins: [rehypeMdxCodeProps],
-		remarkPlugins: [remarkGfm],
+		remarkPlugins,
+		rehypePlugins: [...rehypePlugins, rehypeMdxCodeProps],
 	},
-	theme: 'github-light',
 });
 
 /** @type {import('next').NextConfig} */
@@ -29,14 +31,18 @@ const nextConfig = {
 		includePaths: [clay.includePaths[0]],
 		precision: 8,
 	},
+	transpilePackages: ['renoun'],
 	webpack(config) {
-		/* Silence critical dependency warnings for @ts-morph/common */
+		config.module.rules.push({
+			test: [/packages[\\/]clay-.*[\\/.].*\.(ts|tsx)/],
+			loader: path.resolve('./use-client-loader.mjs'),
+		});
+
 		config.plugins.push(
 			new webpack.ContextReplacementPlugin(
-				/(micromark-extension-mdx-jsx)/,
+				/\/(@ts-morph\/common)\//,
 				(data) => {
 					for (const dependency of data.dependencies) {
-						console.log(dependency);
 						delete dependency.critical;
 					}
 					return data;

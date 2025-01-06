@@ -1,5 +1,4 @@
-import type {MDXComponents} from 'mdx/types';
-import {CodeBlock} from 'mdxts/components';
+import {CodeBlock, MDXComponents} from 'renoun/components';
 import Link from 'next/link';
 import {Sandpack} from '@/app/_components/Sandpack.server';
 import styles from './mdx-components.module.css';

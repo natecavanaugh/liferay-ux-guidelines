@@ -28,8 +28,7 @@ export default function MainDocsLayout({
 								name: 'React Components',
 								href: '/docs/components',
 							},
-							{name: 'CSS Framework', href: '#'},
-							{name: 'Liferay Taglibs', href: '#'},
+							{name: 'CSS Framework', href: '/docs/css'},
 						],
 					},
 				]}

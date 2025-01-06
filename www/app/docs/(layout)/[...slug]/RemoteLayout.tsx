@@ -1,12 +1,8 @@
-'use server';
-
 import {createLXCResource} from '@/lxc';
-import {data} from '@/data';
+import {AllCollection} from '@/data';
 import Heading from '@/app/_components/Heading';
 import {notFound} from 'next/navigation';
-import {CodeInline} from 'mdxts/components';
-
-import {getData} from './DocsLayout';
+import {CodeInline} from 'renoun/components';
 
 import styles from './page.module.css';
 
@@ -18,37 +14,32 @@ const lxc = createLXCResource();
 
 export async function RemoteLayout({slug}: Props) {
 	const slugBase = slug.filter((item) => item !== 'design');
-	const [page, document] = await Promise.all([
+	const [file, fileMarkup, fileDesign] = await Promise.all([
+		AllCollection.getSource(slugBase),
+		AllCollection.getSource([...slugBase, 'markup']),
 		lxc.getResource(slug),
-		getData(slugBase),
 	]);
-	const paths = data.paths() as Array<Array<string>>;
 
-	if (!page || !document) {
+	if (!file || !fileDesign) {
 		notFound();
 	}
+
+	const frontmatter = await file.getExport('frontmatter').getValue();
 
 	return (
 		<div className={styles.content}>
 			<div className={styles.article}>
 				<Heading
-					title={document.frontMatter!.title}
-					description={document.frontMatter!.description}
+					title={frontmatter.title}
+					description={frontmatter.description}
 					path={slug}
 					design
-					markup={
-						slug.includes('markup') ||
-						!!paths.find((path: Array<string>) =>
-							[...slugBase, 'markup'].every(
-								(item, index) => item === path[index]
-							)
-						)
-					}
-					npmPackage={document.frontMatter!.packageNpm}
+					markup={!!fileMarkup}
+					npmPackage={frontmatter.packageNpm}
 					use={
-						document.frontMatter.packageUse ? (
+						frontmatter.packageUse ? (
 							<CodeInline
-								value={document.frontMatter.packageUse}
+								value={frontmatter.packageUse}
 								language="jsx"
 								style={{
 									backgroundColor: 'transparent',
@@ -61,16 +52,16 @@ export async function RemoteLayout({slug}: Props) {
 					}
 				/>
 
-				<div dangerouslySetInnerHTML={{__html: page.html}} />
+				<div dangerouslySetInnerHTML={{__html: fileDesign.html}} />
 
 				<div className={styles.author_container}>
-					{page.dateModified && (
+					{fileDesign.dateModified && (
 						<p className="text-secondary">
 							Last edited{' '}
 							{new Intl.DateTimeFormat('en-US', {
 								dateStyle: 'long',
 								timeStyle: 'medium',
-							}).format(new Date(page.dateModified))}
+							}).format(new Date(fileDesign.dateModified))}
 						</p>
 					)}
 				</div>

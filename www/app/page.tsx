@@ -75,10 +75,7 @@ export default function Home() {
 						examples—for your web application.
 					</p>
 					<div className={styles.cta_action_section}>
-						<a
-							className="btn-dark btn-cta"
-							href="/docs/get-started"
-						>
+						<a className="btn-dark btn-cta" href="/docs/components">
 							Get Started
 						</a>
 						<a

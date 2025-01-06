@@ -7,6 +7,7 @@ import './globals.scss';
 const inter = Inter({subsets: ['latin']});
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://clayui.com'),
 	title: 'Clay by Liferay',
 	description:
 		'This is Clay. A web implementation of the Lexicon Experience Language; built by Liferay.',

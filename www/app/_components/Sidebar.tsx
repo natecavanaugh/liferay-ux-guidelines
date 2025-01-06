@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import type {SourceTreeItem} from 'mdxts';
+import type {FileSystemSource, Collection} from 'renoun/collections';
+import type {AllCollection, ComponentDocumentsSchema} from '@/data';
 
 import ClayLink from '../_components/Link';
 import styles from './sidebar.module.css';
@@ -10,12 +11,17 @@ type Item = {
 	items: Array<{name: string; href: string}>;
 };
 
-type Props = {
-	items?: Array<Item>;
-	tree?: Array<SourceTreeItem>;
+type CollectionItem = {
+	name: string;
+	collection: Collection<ComponentDocumentsSchema>;
 };
 
-export function Sidebar({items, tree}: Props) {
+type Props = {
+	items?: Array<Item>;
+	collection?: AllCollection | Array<CollectionItem>;
+};
+
+export function Sidebar({collection, items}: Props) {
 	const content = (
 		<>
 			{items?.map((item) => (
@@ -33,7 +39,20 @@ export function Sidebar({items, tree}: Props) {
 				</ul>
 			))}
 
-			{tree && <Tree depth={0}>{tree}</Tree>}
+			{collection &&
+				Array.isArray(collection) &&
+				collection.map((item) => (
+					<ul key={item.name} className={styles.sidebar_nav}>
+						<p className={styles.sidebar_nav_title}>{item.name}</p>
+						<ul>
+							<TreeCollection collection={item.collection} />
+						</ul>
+					</ul>
+				))}
+
+			{collection && !Array.isArray(collection) && (
+				<TreeCollection collection={collection} />
+			)}
 		</>
 	);
 
@@ -66,44 +85,63 @@ export function Sidebar({items, tree}: Props) {
 	);
 }
 
-type TreeProps = {
-	children: Array<SourceTreeItem>;
-	depth: number;
+type TreeCollectionProps = {
+	collection: AllCollection | Collection<ComponentDocumentsSchema>;
 };
 
-function Tree({children, depth}: TreeProps) {
+async function TreeCollection({collection}: TreeCollectionProps) {
+	const entries = await collection.getSources();
+
 	return (
 		<>
-			{children.map((item) => (
-				<ul key={item.pathname} className={styles.sidebar_nav}>
-					<p className={styles.sidebar_nav_title}>{item.label}</p>
-					{!!item.children.length && (
-						<Item depth={depth + 1}>{item.children}</Item>
-					)}
-				</ul>
+			{entries.map((entry) => (
+				<ListNavigation key={entry.getPath()} entry={entry} />
 			))}
 		</>
 	);
 }
 
-function Item({children, depth}: TreeProps) {
+type ListNavigationProps = {
+	entry: FileSystemSource<any>;
+};
+
+async function ListNavigation({entry}: ListNavigationProps) {
+	const path = entry.getPath();
+	const title = entry.getTitle();
+
+	if (path.includes('/markup')) {
+		return null;
+	}
+
+	const link = (
+		<li>
+			<ClayLink
+				href={`/docs${path}`}
+				style={{textTransform: 'capitalize'}}
+			>
+				{title}
+			</ClayLink>
+		</li>
+	);
+
+	if (entry.isFile()) {
+		return link;
+	}
+
+	const entries = await entry.getSources({depth: 1});
+
+	if (entries.length === 0) {
+		return link;
+	}
+
 	return (
-		<ul>
-			{children
-				.filter((item) => item.label.toLowerCase() !== 'markup')
-				.map((item) => (
-					<li key={item.pathname}>
-						<ClayLink
-							href={`/docs${item.pathname}`}
-							style={{textTransform: 'capitalize'}}
-						>
-							{item.label}
-						</ClayLink>
-						{!!item.children.length && (
-							<Item depth={depth + 1}>{item.children}</Item>
-						)}
-					</li>
+		<ul key={path} className={styles.sidebar_nav}>
+			<p className={styles.sidebar_nav_title}>{title}</p>
+			<ul>
+				{entries.map((entry) => (
+					<ListNavigation key={entry.getPath()} entry={entry} />
 				))}
+			</ul>
 		</ul>
 	);
 }

@@ -1,117 +1,145 @@
-import {createSource, mergeSources} from 'mdxts';
+import {
+	Collection,
+	isFileSystemSource,
+	CompositeCollection,
+} from 'renoun/collections';
+import {Directory, isDirectory, isFile, withSchema} from 'renoun/file-system';
+import type {MDXContent, MDXHeadings} from 'renoun/mdx';
+import {z} from 'zod';
 
-export const docs = createSource('./docs/**/*.mdx', {
-	baseDirectory: './docs',
+const frontmatterSchema = z.object({
+	title: z.string(),
+	description: z.string(),
+	packageNpm: z.optional(z.string()),
+	packageUse: z.optional(z.string()),
+	packageTypes: z.optional(z.array(z.string())),
 });
 
-export const documents = createSource(
-	'../packages/clay-(core|alert|form|autocomplete|badge|breadcrumb|button|card|color-picker|data-provider|date-picker|drop-down|empty-state|icon|label|layout|link|list|loading-indicator|localized-input|management-toolbar|modal|multi-select|multi-step-nav|nav|navigation-bar|pagination|pagination-bar|panel|popover|progress-bar|provider|slider|sticker|table|tabs|time-picker|toolbar|tooltip|upper-toolbar)/docs/**/*.mdx',
-	{
-		baseDirectory: 'docs',
-		basePathname: 'components',
-	}
-);
-
-const packagesOptions = {
-	baseDirectory: 'packages',
-	basePathname: 'packages',
+export type DocsType = {
+	default: MDXContent;
+	headings: MDXHeadings;
+	frontmatter: z.infer<typeof frontmatterSchema>;
 };
 
-// TODO: This is a temporary implementation, we couldn't make it work with
-// just one createSource call for all packages, probably due to the way
-// our monorepo is organized.
-export const packages = mergeSources(
-	createSource('../packages/clay-autocomplete/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-badge/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-button/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-multi-select/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-breadcrumb/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-multi-step-nav/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-alert/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-core/src/tree-view/**/*.tsx',
-		packagesOptions
-	),
-	createSource(
-		'../packages/clay-core/src/typography/**/*.tsx',
-		packagesOptions
-	),
-	createSource(
-		'../packages/clay-core/src/vertical-bar/**/*.tsx',
-		packagesOptions
-	),
-	createSource(
-		'../packages/clay-core/src/focus-trap/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-core/src/table/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-card/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-color-picker/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-data-provider/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-date-picker/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-drop-down/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-empty-state/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-management-toolbar/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-modal/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-icon/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-label/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-layout/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-link/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-list/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-loading-indicator/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource(
-		'../packages/clay-localized-input/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-nav/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-core/src/vertical-nav/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-core/src/nav/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-navigation-bar/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource(
-		'../packages/clay-core/src/overlay-mask/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-pagination/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-pagination-bar/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-panel/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-core/src/picker/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-popover/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-progress-bar/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-provider/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-slider/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-sticker/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-tabs/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-time-picker/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-toolbar/src/**/*.tsx', packagesOptions),
-	createSource('../packages/clay-tooltip/src/**/*.tsx', packagesOptions),
-	createSource(
-		'../packages/clay-upper-toolbar/src/**/*.tsx',
-		packagesOptions
-	),
-	createSource('../packages/clay-form/src/**/*.tsx', packagesOptions)
+export interface ComponentTypes {
+	tsx: {[exportName: string]: React.ComponentType};
+	mdx: DocsType;
+}
+
+export type ComponentDocumentsSchema = {
+	default: MDXContent;
+	headings: MDXHeadings;
+	frontmatter: z.infer<typeof frontmatterSchema>;
+};
+
+export const DocumentsCollection = new Collection<ComponentDocumentsSchema>(
+	{
+		filePattern: '**/*.mdx',
+		baseDirectory: './docs',
+		filter: (source) => isFileSystemSource(source) && source.isFile(),
+		schema: {
+			frontmatter: frontmatterSchema.parse,
+		},
+	},
+	(slug) => import(`./docs/${slug}.mdx`)
 );
 
-export const sidebar = mergeSources(docs, documents);
+const PATHS = [
+	'core',
+	'alert',
+	'form',
+	'autocomplete',
+	'badge',
+	'breadcrumb',
+	'button',
+	'card',
+	'color-picker',
+	'data-provider',
+	'date-picker',
+	'drop-down',
+	'empty-state',
+	'icon',
+	'label',
+	'layout',
+	'link',
+	'list',
+	'loading-indicator',
+	'localized-input',
+	'management-toolbar',
+	'modal',
+	'multi-select',
+	'multi-step-nav',
+	'nav',
+	'navigation-bar',
+	'pagination',
+	'pagination-bar',
+	'panel',
+	'popover',
+	'progress-bar',
+	'provider',
+	'slider',
+	'sticker',
+	'table',
+	'tabs',
+	'time-picker',
+	'toolbar',
+	'tooltip',
+	'upper-toolbar',
+];
 
-export const data = mergeSources(docs, documents);
+export const ComponentDocumentsCollection =
+	new Collection<ComponentDocumentsSchema>(
+		{
+			filePattern: 'clay-*/docs/**/*.mdx',
+			baseDirectory: '../packages',
+			basePath: 'components',
+			filter: (source) => {
+				const path = source.getEditPath();
+
+				return (
+					isFileSystemSource(source) &&
+					source.isFile() &&
+					PATHS.some((item) => path.includes(item))
+				);
+			},
+			schema: {
+				frontmatter: frontmatterSchema.parse,
+			},
+			rewrites: (path) => {
+				return path.replace(/clay-[^/]+\/docs\//, '');
+			},
+			tsConfigFilePath: './tsconfig.json',
+		},
+		(slug) => import(`../packages/${slug}.mdx`)
+	);
+
+export const AllCollection = new CompositeCollection(
+	DocumentsCollection,
+	ComponentDocumentsCollection
+);
+
+type ComponentSchema = Record<string, React.ComponentType>;
+
+export const ComponentsCollection = new Directory({
+	path: '../packages/clay-core/src/table',
+	tsConfigPath: '../packages/tsconfig.json',
+	loaders: {
+		ts: withSchema<ComponentSchema>((path) =>
+			require(`../packages/clay-core/src/table/${path}.ts`)
+		),
+		tsx: withSchema<ComponentSchema>((path) =>
+			require(`../packages/clay-core/src/table/${path}.tsx`)
+		),
+	},
+	include: (entry) => {
+		if (isFile(entry, ['ts', 'tsx'])) {
+			const path = entry.getPath();
+
+			return PATHS.some((item) => path.includes(item));
+		}
+
+		return isDirectory(entry);
+	},
+});
+
+export type AllCollection = typeof AllCollection;

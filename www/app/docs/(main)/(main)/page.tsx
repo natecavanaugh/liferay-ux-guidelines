@@ -48,22 +48,6 @@ export default function Docs() {
 						Get started
 					</Link>
 				</section>
-				<section>
-					<h2 className="text-4 text-weight-semi-bold">
-						Liferay Taglibs
-					</h2>
-					<p>
-						You have access to a powerful set of taglibs for
-						creating commonly used UI components in your apps,
-						themes, and web content.
-					</p>
-					<Link
-						className="text-weight-semi-bold"
-						href="/docs/taglibs"
-					>
-						Learn more
-					</Link>
-				</section>
 			</section>
 		</article>
 	);

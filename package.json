@@ -21,7 +21,7 @@
 		"checkDeps": "turbo run build --filter=@clayui/* && node scripts/check-deps/check-dependencies.js",
 		"ci": "yarn lint && yarn format:check && yarn test && yarn checkDeps",
 		"coverage": "jest --coverage",
-		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdx,json,scss}\"",
+		"format": "prettier --write \"**/*.{js,ts,mjs,tsx,md,mdx,json,scss}\"",
 		"format:all": "yarn lint:fix && yarn format",
 		"format:changed": "git ls-files -mz \"*.js\" \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" \"*.md\" \"**/*.md\" \"**/*.mdx\" \"*.json\" \"**/*.json\" \"**/*.scss\" | xargs -0 prettier --write --",
 		"format:check": "prettier --list-different -- \"**/*.{js,ts,tsx,md,mdx,json,scss}\"",

@@ -19,7 +19,7 @@ type Props = {
 export default function Heading({
 	description,
 	title,
-	path,
+	path = [],
 	markup,
 	design,
 	npmPackage,

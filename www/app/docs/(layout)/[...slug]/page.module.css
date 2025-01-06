@@ -5,7 +5,7 @@
 .toc {
 	position: sticky;
 	top: 40px;
-	height: 100vh;
+	height: calc(100vh - 50px);
 }
 
 .toc_mobile {
