@@ -59,6 +59,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 					className={{
 						container: styles.code_editor,
 					}}
+					shouldFormat={false}
 					showToolbar={false}
 					language={language}
 				/>
