@@ -282,4 +282,4 @@ function VerticalNav<T extends Record<string, any> | string>({
 VerticalNav.Item = Item;
 VerticalNav.Trigger = Trigger;
 
-export {VerticalNav, Trigger, Item};
+export {VerticalNav};

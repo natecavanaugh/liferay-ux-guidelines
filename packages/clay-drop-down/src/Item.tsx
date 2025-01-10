@@ -10,7 +10,7 @@ import React, {useContext} from 'react';
 
 import {DropDownContext} from './DropDownContext';
 
-export interface IProps
+interface IProps
 	extends React.HTMLAttributes<
 		HTMLSpanElement | HTMLButtonElement | HTMLAnchorElement
 	> {
@@ -58,7 +58,7 @@ export interface IProps
 	symbolRight?: string;
 }
 
-export const Item = React.forwardRef<HTMLLIElement, IProps>(
+const Item = React.forwardRef<HTMLLIElement, IProps>(
 	(
 		{
 			active,

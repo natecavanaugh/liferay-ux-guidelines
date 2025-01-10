@@ -33,5 +33,4 @@ const ItemTitle = React.forwardRef<
 
 ItemTitle.displayName = 'ClayListItemTitle';
 
-export {ItemTitle};
 export default ItemTitle;

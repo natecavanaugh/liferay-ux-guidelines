@@ -8,7 +8,7 @@ import ClayLayout from '@clayui/layout';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IInputProps extends React.ComponentProps<typeof ClayInput> {}
+interface IInputProps extends React.ComponentProps<typeof ClayInput> {}
 
 export const Input = ({className, ...otherProps}: IInputProps) => (
 	<Item expand>
@@ -53,7 +53,7 @@ export const Item = ({
 
 Item.displayName = 'ClayUpperToolbarItem';
 
-export const UpperToolbar = ({
+const UpperToolbar = ({
 	children,
 	className,
 	...otherProps

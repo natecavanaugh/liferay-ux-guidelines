@@ -6,7 +6,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-export const Help = ({
+const Help = ({
 	children,
 	className,
 	...otherProps

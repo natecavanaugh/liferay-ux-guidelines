@@ -9,7 +9,7 @@ import warning from 'warning';
 
 import Group from './Group';
 
-export type DisplayType =
+type DisplayType =
 	| null
 	| 'primary'
 	| 'secondary'
@@ -22,7 +22,7 @@ export type DisplayType =
 	| 'beta-dark'
 	| 'unstyled';
 
-export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Flag to indicate if button is used within an alert component.
 	 */

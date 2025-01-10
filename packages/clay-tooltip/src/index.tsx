@@ -4,8 +4,8 @@
  */
 
 import {Tooltip} from './Tooltip';
-import {TooltipProvider} from './TooltipProvider';
+import {ClayTooltipProvider} from './TooltipProvider';
 
-export {Tooltip, TooltipProvider as ClayTooltipProvider};
+export {Tooltip, ClayTooltipProvider};
 
 export default Tooltip;

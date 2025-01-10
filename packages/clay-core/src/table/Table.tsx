@@ -17,7 +17,7 @@ import {useTreeNavigation} from './useTreeNavigation';
 
 import type {AnnouncerAPI} from '../live-announcer';
 
-export interface IProps extends React.HTMLAttributes<HTMLTableElement> {
+interface IProps extends React.HTMLAttributes<HTMLTableElement> {
 	/**
 	 * Defines the columns that are always visible and will be ignored by the
 	 * visible columns functionality.
@@ -170,184 +170,181 @@ const locator = {
 };
 const defaultSet = new Set<React.Key>();
 
-export function Table(
-	{
-		alwaysVisibleColumns = new Set(),
-		columnsVisibility = true,
-		children,
-		className,
-		defaultExpandedKeys = defaultSet,
-		defaultSort,
-		defaultVisibleColumns = new Map(),
-		expandedKeys: externalExpandedKeys,
-		messages = {
-			columnsVisibility: 'Manage Columns Visibility',
-			columnsVisibilityDescription:
-				'At least one column must remain visible.',
-			columnsVisibilityHeader: 'Columns Visibility',
-			expandable: 'expandable',
-			sortDescription: 'sortable column',
-			sorting: 'sorted by column {0} in {1} order',
-		},
-		visibleColumns: externalVisibleColumns,
-		onExpandedChange,
-		onVisibleColumnsChange,
-		onLoadMore,
-		onSortChange,
-		size,
-		sort: externalSort,
-		nestedKey,
-		...otherProps
-	}: IProps,
-	outRef: React.Ref<HTMLTableElement>
-) {
-	const [expandedKeys, setExpandedKeys] = useControlledState<Set<React.Key>>({
-		defaultName: 'defaultExpandedKeys',
-		defaultValue: defaultExpandedKeys,
-		handleName: 'onExpandedChange',
-		name: 'expandedKeys',
-		onChange: onExpandedChange,
-		value: externalExpandedKeys,
-	});
+export const Table = React.forwardRef(
+	(
+		{
+			alwaysVisibleColumns = new Set(),
+			columnsVisibility = true,
+			children,
+			className,
+			defaultExpandedKeys = defaultSet,
+			defaultSort,
+			defaultVisibleColumns = new Map(),
+			expandedKeys: externalExpandedKeys,
+			messages = {
+				columnsVisibility: 'Manage Columns Visibility',
+				columnsVisibilityDescription:
+					'At least one column must remain visible.',
+				columnsVisibilityHeader: 'Columns Visibility',
+				expandable: 'expandable',
+				sortDescription: 'sortable column',
+				sorting: 'sorted by column {0} in {1} order',
+			},
+			visibleColumns: externalVisibleColumns,
+			onExpandedChange,
+			onVisibleColumnsChange,
+			onLoadMore,
+			onSortChange,
+			size,
+			sort: externalSort,
+			nestedKey,
+			...otherProps
+		}: IProps,
+		outRef: React.Ref<HTMLTableElement>
+	) => {
+		const [expandedKeys, setExpandedKeys] = useControlledState<
+			Set<React.Key>
+		>({
+			defaultName: 'defaultExpandedKeys',
+			defaultValue: defaultExpandedKeys,
+			handleName: 'onExpandedChange',
+			name: 'expandedKeys',
+			onChange: onExpandedChange,
+			value: externalExpandedKeys,
+		});
 
-	const [sort, setSorting] = useControlledState({
-		defaultName: 'defaultSort',
-		defaultValue: defaultSort,
-		handleName: 'onSortChange',
-		name: 'sort',
-		onChange: onSortChange,
-		value: externalSort,
-	});
+		const [sort, setSorting] = useControlledState({
+			defaultName: 'defaultSort',
+			defaultValue: defaultSort,
+			handleName: 'onSortChange',
+			name: 'sort',
+			onChange: onSortChange,
+			value: externalSort,
+		});
 
-	const [visibleColumns, setVisibleColumns] = useControlledState({
-		defaultName: 'defaultVisibleColumns',
-		defaultValue: defaultVisibleColumns,
-		handleName: 'onVisibleColumnsChange',
-		name: 'visibleColumns',
-		onChange: onVisibleColumnsChange,
-		value: externalVisibleColumns,
-	});
+		const [visibleColumns, setVisibleColumns] = useControlledState({
+			defaultName: 'defaultVisibleColumns',
+			defaultValue: defaultVisibleColumns,
+			handleName: 'onVisibleColumnsChange',
+			name: 'visibleColumns',
+			onChange: onVisibleColumnsChange,
+			value: externalVisibleColumns,
+		});
 
-	const ref = useForwardRef(outRef);
-	const announcerAPI = useRef<AnnouncerAPI>(null);
+		const ref = useForwardRef(outRef);
+		const announcerAPI = useRef<AnnouncerAPI>(null);
 
-	const {navigationProps} = useTreeNavigation({
-		disabled: !nestedKey,
-		locator,
-		ref,
-	});
+		const {navigationProps} = useTreeNavigation({
+			disabled: !nestedKey,
+			locator,
+			ref,
+		});
 
-	const sortDescriptionId = useId();
+		const sortDescriptionId = useId();
 
-	const [headCellsCount, setHeadCellsCount] = useState(0);
+		const [headCellsCount, setHeadCellsCount] = useState(0);
 
-	return (
-		<RootTable
-			{...otherProps}
-			{...navigationProps}
-			className={classNames(className, {
-				'table-nested-rows': nestedKey,
-				[`table-${size}`]: size,
-				'table-sort': sort || sort === null,
-			})}
-			ref={ref}
-			role={nestedKey ? 'treegrid' : undefined}
-			style={{
-				tableLayout: 'fixed',
-			}}
-			tableVerticalAlignment="middle"
-		>
-			<LiveAnnouncer ref={announcerAPI} />
-
-			<FocusWithinProvider
-				containerRef={ref}
-				focusableElements={focusableElements}
+		return (
+			<RootTable
+				{...otherProps}
+				{...navigationProps}
+				className={classNames(className, {
+					'table-nested-rows': nestedKey,
+					[`table-${size}`]: size,
+					'table-sort': sort || sort === null,
+				})}
+				ref={ref}
+				role={nestedKey ? 'treegrid' : undefined}
+				style={{
+					tableLayout: 'fixed',
+				}}
+				tableVerticalAlignment="middle"
 			>
-				<TableContext.Provider
-					value={{
-						alwaysVisibleColumns,
-						columnsVisibility,
-						expandedKeys,
-						headCellsCount,
-						messages,
-						nestedKey,
-						onExpandedChange: setExpandedKeys,
-						onHeadCellsChange: setHeadCellsCount,
-						onLoadMore,
-						onSortChange: useCallback(
-							(sort, textValue) => {
-								announcerAPI.current!.announce(
-									sub(messages!.sorting, [
-										textValue,
-										sort!.direction,
-									])
-								);
-								setSorting(sort);
-							},
-							[setSorting]
-						),
-						onVisibleColumnsChange: useCallback(
-							(
-								column: React.Key | Array<React.Key>,
-								index: number
-							) => {
-								if (Array.isArray(column)) {
+				<LiveAnnouncer ref={announcerAPI} />
+
+				<FocusWithinProvider
+					containerRef={ref}
+					focusableElements={focusableElements}
+				>
+					<TableContext.Provider
+						value={{
+							alwaysVisibleColumns,
+							columnsVisibility,
+							expandedKeys,
+							headCellsCount,
+							messages,
+							nestedKey,
+							onExpandedChange: setExpandedKeys,
+							onHeadCellsChange: setHeadCellsCount,
+							onLoadMore,
+							onSortChange: useCallback(
+								(sort, textValue) => {
+									announcerAPI.current!.announce(
+										sub(messages!.sorting, [
+											textValue,
+											sort!.direction,
+										])
+									);
+									setSorting(sort);
+								},
+								[setSorting]
+							),
+							onVisibleColumnsChange: useCallback(
+								(
+									column: React.Key | Array<React.Key>,
+									index: number
+								) => {
+									if (Array.isArray(column)) {
+										const columns = new Map(visibleColumns);
+
+										column.forEach((value, index) => {
+											if (columns.has(value)) {
+												columns.delete(value);
+											} else {
+												columns.set(value, index);
+											}
+										});
+
+										setVisibleColumns(columns);
+
+										return;
+									}
+
 									const columns = new Map(visibleColumns);
 
-									column.forEach((value, index) => {
-										if (columns.has(value)) {
-											columns.delete(value);
-										} else {
-											columns.set(value, index);
-										}
-									});
+									if (columns.has(column)) {
+										columns.delete(column);
+									} else {
+										columns.set(column, index);
+									}
 
 									setVisibleColumns(columns);
+								},
+								[setVisibleColumns, visibleColumns]
+							),
+							sort,
+							sortDescriptionId,
+							treegrid: !!nestedKey,
+							visibleColumns,
+						}}
+					>
+						{children}
+					</TableContext.Provider>
+				</FocusWithinProvider>
 
-									return;
-								}
+				{createPortal(
+					<div
+						aria-hidden="true"
+						id={sortDescriptionId}
+						style={{display: 'none'}}
+					>
+						{messages!.sortDescription}
+					</div>,
+					document.body
+				)}
+			</RootTable>
+		);
+	}
+);
 
-								const columns = new Map(visibleColumns);
-
-								if (columns.has(column)) {
-									columns.delete(column);
-								} else {
-									columns.set(column, index);
-								}
-
-								setVisibleColumns(columns);
-							},
-							[setVisibleColumns, visibleColumns]
-						),
-						sort,
-						sortDescriptionId,
-						treegrid: !!nestedKey,
-						visibleColumns,
-					}}
-				>
-					{children}
-				</TableContext.Provider>
-			</FocusWithinProvider>
-
-			{createPortal(
-				<div
-					aria-hidden="true"
-					id={sortDescriptionId}
-					style={{display: 'none'}}
-				>
-					{messages!.sortDescription}
-				</div>,
-				document.body
-			)}
-		</RootTable>
-	);
-}
-
-type ForwardRef = {
-	displayName: string;
-	(props: IProps & {ref?: React.Ref<HTMLTableElement>}): JSX.Element;
-};
-
-export const ForwardTable = React.forwardRef(Table) as ForwardRef;
-
-ForwardTable.displayName = 'Table';
+Table.displayName = 'Table';

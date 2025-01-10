@@ -7,7 +7,7 @@ import {InternalDispatch, useNavigation} from '@clayui/shared';
 import classNames from 'classnames';
 import React, {useEffect, useImperativeHandle, useRef} from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * @ignore
 	 */

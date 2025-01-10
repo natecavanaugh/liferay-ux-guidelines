@@ -16,5 +16,4 @@ const Item = ({
 	</li>
 );
 
-export {Item};
 export default Item;

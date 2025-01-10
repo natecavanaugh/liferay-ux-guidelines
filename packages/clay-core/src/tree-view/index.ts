@@ -4,8 +4,3 @@
  */
 
 export * from './TreeView';
-export {
-	TreeViewItem as Item,
-	TreeViewItemStack as ItemStack,
-} from './TreeViewItem';
-export {TreeViewGroup as Group} from './TreeViewGroup';

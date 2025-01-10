@@ -16,7 +16,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	size?: 'sm' | 'lg';
 }
 
-export interface IForwardRef<T, P = {}>
+interface IForwardRef<T, P = {}>
 	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
 	/**
 	 * @deprecated since v3.84.0 - use `Picker` component instead.

@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLLIElement> {
+interface IProps extends React.HTMLAttributes<HTMLLIElement> {
 	/**
 	 * Flag to indicate if Item should auto expand to fill the remaining width.
 	 */

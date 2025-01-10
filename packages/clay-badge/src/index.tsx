@@ -83,5 +83,4 @@ const Badge = React.forwardRef<HTMLSpanElement, IProps>(
 
 Badge.displayName = 'ClayBadge';
 
-export {Badge};
 export default Badge;

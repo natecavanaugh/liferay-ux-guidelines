@@ -22,7 +22,7 @@ interface IProps extends React.SVGAttributes<SVGSVGElement> {
 	symbol: string;
 }
 
-export const Icon = React.forwardRef<SVGSVGElement, IProps>(
+const Icon = React.forwardRef<SVGSVGElement, IProps>(
 	({className, spritemap, symbol, ...otherProps}: IProps, ref) => {
 		let spriteMapVal = React.useContext(ClayIconSpriteContext);
 

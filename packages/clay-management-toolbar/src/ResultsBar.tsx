@@ -26,5 +26,4 @@ function ResultsBar({
 
 ResultsBar.Item = ResultsBarItem;
 
-export {ResultsBar, ResultsBarItem};
 export default ResultsBar;

@@ -131,7 +131,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	header?: React.ReactNode;
 }
 
-export function Popover(
+export const Popover = React.forwardRef(function Popover(
 	{
 		alignPosition = 'bottom',
 		children,
@@ -350,13 +350,6 @@ export function Popover(
 	}
 
 	return content;
-}
+});
 
-type ForwardRef = {
-	displayName: string;
-	(props: IProps & {ref?: React.Ref<HTMLDivElement>}): JSX.Element;
-};
-
-export const ForwardPopover = React.forwardRef(Popover) as ForwardRef;
-
-ForwardPopover.displayName = 'ClayPopover';
+Popover.displayName = 'ClayPopover';

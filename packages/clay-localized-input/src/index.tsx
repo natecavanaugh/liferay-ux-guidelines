@@ -82,7 +82,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	translations: ITranslations;
 }
 
-export const LocalizedInput = React.forwardRef<HTMLInputElement, IProps>(
+const LocalizedInput = React.forwardRef<HTMLInputElement, IProps>(
 	(
 		{
 			ariaLabels = {

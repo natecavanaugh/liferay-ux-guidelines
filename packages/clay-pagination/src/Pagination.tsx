@@ -16,7 +16,7 @@ interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	size?: 'lg' | 'sm';
 }
 
-export interface IForwardRef<T, P = {}>
+interface IForwardRef<T, P = {}>
 	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
 	Ellipsis: typeof Ellipsis;
 	Item: typeof Item;

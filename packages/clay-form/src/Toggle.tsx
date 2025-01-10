@@ -7,8 +7,7 @@ import ClayIcon from '@clayui/icon';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IToggleProps
-	extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IToggleProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	containerProps?: React.HTMLAttributes<HTMLSpanElement>;
 	disabled?: boolean;
 	id?: string;
@@ -22,7 +21,7 @@ export interface IToggleProps
 	value?: string;
 }
 
-export const Toggle = React.forwardRef<HTMLLabelElement, IToggleProps>(
+const Toggle = React.forwardRef<HTMLLabelElement, IToggleProps>(
 	(
 		{
 			checked,

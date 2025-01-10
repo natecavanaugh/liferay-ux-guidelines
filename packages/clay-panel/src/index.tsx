@@ -22,7 +22,7 @@ import {Group} from './Group';
 import {Header} from './Header';
 import {Title} from './Title';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag to indicate that Panel is collapsable.
 	 */
@@ -221,5 +221,4 @@ Panel.Footer = Footer;
 Panel.Header = Header;
 Panel.Title = Title;
 
-export {Panel, Body, Group, Footer, Header, Title};
 export default Panel;

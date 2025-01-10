@@ -27,7 +27,7 @@ interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 	sizing?: 'lg' | 'sm';
 }
 
-export function Select({children, className, sizing, ...otherProps}: IProps) {
+function Select({children, className, sizing, ...otherProps}: IProps) {
 	return (
 		<select
 			{...otherProps}

@@ -13,7 +13,7 @@ import TabPane from './TabPane';
 
 export type DisplayType = null | 'basic' | 'underline';
 
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * Flag to indicate the navigation behavior in the tab.
 	 *
@@ -62,7 +62,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	onActiveChange?: InternalDispatch<number>;
 }
 
-export function Tabs({
+function Tabs({
 	activation = 'manual',
 	active: externalActive,
 	children,
@@ -140,5 +140,4 @@ Tabs.List = List;
 Tabs.TabPane = TabPane;
 Tabs.TabPanel = TabPane;
 
-export {Content, Item, List, TabPane};
 export default Tabs;

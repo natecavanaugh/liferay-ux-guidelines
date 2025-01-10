@@ -21,7 +21,7 @@ interface ISteps {
 	title?: string;
 }
 
-export interface IProps extends React.ComponentProps<typeof ClayMultiStepNav> {
+interface IProps extends React.ComponentProps<typeof ClayMultiStepNav> {
 	/**
 	 * Value for which step index is active (controlled).
 	 */

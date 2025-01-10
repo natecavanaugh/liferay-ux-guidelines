@@ -224,17 +224,4 @@ Modal.Title = Title;
 Modal.TitleIndicator = TitleIndicator;
 Modal.TitleSection = TitleSection;
 
-export {
-	Body,
-	Footer,
-	Header,
-	Item,
-	ItemGroup,
-	Subtitle,
-	SubtitleSection,
-	Title,
-	TitleIndicator,
-	TitleSection,
-	Modal,
-};
 export default Modal;

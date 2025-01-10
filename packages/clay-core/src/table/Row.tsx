@@ -10,7 +10,7 @@ import React, {useCallback, useMemo, useState} from 'react';
 import {useFocusWithin} from '../aria';
 import {ChildrenFunction, Collection, useCollection} from '../collection';
 import {useForwardRef} from '../hooks';
-import {ForwardCell} from './Cell';
+import {Cell} from './Cell';
 import {RowContext, useBody, useTable} from './context';
 
 interface IProps<T> extends React.HTMLAttributes<HTMLTableRowElement> {
@@ -235,12 +235,12 @@ export function Row<T extends Record<string, any>>(
 				{columnsVisibility &&
 					!divider &&
 					collection.getSize() === headCellsCount && (
-						<ForwardCell
+						<Cell
 							index={headCellsCount}
 							keyValue={`${keyValue}:visibility`}
 						>
 							{null}
-						</ForwardCell>
+						</Cell>
 					)}
 			</RowContext.Provider>
 		</tr>

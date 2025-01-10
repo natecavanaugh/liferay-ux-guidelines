@@ -10,7 +10,7 @@ type TColSize = boolean | number | 'auto';
 
 /* eslint-disable @liferay/no-abbreviations */
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Element or component to render for container
 	 */
@@ -52,7 +52,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	xl?: TColSize;
 }
 
-const ClayCol = React.forwardRef<HTMLElement, IProps>(
+const Col = React.forwardRef<HTMLElement, IProps>(
 	(
 		{
 			children,
@@ -95,6 +95,6 @@ const ClayCol = React.forwardRef<HTMLElement, IProps>(
 	}
 );
 
-ClayCol.displayName = 'ClayCol';
+Col.displayName = 'ClayCol';
 
-export default ClayCol;
+export default Col;

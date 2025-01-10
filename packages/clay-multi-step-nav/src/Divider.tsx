@@ -7,5 +7,4 @@ import React from 'react';
 
 const MultiStepNavDivider = () => <div className="multi-step-divider" />;
 
-export {MultiStepNavDivider};
 export default MultiStepNavDivider;

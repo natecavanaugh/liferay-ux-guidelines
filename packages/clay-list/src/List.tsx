@@ -14,7 +14,7 @@ import ItemText from './ItemText';
 import ItemTitle from './ItemTitle';
 import QuickActionMenu from './QuickActionMenu';
 
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	children?:
 		| React.ReactElement<React.HTMLAttributes<HTMLLIElement>>
 		| Array<React.ReactElement<React.HTMLAttributes<HTMLLIElement>>>;
@@ -28,7 +28,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 
 const CLAY_REGEX = /Clay(?!ListItem|ListHeader).+/;
 
-export function List({
+function List({
 	children,
 	className,
 	showQuickActionsOnHover = true,

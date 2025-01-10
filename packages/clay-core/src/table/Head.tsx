@@ -11,7 +11,7 @@ import React, {useMemo} from 'react';
 
 import {ChildrenFunction, Collection, useCollection} from '../collection';
 import {Item, Menu} from '../drop-down';
-import {ForwardCell} from './Cell';
+import {Cell} from './Cell';
 import {Scope, ScopeContext} from './ScopeContext';
 import {useTable} from './context';
 
@@ -48,7 +48,7 @@ interface IProps<T> extends React.TableHTMLAttributes<HTMLTableSectionElement> {
 	items?: Array<T>;
 }
 
-export const Head = function HeadInner<T extends Record<string, any>>(
+export function Head<T extends Record<string, any>>(
 	{children, items, ...otherProps}: IProps<T>,
 	ref: React.Ref<HTMLTableSectionElement>
 ) {
@@ -82,7 +82,7 @@ export const Head = function HeadInner<T extends Record<string, any>>(
 					<Collection<T> collection={collection} />
 
 					{columnsVisibility && (
-						<ForwardCell keyValue="visibility" width="72px">
+						<Cell keyValue="visibility" width="72px">
 							<Menu
 								UNSAFE_focusableElements={[
 									'input[role="switch"]',
@@ -208,13 +208,13 @@ export const Head = function HeadInner<T extends Record<string, any>>(
 									)
 								}
 							</Menu>
-						</ForwardCell>
+						</Cell>
 					)}
 				</tr>
 			</ScopeContext.Provider>
 		</thead>
 	);
-};
+}
 
 type ForwardRef = {
 	displayName: string;

@@ -76,7 +76,7 @@ interface IBooleanMap {
 	[s: string]: boolean;
 }
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Property of item that makes it unique from other items.
 	 * Defaults to 'id'.

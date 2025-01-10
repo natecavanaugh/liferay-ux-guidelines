@@ -3,4 +3,4 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export {ForwardPopover as Popover, Popover as UNSAFE_Popover} from './Popover';
+export {Popover} from './Popover';

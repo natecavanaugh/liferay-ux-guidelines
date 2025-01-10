@@ -135,5 +135,4 @@ function Items({items}: ItemsProps) {
 	);
 }
 
-export {Breadcrumb};
 export default Breadcrumb;

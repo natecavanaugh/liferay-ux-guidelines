@@ -8,7 +8,7 @@ import React from 'react';
 
 import Context from './Context';
 
-const ClayCardBody = ({
+const Body = ({
 	children,
 	className,
 	...otherProps
@@ -24,4 +24,4 @@ const ClayCardBody = ({
 	);
 };
 
-export default ClayCardBody;
+export default Body;

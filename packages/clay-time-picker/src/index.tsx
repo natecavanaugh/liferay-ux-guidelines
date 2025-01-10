@@ -164,7 +164,7 @@ const DEFAULT_CONFIG = {
 
 const regex = /^\d+$/;
 
-export const TimePicker = ({
+const TimePicker = ({
 	ariaLabels = {
 		ampm: 'Select time of day (AM/PM) using up (PM) and down (AM) arrow keys',
 		clear: 'Delete the entered time',

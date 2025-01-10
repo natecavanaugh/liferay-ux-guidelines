@@ -31,13 +31,7 @@ const List = React.forwardRef<
 	);
 });
 
-export function TreeViewGroup<T extends Record<string, any>>(
-	props: ITreeViewGroupProps<T>
-): JSX.Element & {
-	displayName: string;
-};
-
-export function TreeViewGroup<T extends Record<any, any>>({
+export function Group<T extends Record<any, any>>({
 	children,
 	className,
 	items,
@@ -91,4 +85,4 @@ export function TreeViewGroup<T extends Record<any, any>>({
 	);
 }
 
-TreeViewGroup.displayName = 'ClayTreeViewGroup';
+Group.displayName = 'ClayTreeViewGroup';

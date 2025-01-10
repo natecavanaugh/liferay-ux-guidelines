@@ -9,7 +9,7 @@ import React from 'react';
 
 import Context, {IContext} from './Context';
 
-export interface IProps
+interface IProps
 	extends Omit<IContext, 'interactive'>,
 		React.BaseHTMLAttributes<HTMLAnchorElement | HTMLDivElement> {}
 

@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export type Props = {
+type Props = {
 	/**
 	 * Flag to indicate the spacing between the buttons.
 	 */

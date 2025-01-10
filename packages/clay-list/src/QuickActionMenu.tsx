@@ -8,7 +8,7 @@ import React from 'react';
 
 import QuickActionMenuItem from './QuickActionMenuItem';
 
-export interface IForwardRef<T, P = {}>
+interface IForwardRef<T, P = {}>
 	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
 	Item: typeof QuickActionMenuItem;
 }
@@ -17,7 +17,7 @@ function forwardRef<T, P = {}>(component: React.RefForwardingComponent<T, P>) {
 	return React.forwardRef<T, P>(component) as IForwardRef<T, P>;
 }
 
-export const QuickActionMenu = forwardRef<
+const QuickActionMenu = forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({children, className, ...otherProps}, ref) => {

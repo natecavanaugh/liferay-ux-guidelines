@@ -23,5 +23,4 @@ const Header = React.forwardRef<
 
 Header.displayName = 'ClayListHeader';
 
-export {Header};
 export default Header;

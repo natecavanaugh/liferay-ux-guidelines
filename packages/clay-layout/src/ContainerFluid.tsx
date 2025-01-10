@@ -7,7 +7,7 @@ import React from 'react';
 
 import Container from './Container';
 
-export interface IProps
+interface IProps
 	extends Omit<
 		React.ComponentProps<typeof Container>,
 		'fluid' | 'fluidSize'
@@ -15,7 +15,7 @@ export interface IProps
 	size?: React.ComponentProps<typeof Container>['fluidSize'] | false;
 }
 
-const ClayContainerFluid = React.forwardRef<HTMLElement, IProps>(
+const ContainerFluid = React.forwardRef<HTMLElement, IProps>(
 	({children, size = 'xl', ...otherProps}: IProps, ref) => {
 		return (
 			<Container
@@ -30,6 +30,6 @@ const ClayContainerFluid = React.forwardRef<HTMLElement, IProps>(
 	}
 );
 
-ClayContainerFluid.displayName = 'ClayContainerFluid';
+ContainerFluid.displayName = 'ClayContainerFluid';
 
-export default ClayContainerFluid;
+export default ContainerFluid;

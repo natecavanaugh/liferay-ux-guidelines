@@ -58,14 +58,6 @@ export const ItemExpand = React.forwardRef<
 
 ItemExpand.displayName = 'ClayLabelItemExpand';
 
-type DisplayType =
-	| 'secondary'
-	| 'info'
-	| 'warning'
-	| 'danger'
-	| 'success'
-	| 'unstyled';
-
 interface IBaseProps extends React.BaseHTMLAttributes<HTMLSpanElement> {
 	/**
 	 * Flag to indicate if `label-dismissible` class should be applied.
@@ -75,7 +67,13 @@ interface IBaseProps extends React.BaseHTMLAttributes<HTMLSpanElement> {
 	/**
 	 * Determines the style of the label.
 	 */
-	displayType?: DisplayType;
+	displayType?:
+		| 'secondary'
+		| 'info'
+		| 'warning'
+		| 'danger'
+		| 'success'
+		| 'unstyled';
 
 	/**
 	 * Flag to indicate if the label should be of the `large` variant.
@@ -137,7 +135,7 @@ interface IProps extends IBaseProps {
 	withClose?: boolean;
 }
 
-export interface IForwardRef<T, P = {}>
+interface IForwardRef<T, P = {}>
 	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
 	ItemAfter: typeof ItemAfter;
 	ItemBefore: typeof ItemBefore;
@@ -148,7 +146,7 @@ function forwardRef<T, P = {}>(component: React.RefForwardingComponent<T, P>) {
 	return React.forwardRef<T, P>(component) as IForwardRef<T, P>;
 }
 
-export const Label = forwardRef<HTMLAnchorElement | HTMLSpanElement, IProps>(
+const Label = forwardRef<HTMLAnchorElement | HTMLSpanElement, IProps>(
 	(
 		{
 			children,

@@ -30,7 +30,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	warn?: boolean;
 }
 
-export const ProgressBar = ({
+const ProgressBar = ({
 	children,
 	className,
 	feedback = false,

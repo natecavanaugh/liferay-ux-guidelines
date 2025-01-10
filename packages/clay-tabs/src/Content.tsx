@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * @ignore
 	 */
@@ -34,49 +34,45 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	tabsId?: string;
 }
 
-export const Content = React.forwardRef<HTMLDivElement, IProps>(
-	function Content(
-		{
-			active,
-			activeIndex = 0,
-			children,
-			className,
-			fade = false,
-			tabsId,
-			...otherProps
-		},
-		ref
-	) {
-		return (
-			<div
-				className={classNames('tab-content', className)}
-				{...otherProps}
-				ref={ref}
-			>
-				{React.Children.map(children, (child, index) => {
-					if (!React.isValidElement(child)) {
-						return child;
-					}
+const Content = React.forwardRef<HTMLDivElement, IProps>(function Content(
+	{
+		active,
+		activeIndex = 0,
+		children,
+		className,
+		fade = false,
+		tabsId,
+		...otherProps
+	},
+	ref
+) {
+	return (
+		<div
+			className={classNames('tab-content', className)}
+			{...otherProps}
+			ref={ref}
+		>
+			{React.Children.map(children, (child, index) => {
+				if (!React.isValidElement(child)) {
+					return child;
+				}
 
-					return React.cloneElement(child, {
-						...child.props,
-						active:
-							typeof active === 'number'
-								? active === index
-								: activeIndex === index,
-						'aria-labelledby': tabsId
-							? `${tabsId}-tab-${index}`
-							: child.props['aria-labelledby'],
-						fade,
-						id: tabsId
-							? `${tabsId}-tabpanel-${index}`
-							: child.props.id,
-						key: index,
-					});
-				})}
-			</div>
-		);
-	}
-);
+				return React.cloneElement(child, {
+					...child.props,
+					active:
+						typeof active === 'number'
+							? active === index
+							: activeIndex === index,
+					'aria-labelledby': tabsId
+						? `${tabsId}-tab-${index}`
+						: child.props['aria-labelledby'],
+					fade,
+					id: tabsId ? `${tabsId}-tabpanel-${index}` : child.props.id,
+					key: index,
+				});
+			})}
+		</div>
+	);
+});
 
 export default Content;

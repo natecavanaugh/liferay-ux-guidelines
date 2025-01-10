@@ -46,7 +46,7 @@ interface IMenuRendererProps {
 
 type MenuRenderer = (props: IMenuRendererProps) => JSX.Element;
 
-export interface IProps<T>
+interface IProps<T>
 	extends Omit<
 			React.HTMLAttributes<HTMLInputElement>,
 			'onChange' | 'children'
@@ -237,7 +237,7 @@ export interface IProps<T>
 	loadingState?: number;
 }
 
-export interface IForwardRef<T, P = {}>
+interface IForwardRef<T, P = {}>
 	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
 	Item: typeof AutocompleteItem;
 }
@@ -561,5 +561,4 @@ export const itemLabelFilter = (
 
 MultiSelect.Item = AutocompleteItem;
 
-export {MultiSelect};
 export default MultiSelect;

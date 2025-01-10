@@ -14,7 +14,7 @@ type Context = {
 
 export const ItemContext = React.createContext<Context>({});
 
-export interface IProps extends React.HTMLAttributes<HTMLLIElement> {
+interface IProps extends React.HTMLAttributes<HTMLLIElement> {
 	/**
 	 * Flag to indicate if `active` classname should be applied
 	 */
@@ -42,7 +42,7 @@ export interface IProps extends React.HTMLAttributes<HTMLLIElement> {
 	state?: State;
 }
 
-const MultiStepNavItem = ({
+const Item = ({
 	active,
 	children,
 	className,
@@ -69,5 +69,4 @@ const MultiStepNavItem = ({
 	);
 };
 
-export {MultiStepNavItem};
-export default MultiStepNavItem;
+export default Item;

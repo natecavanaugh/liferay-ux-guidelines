@@ -5,8 +5,6 @@
 
 import React from 'react';
 
-export const Divider = () => (
-	<li className="dropdown-divider" role="separator" />
-);
+const Divider = () => <li className="dropdown-divider" role="separator" />;
 
 export default Divider;

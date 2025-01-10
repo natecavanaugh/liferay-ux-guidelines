@@ -10,7 +10,7 @@ import React from 'react';
 
 const {Item, Menu} = __EXPERIMENTAL_MENU;
 
-export type Props = {
+type Props = {
 	'aria-label'?: string;
 	alignmentPosition?: number | AlignPoints;
 	disabled?: boolean;

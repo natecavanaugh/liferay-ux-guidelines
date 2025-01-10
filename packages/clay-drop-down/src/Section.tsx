@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag that indicates if item is selected.
 	 */
@@ -20,7 +20,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	innerRef?: React.Ref<any>;
 }
 
-export const Section = React.forwardRef<HTMLLIElement, IProps>(
+const Section = React.forwardRef<HTMLLIElement, IProps>(
 	({active, children, className, disabled, innerRef, ...otherProps}, ref) => (
 		<li aria-selected={active} ref={ref} role="none">
 			<div

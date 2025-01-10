@@ -13,8 +13,8 @@ import {FocusWithinProvider} from '../aria';
 import {ChildrenFunction, Collection, ICollectionProps} from './Collection';
 import {DragAndDropMessages, DragAndDropProvider} from './DragAndDrop';
 import DragLayer from './DragLayer';
-import {TreeViewGroup} from './TreeViewGroup';
-import {TreeViewItem, TreeViewItemStack} from './TreeViewItem';
+import {Group} from './TreeViewGroup';
+import {Item, ItemStack} from './TreeViewItem';
 import {Icons, MoveItemIndex, OnLoadMore, TreeViewContext} from './context';
 import {ITreeProps, useTree} from './useTree';
 
@@ -256,6 +256,6 @@ export function TreeView<T extends Record<string, any>>({
 	);
 }
 
-TreeView.Group = TreeViewGroup;
-TreeView.Item = TreeViewItem;
-TreeView.ItemStack = TreeViewItemStack;
+TreeView.Group = Group;
+TreeView.Item = Item;
+TreeView.ItemStack = ItemStack;

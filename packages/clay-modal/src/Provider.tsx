@@ -137,5 +137,5 @@ const ModalProvider = ({children, spritemap}: IProps) => {
 	);
 };
 
-export {ModalProvider, Context};
+export {Context};
 export default ModalProvider;

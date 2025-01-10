@@ -5,16 +5,15 @@
 
 import React from 'react';
 
-export type Props = {
+type Props = {
 	/**
 	 * Title content.
 	 */
 	children?: React.ReactNode;
 };
 
-const MultiStepNavTitle = ({children}: Props) => (
+const Title = ({children}: Props) => (
 	<div className="multi-step-title">{children}</div>
 );
 
-export {MultiStepNavTitle};
-export default MultiStepNavTitle;
+export default Title;

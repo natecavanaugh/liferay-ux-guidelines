@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLLIElement> {
+interface IProps extends React.HTMLAttributes<HTMLLIElement> {
 	/**
 	 * Flag to indicate if the `list-group-item-action` class should be applied.
 	 */
@@ -80,5 +80,4 @@ const Item = React.forwardRef<HTMLLIElement, IProps>(
 
 Item.displayName = 'ClayListItem';
 
-export {Item};
 export default Item;

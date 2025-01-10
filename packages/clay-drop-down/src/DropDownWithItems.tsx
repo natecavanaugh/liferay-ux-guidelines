@@ -19,8 +19,9 @@ import warning from 'warning';
 
 import Caption from './Caption';
 import Divider from './Divider';
-import ClayDropDown, {FocusMenu} from './DropDown';
+import ClayDropDown from './DropDown';
 import {DropDownContext} from './DropDownContext';
+import {FocusMenu} from './FocusMenu';
 import ClayDropDownGroup from './Group';
 import Help from './Help';
 import ClayDropDownMenu from './Menu';
@@ -67,8 +68,7 @@ interface IDropDownContentProps {
 	role?: string;
 }
 
-export interface IProps
-	extends Omit<IDropDownContentProps, 'role' | 'aria-label'> {
+interface IProps extends Omit<IDropDownContentProps, 'role' | 'aria-label'> {
 	/**
 	 * Flag to indicate if the DropDown menu is active or not (controlled).
 	 */

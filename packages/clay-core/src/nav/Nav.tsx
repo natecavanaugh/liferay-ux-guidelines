@@ -9,7 +9,7 @@ import React from 'react';
 import {Item} from './Item';
 import {Link} from './Link';
 
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * Flag to indicate if `nav-nested` class should be applied. Adds padding to indent each nested navigation.
 	 */
@@ -26,7 +26,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	stacked?: boolean;
 }
 
-export interface IForwardRef<T, P = {}>
+interface IForwardRef<T, P = {}>
 	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
 	Item: typeof Item;
 	Link: typeof Link;

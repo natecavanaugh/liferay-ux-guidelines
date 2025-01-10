@@ -43,7 +43,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Checkbox = React.forwardRef<HTMLInputElement, IProps>(
+const Checkbox = React.forwardRef<HTMLInputElement, IProps>(
 	(
 		{
 			checked,

@@ -35,7 +35,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	small?: boolean;
 }
 
-export const LoadingIndicator = React.forwardRef<HTMLSpanElement, IProps>(
+const LoadingIndicator = React.forwardRef<HTMLSpanElement, IProps>(
 	(
 		{
 			className,

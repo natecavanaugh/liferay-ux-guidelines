@@ -6,32 +6,37 @@
 import {__NOT_PUBLIC_COLLECTION} from '@clayui/core';
 import {
 	FOCUSABLE_ELEMENTS,
-	InternalDispatch,
 	Keys,
 	getFocusableList,
 	useControlledState,
 	useNavigation,
 } from '@clayui/shared';
 import classNames from 'classnames';
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 
 import Action from './Action';
 import Caption from './Caption';
 import Divider from './Divider';
 import {DropDownContext} from './DropDownContext';
+import {FocusMenu} from './FocusMenu';
 import Group from './Group';
 import Help from './Help';
 import Item from './Item';
 import ItemList from './ItemList';
-import Menu, {Align} from './Menu';
+import Menu from './Menu';
 import Search from './Search';
 import Section from './Section';
 
 import type {ICollectionProps} from '@clayui/core';
+import type {
+	AlignPoints,
+	IPortalBaseProps,
+	InternalDispatch,
+} from '@clayui/shared';
 
 const {Collection} = __NOT_PUBLIC_COLLECTION;
 
-export interface IProps<T>
+interface IProps<T>
 	extends Omit<
 			React.HTMLAttributes<HTMLDivElement | HTMLLIElement>,
 			'children'
@@ -49,14 +54,12 @@ export interface IProps<T>
 	/**
 	 * Flag to align the DropDown menu within the viewport.
 	 */
-	alignmentByViewport?: React.ComponentProps<
-		typeof Menu
-	>['alignmentByViewport'];
+	alignmentByViewport?: boolean;
 
 	/**
 	 * Default position of menu element. Values come from `./Menu`.
 	 */
-	alignmentPosition?: React.ComponentProps<typeof Menu>['alignmentPosition'];
+	alignmentPosition?: number | AlignPoints;
 
 	/**
 	 * HTML element tag that the container should render.
@@ -68,9 +71,7 @@ export interface IProps<T>
 	 */
 	closeOnClick?: boolean;
 
-	closeOnClickOutside?: React.ComponentProps<
-		typeof Menu
-	>['closeOnClickOutside'];
+	closeOnClickOutside?: boolean;
 
 	/**
 	 *  Property to set the default value of `active` (uncontrolled).
@@ -96,12 +97,22 @@ export interface IProps<T>
 	/**
 	 * Prop to pass DOM element attributes to DropDown.Menu.
 	 */
-	menuElementAttrs?: React.HTMLAttributes<HTMLDivElement> &
-		Pick<React.ComponentProps<typeof Menu>, 'containerProps'>;
+	menuElementAttrs?: React.HTMLAttributes<HTMLDivElement> & IPortalBaseProps;
 
-	menuHeight?: React.ComponentProps<typeof Menu>['height'];
+	/**
+	 * Adds utility class name `dropdown-menu-height-${height}`
+	 */
+	menuHeight?: 'auto';
 
-	menuWidth?: React.ComponentProps<typeof Menu>['width'];
+	/**
+	 * The modifier class `dropdown-menu-width-${width}` makes the menu expand
+	 * the full width of the page.
+	 *
+	 * - sm makes the menu 500px wide.
+	 * - shrink makes the menu auto-adjust to text and max 240px wide.
+	 * - full makes the menu 100% wide.
+	 */
+	menuWidth?: 'sm' | 'shrink' | 'full';
 
 	/**
 	 * Callback for when the active state changes (controlled).
@@ -115,7 +126,7 @@ export interface IProps<T>
 	/**
 	 * Function for setting the offset of the menu from the trigger.
 	 */
-	offsetFn?: React.ComponentProps<typeof Menu>['offsetFn'];
+	offsetFn?: (points: AlignPoints) => [number, number];
 
 	/**
 	 * Flag indicating if the menu should be rendered lazily
@@ -365,26 +376,6 @@ function DropDown<T>({
 	);
 }
 
-type FocusMenuProps<T> = {
-	children: T;
-	condition: boolean;
-	onRender: () => void;
-};
-
-export function FocusMenu<T>({
-	children,
-	condition,
-	onRender,
-}: FocusMenuProps<T>) {
-	useEffect(() => {
-		if (condition) {
-			onRender();
-		}
-	}, [condition]);
-
-	return children;
-}
-
 DropDown.Action = Action;
 DropDown.Caption = Caption;
 DropDown.Divider = Divider;
@@ -396,5 +387,4 @@ DropDown.ItemList = ItemList;
 DropDown.Search = Search;
 DropDown.Section = Section;
 
-export {DropDown, Align};
 export default DropDown;

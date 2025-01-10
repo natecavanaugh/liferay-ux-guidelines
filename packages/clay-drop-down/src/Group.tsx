@@ -12,8 +12,7 @@ import type {ICollectionProps} from '@clayui/core';
 
 const {Collection} = __NOT_PUBLIC_COLLECTION;
 
-export interface IProps<T>
-	extends Omit<ICollectionProps<T, unknown>, 'virtualize'> {
+interface IProps<T> extends Omit<ICollectionProps<T, unknown>, 'virtualize'> {
 	/**
 	 * Value provided is a display component that is a header for the items in the group.
 	 */
@@ -27,7 +26,7 @@ export interface IProps<T>
 
 let counter = 0;
 
-export function Group<T>({children, header, items, role = 'group'}: IProps<T>) {
+function Group<T>({children, header, items, role = 'group'}: IProps<T>) {
 	const ariaLabel = useMemo(() => {
 		counter++;
 

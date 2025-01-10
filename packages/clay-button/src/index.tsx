@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import Button, {IProps} from './Button';
+import Button from './Button';
 import ClayButtonWithIcon from './ButtonWithIcon';
-import Group from './Group';
 
-export type {Props as ButtonWithIconProps} from './ButtonWithIcon';
-export {ClayButtonWithIcon, Group, Button, IProps as ButtonProps};
+type ButtonProps = React.ComponentProps<typeof Button>;
+type ButtonWithIconProps = React.ComponentProps<typeof ClayButtonWithIcon>;
+
+export type {ButtonWithIconProps, ButtonProps};
+export {ClayButtonWithIcon};
 export default Button;

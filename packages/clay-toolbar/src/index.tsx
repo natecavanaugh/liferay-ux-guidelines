@@ -36,7 +36,7 @@ interface IProps extends React.HTMLAttributes<HTMLElement> {
 		  };
 }
 
-export function Toolbar({
+function Toolbar({
 	children,
 	className,
 	inlineBreakpoint,
@@ -76,5 +76,4 @@ Toolbar.Link = Link;
 Toolbar.Nav = Nav;
 Toolbar.Section = Section;
 
-export {Action, Item, Input, Label, Link, Nav, Section};
 export default Toolbar;

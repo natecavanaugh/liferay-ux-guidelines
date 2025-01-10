@@ -17,7 +17,7 @@ export async function DocsLayout({slug}: Props) {
 	const [file, fileMarkup, fileDesign] = await Promise.all([
 		AllCollection.getSource(slug),
 		slug.includes('markup')
-			? null
+			? true
 			: AllCollection.getSource([...slug, 'markup']),
 		lxc.getResource(slug),
 	]);
@@ -109,7 +109,7 @@ export async function DocsLayout({slug}: Props) {
 								workingDirectory="../packages"
 								filter={(type) => {
 									return (
-										!type.name.includes('Forward') &&
+										!type.name?.includes('Forward') &&
 										(type.kind === 'Function' ||
 											type.kind === 'Component')
 									);

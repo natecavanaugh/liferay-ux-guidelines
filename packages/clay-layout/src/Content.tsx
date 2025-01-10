@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IContentRowProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IContentRowProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Element or component to render for container
 	 */
@@ -79,7 +79,7 @@ const ContentRow = React.forwardRef<HTMLElement, IContentRowProps>(
 
 ContentRow.displayName = 'ClayContentRow';
 
-export interface IContentColProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IContentColProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Element or component to render for container
 	 */
@@ -143,7 +143,7 @@ const ContentCol = React.forwardRef<HTMLElement, IContentColProps>(
 
 ContentCol.displayName = 'ClayContentCol';
 
-export interface IColSectionProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IColSectionProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Element or component to render for container
 	 */

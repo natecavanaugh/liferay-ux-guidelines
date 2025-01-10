@@ -55,14 +55,7 @@ const useAutoClose = (autoClose?: boolean | number, onClose = () => {}) => {
 	};
 };
 
-export type DisplayType =
-	| 'danger'
-	| 'info'
-	| 'secondary'
-	| 'success'
-	| 'warning';
-
-export interface IClayAlertProps
+interface IClayAlertProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'role'> {
 	/**
 	 * A React Component to render the alert actions.
@@ -89,7 +82,7 @@ export interface IClayAlertProps
 	/**
 	 * Determines the style of the alert.
 	 */
-	displayType?: DisplayType;
+	displayType?: 'danger' | 'info' | 'secondary' | 'success' | 'warning';
 
 	/**
 	 * Flag to indicate if close icon should be show. This prop is used in
@@ -236,5 +229,4 @@ ClayAlert.displayName = 'ClayAlert';
 ClayAlert.Footer = ClayAlertFooter;
 ClayAlert.ToastContainer = ClayToastContainer;
 
-export {ClayAlertFooter, ClayToastContainer, ClayAlert};
 export default ClayAlert;

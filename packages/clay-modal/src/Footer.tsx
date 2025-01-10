@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Sets the elements that are positioned `first following
 	 * the LTR direction on the footer.
@@ -26,7 +26,7 @@ export interface IFooterProps extends React.HTMLAttributes<HTMLDivElement> {
 	middle?: React.ReactElement;
 }
 
-const ClayModalFooter = ({
+const Footer = ({
 	className,
 	first,
 	last,
@@ -42,4 +42,4 @@ const ClayModalFooter = ({
 	);
 };
 
-export default ClayModalFooter;
+export default Footer;

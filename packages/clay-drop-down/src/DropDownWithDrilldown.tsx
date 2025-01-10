@@ -17,7 +17,7 @@ import Drilldown from './drilldown';
 
 import type {Messages} from './drilldown';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag to indicate if the menu should be initially open (controlled).
 	 */

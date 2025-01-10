@@ -13,11 +13,11 @@ import type {ICollectionProps} from '@clayui/core';
 
 const {Collection} = __NOT_PUBLIC_COLLECTION;
 
-export interface IProps<T>
+interface IProps<T>
 	extends Omit<ICollectionProps<T, unknown>, 'virtualize'>,
 		Omit<React.HTMLAttributes<HTMLUListElement>, 'children'> {}
 
-export const ItemList = React.forwardRef<HTMLUListElement, IProps<unknown>>(
+const ItemList = React.forwardRef<HTMLUListElement, IProps<unknown>>(
 	({children, className, items, role = 'menu', ...otherProps}, ref) => {
 		const {search} = useContext(DropDownContext);
 

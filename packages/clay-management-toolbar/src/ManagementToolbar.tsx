@@ -45,5 +45,4 @@ ManagementToolbar.Item = Item;
 ManagementToolbar.ItemList = ItemList;
 ManagementToolbar.Search = Search;
 
-export {ManagementToolbar, Item, ItemList, Search};
 export default ManagementToolbar;

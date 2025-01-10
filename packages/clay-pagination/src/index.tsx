@@ -4,16 +4,9 @@
  */
 
 import {Pagination} from './Pagination';
-import {
-	ClayPaginationWithBasicItems,
-	ForwardPaginationWithBasicItems,
-} from './PaginationWithBasicItems';
+import {ClayPaginationWithBasicItems} from './PaginationWithBasicItems';
 
 export {Ellipsis} from './Ellipsis';
 export {Item} from './Item';
-export {
-	Pagination,
-	ForwardPaginationWithBasicItems as ClayPaginationWithBasicItems,
-	ClayPaginationWithBasicItems as UNSAFE_ClayPaginationWithBasicItems,
-};
+export {Pagination, ClayPaginationWithBasicItems};
 export default Pagination;

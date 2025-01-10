@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLParagraphElement> {
+interface IProps extends React.HTMLAttributes<HTMLParagraphElement> {
 	/**
 	 * Flag to indicate if content should be styled as subtext.
 	 */
@@ -29,5 +29,4 @@ const ItemText = React.forwardRef<HTMLParagraphElement, IProps>(
 
 ItemText.displayName = 'ClayListItemText';
 
-export {ItemText};
 export default ItemText;

@@ -24,7 +24,7 @@ export const Align = {
 	TopRight: 1,
 } as const;
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag to indicate if menu is showing or not.
 	 */

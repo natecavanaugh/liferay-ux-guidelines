@@ -7,7 +7,7 @@ import {ClayInput} from '@clayui/form';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.ComponentProps<typeof ClayInput> {}
+interface IProps extends React.ComponentProps<typeof ClayInput> {}
 
 export const Input = ({className, ...otherProps}: IProps) => (
 	<ClayInput.Group>

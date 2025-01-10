@@ -71,7 +71,7 @@ type TContentRenderer = (props: {
 	title: string;
 }) => React.ReactElement | React.ReactNode;
 
-interface IPropsBase {
+type Props = {
 	/**
 	 * Flag to indicate if tooltip should automatically align based on the window
 	 */
@@ -91,32 +91,25 @@ interface IPropsBase {
 	 * Delay in miliseconds before showing tooltip
 	 */
 	delay?: number;
-}
 
-interface IPropsWithChildren extends IPropsBase {
-	children: React.ReactElement;
-	scope?: never;
-}
-
-interface IPropsWithScope extends IPropsBase {
-	children?: never;
+	children?: React.ReactElement;
 
 	/**
 	 * CSS selector to scope provider to. All titles within this scope will be
 	 * rendered in the tooltip. Titles outside of this scope will be styled
 	 * as with the default browser.
 	 */
-	scope: string;
-}
+	scope?: string;
+};
 
-export const TooltipProvider = ({
+export const ClayTooltipProvider = ({
 	autoAlign = true,
 	children,
 	containerProps = {},
 	contentRenderer = (props) => props.title,
 	delay = 600,
 	scope,
-}: IPropsWithChildren | IPropsWithScope) => {
+}: Props) => {
 	const [{align, floating, setAsHTML, title = ''}, dispatch] = useReducer(
 		reducer,
 		initialState

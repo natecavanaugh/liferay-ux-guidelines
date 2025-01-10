@@ -7,7 +7,7 @@ import ClayButton from '@clayui/button';
 import classNames from 'classnames';
 import React from 'react';
 
-export const Action = ({
+const Action = ({
 	children,
 	className,
 	...otherProps

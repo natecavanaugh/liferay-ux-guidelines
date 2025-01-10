@@ -91,7 +91,7 @@ const calcProgressWidth = (
 const useIsomorphicLayoutEffect =
 	typeof window === 'undefined' ? React.useEffect : React.useLayoutEffect;
 
-export const Slider = ({
+const Slider = ({
 	className,
 	defaultValue,
 	disabled,

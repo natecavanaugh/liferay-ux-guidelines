@@ -7,7 +7,7 @@ import ClayLabel from '@clayui/label';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.ComponentProps<typeof ClayLabel> {}
+interface IProps extends React.ComponentProps<typeof ClayLabel> {}
 
 export const Label = ({children, className, ...otherProps}: IProps) => (
 	<ClayLabel

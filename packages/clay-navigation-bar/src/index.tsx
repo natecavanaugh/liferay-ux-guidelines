@@ -16,7 +16,7 @@ import warning from 'warning';
 import {Item} from './Item';
 import {NavigationBarContext} from './context';
 
-export interface IProps
+interface IProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'aria-current'> {
 	/**
 	 * Flag to define if the item represents the current page. Disable this
@@ -162,5 +162,4 @@ function NavigationBar({
 
 NavigationBar.Item = Item;
 
-export {NavigationBar, Item};
 export default NavigationBar;

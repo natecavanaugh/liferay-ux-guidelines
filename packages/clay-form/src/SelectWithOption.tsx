@@ -22,7 +22,7 @@ interface IProps extends React.ComponentProps<typeof Select> {
 	>;
 }
 
-export const ClaySelectWithOption = ({options = [], ...otherProps}: IProps) => (
+const ClaySelectWithOption = ({options = [], ...otherProps}: IProps) => (
 	<Select {...otherProps}>
 		{options.map((option, index) => {
 			if (option.type === 'group') {

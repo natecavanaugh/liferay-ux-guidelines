@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-import {FetchPolicy, NetworkStatus, Sorting, useResource} from './useResource';
+import {NetworkStatus, useResource} from './useResource';
 
 type ChildrenProps = {
 	data: any;
@@ -43,7 +43,7 @@ interface IState {
 	networkStatus?: NetworkStatus;
 }
 
-const DataProvider = ({
+export const DataProvider = ({
 	children,
 	notifyOnNetworkStatusChange = false,
 	...otherProps
@@ -88,6 +88,3 @@ const DataProvider = ({
 		</>
 	);
 };
-
-export {DataProvider, useResource, FetchPolicy, NetworkStatus, Sorting};
-export default DataProvider;

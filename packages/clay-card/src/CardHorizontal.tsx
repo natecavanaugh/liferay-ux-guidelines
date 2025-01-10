@@ -8,7 +8,7 @@ import React from 'react';
 
 import Context from './Context';
 
-export interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
+interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag that indicates if `active` class is applied
 	 */
@@ -20,7 +20,7 @@ export interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
 	selectable?: boolean;
 }
 
-const ClayCardHorizontalBody = ({
+const Body = ({
 	children,
 	className,
 	...otherProps
@@ -32,10 +32,6 @@ const ClayCardHorizontalBody = ({
 		{children}
 	</div>
 );
-
-export function ClayCardHorizontal(props: IProps): JSX.Element & {
-	Body: typeof ClayCardHorizontalBody;
-};
 
 export function ClayCardHorizontal({
 	active,
@@ -65,4 +61,4 @@ export function ClayCardHorizontal({
 	);
 }
 
-ClayCardHorizontal.Body = ClayCardHorizontalBody;
+ClayCardHorizontal.Body = Body;
