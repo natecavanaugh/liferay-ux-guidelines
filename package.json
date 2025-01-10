@@ -2,7 +2,7 @@
 	"private": true,
 	"repository": "https://github.com/liferay/clay",
 	"engines": {
-		"node": "20.x"
+		"node": "18.x"
 	},
 	"size-limit": [
 		{

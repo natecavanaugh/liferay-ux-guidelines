@@ -46,6 +46,7 @@
 	},
 	"resolutions": {
 		"@types/react": "19.0.2",
-		"@types/react-dom": "19.0.2"
+		"@types/react-dom": "19.0.2",
+		"minimatch": "9.0.5"
 	}
 }
