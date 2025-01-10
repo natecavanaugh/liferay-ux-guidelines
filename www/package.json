@@ -41,6 +41,7 @@
 		"@types/react-dom": "19.0.2",
 		"eslint": "^8",
 		"eslint-config-next": "15.1.2",
+		"patch-package": "^8.0.0",
 		"typescript": "^5.7.2"
 	},
 	"resolutions": {
