@@ -13,7 +13,7 @@
 	"ts:main": "src/index.tsx",
 	"files": ["lib", "src"],
 	"scripts": {
-		"build": "cross-env NODE_ENV=production babel src --root-mode upward --out-dir lib --extensions .ts,.tsx",
+		"build": "cross-env NODE_ENV=production node ../../scripts/build.js",
 		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
 		"test": "jest --config ../../jest.config.js"
 	},

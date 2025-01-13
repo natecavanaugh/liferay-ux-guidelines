@@ -1,33 +1,41 @@
 {
-	"name": "@clayui/charts",
-	"version": "3.124.0",
-	"description": "React.js wrapper for D3 and billboard.js",
-	"main": "lib/index.js",
-	"types": "lib/index.d.ts",
-	"ts:main": "src/index.tsx",
-	"scripts": {
-		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
-		"build": "cross-env NODE_ENV=production babel src --root-mode upward --out-dir lib --extensions .ts,.tsx",
-		"copySvg": "ncp src/svg lib/svg",
-		"prepublishOnly": "yarn sass && yarn build && yarn buildTypes && yarn copySvg",
-		"sass": "sass src/scss/main.scss lib/css/main.css --source-map",
-		"test": "jest --config ../../jest.config.js"
-	},
-	"keywords": [
-		"clay",
-		"react"
+	"browserslist": [
+		"extends browserslist-config-clay"
 	],
 	"dependencies": {
 		"billboard.js": "^1.8.0",
 		"classnames": "^2.2.6",
 		"d3": "^5.9.2"
 	},
+	"description": "React.js wrapper for D3 and billboard.js",
+	"exports": {
+		".": {
+			"require": "./lib/cjs/index.js",
+			"import": "./lib/esm/index.js"
+		}
+	},
+	"keywords": [
+		"clay",
+		"react"
+	],
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"name": "@clayui/charts",
 	"peerDependencies": {
 		"@clayui/css": "3.x",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0"
 	},
-	"browserslist": [
-		"extends browserslist-config-clay"
-	]
+	"scripts": {
+		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
+		"build": "cross-env NODE_ENV=production node ../../scripts/build.js",
+		"copySvg": "ncp src/svg lib/svg",
+		"prepublishOnly": "yarn sass && yarn build && yarn buildTypes && yarn copySvg",
+		"sass": "sass src/scss/main.scss lib/css/main.css --source-map",
+		"test": "jest --config ../../jest.config.js"
+	},
+	"ts:main": "src/index.tsx",
+	"type": "module",
+	"types": "./lib/index.d.ts",
+	"version": "3.124.0"
 }

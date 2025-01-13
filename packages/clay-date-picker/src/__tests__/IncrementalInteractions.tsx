@@ -11,7 +11,7 @@ import {
 	render,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {default as formatDate} from 'date-fns/format';
+import {format as formatDate} from 'date-fns';
 import React from 'react';
 
 const spritemap = 'icons.svg';

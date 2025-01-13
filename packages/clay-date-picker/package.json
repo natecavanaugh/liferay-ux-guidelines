@@ -1,23 +1,6 @@
 {
-	"name": "@clayui/date-picker",
-	"version": "3.124.0",
-	"description": "ClayDatePicker component",
-	"license": "BSD-3-Clause",
-	"repository": "https://github.com/liferay/clay",
-	"main": "lib/index.js",
-	"types": "lib/index.d.ts",
-	"ts:main": "src/index.tsx",
-	"files": [
-		"lib"
-	],
-	"scripts": {
-		"build": "cross-env NODE_ENV=production babel src --root-mode upward --out-dir lib --extensions .ts,.tsx",
-		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
-		"test": "jest --config ../../jest.config.js"
-	},
-	"keywords": [
-		"clay",
-		"react"
+	"browserslist": [
+		"extends browserslist-config-clay"
 	],
 	"dependencies": {
 		"@clayui/button": "^3.116.0",
@@ -28,14 +11,39 @@
 		"@clayui/shared": "^3.119.0",
 		"@clayui/time-picker": "^3.122.0",
 		"classnames": "^2.2.6",
-		"date-fns": "^2.14.0"
+		"date-fns": "^4.1.0"
 	},
+	"description": "ClayDatePicker component",
+	"exports": {
+		".": {
+			"require": "./lib/cjs/index.js",
+			"import": "./lib/esm/index.js"
+		}
+	},
+	"files": [
+		"lib"
+	],
+	"keywords": [
+		"clay",
+		"react"
+	],
+	"license": "BSD-3-Clause",
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"name": "@clayui/date-picker",
 	"peerDependencies": {
 		"@clayui/css": "3.x",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0"
 	},
-	"browserslist": [
-		"extends browserslist-config-clay"
-	]
+	"repository": "https://github.com/liferay/clay",
+	"scripts": {
+		"build": "cross-env NODE_ENV=production node ../../scripts/build.js",
+		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
+		"test": "jest --config ../../jest.config.js"
+	},
+	"ts:main": "src/index.tsx",
+	"type": "module",
+	"types": "./lib/index.d.ts",
+	"version": "3.124.0"
 }
