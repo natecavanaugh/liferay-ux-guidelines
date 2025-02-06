@@ -2,10 +2,31 @@
 title: 'Radio Group'
 description: 'Radios provide users with different selection and activation tools.'
 packageNpm: '@clayui/form'
-navigationParent: 'docs/components/form.html'
+packageUse: "import {ClayRadio, ClayRadioGroup} from '@clayui/form';"
 storybookPath: 'design-system-components-radio'
+packageTypes: ['clay-form/src/RadioGroup.tsx', 'clay-form/src/Radio.tsx']
 ---
 
-import {RadioGroup} from '$packages/clay-form/docs/radiogroup';
+## Example
 
-<RadioGroup />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayRadio, ClayRadioGroup} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayRadioGroup defaultValue="one" inline>
+					<ClayRadio label="One" value="one" />
+					<ClayRadio label="Two" value="two" />
+					<ClayRadio label="Three" value="three" />
+				</ClayRadioGroup>
+			</div>
+		</Provider>
+	);
+}
+```

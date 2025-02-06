@@ -8,7 +8,7 @@ import ClayLink from '@clayui/link';
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayLabelItemAfter = React.forwardRef<
+export const ItemAfter = React.forwardRef<
 	HTMLSpanElement,
 	React.HTMLAttributes<HTMLSpanElement>
 >(({children, className, ...otherProps}, ref) => (
@@ -21,9 +21,9 @@ const ClayLabelItemAfter = React.forwardRef<
 	</span>
 ));
 
-ClayLabelItemAfter.displayName = 'ClayLabelItemAfter';
+ItemAfter.displayName = 'ClayLabelItemAfter';
 
-const ClayLabelItemBefore = React.forwardRef<
+export const ItemBefore = React.forwardRef<
 	HTMLSpanElement,
 	React.HTMLAttributes<HTMLSpanElement>
 >(({children, className, ...otherProps}, ref) => (
@@ -36,9 +36,9 @@ const ClayLabelItemBefore = React.forwardRef<
 	</span>
 ));
 
-ClayLabelItemBefore.displayName = 'ClayLabelItemBefore';
+ItemBefore.displayName = 'ClayLabelItemBefore';
 
-const ClayLabelItemExpand = React.forwardRef<
+export const ItemExpand = React.forwardRef<
 	HTMLAnchorElement | HTMLSpanElement,
 	React.BaseHTMLAttributes<HTMLAnchorElement | HTMLSpanElement>
 >(({children, className, href, ...otherProps}, ref) => {
@@ -56,15 +56,7 @@ const ClayLabelItemExpand = React.forwardRef<
 	);
 });
 
-ClayLabelItemExpand.displayName = 'ClayLabelItemExpand';
-
-type DisplayType =
-	| 'secondary'
-	| 'info'
-	| 'warning'
-	| 'danger'
-	| 'success'
-	| 'unstyled';
+ItemExpand.displayName = 'ClayLabelItemExpand';
 
 interface IBaseProps extends React.BaseHTMLAttributes<HTMLSpanElement> {
 	/**
@@ -75,7 +67,13 @@ interface IBaseProps extends React.BaseHTMLAttributes<HTMLSpanElement> {
 	/**
 	 * Determines the style of the label.
 	 */
-	displayType?: DisplayType;
+	displayType?:
+		| 'secondary'
+		| 'info'
+		| 'warning'
+		| 'danger'
+		| 'success'
+		| 'unstyled';
 
 	/**
 	 * Flag to indicate if the label should be of the `large` variant.
@@ -83,7 +81,7 @@ interface IBaseProps extends React.BaseHTMLAttributes<HTMLSpanElement> {
 	large?: boolean;
 }
 
-const ClayLabel = React.forwardRef<HTMLSpanElement, IBaseProps>(
+const OldLabel = React.forwardRef<HTMLSpanElement, IBaseProps>(
 	(
 		{
 			children,
@@ -111,7 +109,7 @@ const ClayLabel = React.forwardRef<HTMLSpanElement, IBaseProps>(
 	}
 );
 
-ClayLabel.displayName = 'ClayLabel';
+OldLabel.displayName = 'ClayLabel';
 
 interface IProps extends IBaseProps {
 	/**
@@ -124,7 +122,7 @@ interface IProps extends IBaseProps {
 	/**
 	 * Pros to add to the inner label item
 	 */
-	innerElementProps?: React.ComponentProps<typeof ClayLabelItemExpand>;
+	innerElementProps?: React.ComponentProps<typeof ItemExpand>;
 
 	/**
 	 * Path to the location of the spritemap resource used for Icon.
@@ -137,10 +135,18 @@ interface IProps extends IBaseProps {
 	withClose?: boolean;
 }
 
-const ClayLabelHybrid = React.forwardRef<
-	HTMLAnchorElement | HTMLSpanElement,
-	IProps
->(
+interface IForwardRef<T, P = {}>
+	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
+	ItemAfter: typeof ItemAfter;
+	ItemBefore: typeof ItemBefore;
+	ItemExpand: typeof ItemExpand;
+}
+
+function forwardRef<T, P = {}>(component: React.RefForwardingComponent<T, P>) {
+	return React.forwardRef<T, P>(component) as IForwardRef<T, P>;
+}
+
+const Label = forwardRef<HTMLAnchorElement | HTMLSpanElement, IProps>(
 	(
 		{
 			children,
@@ -154,7 +160,7 @@ const ClayLabelHybrid = React.forwardRef<
 		ref
 	) => {
 		return (
-			<ClayLabel
+			<OldLabel
 				dismissible={withClose && !!closeButtonProps}
 				{...otherProps}
 				ref={ref}
@@ -163,12 +169,12 @@ const ClayLabelHybrid = React.forwardRef<
 
 				{withClose && (
 					<>
-						<ClayLabelItemExpand {...innerElementProps} href={href}>
+						<ItemExpand {...innerElementProps} href={href}>
 							{children}
-						</ClayLabelItemExpand>
+						</ItemExpand>
 
 						{closeButtonProps && (
-							<ClayLabelItemAfter>
+							<ItemAfter>
 								<button
 									{...closeButtonProps}
 									className={classNames(
@@ -182,19 +188,19 @@ const ClayLabelHybrid = React.forwardRef<
 										symbol="times-small"
 									/>
 								</button>
-							</ClayLabelItemAfter>
+							</ItemAfter>
 						)}
 					</>
 				)}
-			</ClayLabel>
+			</OldLabel>
 		);
 	}
 );
 
-ClayLabelHybrid.displayName = 'ClayLabel';
+Label.displayName = 'ClayLabel';
 
-export default Object.assign(ClayLabelHybrid, {
-	ItemAfter: ClayLabelItemAfter,
-	ItemBefore: ClayLabelItemBefore,
-	ItemExpand: ClayLabelItemExpand,
-});
+Label.ItemAfter = ItemAfter;
+Label.ItemBefore = ItemBefore;
+Label.ItemExpand = ItemExpand;
+
+export default Label;

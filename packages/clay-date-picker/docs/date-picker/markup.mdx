@@ -1,0 +1,5280 @@
+---
+title: 'Date Picker'
+description: 'Date and Time pickers let users select a date and time for a form.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/picker-date-time/'
+packageNpm: '@clayui/date-picker'
+packageUse: "import DatePicker from '@clayui/date-picker';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	This requires custom javascript.
+</div>
+
+## Example
+
+The DropDown content of the DatePicker consists of `Header`, `Body` and `Footer`. `Footer`: You can add elements that complement the Date Picker like the Time Picker.
+
+<div className="clay-site-dropdown-menu-container sheet-example">
+	<div className="date-picker">
+		<div className="date-picker-dropdown-menu dropdown-menu">
+			<div className="date-picker-calendar">
+				<div className="date-picker-calendar-header">
+					Date Picker Calendar Header
+				</div>
+				<div className="date-picker-calendar-body">
+					Date Picker Calendar Body
+				</div>
+				<div className="date-picker-calendar-footer">
+					Date Picker Calendar Footer
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="date-picker">
+	<div className="date-picker-dropdown-menu dropdown-menu">
+		<div className="date-picker-calendar-header">...</div>
+		<div className="date-picker-calendar-body">...</div>
+		<div className="date-picker-calendar-footer">...</div>
+	</div>
+</div>
+```
+
+<div className="clay-site-dropdown-menu-container sheet-example">
+	<div className="date-picker">
+		<div className="input-group">
+			<div className="input-group-item">
+				<input name="datePicker" type="hidden" value="" />
+				<input className="form-control input-group-inset input-group-inset-after" placeholder="YYYY-MM-DD" type="text" value="" />
+				<div className="input-group-inset-item input-group-inset-item-after">
+					<button className="btn btn-unstyled date-picker-dropdown-toggle" type="button">
+						<span className="c-inner" tabindex="-1">
+							<svg className="lexicon-icon lexicon-icon-calendar" focusable="false" role="presentation">
+								<use href="/images/icons/icons.svg#calendar" />
+							</svg>
+						</span>
+					</button>
+				</div>
+			</div>
+
+    	</div>
+    	<div className="date-picker-dropdown-menu dropdown-menu">
+    		<div className="date-picker-calendar">
+    			<div className="date-picker-calendar-header">
+    				<div className="date-picker-nav">
+    					<div className="date-picker-nav-item input-date-picker-month">
+    						<select className="form-control" disabled="" name="month">
+    							<option value="0">January</option>
+    							<option value="1">February</option>
+    							<option value="2">March</option>
+    							<option value="3">April</option>
+    							<option value="4">May</option>
+    							<option value="5">June</option>
+    							<option value="6">July</option>
+    							<option value="7">August</option>
+    							<option value="8">September</option>
+    							<option value="9">October</option>
+    							<option value="10">November</option>
+    							<option value="11">December</option>
+    						</select>
+    					</div>
+    					<div className="date-picker-nav-item input-date-picker-year">
+    						<select className="form-control" name="year">
+    							<option value="1997">1997</option>
+    							<option value="1998">1998</option>
+    							<option value="1999">1999</option>
+    							<option value="2000">2000</option>
+    							<option value="2001">2001</option>
+    							<option value="2002">2002</option>
+    							<option value="2003">2003</option>
+    							<option value="2004">2004</option>
+    							<option value="2005">2005</option>
+    							<option value="2006">2006</option>
+    							<option value="2007">2007</option>
+    							<option value="2008">2008</option>
+    							<option value="2009">2009</option>
+    							<option value="2010">2010</option>
+    							<option value="2011">2011</option>
+    							<option value="2012">2012</option>
+    							<option value="2013">2013</option>
+    							<option value="2014">2014</option>
+    							<option value="2015">2015</option>
+    							<option value="2016">2016</option>
+    							<option value="2017">2017</option>
+    							<option value="2018">2018</option>
+    							<option value="2019">2019</option>
+    							<option value="2020">2020</option>
+    							<option value="2021">2021</option>
+    							<option value="2022">2022</option>
+    							<option value="2023">2023</option>
+    						</select>
+    					</div>
+    					<div className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls">
+    						<button aria-label="Select the previous month" className="btn nav-btn nav-btn-monospaced" disabled="" type="button">
+    							<span className="c-inner" tabindex="-1">
+    								<svg className="lexicon-icon lexicon-icon-angle-left" focusable="false" role="presentation">
+    									<use href="/images/icons/icons.svg#angle-left" />
+    								</svg>
+    							</span>
+    						</button>
+    						<button aria-label="Select current date" className="btn nav-btn nav-btn-monospaced" type="button">
+    							<span className="c-inner" tabindex="-1">
+    								<svg className="lexicon-icon lexicon-icon-simple-circle" focusable="false" role="presentation">
+    									<use href="/images/icons/icons.svg#simple-circle" />
+    								</svg>
+    							</span>
+    						</button>
+    						<button aria-label="Select the next month" className="btn nav-btn nav-btn-monospaced" type="button">
+    							<span className="c-inner" tabindex="-1">
+    								<svg className="lexicon-icon lexicon-icon-angle-right" focusable="false" role="presentation">
+    									<use href="/images/icons/icons.svg#angle-right" />
+    								</svg>
+    							</span>
+    						</button>
+    					</div>
+    				</div>
+    			</div>
+    			<div className="date-picker-calendar-body">
+    				<div className="date-picker-days-row date-picker-row">
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>S</abbr></div>
+    					</div>
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>M</abbr></div>
+    					</div>
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>T</abbr></div>
+    					</div>
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>W</abbr></div>
+    					</div>
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>T</abbr></div>
+    					</div>
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>F</abbr></div>
+    					</div>
+    					<div className="date-picker-col">
+    						<div className="date-picker-day date-picker-calendar-item"><abbr>S</abbr></div>
+    					</div>
+    				</div>
+    				<div className="date-picker-date-row date-picker-row">
+    					<div className="date-picker-col">
+    						<button aria-label="2019 01 27" className="date-picker-date date-picker-calendar-item previous-month-date" disabled="" type="button"><span className="c-inner" tabindex="-1">27</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 01 28" className="date-picker-date date-picker-calendar-item previous-month-date" disabled="" type="button"><span className="c-inner" tabindex="-1">28</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 01 29" className="date-picker-date date-picker-calendar-item previous-month-date" disabled="" type="button"><span className="c-inner" tabindex="-1">29</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 01 30" className="active date-picker-date date-picker-calendar-item previous-month-date" type="button"><span className="c-inner" tabindex="-1">30</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 01 31" className="date-picker-date date-picker-calendar-item previous-month-date" type="button"><span className="c-inner" tabindex="-1">31</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 01" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">1</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 02" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">2</span></button>
+    					</div>
+    				</div>
+    				<div className="date-picker-date-row date-picker-row">
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 03" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">3</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 04" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">4</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 05" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">5</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 06" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">6</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 07" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">7</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 08" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">8</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 09" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">9</span></button>
+    					</div>
+    				</div>
+    				<div className="date-picker-date-row date-picker-row">
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 10" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">10</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 11" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">11</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 12" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">12</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 13" className="date-picker-date date-picker-calendar-item" tabindex="-1" type="button"><span className="c-inner" tabindex="-1">13</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 14" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">14</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 15" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">15</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 16" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">16</span></button>
+    					</div>
+    				</div>
+    				<div className="date-picker-date-row date-picker-row">
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 17" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">17</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 18" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">18</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 19" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">19</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 20" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">20</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 21" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">21</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 22" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">22</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 23" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">23</span></button>
+    					</div>
+    				</div>
+    				<div className="date-picker-date-row date-picker-row">
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 24" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">24</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 25" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">25</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 26" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">26</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 27" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">27</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 02 28" className="date-picker-date date-picker-calendar-item" type="button"><span className="c-inner" tabindex="-1">28</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 03 01" className="date-picker-date date-picker-calendar-item next-month-date" type="button"><span className="c-inner" tabindex="-1">1</span></button>
+    					</div>
+    					<div className="date-picker-col">
+    						<button aria-label="2019 03 02" className="date-picker-date date-picker-calendar-item next-month-date" type="button"><span className="c-inner" tabindex="-1">2</span></button>
+    					</div>
+    				</div>
+    			</div>
+    			<div className="date-picker-calendar-footer">
+    				<div className="time-picker">
+    					<div className="input-group">
+    						<div className="input-group-item input-group-item-shrink">
+    							<span className="input-group-text">
+    								<svg className="lexicon-icon lexicon-icon-time" focusable="false" role="presentation">
+    									<use href="/images/icons/icons.svg#time" />
+    								</svg>
+    							</span>
+    						</div>
+    						<div className="input-group-item">
+    							<input className="form-control" name="timer" type="time" value="00:00" />
+    						</div>
+    						<div className="input-group-item input-group-item-shrink">
+    							<span className="input-group-text">(GMT+01:00)</span>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+</div>
+
+```html
+<div className="date-picker">
+	<div className="input-group">
+		<div className="input-group-item">
+			<input name="datePicker" type="hidden" value="" />
+			<input
+				className="form-control input-group-inset input-group-inset-after"
+				placeholder="YYYY-MM-DD"
+				type="text"
+				value=""
+			/>
+			<div
+				className="input-group-inset-item input-group-inset-item-after"
+			>
+				<button
+					className="btn btn-unstyled date-picker-dropdown-toggle"
+					type="button"
+				>
+					<span className="c-inner" tabindex="-1">
+						<svg
+							className="lexicon-icon lexicon-icon-calendar"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#calendar" />
+						</svg>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div className="date-picker-dropdown-menu dropdown-menu">
+		<div className="date-picker-calendar">
+			<div className="date-picker-calendar-header">
+				<div className="date-picker-nav">
+					<div
+						className="date-picker-nav-item input-date-picker-month"
+					>
+						<select
+							className="form-control"
+							disabled=""
+							name="month"
+						>
+							<option value="0">January</option>
+							<option value="1">February</option>
+							<option value="2">March</option>
+							<option value="3">April</option>
+							<option value="4">May</option>
+							<option value="5">June</option>
+							<option value="6">July</option>
+							<option value="7">August</option>
+							<option value="8">September</option>
+							<option value="9">October</option>
+							<option value="10">November</option>
+							<option value="11">December</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item input-date-picker-year"
+					>
+						<select className="form-control" name="year">
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							<option value="2000">2000</option>
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls"
+					>
+						<button
+							aria-label="Select the previous month"
+							className="btn nav-btn nav-btn-monospaced"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-left"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#angle-left"
+									/>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select current date"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-simple-circle"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#simple-circle"
+									/>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select the next month"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-right"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#angle-right"
+									/>
+								</svg>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div className="date-picker-calendar-body">
+				<div className="date-picker-days-row date-picker-row">
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>S</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>M</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>T</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>W</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>T</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>F</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>S</abbr>
+						</div>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 27"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">27</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 28"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">28</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 29"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">29</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 30"
+							className="active date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">30</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 31"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">31</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 01"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">1</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 02"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">2</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 03"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">3</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 04"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">4</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 05"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">5</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 06"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">6</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 07"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">7</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 08"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">8</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 09"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">9</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 10"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">10</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 11"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">11</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 12"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">12</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 13"
+							className="date-picker-date date-picker-calendar-item"
+							tabindex="-1"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">13</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 14"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">14</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 15"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">15</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 16"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">16</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 17"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">17</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 18"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">18</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 19"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">19</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 20"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">20</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 21"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">21</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 22"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">22</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 23"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">23</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 24"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">24</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 25"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">25</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 26"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">26</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 27"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">27</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 28"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">28</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 03 01"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">1</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 03 02"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">2</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div className="date-picker-calendar-footer">
+				<div className="time-picker">
+					<div className="input-group">
+						<div
+							className="input-group-item input-group-item-shrink"
+						>
+							<span className="input-group-text">
+								<svg
+									className="lexicon-icon lexicon-icon-time"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#time" />
+								</svg>
+							</span>
+						</div>
+						<div className="input-group-item">
+							<input
+								className="form-control"
+								name="timer"
+								type="time"
+								value="00:00"
+							/>
+						</div>
+						<div
+							className="input-group-item input-group-item-shrink"
+						>
+							<span className="input-group-text"
+								>(GMT+01:00)</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Date Picker
+
+<div className="clay-site-dropdown-menu-container sheet-example">
+	<div className="date-picker">
+		<div className="date-picker-dropdown-menu dropdown-menu">
+			<div className="date-picker-calendar">
+				<div className="date-picker-calendar-header">
+					<div className="date-picker-nav">
+						<div className="date-picker-nav-item input-date-picker-month">
+							<select
+								className="form-control"
+								disabled=""
+								name="month"
+							>
+								<option value="0">January</option>
+								<option value="1">February</option>
+								<option value="2">March</option>
+								<option value="3">April</option>
+								<option value="4">May</option>
+								<option value="5">June</option>
+								<option value="6">July</option>
+								<option value="7">August</option>
+								<option value="8">September</option>
+								<option value="9">October</option>
+								<option value="10">November</option>
+								<option value="11">December</option>
+							</select>
+						</div>
+						<div className="date-picker-nav-item input-date-picker-year">
+							<select className="form-control" name="year">
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+							</select>
+						</div>
+						<div className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls">
+							<button
+								aria-label="Select the previous month"
+								className="btn nav-btn nav-btn-monospaced"
+								disabled=""
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-left"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#angle-left" />
+									</svg>
+								</span>
+							</button>
+							<button
+								aria-label="Select current date"
+								className="btn nav-btn nav-btn-monospaced"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-simple-circle"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#simple-circle" />
+									</svg>
+								</span>
+							</button>
+							<button
+								aria-label="Select the next month"
+								className="btn nav-btn nav-btn-monospaced"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#angle-right" />
+									</svg>
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="date-picker-calendar-body">
+					<div className="date-picker-days-row date-picker-row">
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>S</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>M</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>T</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>W</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>T</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>F</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>S</abbr>
+							</div>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 27"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								disabled=""
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									27
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 28"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								disabled=""
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									28
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 29"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								disabled=""
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									29
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 30"
+								className="active date-picker-date date-picker-calendar-item previous-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									30
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 31"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									31
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 01"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									1
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 02"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									2
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 03"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									3
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 04"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									4
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 05"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									5
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 06"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									6
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 07"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									7
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 08"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									8
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 09"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									9
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 10"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									10
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 11"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									11
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 12"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									12
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 13"
+								className="date-picker-date date-picker-calendar-item"
+								tabindex="-1"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									13
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 14"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									14
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 15"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									15
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 16"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									16
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 17"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									17
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 18"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									18
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 19"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									19
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 20"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									20
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 21"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									21
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 22"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									22
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 23"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									23
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 24"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									24
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 25"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									25
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 26"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									26
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 27"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									27
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 28"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									28
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 03 01"
+								className="date-picker-date date-picker-calendar-item next-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									1
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 03 02"
+								className="date-picker-date date-picker-calendar-item next-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									2
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="date-picker">
+	<div className="date-picker-dropdown-menu dropdown-menu">
+		<div className="date-picker-calendar">
+			<div className="date-picker-calendar-header">
+				<div className="date-picker-nav">
+					<div
+						className="date-picker-nav-item input-date-picker-month"
+					>
+						<select
+							className="form-control"
+							disabled=""
+							name="month"
+						>
+							<option value="0">January</option>
+							<option value="1">February</option>
+							<option value="2">March</option>
+							<option value="3">April</option>
+							<option value="4">May</option>
+							<option value="5">June</option>
+							<option value="6">July</option>
+							<option value="7">August</option>
+							<option value="8">September</option>
+							<option value="9">October</option>
+							<option value="10">November</option>
+							<option value="11">December</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item input-date-picker-year"
+					>
+						<select className="form-control" name="year">
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							<option value="2000">2000</option>
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls"
+					>
+						<button
+							aria-label="Select the previous month"
+							className="btn nav-btn nav-btn-monospaced"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-left"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#angle-left"
+									/>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select current date"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-simple-circle"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#simple-circle"
+									/>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select the next month"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-right"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#angle-right"
+									/>
+								</svg>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div className="date-picker-calendar-body">
+				<div className="date-picker-days-row date-picker-row">
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>S</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>M</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>T</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>W</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>T</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>F</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>S</abbr>
+						</div>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 27"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">27</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 28"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">28</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 29"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled=""
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">29</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 30"
+							className="active date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">30</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 31"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">31</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 01"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">1</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 02"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">2</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 03"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">3</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 04"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">4</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 05"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">5</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 06"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">6</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 07"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">7</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 08"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">8</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 09"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">9</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 10"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">10</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 11"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">11</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 12"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">12</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 13"
+							className="date-picker-date date-picker-calendar-item"
+							tabindex="-1"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">13</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 14"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">14</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 15"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">15</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 16"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">16</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 17"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">17</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 18"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">18</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 19"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">19</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 20"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">20</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 21"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">21</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 22"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">22</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 23"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">23</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 24"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">24</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 25"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">25</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 26"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">26</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 27"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">27</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 28"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">28</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 03 01"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">1</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 03 02"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">2</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Date Picker Field
+
+Add the class `focus` to the `input-group-item` to show the focus border.
+
+<div className="sheet-example">
+	<div className="input-group">
+		<div className="input-group-item">
+			<input name="datePicker" type="hidden" value="" />
+			<input
+				className="form-control input-group-inset input-group-inset-after"
+				placeholder="YYYY-MM-DD"
+				type="text"
+				value=""
+			/>
+			<div className="input-group-inset-item input-group-inset-item-after">
+				<button
+					className="btn btn-unstyled date-picker-dropdown-toggle"
+					type="button"
+				>
+					<span className="c-inner" tabindex="-1">
+						<svg
+							className="lexicon-icon lexicon-icon-calendar"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#calendar" />
+						</svg>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="input-group">
+	<div className="input-group-item">
+		<input name="datePicker" type="hidden" value="" />
+		<input
+			className="form-control input-group-inset input-group-inset-after"
+			placeholder="YYYY-MM-DD"
+			type="text"
+			value=""
+		/>
+		<div className="input-group-inset-item input-group-inset-item-after">
+			<button
+				className="btn btn-unstyled date-picker-dropdown-toggle"
+				type="button"
+			>
+				<span className="c-inner" tabindex="-1">
+					<svg
+						className="lexicon-icon lexicon-icon-calendar"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#calendar" />
+					</svg>
+				</span>
+			</button>
+		</div>
+	</div>
+</div>
+```
+
+### Date Picker Date Range
+
+The class `c-selected` must be added to `date-picker-col` for all dates in the range.
+
+The modifier class `c-selected-start` must be added to `date-picker-col` for the first date in the range.
+
+The class `c-selected-end` must be added to `date-picker-col` for the last date in the range.
+
+<div className="clay-site-dropdown-menu-container sheet-example">
+	<div className="date-picker">
+		<div className="date-picker-dropdown-menu dropdown-menu">
+			<div className="date-picker-calendar">
+				<div className="date-picker-calendar-header">
+					<div className="date-picker-nav">
+						<div className="date-picker-nav-item input-date-picker-month">
+							<select
+								className="form-control"
+								disabled
+								name="month"
+							>
+								<option value="0">January</option>
+								<option value="1">February</option>
+								<option value="2">March</option>
+								<option value="3">April</option>
+								<option value="4">May</option>
+								<option value="5">June</option>
+								<option value="6">July</option>
+								<option value="7">August</option>
+								<option value="8">September</option>
+								<option value="9">October</option>
+								<option value="10">November</option>
+								<option value="11">December</option>
+							</select>
+						</div>
+						<div className="date-picker-nav-item input-date-picker-year">
+							<select className="form-control" name="year">
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+							</select>
+						</div>
+						<div className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls">
+							<button
+								aria-label="Select the previous month"
+								className="btn nav-btn nav-btn-monospaced"
+								disabled
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-left"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#angle-left"></use>
+									</svg>
+								</span>
+							</button>
+							<button
+								aria-label="Select current date"
+								className="btn nav-btn nav-btn-monospaced"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-simple-circle"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#simple-circle"></use>
+									</svg>
+								</span>
+							</button>
+							<button
+								aria-label="Select the next month"
+								className="btn nav-btn nav-btn-monospaced"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#angle-right"></use>
+									</svg>
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="date-picker-calendar-body">
+					<div className="date-picker-days-row date-picker-row">
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Mon</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Tues</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Wed</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Thu</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Fri</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Sat</abbr>
+							</div>
+						</div>
+						<div className="date-picker-col">
+							<div className="date-picker-day date-picker-calendar-item">
+								<abbr>Sun</abbr>
+							</div>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 27"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								disabled
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									27
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 28"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								disabled
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									28
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 01 29"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								disabled
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									29
+								</span>
+							</button>
+						</div>
+						<div className="c-selected c-selected-start date-picker-col">
+							<button
+								aria-label="2019 01 30"
+								className="active date-picker-date date-picker-calendar-item previous-month-date"
+								tabindex="-1"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									30
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 01 31"
+								className="date-picker-date date-picker-calendar-item previous-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									31
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 01"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									1
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 02"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									2
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 03"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									3
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 04"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									4
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 05"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									5
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 06"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									6
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 07"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									7
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 08"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									8
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 09"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									9
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 10"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									10
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 11"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									11
+								</span>
+							</button>
+						</div>
+						<div className="c-selected date-picker-col">
+							<button
+								aria-label="2019 02 12"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									12
+								</span>
+							</button>
+						</div>
+						<div className="c-selected c-selected-end date-picker-col">
+							<button
+								aria-label="2019 02 13"
+								className="date-picker-date date-picker-calendar-item active"
+								tabindex="-1"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									13
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 14"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									14
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 15"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									15
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 16"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									16
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 17"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									17
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 18"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									18
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 19"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									19
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 20"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									20
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 21"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									21
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 22"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									22
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 23"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									23
+								</span>
+							</button>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 24"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									24
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 25"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									25
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 26"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									26
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 27"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									27
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 02 28"
+								className="date-picker-date date-picker-calendar-item"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									28
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 03 01"
+								className="date-picker-date date-picker-calendar-item next-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									1
+								</span>
+							</button>
+						</div>
+						<div className="date-picker-col">
+							<button
+								aria-label="2019 03 02"
+								className="date-picker-date date-picker-calendar-item next-month-date"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									2
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="date-picker">
+	<div className="date-picker-dropdown-menu dropdown-menu">
+		<div className="date-picker-calendar">
+			<div className="date-picker-calendar-header">
+				<div className="date-picker-nav">
+					<div
+						className="date-picker-nav-item input-date-picker-month"
+					>
+						<select className="form-control" disabled name="month">
+							<option value="0">January</option>
+							<option value="1">February</option>
+							<option value="2">March</option>
+							<option value="3">April</option>
+							<option value="4">May</option>
+							<option value="5">June</option>
+							<option value="6">July</option>
+							<option value="7">August</option>
+							<option value="8">September</option>
+							<option value="9">October</option>
+							<option value="10">November</option>
+							<option value="11">December</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item input-date-picker-year"
+					>
+						<select className="form-control" name="year">
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							<option value="2000">2000</option>
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls"
+					>
+						<button
+							aria-label="Select the previous month"
+							className="btn nav-btn nav-btn-monospaced"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-left"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#angle-left"
+									></use>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select current date"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-simple-circle"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#simple-circle"
+									></use>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select the next month"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-right"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#angle-right"
+									></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div className="date-picker-calendar-body">
+				<div className="date-picker-days-row date-picker-row">
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Mon</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Tues</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Wed</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Thu</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Fri</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Sat</abbr>
+						</div>
+					</div>
+					<div className="date-picker-col">
+						<div
+							className="date-picker-day date-picker-calendar-item"
+						>
+							<abbr>Sun</abbr>
+						</div>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 27"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">27</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 28"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">28</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 01 29"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">29</span>
+						</button>
+					</div>
+					<div
+						className="c-selected c-selected-start date-picker-col"
+					>
+						<button
+							aria-label="2019 01 30"
+							className="active date-picker-date date-picker-calendar-item previous-month-date"
+							tabindex="-1"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">30</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 01 31"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">31</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 01"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">1</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 02"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">2</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 03"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">3</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 04"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">4</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 05"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">5</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 06"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">6</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 07"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">7</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 08"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">8</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 09"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">9</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 10"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">10</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 11"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">11</span>
+						</button>
+					</div>
+					<div className="c-selected date-picker-col">
+						<button
+							aria-label="2019 02 12"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">12</span>
+						</button>
+					</div>
+					<div className="c-selected c-selected-end date-picker-col">
+						<button
+							aria-label="2019 02 13"
+							className="date-picker-date date-picker-calendar-item active"
+							tabindex="-1"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">13</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 14"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">14</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 15"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">15</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 16"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">16</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 17"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">17</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 18"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">18</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 19"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">19</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 20"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">20</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 21"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">21</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 22"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">22</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 23"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">23</span>
+						</button>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 24"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">24</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 25"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">25</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 26"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">26</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 27"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">27</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 02 28"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">28</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 03 01"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">1</span>
+						</button>
+					</div>
+					<div className="date-picker-col">
+						<button
+							aria-label="2019 03 02"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">2</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Date Picker Old Markup
+
+<div className="clay-site-alert alert alert-warning">
+	In Clay CSS versions 3.24.1 and below, Date Picker days and dates weren't
+	wrapped in an extra element <code>date-picker-col</code>. We added the
+	wrapping element for highlighting a range of dates. See{' '}
+	<a
+		href="https://github.com/liferay/clay/issues/3986"
+		rel="noreferrer noopener"
+		target="_blank"
+	>
+		#3986
+	</a>
+	. This old pattern is still supported, but we recommend updating your markup.
+</div>
+
+<div className="clay-site-dropdown-menu-container sheet-example">
+	<div className="date-picker">
+		<div className="date-picker-dropdown-menu dropdown-menu">
+			<div className="date-picker-calendar">
+				<div className="date-picker-calendar-header">
+					<div className="date-picker-nav">
+						<div className="date-picker-nav-item input-date-picker-month">
+							<select
+								className="form-control"
+								disabled
+								name="month"
+							>
+								<option value="0">January</option>
+								<option value="1">February</option>
+								<option value="2">March</option>
+								<option value="3">April</option>
+								<option value="4">May</option>
+								<option value="5">June</option>
+								<option value="6">July</option>
+								<option value="7">August</option>
+								<option value="8">September</option>
+								<option value="9">October</option>
+								<option value="10">November</option>
+								<option value="11">December</option>
+							</select>
+						</div>
+						<div className="date-picker-nav-item input-date-picker-year">
+							<select className="form-control" name="year">
+								<option value="1997">1997</option>
+								<option value="1998">1998</option>
+								<option value="1999">1999</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+								<option value="2002">2002</option>
+								<option value="2003">2003</option>
+								<option value="2004">2004</option>
+								<option value="2005">2005</option>
+								<option value="2006">2006</option>
+								<option value="2007">2007</option>
+								<option value="2008">2008</option>
+								<option value="2009">2009</option>
+								<option value="2010">2010</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+								<option value="2017">2017</option>
+								<option value="2018">2018</option>
+								<option value="2019">2019</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+							</select>
+						</div>
+						<div className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls">
+							<button
+								aria-label="Select the previous month"
+								className="btn nav-btn nav-btn-monospaced"
+								disabled
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-left"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#angle-left"></use>
+									</svg>
+								</span>
+							</button>
+							<button
+								aria-label="Select current date"
+								className="btn nav-btn nav-btn-monospaced"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-simple-circle"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#simple-circle"></use>
+									</svg>
+								</span>
+							</button>
+							<button
+								aria-label="Select the next month"
+								className="btn nav-btn nav-btn-monospaced"
+								type="button"
+							>
+								<span className="c-inner" tabindex="-1">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#angle-right"></use>
+									</svg>
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="date-picker-calendar-body">
+					<div className="date-picker-days-row date-picker-row">
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Mon</abbr>
+						</div>
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Tues</abbr>
+						</div>
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Wed</abbr>
+						</div>
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Thu</abbr>
+						</div>
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Fri</abbr>
+						</div>
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Sat</abbr>
+						</div>
+						<div className="date-picker-day date-picker-calendar-item">
+							<abbr>Sun</abbr>
+						</div>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<button
+							aria-label="2019 01 27"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								27
+							</span>
+						</button>
+						<button
+							aria-label="2019 01 28"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								28
+							</span>
+						</button>
+						<button
+							aria-label="2019 01 29"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								29
+							</span>
+						</button>
+						<button
+							aria-label="2019 01 30"
+							className="active date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								30
+							</span>
+						</button>
+						<button
+							aria-label="2019 01 31"
+							className="date-picker-date date-picker-calendar-item previous-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								31
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 01"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								1
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 02"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								2
+							</span>
+						</button>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<button
+							aria-label="2019 02 03"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								3
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 04"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								4
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 05"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								5
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 06"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								6
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 07"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								7
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 08"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								8
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 09"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								9
+							</span>
+						</button>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<button
+							aria-label="2019 02 10"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								10
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 11"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								11
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 12"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								12
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 13"
+							className="date-picker-date date-picker-calendar-item active"
+							tabindex="-1"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								13
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 14"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								14
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 15"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								15
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 16"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								16
+							</span>
+						</button>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<button
+							aria-label="2019 02 17"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								17
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 18"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								18
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 19"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								19
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 20"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								20
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 21"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								21
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 22"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								22
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 23"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								23
+							</span>
+						</button>
+					</div>
+					<div className="date-picker-date-row date-picker-row">
+						<button
+							aria-label="2019 02 24"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								24
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 25"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								25
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 26"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								26
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 27"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								27
+							</span>
+						</button>
+						<button
+							aria-label="2019 02 28"
+							className="date-picker-date date-picker-calendar-item"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								28
+							</span>
+						</button>
+						<button
+							aria-label="2019 03 01"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								1
+							</span>
+						</button>
+						<button
+							aria-label="2019 03 02"
+							className="date-picker-date date-picker-calendar-item next-month-date"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								2
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="date-picker">
+	<div className="date-picker-dropdown-menu dropdown-menu">
+		<div className="date-picker-calendar">
+			<div className="date-picker-calendar-header">
+				<div className="date-picker-nav">
+					<div
+						className="date-picker-nav-item input-date-picker-month"
+					>
+						<select className="form-control" disabled name="month">
+							<option value="0">January</option>
+							<option value="1">February</option>
+							<option value="2">March</option>
+							<option value="3">April</option>
+							<option value="4">May</option>
+							<option value="5">June</option>
+							<option value="6">July</option>
+							<option value="7">August</option>
+							<option value="8">September</option>
+							<option value="9">October</option>
+							<option value="10">November</option>
+							<option value="11">December</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item input-date-picker-year"
+					>
+						<select className="form-control" name="year">
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							<option value="2000">2000</option>
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>
+							<option value="2004">2004</option>
+							<option value="2005">2005</option>
+							<option value="2006">2006</option>
+							<option value="2007">2007</option>
+							<option value="2008">2008</option>
+							<option value="2009">2009</option>
+							<option value="2010">2010</option>
+							<option value="2011">2011</option>
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+							<option value="2020">2020</option>
+							<option value="2021">2021</option>
+							<option value="2022">2022</option>
+							<option value="2023">2023</option>
+						</select>
+					</div>
+					<div
+						className="date-picker-nav-item date-picker-nav-item-expand date-picker-nav-controls"
+					>
+						<button
+							aria-label="Select the previous month"
+							className="btn nav-btn nav-btn-monospaced"
+							disabled
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-left"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#angle-left"
+									></use>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select current date"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-simple-circle"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#simple-circle"
+									></use>
+								</svg>
+							</span>
+						</button>
+						<button
+							aria-label="Select the next month"
+							className="btn nav-btn nav-btn-monospaced"
+							type="button"
+						>
+							<span className="c-inner" tabindex="-1">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-right"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#angle-right"
+									></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div className="date-picker-calendar-body">
+				<div className="date-picker-days-row date-picker-row">
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Mon</abbr>
+					</div>
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Tues</abbr>
+					</div>
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Wed</abbr>
+					</div>
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Thu</abbr>
+					</div>
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Fri</abbr>
+					</div>
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Sat</abbr>
+					</div>
+					<div className="date-picker-day date-picker-calendar-item">
+						<abbr>Sun</abbr>
+					</div>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<button
+						aria-label="2019 01 27"
+						className="date-picker-date date-picker-calendar-item previous-month-date"
+						disabled
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">27</span>
+					</button>
+					<button
+						aria-label="2019 01 28"
+						className="date-picker-date date-picker-calendar-item previous-month-date"
+						disabled
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">28</span>
+					</button>
+					<button
+						aria-label="2019 01 29"
+						className="date-picker-date date-picker-calendar-item previous-month-date"
+						disabled
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">29</span>
+					</button>
+					<button
+						aria-label="2019 01 30"
+						className="active date-picker-date date-picker-calendar-item previous-month-date"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">30</span>
+					</button>
+					<button
+						aria-label="2019 01 31"
+						className="date-picker-date date-picker-calendar-item previous-month-date"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">31</span>
+					</button>
+					<button
+						aria-label="2019 02 01"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">1</span>
+					</button>
+					<button
+						aria-label="2019 02 02"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">2</span>
+					</button>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<button
+						aria-label="2019 02 03"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">3</span>
+					</button>
+					<button
+						aria-label="2019 02 04"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">4</span>
+					</button>
+					<button
+						aria-label="2019 02 05"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">5</span>
+					</button>
+					<button
+						aria-label="2019 02 06"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">6</span>
+					</button>
+					<button
+						aria-label="2019 02 07"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">7</span>
+					</button>
+					<button
+						aria-label="2019 02 08"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">8</span>
+					</button>
+					<button
+						aria-label="2019 02 09"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">9</span>
+					</button>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<button
+						aria-label="2019 02 10"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">10</span>
+					</button>
+					<button
+						aria-label="2019 02 11"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">11</span>
+					</button>
+					<button
+						aria-label="2019 02 12"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">12</span>
+					</button>
+					<button
+						aria-label="2019 02 13"
+						className="date-picker-date date-picker-calendar-item active"
+						tabindex="-1"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">13</span>
+					</button>
+					<button
+						aria-label="2019 02 14"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">14</span>
+					</button>
+					<button
+						aria-label="2019 02 15"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">15</span>
+					</button>
+					<button
+						aria-label="2019 02 16"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">16</span>
+					</button>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<button
+						aria-label="2019 02 17"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">17</span>
+					</button>
+					<button
+						aria-label="2019 02 18"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">18</span>
+					</button>
+					<button
+						aria-label="2019 02 19"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">19</span>
+					</button>
+					<button
+						aria-label="2019 02 20"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">20</span>
+					</button>
+					<button
+						aria-label="2019 02 21"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">21</span>
+					</button>
+					<button
+						aria-label="2019 02 22"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">22</span>
+					</button>
+					<button
+						aria-label="2019 02 23"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">23</span>
+					</button>
+				</div>
+				<div className="date-picker-date-row date-picker-row">
+					<button
+						aria-label="2019 02 24"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">24</span>
+					</button>
+					<button
+						aria-label="2019 02 25"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">25</span>
+					</button>
+					<button
+						aria-label="2019 02 26"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">26</span>
+					</button>
+					<button
+						aria-label="2019 02 27"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">27</span>
+					</button>
+					<button
+						aria-label="2019 02 28"
+						className="date-picker-date date-picker-calendar-item"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">28</span>
+					</button>
+					<button
+						aria-label="2019 03 01"
+						className="date-picker-date date-picker-calendar-item next-month-date"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">1</span>
+					</button>
+					<button
+						aria-label="2019 03 02"
+						className="date-picker-date date-picker-calendar-item next-month-date"
+						type="button"
+					>
+						<span className="c-inner" tabindex="-1">2</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Browser Default Input Date
+
+Check the <a href="https://caniuse.com/input-datetime" rel="noreferrer noopener" target="_blank">browser support</a> for `input[type="date"]` before deciding if it's a good fit for your application.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="defaultInputDate">Default Input Date</label>
+		<input
+			className="form-control"
+			id="defaultInputDate"
+			name="defaultInputDate"
+			type="date"
+			value="1970-01-01"
+		/>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="defaultInputDate">Default Input Date</label>
+	<input
+		className="form-control"
+		id="defaultInputDate"
+		name="defaultInputDate"
+		type="date"
+		value="1970-01-01"
+	/>
+</div>
+```
+
+## Time Picker
+
+<div className="clay-site-alert alert alert-warning">
+	This requires external javascript to change values of nested inputs and
+	increment/decrement buttons. We use <code>input type="text"</code> because
+	it gives us better cross browser support for formatting numbers and text.
+</div>
+
+### Time Picker 12H
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker12h">Time Picker (12H)</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker12h"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<input
+								className="clay-time-ampm form-control-inset"
+								maxlength="2"
+								name="ampm"
+								type="text"
+								value="PM"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="timePicker12h">Time Picker (12H)</label>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							id="timePicker12h"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+						<input
+							className="clay-time-ampm form-control-inset"
+							maxlength="2"
+							name="ampm"
+							type="text"
+							value="PM"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-inc"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Time Picker 12H With Time Zone
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker12hTimeZone">
+			Time Picker (12H) with Time Zone
+		</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker12hTimeZone"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<input
+								className="clay-time-ampm form-control-inset"
+								maxlength="2"
+								name="ampm"
+								type="text"
+								value="PM"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="input-group-item input-group-item-shrink">
+					<span className="input-group-text">(GMT+01:00)</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+### Time Picker 12H With Time Zone and Icon
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker12hTimeZoneIcon">
+			Time Picker (12H) with Time Zone and Icon
+		</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="input-group-text">
+						<svg
+							className="lexicon-icon lexicon-icon-time"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#time"></use>
+						</svg>
+					</div>
+				</div>
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker12hTimeZoneIcon"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<input
+								className="clay-time-ampm form-control-inset"
+								maxlength="2"
+								name="ampm"
+								type="text"
+								value="PM"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="input-group-item input-group-item-shrink">
+					<span className="input-group-text">(GMT+01:00)</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="timePicker12hTimeZoneIcon"
+		>Time Picker (12H) with Time Zone and Icon</label
+	>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="input-group-text">
+					<svg
+						className="lexicon-icon lexicon-icon-time"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#time"></use>
+					</svg>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							id="timePicker12hTimeZoneIcon"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+						<input
+							className="clay-time-ampm form-control-inset"
+							maxlength="2"
+							name="ampm"
+							type="text"
+							value="PM"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<span className="input-group-text">(GMT+01:00)</span>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Time Picker 24H
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker24h">Time Picker (24H)</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker24h"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="timePicker24h">Time Picker (24H)</label>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							id="timePicker24h"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Time Picker With Seconds and Clear
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker12hSeconds">Time Picker (12H)</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker12hSeconds"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-seconds form-control-inset"
+								maxlength="2"
+								name="seconds"
+								type="text"
+								value="--"
+							/>
+							<input
+								className="clay-time-ampm form-control-inset"
+								maxlength="2"
+								name="ampm"
+								type="text"
+								value="--"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<button
+									className="btn clay-time-clear-btn"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times-circle"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times-circle"></use>
+									</svg>
+								</button>
+							</div>
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="form-group">
+		<label for="timePicker24hSeconds">Time Picker (24H)</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker24hSeconds"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-seconds form-control-inset"
+								maxlength="2"
+								name="seconds"
+								type="text"
+								value="--"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<button
+									className="btn clay-time-clear-btn"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times-circle"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times-circle"></use>
+									</svg>
+								</button>
+							</div>
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="timePicker12hSeconds">Time Picker (12H)</label>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							id="timePicker12hSeconds"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-seconds form-control-inset"
+							maxlength="2"
+							name="seconds"
+							type="text"
+							value="--"
+						/>
+						<input
+							className="clay-time-ampm form-control-inset"
+							maxlength="2"
+							name="ampm"
+							type="text"
+							value="--"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<button
+								className="btn clay-time-clear-btn"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times-circle"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times-circle"
+									></use>
+								</svg>
+							</button>
+						</div>
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="form-group">
+	<label for="timePicker24hSeconds">Time Picker (24H)</label>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							id="timePicker24hSeconds"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-seconds form-control-inset"
+							maxlength="2"
+							name="seconds"
+							type="text"
+							value="--"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<button
+								className="btn clay-time-clear-btn"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times-circle"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times-circle"
+									></use>
+								</svg>
+							</button>
+						</div>
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-inc"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Time Picker Focus State
+
+Add the class `focus` to `form-control`.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker12hFocus">Time Picker (12H)</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control focus">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								id="timePicker12hFocus"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<input
+								className="clay-time-ampm form-control-inset"
+								maxlength="2"
+								name="ampm"
+								type="text"
+								value="PM"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-inc"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="timePicker12hFocus">Time Picker (12H)</label>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control focus">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							id="timePicker12hFocus"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+						<input
+							className="clay-time-ampm form-control-inset"
+							maxlength="2"
+							name="ampm"
+							type="text"
+							value="PM"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-inc"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Time Picker Disabled State
+
+Add the class `disabled` to `form-control` and the attribute `disabled` to all nested `input`s and `button`s. The `label` can also be styled in a disabled state with the class `disabled`.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="timePicker12hDisabled">Time Picker (12H)</label>
+		<div className="clay-time">
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink">
+					<div className="form-control disabled">
+						<div className="clay-time-edit">
+							<input
+								className="clay-time-hours form-control-inset"
+								disabled
+								id="timePicker12hDisabled"
+								maxlength="2"
+								name="hours"
+								type="text"
+								value="--"
+							/>
+							<span className="clay-time-divider">:</span>
+							<input
+								className="clay-time-minutes form-control-inset"
+								disabled
+								maxlength="2"
+								name="minutes"
+								type="text"
+								value="--"
+							/>
+							<input
+								className="clay-time-ampm form-control-inset"
+								disabled
+								maxlength="2"
+								name="ampm"
+								type="text"
+								value="PM"
+							/>
+						</div>
+						<div className="clay-time-action-group">
+							<div className="clay-time-action-group-item">
+								<div
+									className="btn-group-vertical clay-time-inner-spin"
+									role="group"
+								>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-inc"
+										disabled
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-up"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-up"></use>
+										</svg>
+									</button>
+									<button
+										className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+										disabled
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-angle-down"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlink:href="/images/icons/icons.svg#angle-down"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="timePicker12hDisabled">Time Picker (12H)</label>
+	<div className="clay-time">
+		<div className="input-group">
+			<div className="input-group-item input-group-item-shrink">
+				<div className="form-control disabled">
+					<div className="clay-time-edit">
+						<input
+							className="clay-time-hours form-control-inset"
+							disabled
+							id="timePicker12hDisabled"
+							maxlength="2"
+							name="hours"
+							type="text"
+							value="--"
+						/>
+						<span className="clay-time-divider">:</span>
+						<input
+							className="clay-time-minutes form-control-inset"
+							disabled
+							maxlength="2"
+							name="minutes"
+							type="text"
+							value="--"
+						/>
+						<input
+							className="clay-time-ampm form-control-inset"
+							disabled
+							maxlength="2"
+							name="ampm"
+							type="text"
+							value="PM"
+						/>
+					</div>
+					<div className="clay-time-action-group">
+						<div className="clay-time-action-group-item">
+							<div
+								className="btn-group-vertical clay-time-inner-spin"
+								role="group"
+							>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-inc"
+									disabled
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-up"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-up"
+										></use>
+									</svg>
+								</button>
+								<button
+									className="btn btn-secondary clay-time-inner-spin-btn clay-time-inner-spin-btn-dec"
+									disabled
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											xlink:href="/images/icons/icons.svg#angle-down"
+										></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Browser Default Input Time
+
+Check the <a href="https://caniuse.com/input-datetime" rel="noreferrer noopener" target="_blank">browser support</a> for `input[type="time"]` before deciding if it's a good fit for your application.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<div className="clay-time">
+			<label for="defaultTimeInput">Time</label>
+			<input
+				className="form-control"
+				id="defaultTimeInput"
+				name="defaultTimeInput"
+				type="time"
+				value="14:00:00"
+			/>
+		</div>
+	</div>
+	<div className="form-group">
+		<div className="clay-time">
+			<label for="inputGroupDefaultTimeInput">Time With Time Zone</label>
+			<div className="input-group">
+				<div className="input-group-item">
+					<input
+						className="form-control"
+						id="inputGroupDefaultTimeInput"
+						name="timer"
+						type="time"
+						value="00:00"
+					/>
+				</div>
+				<div className="input-group-item input-group-item-shrink">
+					<span className="input-group-text">(GMT+01:00)</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="defaultTimeInput">Time</label>
+	<input
+		className="form-control"
+		id="defaultTimeInput"
+		name="defaultTimeInput"
+		type="time"
+		value="14:00:00"
+	/>
+</div>
+
+<div className="form-group">
+	<div className="input-group">
+		<div className="input-group-item">
+			<input
+				className="form-control"
+				name="timer"
+				type="time"
+				value="00:00"
+			/>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<span className="input-group-text">(GMT+01:00)</span>
+		</div>
+	</div>
+</div>
+```

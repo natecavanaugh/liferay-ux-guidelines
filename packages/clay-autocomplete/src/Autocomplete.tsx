@@ -39,7 +39,12 @@ type ItemProps<T> = {
 	keyValue: React.Key;
 };
 
-export type IProps<T> = {
+export interface IProps<T>
+	extends Omit<
+			React.HTMLAttributes<HTMLInputElement>,
+			'onChange' | 'children'
+		>,
+		Omit<Partial<ICollectionProps<T, unknown>>, 'virtualize' | 'items'> {
 	/**
 	 * Internal property to change the loading indicator markup to shrink.
 	 * @ignore
@@ -149,8 +154,7 @@ export type IProps<T> = {
 	loadingState?: number;
 
 	[key: string]: any;
-} & Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange' | 'children'> &
-	Omit<Partial<ICollectionProps<T, unknown>>, 'virtualize' | 'items'>;
+}
 
 const List = React.forwardRef<
 	HTMLUListElement,

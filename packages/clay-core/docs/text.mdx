@@ -3,57 +3,75 @@ title: 'Text'
 description: 'Text represent a single text line without semantic meaning.'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {Text} from '@clayui/core';"
 storybookPath: 'design-system-components-typography--text-typography'
+packageTypes: ['clay-core/src/typography/Text.tsx']
 ---
-
-import {
-	ExampleTextHighlight,
-	TextColorFont,
-	TextItalicFont,
-	TextMonospaceFont,
-	TextSize,
-	TextTruncateFont,
-	TextWeight,
-} from '$packages/clay-core/docs/text';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [Size](#size)
--   [As API](#as-api)
--   [Font Styles](#font-styles)
-    -   [Italic](#italic)
-    -   [Truncate](#truncate)
-    -   [Monospace](#monospace)
--   [Color](#color)
--   [Font Weights](#font-weights)
--   [Text Highlight](#text-highlight)
-
-</div>
-</div>
 
 ## Introduction
 
-Text is a component that represents a single text line without semantic meaning like a [Button](/docs/components/button.html). Text can also provide its styles using its props like [`italic`](#italic), [`truncate`](#truncate), [`monospace`](#monospace), [`color`](#color), [`weight`](#font-weights) and [`size`](#size).
+Text is a component that represents a single text line without semantic meaning like a [Button](/docs/components/button). Text can also provide its styles using its props like [`italic`](#italic), [`truncate`](#truncate), [`monospace`](#monospace), [`color`](#color), [`weight`](#font-weights) and [`size`](#size).
 
 ## Size
 
-The same way as [Heading](/docs/components/heading.html), Text provides its own font size level from 1 to 11 just indicating it in the property `size`. The default font size is 4.
+The same way as [Heading](/docs/components/heading), Text provides its own font size level from 1 to 11 just indicating it in the property `size`. The default font size is 4.
 
-<TextSize />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<div>
+				<Text size={11}>Text Size Level 11</Text>
+			</div>
+			<div>
+				<Text size={10}>Text Size Level 10</Text>
+			</div>
+			<div>
+				<Text size={9}>Text Size Level 9</Text>
+			</div>
+			<div>
+				<Text size={8}>Text Size Level 8</Text>
+			</div>
+			<div>
+				<Text size={7}>Text Size Level 7</Text>
+			</div>
+			<div>
+				<Text size={6}>Text Size Level 6</Text>
+			</div>
+			<div>
+				<Text size={5}>Text Size Level 5</Text>
+			</div>
+			<div>
+				<Text size={4}>Text Size Level 4</Text>
+			</div>
+			<div>
+				<Text size={3}>Text Size Level 3</Text>
+			</div>
+			<div>
+				<Text size={2}>Text Size Level 2</Text>
+			</div>
+			<div>
+				<Text size={1}>Text Size Level 1</Text>
+			</div>
+		</div>
+	);
+}
+```
 
 ## As API
 
 The HTML tag of this component can be chosen to ensure that the semantics of the text are representative. Text provides a property that allows to display the component depending on the user election. It can be displayed as `p` or `span` tag providing a block element or a inline one.
 
 ```jsx
-<Text as="p">
-    Text using paragraph
-</Text>
-<Text as="span">
-    Text using span
-</Text>
+<Text as="p">Text using paragraph</Text>
+```
+
+```jsx
+<Text as="span">Text using span</Text>
 ```
 
 ## Font Styles
@@ -62,34 +80,167 @@ The HTML tag of this component can be chosen to ensure that the semantics of the
 
 Likewise, Text provides a new property that allows you change the font weight of text in `italic` form.
 
-<TextItalicFont />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<Text italic>
+				Single origin, extra id beans, eu to go, skinny americano ut
+				aftertas te sugar. At americano, viennese variety iced grounds,
+				grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+				grounds café au lait, skinny, blue mountain, in variety sugar
+				shop roast. Wings, blue mountain affogato organic cappuccino
+				java plunger pot. Single shot variety pumpkin spice seasonal
+				skinny barista carajillo robust cream.
+			</Text>
+		</div>
+	);
+}
+```
 
 ### Truncate
 
 If you want to shortening Text content because it doesn't fit the layout correctly, you can use `truncate` property.
 
-<TextTruncateFont />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<Text truncate>
+				Single origin, extra id beans, eu to go, skinny americano ut
+				aftertas te sugar. At americano, viennese variety iced grounds,
+				grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+				grounds café au lait, skinny, blue mountain, in variety sugar
+				shop roast. Wings, blue mountain affogato organic cappuccino
+				java plunger pot. Single shot variety pumpkin spice seasonal
+				skinny barista carajillo robust cream.
+			</Text>
+		</div>
+	);
+}
+```
 
 ### Monospace
 
 Text provides a property which sets a font whose letters and characters each occupy the same amount of horizontal space, which is `monospace`.
 
-<TextMonospaceFont />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<Text monospace>
+				Single origin, extra id beans, eu to go, skinny americano ut
+				aftertas te sugar. At americano, viennese variety iced grounds,
+				grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+				grounds café au lait, skinny, blue mountain, in variety sugar
+				shop roast. Wings, blue mountain affogato organic cappuccino
+				java plunger pot. Single shot variety pumpkin spice seasonal
+				skinny barista carajillo robust cream.
+			</Text>
+		</div>
+	);
+}
+```
 
 ## Color
 
-Text has the ability to apply different `color` fonts giving emphasis to the text, you can check [here](/docs/css/content/typography.html#css-contextual-texts). Notice that is not recommended on light backgrounds due to contrast issues around light text.
+Text has the ability to apply different `color` fonts giving emphasis to the text, you can check [here](/docs/css/typography#css-contextual-texts). Notice that is not recommended on light backgrounds due to contrast issues around light text.
 
-<TextColorFont />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<Text as="p" color="primary">
+				primary
+			</Text>
+			<Text as="p" color="secondary">
+				secondary
+			</Text>
+			<Text as="p" color="muted">
+				muted
+			</Text>
+			<Text as="p" color="success">
+				success
+			</Text>
+			<Text as="p" color="warning">
+				warning
+			</Text>
+			<Text as="p" color="danger">
+				danger
+			</Text>
+			<Text as="p" color="info">
+				info
+			</Text>
+		</div>
+	);
+}
+```
 
 ## Font Weights
 
-As well as [Heading](/docs/components/heading.html), Text provides its own font weight styles from `bolder` to `lighter` just indicating it in the property `weight`. The default font weight is `normal`.
+As well as [Heading](/docs/components/heading), Text provides its own font weight styles from `bolder` to `lighter` just indicating it in the property `weight`. The default font weight is `normal`.
 
-<TextWeight />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<Text as="p" weight="lighter">
+				Text with ligther weight
+			</Text>
+			<Text as="p" weight="light">
+				Text with light weight
+			</Text>
+			<Text as="p" weight="normal">
+				Text with normal weight
+			</Text>
+			<Text as="p" weight="semi-bold">
+				Text with semi-bold weight
+			</Text>
+			<Text as="p" weight="bold">
+				Text with bold weight
+			</Text>
+			<Text as="p" weight="bolder">
+				Text with bolder weight
+			</Text>
+		</div>
+	);
+}
+```
 
 ## Text Highlight
 
 The `<TextHighlight />` component adds a highlight to the text characters that match the value that can be entered by the user, for example can be used in an Autocomplete component.
 
-<ExampleTextHighlight />
+```jsx preview
+import {Text} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<div className="p-4">
+			<TextHighlight match="Ri s">Rick Sanchez</TextHighlight>
+		</div>
+	);
+}
+```

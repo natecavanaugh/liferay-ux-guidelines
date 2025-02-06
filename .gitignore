@@ -5,7 +5,10 @@ lib
 node_modules
 *.log
 package-lock.json
+.env
 .gradle
 .parcel-cache
 .parcel-ci-builds
 .parcel-ci-build.json
+# Local Netlify folder
+.netlify

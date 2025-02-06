@@ -21,7 +21,7 @@ interface ISteps {
 	title?: string;
 }
 
-export interface IProps extends React.ComponentProps<typeof ClayMultiStepNav> {
+interface IProps extends React.ComponentProps<typeof ClayMultiStepNav> {
 	/**
 	 * Value for which step index is active (controlled).
 	 */
@@ -86,7 +86,7 @@ const IndicatorWithInnerRef = React.forwardRef<HTMLButtonElement, any>(
 
 IndicatorWithInnerRef.displayName = 'ClayIndicatorWithInnerRef';
 
-export const ClayMultiStepNavWithBasicItems = ({
+export const MultiStepNavWithBasicItems = ({
 	active,
 	activeIndex,
 	defaultActive,

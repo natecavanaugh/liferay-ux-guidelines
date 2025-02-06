@@ -7,7 +7,7 @@ import ClayLink from '@clayui/link';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IPaginationItemProps
+interface IPaginationItemProps
 	extends React.HTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
 	as?: 'div' | typeof ClayLink;
 	active?: boolean;
@@ -15,7 +15,7 @@ export interface IPaginationItemProps
 	href?: string;
 }
 
-const ClayPaginationItem = ({
+export const Item = ({
 	as: As = ClayLink,
 	active = false,
 	children,
@@ -52,5 +52,3 @@ const ClayPaginationItem = ({
 		</li>
 	);
 };
-
-export default ClayPaginationItem;

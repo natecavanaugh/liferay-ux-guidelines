@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayPanelHeader = ({
+export const Header = ({
 	children,
 	className,
 	...otherProps
@@ -17,5 +17,3 @@ const ClayPanelHeader = ({
 		</div>
 	);
 };
-
-export default ClayPanelHeader;

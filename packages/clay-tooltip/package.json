@@ -17,6 +17,7 @@
 	"scripts": {
 		"build": "cross-env NODE_ENV=production babel src --root-mode upward --out-dir lib --extensions .ts,.tsx",
 		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
+		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdx,json,scss}\"",
 		"test": "jest --config ../../jest.config.js"
 	},
 	"keywords": [

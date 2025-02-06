@@ -3,11 +3,43 @@ title: 'Color Picker'
 description: 'Color picker lets users select a color from a predefined palette, specify a color via its hexadecimal value, sample a color, and explore color values to create a custom color variation.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/picker-color/'
 packageNpm: '@clayui/color-picker'
+packageUse: "import ColorPicker from '@clayui/color-picker';"
+packageTypes: ['clay-color-picker/src/index.tsx']
 ---
 
-import {ColorPicker} from '$packages/clay-color-picker/docs/index';
+## Example
 
-## Types of Color Picker
+```jsx preview
+import {Provider} from '@clayui/core';
+import ColorPicker from '@clayui/color-picker';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [customColors, setCustoms] = useState(['008000', '00FFFF', '0000FF']);
+	const [color, setColor] = useState(customColors[0]);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ColorPicker
+					colors={customColors}
+					label="Custom Colors"
+					name="colorPicker2"
+					onChange={setColor}
+					onColorsChange={setCustoms}
+					showHex={true}
+					title="Custom Colors"
+					value={color}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Types
 
 Color Picker is delivered in 4 different ways: default colors, custom colors, native and small.
 
@@ -15,7 +47,5 @@ Color Picker is delivered in 4 different ways: default colors, custom colors, na
 -   **Custom colors**: using the [`colors`](#api-colors) API in conjunction with [`onColorsChange`](#api-onColorsChange) enables the user to modify colors and add new ones.
 -   **Native**: use the [`useNative`](#api-useNative) API when the color picker is being used in a native environment, it changes to the browser default color picker.
 -   **Small**: use the [`small`](#api-small) API to size the color picker input to match other small inputs.
-
-<ColorPicker />
 
 We recommend that you review the [use cases in the Storybook](https://storybook.clayui.com/?path=/story/design-system-components-colorpicker--default).

@@ -1,0 +1,987 @@
+---
+title: 'Timelines'
+description: 'Timelines represent an horizontal visualization of events along the time.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/timelines/'
+---
+
+Place `.timeline-increment` inside whatever element you want it to be aligned to. The element must be positioned relative. For the example below, we place it inside the `panel-heading` element. This vertically centers the icon and label relative to the panel-heading.
+
+The icon can be any size as long as it is wrapped inside `timeline-increment`. For larger icons, the spacing between the content and increment ([Timeline Spacing]) must be adjusted to accomodate it.
+
+## Default
+
+<div className="sheet-example">
+	<ul className="timeline">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<a
+					aria-controls="panelCcollapse000"
+					aria-expanded="false"
+					className="collapsed panel-header panel-header-link"
+					data-toggle="collapse"
+					href="#panelCollapse000"
+					id="heading000"
+					role="tab"
+				>
+					<span className="panel-title">
+						Single Collapsible Panel
+					</span>
+					<div className="timeline-increment">
+						<span className="timeline-icon"></span>
+					</div>
+				</a>
+				<div
+					aria-labelledby="heading000"
+					className="collapse panel-collapse"
+					id="panelCollapse000"
+					role="tabpanel"
+				>
+					<div className="panel-body">
+						In organic dripper so, body, robust medium pumpkin spice
+						cup, in aged dripper latte extra cup white. And viennese
+						redeye carajillo, beans, mug viennese, carajillo id
+						breve decaffeinated americano crema chicory whipped
+						arabica variety aged robusta. Affogato lungo eu,
+						cultivar at, aged breve and blue mountain roast breve
+						americano aged. Sugar acerbic sweet variety aged café au
+						lait chicory, java, single shot percolator aromatic
+						brewed wings, a, sugar, body, aftertaste organic barista
+						espresso dripper to go. Flavour to go strong steamed
+						mazagran trifecta decaffeinated percolator crema, aged
+						americano rich chicory frappuccino foam white.
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<a
+					aria-controls="panelCollapse001"
+					aria-expanded="false"
+					className="collapsed panel-header panel-header-link"
+					data-toggle="collapse"
+					href="#panelCollapse001"
+					id="heading001"
+					role="tab"
+				>
+					<span className="panel-title">
+						Single Collapsible Panel
+					</span>
+					<div className="timeline-increment">
+						<span className="timeline-icon"></span>
+					</div>
+				</a>
+				<div
+					aria-labelledby="heading001"
+					className="collapse panel-collapse"
+					id="panelCollapse002"
+					role="tabpanel"
+				>
+					<div className="panel-body">
+						In organic dripper so, body, robust medium pumpkin spice
+						cup, in aged dripper latte extra cup white. And viennese
+						redeye carajillo, beans, mug viennese, carajillo id
+						breve decaffeinated americano crema chicory whipped
+						arabica variety aged robusta. Affogato lungo eu,
+						cultivar at, aged breve and blue mountain roast breve
+						americano aged. Sugar acerbic sweet variety aged café au
+						lait chicory, java, single shot percolator aromatic
+						brewed wings, a, sugar, body, aftertaste organic barista
+						espresso dripper to go. Flavour to go strong steamed
+						mazagran trifecta decaffeinated percolator crema, aged
+						americano rich chicory frappuccino foam white.
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="timeline-increment">
+					<span className="timeline-icon"></span>
+				</div>
+				<div className="panel-body">
+					The icon can be any size as long as it is wrapped inside
+					timeline-increment. For larger icons, the spacing between
+					the content and label must be adjusted to accomodate it. The
+					spacing can be adjusted by modifying the $timeline-spacing
+					sass variable, or manually overriding in your css.
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<a
+				aria-controls="panelCcollapse000"
+				aria-expanded="false"
+				className="collapsed panel-header panel-header-link"
+				data-toggle="collapse"
+				href="#panelCollapse000"
+				id="heading000"
+				role="tab"
+			>
+				<span className="panel-title">Single Collapsible Panel</span>
+				<div className="timeline-increment">
+					<span className="timeline-icon"></span>
+				</div>
+			</a>
+			<div
+				aria-labelledby="heading000"
+				className="collapse panel-collapse"
+				id="panelCollapse000"
+				role="tabpanel"
+			>
+				<div className="panel-body">
+					In organic dripper so, body, robust medium pumpkin spice
+					cup, in aged dripper latte extra cup white. And viennese
+					redeye carajillo, beans, mug viennese, carajillo id breve
+					decaffeinated americano crema chicory whipped arabica
+					variety aged robusta. Affogato lungo eu, cultivar at, aged
+					breve and blue mountain roast breve americano aged. Sugar
+					acerbic sweet variety aged café au lait chicory, java,
+					single shot percolator aromatic brewed wings, a, sugar,
+					body, aftertaste organic barista espresso dripper to go.
+					Flavour to go strong steamed mazagran trifecta decaffeinated
+					percolator crema, aged americano rich chicory frappuccino
+					foam white.
+				</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<a
+				aria-controls="panelCollapse001"
+				aria-expanded="false"
+				className="collapsed panel-header panel-header-link"
+				data-toggle="collapse"
+				href="#panelCollapse001"
+				id="heading001"
+				role="tab"
+			>
+				<span className="panel-title">Single Collapsible Panel</span>
+				<div className="timeline-increment">
+					<span className="timeline-icon"></span>
+				</div>
+			</a>
+			<div
+				aria-labelledby="heading001"
+				className="collapse panel-collapse"
+				id="panelCollapse002"
+				role="tabpanel"
+			>
+				<div className="panel-body">
+					In organic dripper so, body, robust medium pumpkin spice
+					cup, in aged dripper latte extra cup white. And viennese
+					redeye carajillo, beans, mug viennese, carajillo id breve
+					decaffeinated americano crema chicory whipped arabica
+					variety aged robusta. Affogato lungo eu, cultivar at, aged
+					breve and blue mountain roast breve americano aged. Sugar
+					acerbic sweet variety aged café au lait chicory, java,
+					single shot percolator aromatic brewed wings, a, sugar,
+					body, aftertaste organic barista espresso dripper to go.
+					Flavour to go strong steamed mazagran trifecta decaffeinated
+					percolator crema, aged americano rich chicory frappuccino
+					foam white.
+				</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="timeline-increment">
+				<span className="timeline-icon"></span>
+			</div>
+			<div className="panel-body">
+				The icon can be any size as long as it is wrapped inside
+				timeline-increment. For larger icons, the spacing between the
+				content and label must be adjusted to accomodate it. The spacing
+				can be adjusted by modifying the $timeline-spacing sass
+				variable, or manually overriding in your css.
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+## Variations
+
+### Increment with Text
+
+Place text inside `timeline-increment` by wrapping the text with `<span className="timeline-increment-text"></span>`.
+
+<div className="sheet-example">
+	<ul className="timeline">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="timeline-increment">
+					<span className="timeline-increment-text">Jan 1</span>
+				</div>
+				<div className="panel-body">
+					The icon can be any size as long as it is wrapped inside
+					timeline-increment. For larger icons, the spacing between
+					the content and label must be adjusted to accomodate it. The
+					spacing can be adjusted by modifying the $timeline-spacing
+					sass variable, or manually overriding in your css.
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="timeline-increment">
+					<span className="timeline-increment-text">Dec 12</span>
+				</div>
+				<div className="panel-body">
+					The icon can be any size as long as it is wrapped inside
+					timeline-increment. For larger icons, the spacing between
+					the content and label must be adjusted to accomodate it. The
+					spacing can be adjusted by modifying the $timeline-spacing
+					sass variable, or manually overriding in your css.
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="timeline-increment">
+				<span className="timeline-increment-text">Jan 1</span>
+			</div>
+			<div className="panel-body">
+				The icon can be any size as long as it is wrapped inside
+				timeline-increment. For larger icons, the spacing between the
+				content and label must be adjusted to accomodate it. The spacing
+				can be adjusted by modifying the $timeline-spacing sass
+				variable, or manually overriding in your css.
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="timeline-increment">
+				<span className="timeline-increment-text">Dec 12</span>
+			</div>
+			<div className="panel-body">
+				The icon can be any size as long as it is wrapped inside
+				timeline-increment. For larger icons, the spacing between the
+				content and label must be adjusted to accomodate it. The spacing
+				can be adjusted by modifying the $timeline-spacing sass
+				variable, or manually overriding in your css.
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Right
+
+Align increments to the right with `timeline-right`.
+
+<div className="sheet-example">
+	<ul className="timeline timeline-right">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #1
+					<div className="timeline-increment">
+						<svg
+							className="lexicon-icon lexicon-icon-radio-button"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#radio-button"></use>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #2
+					<div className="timeline-increment">
+						<svg
+							className="lexicon-icon lexicon-icon-remove-role"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#remove-role"></use>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #3
+					<div className="timeline-increment">
+						<svg
+							className="lexicon-icon lexicon-icon-repository"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#repository"></use>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline timeline-right">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #1
+				<div className="timeline-increment">
+					<svg
+						className="lexicon-icon lexicon-icon-radio-button"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#radio-button"></use>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #2
+				<div className="timeline-increment">
+					<svg
+						className="lexicon-icon lexicon-icon-remove-role"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#remove-role"></use>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #3
+				<div className="timeline-increment">
+					<svg
+						className="lexicon-icon lexicon-icon-repository"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#repository"></use>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Center
+
+Add class `timeline-center` to center your timeline, it displays items on the right by default. To display items on the left, add class `timeline-item-reverse` to a timeline item.
+
+<div className="sheet-example">
+	<ul className="timeline timeline-center">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<a
+					aria-controls="panelCollapseTimelineCenter0"
+					aria-expanded="false"
+					className="collapsed panel-header panel-header-link"
+					data-toggle="collapse"
+					href="#panelCollapseTimelineCenter0"
+					id="headingTimelineCenter0"
+					role="tab"
+				>
+					<span className="panel-title">
+						Single Collapsible Panel
+					</span>
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</a>
+				<div
+					aria-labelledby="headingTimelineCenter0"
+					className="collapse panel-collapse"
+					id="panelCollapseTimelineCenter0"
+					role="tabpanel"
+				>
+					<div className="panel-body">
+						In organic dripper so, body, robust medium pumpkin spice
+						cup, in aged dripper latte extra cup white. And viennese
+						redeye carajillo, beans, mug viennese, carajillo id
+						breve decaffeinated americano crema chicory whipped
+						arabica variety aged robusta. Affogato lungo eu,
+						cultivar at, aged breve and blue mountain roast breve
+						americano aged. Sugar acerbic sweet variety aged café au
+						lait chicory, java, single shot percolator aromatic
+						brewed wings, a, sugar, body, aftertaste organic barista
+						espresso dripper to go. Flavour to go strong steamed
+						mazagran trifecta decaffeinated percolator crema, aged
+						americano rich chicory frappuccino foam white.
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item timeline-item-reverse">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #2
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item timeline-item-reverse">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #3
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline timeline-center">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<a
+				aria-controls="panelCollapseTimelineCenter0"
+				aria-expanded="false"
+				className="collapsed panel-header panel-header-link"
+				data-toggle="collapse"
+				href="#panelCollapseTimelineCenter0"
+				id="headingTimelineCenter0"
+				role="tab"
+			>
+				<span className="panel-title">Single Collapsible Panel</span>
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</a>
+			<div
+				aria-labelledby="headingTimelineCenter0"
+				className="collapse panel-collapse"
+				id="panelCollapseTimelineCenter0"
+				role="tabpanel"
+			>
+				<div className="panel-body">
+					In organic dripper so, body, robust medium pumpkin spice
+					cup, in aged dripper latte extra cup white. And viennese
+					redeye carajillo, beans, mug viennese, carajillo id breve
+					decaffeinated americano crema chicory whipped arabica
+					variety aged robusta. Affogato lungo eu, cultivar at, aged
+					breve and blue mountain roast breve americano aged. Sugar
+					acerbic sweet variety aged café au lait chicory, java,
+					single shot percolator aromatic brewed wings, a, sugar,
+					body, aftertaste organic barista espresso dripper to go.
+					Flavour to go strong steamed mazagran trifecta decaffeinated
+					percolator crema, aged americano rich chicory frappuccino
+					foam white.
+				</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item timeline-item-reverse">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #2
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item timeline-item-reverse">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #3
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Even
+
+Alternate every other timeline item on the left with class `timeline-even`.
+
+<div className="sheet-example">
+	<ul className="timeline timeline-center timeline-even">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #1
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #2
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #3
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline timeline-center timeline-even">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #1
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #2
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #3
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Odd
+
+Alternate every other timeline item on the right with class `timeline-odd`.
+
+<div className="sheet-example">
+	<ul className="timeline timeline-center timeline-odd">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #1
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #2
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #3
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline timeline-center timeline-odd">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #1
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #2
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #3
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Timeline Right XS Only
+
+Align timeline to the right at screen widths 767px and below with `timeline-right-xs-only`.
+
+<div className="sheet-example">
+	<ul className="timeline timeline-center timeline-even timeline-right-xs-only">
+		<li className="timeline-item">
+			<div className="panel panel-default">
+				<div className="panel-body">
+					Panel Text #1
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #2
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">2 hours ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #3
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">3 hours ago</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline timeline-center timeline-even timeline-right-xs-only">
+	<li className="timeline-item">
+		<div className="panel panel-default">
+			<div className="panel-body">
+				Panel Text #1
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #2
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">2 hours ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #3
+				<div className="timeline-increment">
+					<div className="sticker sticker-danger sticker-user-icon">
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">3 hours ago</div>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+## Spacing
+
+Adjust the spacing around the timeline with `@include timeline-spacing($outer-spacing, $inner-spacing, $item-padding-y)`. The last argument is not required and has a default value of 10px.
+
+`$outer-spacing` sets padding-left on `.timeline` and `padding-right` on `.timeline-right`.
+
+`$inner-spacing` sets the space between the `.timeline-item:before` pseudo element and `.panel` element and is used to calculate the space between the `.timeline-item:before` pseudo element and `.timeline-item-label`.
+
+```scss
+.timeline-spacing-xl {
+	@include timeline-spacing(25px, 50px);
+}
+```
+
+<div className="sheet-example">
+	<ul className="timeline timeline-center timeline-spacing-xl">
+		<li className="timeline-item">
+			<div className="panel panel-secondary">
+				<a
+					aria-controls="panelCollapseTimelineSpacing0"
+					aria-expanded="false"
+					className="collapsed panel-header panel-header-link"
+					data-toggle="collapse"
+					href="#panelCollapseTimelineSpacing0"
+					id="headingTimelineSpacing0"
+					role="tab"
+				>
+					<span className="panel-title">
+						Single Collapsible Panel
+					</span>
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-xl sticker-user-icon">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</a>
+				<div
+					aria-labelledby="headingTimelineSpacing0"
+					className="collapse panel-collapse"
+					id="panelCollapseTimelineSpacing0"
+					role="tabpanel"
+				>
+					<div className="panel-body">
+						In organic dripper so, body, robust medium pumpkin spice
+						cup, in aged dripper latte extra cup white. And viennese
+						redeye carajillo, beans, mug viennese, carajillo id
+						breve decaffeinated americano crema chicory whipped
+						arabica variety aged robusta. Affogato lungo eu,
+						cultivar at, aged breve and blue mountain roast breve
+						americano aged. Sugar acerbic sweet variety aged café au
+						lait chicory, java, single shot percolator aromatic
+						brewed wings, a, sugar, body, aftertaste organic barista
+						espresso dripper to go. Flavour to go strong steamed
+						mazagran trifecta decaffeinated percolator crema, aged
+						americano rich chicory frappuccino foam white.
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item timeline-item-reverse">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #2
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon sticker-xl">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+		<li className="timeline-item timeline-item-reverse">
+			<div className="panel panel-secondary">
+				<div className="panel-body">
+					Panel Text #3
+					<div className="timeline-increment">
+						<div className="sticker sticker-danger sticker-user-icon sticker-xl">
+							<span>LR</span>
+						</div>
+					</div>
+					<div className="timeline-item-label">1 hour ago</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="timeline timeline-center timeline-spacing-xl">
+	<li className="timeline-item">
+		<div className="panel panel-secondary">
+			<a
+				aria-controls="panelCollapseTimelineSpacing0"
+				aria-expanded="false"
+				className="collapsed panel-header panel-header-link"
+				data-toggle="collapse"
+				href="#panelCollapseTimelineSpacing0"
+				id="headingTimelineSpacing0"
+				role="tab"
+			>
+				<span className="panel-title">Single Collapsible Panel</span>
+				<div className="timeline-increment">
+					<div
+						className="sticker sticker-danger sticker-xl sticker-user-icon"
+					>
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</a>
+			<div
+				aria-labelledby="headingTimelineSpacing0"
+				className="collapse panel-collapse"
+				id="panelCollapseTimelineSpacing0"
+				role="tabpanel"
+			>
+				<div className="panel-body">
+					In organic dripper so, body, robust medium pumpkin spice
+					cup, in aged dripper latte extra cup white. And viennese
+					redeye carajillo, beans, mug viennese, carajillo id breve
+					decaffeinated americano crema chicory whipped arabica
+					variety aged robusta. Affogato lungo eu, cultivar at, aged
+					breve and blue mountain roast breve americano aged. Sugar
+					acerbic sweet variety aged café au lait chicory, java,
+					single shot percolator aromatic brewed wings, a, sugar,
+					body, aftertaste organic barista espresso dripper to go.
+					Flavour to go strong steamed mazagran trifecta decaffeinated
+					percolator crema, aged americano rich chicory frappuccino
+					foam white.
+				</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item timeline-item-reverse">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #2
+				<div className="timeline-increment">
+					<div
+						className="sticker sticker-danger sticker-user-icon sticker-xl"
+					>
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+	<li className="timeline-item timeline-item-reverse">
+		<div className="panel panel-secondary">
+			<div className="panel-body">
+				Panel Text #3
+				<div className="timeline-increment">
+					<div
+						className="sticker sticker-danger sticker-user-icon sticker-xl"
+					>
+						<span>LR</span>
+					</div>
+				</div>
+				<div className="timeline-item-label">1 hour ago</div>
+			</div>
+		</div>
+	</li>
+</ul>
+```

@@ -1,0 +1,193 @@
+@use 'sass:math' as *;
+
+@import 'atlas-variables';
+@import 'atlas.scss';
+
+// Breakpoints
+
+$screen-lg: 1320px;
+$screen-md: 900px;
+$screen-sm: 900px;
+$screen-xs: 768px;
+
+$grid-float-breakpoint: $screen-sm;
+
+.btn-cta {
+	@extend .btn;
+	padding: 0.67rem 1.25rem;
+}
+
+.lexicon-icon-list {
+	&:after {
+		clear: both;
+		content: '';
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
+
+	li span {
+		margin-left: 4px;
+	}
+}
+
+@media (min-width: 768px) {
+	.lexicon-icon-list li {
+		float: left;
+		padding: 5px;
+		width: 25%;
+	}
+}
+
+.clay-site-swatches {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -12px;
+	margin-right: -12px;
+}
+
+.clay-site-swatch {
+	border-radius: 4px;
+	box-shadow: 0 0.1rem 3rem rgba(19, 20, 31, 0.08);
+	margin: 0 12px 1.5rem;
+	overflow: hidden;
+	width: 100%;
+
+	@media (min-width: 480px) {
+		width: calc(50% - 24px);
+	}
+
+	@media (min-width: 600px) {
+		width: calc(33.33333% - 24px);
+	}
+
+	@media (min-width: 900px) {
+		width: calc(50% - 24px);
+	}
+
+	@media (min-width: 1024px) {
+		width: calc(33.33333% - 24px);
+	}
+
+	@media (min-width: 1600px) {
+		width: calc(25% - 24px);
+	}
+
+	.clay-site-swatch-color {
+		padding-bottom: 50%;
+	}
+
+	.clay-site-swatch-title {
+		color: rgba(0, 0, 0, 0.8);
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	.clay-site-swatch-body {
+		padding: 1rem 1rem 0.75rem;
+
+		.autofit-row {
+			margin-bottom: 0.25rem;
+		}
+	}
+
+	.clay-site-swatch-type {
+		color: rgb(107, 108, 126);
+		font-weight: 500;
+		padding-right: 1rem;
+		text-transform: uppercase;
+
+		@media (min-width: $grid-float-breakpoint) {
+			padding-right: 2rem;
+		}
+	}
+
+	.clay-site-hex {
+		text-transform: lowercase;
+	}
+
+	.clay-site-swatch-value {
+		color: #000;
+		font-size: 0.875rem;
+	}
+
+	.clay-site-swatch-text {
+		cursor: pointer;
+		user-select: all;
+	}
+}
+
+$swatches: (
+	'black': $black,
+	'gray-900': $gray-900,
+	'gray-800': $gray-800,
+	'gray-700': $gray-700,
+	'gray-400': $gray-400,
+	'gray-600': $gray-600,
+	'gray-500': $gray-500,
+	'gray-300': $gray-300,
+	'gray-200': $gray-200,
+	'gray-100': $gray-100,
+	'white': $white,
+	'blue': $blue,
+	'indigo': $indigo,
+	'purple': $purple,
+	'pink': $pink,
+	'orange': $orange,
+	'red': $red,
+	'yellow': $yellow,
+	'green': $green,
+	'teal': $teal,
+	'cyan': $cyan,
+	'primary-d2': $primary-d2,
+	'primary-d1': $primary-d1,
+	'primary': $primary,
+	'primary-l0': $primary-l0,
+	'primary-l1': $primary-l1,
+	'primary-l2': $primary-l2,
+	'primary-l3': $primary-l3,
+	'secondary-d2': $secondary-d2,
+	'secondary-d1': $secondary-d1,
+	'secondary': $secondary,
+	'secondary-l0': $secondary-l0,
+	'secondary-l1': $secondary-l1,
+	'secondary-l2': $secondary-l2,
+	'secondary-l3': $secondary-l3,
+	'success-d2': $success-d2,
+	'success-d1': $success-d1,
+	'success': $success,
+	'success-l1': $success-l1,
+	'success-l2': $success-l2,
+	'info-d2': $info-d2,
+	'info-d1': $info-d1,
+	'info': $info,
+	'info-l1': $info-l1,
+	'info-l2': $info-l2,
+	'warning-d2': $warning-d2,
+	'warning-d1': $warning-d1,
+	'warning': $warning,
+	'warning-l1': $warning-l1,
+	'warning-l2': $warning-l2,
+	'danger-d2': $danger-d2,
+	'danger-d1': $danger-d1,
+	'danger': $danger,
+	'danger-l1': $danger-l1,
+	'danger-l2': $danger-l2,
+	'light-d2': $light-d2,
+	'light-d1': $light-d1,
+	'light': $light,
+	'light-l1': $light-l1,
+	'light-l2': $light-l2,
+	'dark-d2': $dark-d2,
+	'dark-d1': $dark-d1,
+	'dark': $dark,
+	'dark-l1': $dark-l1,
+	'dark-l2': $dark-l2,
+);
+
+@each $swatch, $value in $swatches {
+	.clay-site-swatch-#{$swatch} {
+		background-color: $value;
+		content: '#{$value}';
+	}
+}

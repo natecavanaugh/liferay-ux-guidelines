@@ -1,0 +1,630 @@
+---
+title: 'Form'
+description: 'Forms obtain user data and transmit it to the system to either store the data, produce an action, or both.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/'
+packageNpm: '@clayui/form'
+storybookPath: 'design-system-components-input'
+packageUse: "import ClayForm, {ClayInput} from '@clayui/form';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check
+	[WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#aria_lh_form)
+	accessibility pratices for Form Elements when writting your markup.
+</div>
+
+The `.form-group` class is the easiest way to add some structure to forms. It provides a flexible class that encourages proper grouping of labels, controls, optional help text, and form validation messaging. By default it only applies `margin-bottom`, but it picks up additional styles in `.form-inline` as needed. Use it with `<fieldset>`s, `<div>`s, or nearly any other element.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="firstNameInput">First Name</label>
+		<input
+			className="form-control"
+			id="firstNameInput"
+			placeholder="First Name"
+			type="text"
+		/>
+	</div>
+	<div className="form-group">
+		<label for="lastNameInput">Last Name</label>
+		<input
+			className="form-control"
+			id="lastNameInput"
+			placeholder="Last Name"
+			type="text"
+		/>
+	</div>
+</div>
+
+```html
+<form>
+	<div className="form-group">
+		<label for="firstNameInput">First Name</label>
+		<input
+			className="form-control"
+			id="firstNameInput"
+			placeholder="First Name"
+			type="text"
+		/>
+	</div>
+	<div className="form-group">
+		<label for="lastNameInput">Last Name</label>
+		<input
+			className="form-control"
+			id="lastNameInput"
+			placeholder="Last Name"
+			type="text"
+		/>
+	</div>
+</form>
+```
+
+## Autofit
+
+Equally spaced form inputs based on the number of items inside `.form-group-autofit`. Each `input` and `label` group should be wrapped inside `.form-group-item`. `form-group-autofit` stacks all inputs at `max-width: 575px` (breakpoint sm).
+
+To set a maximum width on a `.form-group-item` use `max-width: 200px;`.
+
+To make a `.form-group-item` shrink to the size of its content add `.form-group-item-shrink`. This component should only be used for static content, such as labels or buttons. This component doesn't work well with dynamically added content, such as form helper text, use the `max-width` method above instead.
+
+<div className="clay-site-alert alert alert-warning">
+	Form Group Autofit doesn't support{' '}
+	<code className="gatsby-code-text">label</code>'s with long text that breaks
+	to new lines or multiple new lines above the input.
+</div>
+
+<div className="sheet-example">
+	<div className="form-group-autofit">
+		<div className="form-group-item">
+			<label for="formInlineAutofitTextInput1">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Form Inline Autofit">
+						Form Inline Autofit
+					</span>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitTextInput1"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item" style={{maxWidth: '200px'}}>
+			<label for="formInlineAutofitSelectElement1">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Select Element">
+						Select Element
+					</span>
+				</span>
+			</label>
+			<select
+				className="form-control"
+				id="formInlineAutofitSelectElement1"
+			>
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+			</select>
+		</div>
+	</div>
+	<div className="form-group-autofit">
+		<div className="form-group-item">
+			<label for="formInlineAutofitFirstName">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="First Name">
+						First Name
+					</span>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitFirstName"
+				placeholder="First Name"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitLastName">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Last Name">
+						Last Name
+					</span>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitLastName"
+				placeholder="Last Name"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitInputGroup">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Input Group">
+						Input Group
+					</span>
+				</span>
+			</label>
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink input-group-prepend">
+					<span className="input-group-text">$</span>
+				</div>
+				<div className="input-group-item input-group-prepend">
+					<input
+						className="form-control"
+						id="formInlineAutofitInputGroup"
+						placeholder="Amount"
+					/>
+				</div>
+				<div className="input-group-append input-group-item input-group-item-shrink">
+					<span className="input-group-text">.00</span>
+				</div>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					Plunger pot, extra siphon latte, as americano aromatic roast
+					cultivar cup cup frappuccino.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="form-group-autofit">
+		<div className="form-group-item form-group-item-label form-group-item-label-spacer form-group-item-shrink">
+			<label for="formInlineAutofitCity">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="City">
+						City
+					</span>
+				</span>
+			</label>
+		</div>
+		<div className="form-group-item form-group-item-label-spacer">
+			<input
+				className="form-control"
+				id="formInlineAutofitCity"
+				placeholder="City"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitState">
+				<span className="text-truncate-inline">
+					<span
+						className="text-truncate"
+						title="State ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual"
+					>
+						State
+						ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+					</span>
+				</span>
+			</label>
+			<select className="form-control" id="formInlineAutofitState">
+				<option>AL</option>
+				<option>CA</option>
+				<option>FL</option>
+				<option>HI</option>
+				<option>NV</option>
+				<option>WA</option>
+			</select>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitZip">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Zip Code">
+						Zip Code
+					</span>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitZip"
+				placeholder="Zip"
+				type="text"
+			/>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					Plunger pot, extra siphon latte, as americano aromatic roast
+					cultivar cup cup frappuccino.
+				</div>
+			</div>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitDonation">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Donation">
+						Donation
+					</span>
+				</span>
+			</label>
+			<div className="input-group">
+				<div className="input-group-item input-group-item-shrink input-group-prepend">
+					<span className="input-group-text">$</span>
+				</div>
+				<div className="input-group-item input-group-prepend">
+					<input
+						className="form-control"
+						id="formInlineAutofitDonation"
+						placeholder="Amount"
+					/>
+				</div>
+				<div className="input-group-append input-group-item input-group-item-shrink">
+					<span className="input-group-text">.00</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="form-group">
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="submit">
+					Submit
+				</button>
+			</div>
+			<div className="btn-group-item">
+				<a className="btn btn-secondary" href="#1" role="button">
+					Clear
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<form>
+	<div className="form-group-autofit">
+		<div className="form-group-item">
+			<label for="formInlineAutofitTextInput1">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Form Inline Autofit"
+						>Form Inline Autofit</span
+					>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitTextInput1"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item" style={{maxWidth: '200px'}}>
+			<label for="formInlineAutofitSelectElement1">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Select Element"
+						>Select Element</span
+					>
+				</span>
+			</label>
+			<select className="form-control" id="formInlineAutofitSelectElement1">
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+			</select>
+		</div>
+	</div>
+	<div className="form-group-autofit">
+		<div className="form-group-item">
+			<label for="formInlineAutofitFirstName">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="First Name"
+						>First Name</span
+					>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitFirstName"
+				placeholder="First Name"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitLastName">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Last Name"
+						>Last Name</span
+					>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitLastName"
+				placeholder="Last Name"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitInputGroup">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Input Group"
+						>Input Group</span
+					>
+				</span>
+			</label>
+			<div className="input-group">
+				<div
+					className="input-group-item input-group-item-shrink input-group-prepend"
+				>
+					<span className="input-group-text">$</span>
+				</div>
+				<div className="input-group-item input-group-prepend">
+					<input
+						className="form-control"
+						id="formInlineAutofitInputGroup"
+						placeholder="Amount"
+					/>
+				</div>
+				<div
+					className="input-group-append input-group-item input-group-item-shrink"
+				>
+					<span className="input-group-text">.00</span>
+				</div>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					Plunger pot, extra siphon latte, as americano aromatic roast
+					cultivar cup cup frappuccino.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="form-group-autofit">
+		<div
+			className="form-group-item form-group-item-label form-group-item-label-spacer form-group-item-shrink"
+		>
+			<label for="formInlineAutofitCity">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="City">City</span>
+				</span>
+			</label>
+		</div>
+		<div className="form-group-item form-group-item-label-spacer">
+			<input
+				className="form-control"
+				id="formInlineAutofitCity"
+				placeholder="City"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitState">
+				<span className="text-truncate-inline">
+					<span
+						className="text-truncate"
+						title="State ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual"
+						>State
+						ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</span
+					>
+				</span>
+			</label>
+			<select className="form-control" id="formInlineAutofitState">
+				<option>AL</option>
+				<option>CA</option>
+				<option>FL</option>
+				<option>HI</option>
+				<option>NV</option>
+				<option>WA</option>
+			</select>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitZip">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Zip Code">Zip Code</span>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="formInlineAutofitZip"
+				placeholder="Zip"
+				type="text"
+			/>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					Plunger pot, extra siphon latte, as americano aromatic roast
+					cultivar cup cup frappuccino.
+				</div>
+			</div>
+		</div>
+		<div className="form-group-item">
+			<label for="formInlineAutofitDonation">
+				<span className="text-truncate-inline">
+					<span className="text-truncate" title="Donation">Donation</span>
+				</span>
+			</label>
+			<div className="input-group">
+				<div
+					className="input-group-item input-group-item-shrink input-group-prepend"
+				>
+					<span className="input-group-text">$</span>
+				</div>
+				<div className="input-group-item input-group-prepend">
+					<input
+						className="form-control"
+						id="formInlineAutofitDonation"
+						placeholder="Amount"
+					/>
+				</div>
+				<div
+					className="input-group-append input-group-item input-group-item-shrink"
+				>
+					<span className="input-group-text">.00</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="form-group">
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="submit">Submit</button>
+			</div>
+			<div className="btn-group-item">
+				<a className="btn btn-secondary" href="#1" role="button">Clear</a>
+			</div>
+		</div>
+	</div>
+</form>
+```
+
+## Horizontal
+
+Create horizontal forms by placing each `input` inside `form-group-item` and `label` inside `form-group-item form-group-item-label form-group-item-shrink` and set a min-width on `.form-group-item-label`.
+
+<div className="sheet-example">
+	<form className="my-custom-form">
+		<div className="form-group-autofit">
+			<div className="form-group-item form-group-item-label form-group-item-shrink">
+				<label>Name</label>
+			</div>
+			<div className="form-group-item">
+				<input
+					aria-label="First Name"
+					className="form-control"
+					placeholder="First"
+					type="text"
+				/>
+				<div className="form-feedback-group">
+					<div className="form-text">Your first name.</div>
+				</div>
+			</div>
+			<div className="form-group-item">
+				<input
+					aria-label="Middle Name"
+					className="form-control"
+					placeholder="Middle"
+					type="text"
+				/>
+			</div>
+			<div className="form-group-item">
+				<input
+					aria-label="Last Name"
+					className="form-control"
+					placeholder="Last"
+					type="text"
+				/>
+			</div>
+		</div>
+		<div className="form-group-autofit">
+			<div className="form-group-item form-group-item-label form-group-item-shrink">
+				<label for="formInlineAutofitCustomAddress1">Address 1</label>
+			</div>
+			<div className="form-group-item">
+				<input
+					className="form-control"
+					id="formInlineAutofitCustomAddress1"
+					placeholder="Address 1"
+					type="text"
+				/>
+			</div>
+		</div>
+		<div className="form-group-autofit">
+			<div className="form-group-item form-group-item-label form-group-item-shrink">
+				<label for="formInlineAutofitCustomAddress2">Address 2</label>
+			</div>
+			<div className="form-group-item">
+				<input
+					className="form-control"
+					id="formInlineAutofitCustomAddress2"
+					placeholder="Address 2"
+					type="text"
+				/>
+			</div>
+		</div>
+		<div className="form-group">
+			<div className="btn-group">
+				<div className="btn-group-item">
+					<button className="btn btn-primary" type="submit">
+						Submit
+					</button>
+				</div>
+				<div className="btn-group-item">
+					<a className="btn btn-secondary" href="#1" role="button">
+						Clear
+					</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+```html
+<form className="my-custom-form">
+	<div className="form-group-autofit">
+		<div
+			className="form-group-item form-group-item-label form-group-item-shrink"
+		>
+			<label>Name</label>
+		</div>
+		<div className="form-group-item">
+			<input
+				aria-label="First Name"
+				className="form-control"
+				placeholder="First"
+				type="text"
+			/>
+			<div className="form-feedback-group">
+				<div className="form-text">Your first name.</div>
+			</div>
+		</div>
+		<div className="form-group-item">
+			<input
+				aria-label="Middle Name"
+				className="form-control"
+				placeholder="Middle"
+				type="text"
+			/>
+		</div>
+		<div className="form-group-item">
+			<input
+				aria-label="Last Name"
+				className="form-control"
+				placeholder="Last"
+				type="text"
+			/>
+		</div>
+	</div>
+	<div className="form-group-autofit">
+		<div
+			className="form-group-item form-group-item-label form-group-item-shrink"
+		>
+			<label for="formInlineAutofitCustomAddress1">Address 1</label>
+		</div>
+		<div className="form-group-item">
+			<input
+				className="form-control"
+				id="formInlineAutofitCustomAddress1"
+				placeholder="Address 1"
+				type="text"
+			/>
+		</div>
+	</div>
+	<div className="form-group-autofit">
+		<div
+			className="form-group-item form-group-item-label form-group-item-shrink"
+		>
+			<label for="formInlineAutofitCustomAddress2">Address 2</label>
+		</div>
+		<div className="form-group-item">
+			<input
+				className="form-control"
+				id="formInlineAutofitCustomAddress2"
+				placeholder="Address 2"
+				type="text"
+			/>
+		</div>
+	</div>
+	<div className="form-group">
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="submit">
+					Submit
+				</button>
+			</div>
+			<div className="btn-group-item">
+				<a className="btn btn-secondary" href="#1" role="button"
+					>Clear</a
+				>
+			</div>
+		</div>
+	</div>
+</form>
+```

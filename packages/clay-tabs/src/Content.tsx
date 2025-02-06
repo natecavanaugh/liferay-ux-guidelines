@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * @ignore
 	 */

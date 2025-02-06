@@ -3,8 +3,37 @@ title: 'Popover'
 description: 'Popovers contain helpful information such as an explanation of a context.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/popovers-tooltips/'
 packageNpm: '@clayui/popover'
+packageUse: "import Popover from '@clayui/popover';"
+packageTypes: ['clay-popover/src/Popover.tsx']
 ---
 
-import {Popover} from '$packages/clay-popover/docs/index';
+## Example
 
-<Popover />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Popover from '@clayui/popover';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4" style={{height: 250}}>
+				<Popover
+					alignPosition="bottom"
+					disableScroll={false}
+					header="Popover Header!"
+				>
+					Single shot, café au lait aromatic body robusta body cream
+					mocha viennese steamed aged. Irish roast, aromatic seasonal,
+					caramelization grinder french press coffee cortado lungo
+					skinny. Viennese flavour cup eu, percolator froth ristretto
+					mazagran caffeine. White roast seasonal, mocha trifecta,
+					dripper caffeine spoon acerbic to go macchiato strong.
+				</Popover>
+			</div>
+		</Provider>
+	);
+}
+```

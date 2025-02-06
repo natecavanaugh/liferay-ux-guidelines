@@ -4,37 +4,145 @@ description: 'A multi step nav, also known as a wizard, is a determinate progres
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/multi-step-form/'
 packageNpm: '@clayui/multi-step-nav'
 storybookPath: 'design-system-components-multistepnav'
+packageUse: "import MultiStepNav from '@clayui/multi-step-nav';"
+packageTypes:
+    [
+        'clay-multi-step-nav/src/MultiStepNav.tsx',
+        'clay-multi-step-nav/src/MultiStepNavWithBasicItems.tsx',
+        'clay-multi-step-nav/src/Item.tsx',
+        'clay-multi-step-nav/src/Title.tsx',
+    ]
 ---
-
-import {
-	MultiStepNav,
-	MultiStepNavCenter,
-	MultiStepNavError,
-	MultiStepNavWithBasicItems,
-} from '$packages/clay-multi-step-nav/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Center](#center)
--   [State](#state)
--   [Indicator position](#indicator-position)
--   [Collapsable Steps](#collapsable-steps)
-
-</div>
-</div>
 
 It's used when a major or big task has to be divided into smaller task, with the aim of letting the user breath in the process and providing them with a sense of progression.
 
 Each step can have two different states: `active` or `complete` defined by props as you can see below.
 
-<MultiStepNav />
+```jsx preview
+import {Provider} from '@clayui/core';
+import MultiStepNav from '@clayui/multi-step-nav';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(1);
+
+	const steps = [
+		{
+			subTitle: 'SubOne',
+			title: 'One',
+		},
+		{
+			subTitle: 'SubTwo',
+			title: 'Two',
+		},
+		{
+			subTitle: 'SubThree',
+			title: 'Three',
+		},
+		{
+			subTitle: 'SubFour',
+			title: 'Four',
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<MultiStepNav>
+					{steps.map(({subTitle, title}, i) => {
+						const complete = value > i;
+
+						return (
+							<MultiStepNav.Item
+								active={value === i}
+								expand={i + 1 !== steps.length}
+								key={i}
+								state={complete ? 'complete' : undefined}
+							>
+								<MultiStepNav.Title>{title}</MultiStepNav.Title>
+								<MultiStepNav.Divider />
+								<MultiStepNav.Indicator
+									complete={complete}
+									label={1 + i}
+									onClick={() => setValue(i)}
+									subTitle={subTitle}
+								/>
+							</MultiStepNav.Item>
+						);
+					})}
+				</MultiStepNav>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Center
 
 The `center` boolean property centers the `multi-step-nav`.
 
-<MultiStepNavCenter />
+```jsx preview
+import {Provider} from '@clayui/core';
+import MultiStepNav from '@clayui/multi-step-nav';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(1);
+
+	const steps = [
+		{
+			subTitle: 'Step 01',
+			title: 'Ticket Buyer Information',
+		},
+		{
+			subTitle: 'Step 02',
+			title: 'Attendee Information',
+		},
+		{
+			subTitle: 'Step 03',
+			title: 'Payment Information',
+		},
+		{
+			subTitle: 'Step 04',
+			title: 'Completed',
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<MultiStepNav center>
+					{steps.map(({subTitle, title}, i) => {
+						const complete = value > i;
+
+						return (
+							<MultiStepNav.Item
+								active={value === i}
+								expand={i + 1 !== steps.length}
+								key={i}
+								state={complete ? 'complete' : undefined}
+							>
+								<MultiStepNav.Title>{title}</MultiStepNav.Title>
+								<MultiStepNav.Divider />
+								<MultiStepNav.Indicator
+									complete={complete}
+									label={1 + i}
+									onClick={() => setValue(i)}
+									subTitle={subTitle}
+								/>
+							</MultiStepNav.Item>
+						);
+					})}
+				</MultiStepNav>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## State
 
@@ -44,7 +152,49 @@ The active state can be set using the `active` property in the `ClayMultiStepNav
 
 The `complete` and `error` states are defined using the `state` property in the `ClayMultiStepNav.Item` which defines whether the item is complete or has an error in the current state. The `ClayMultiStepNavWithBasicItems` component follows the same API with the difference that it sets the state of the item to the current step which is set when using the `active` or `defaultActive` API.
 
-<MultiStepNavError />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayMultiStepNavWithBasicItems} from '@clayui/multi-step-nav';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(1);
+
+	const steps = [
+		{
+			subTitle: 'SubOne',
+			title: 'One',
+		},
+		{
+			subTitle: 'SubTwo',
+			title: 'Two',
+		},
+		{
+			subTitle: 'SubThree',
+			title: 'Three',
+		},
+		{
+			subTitle: 'SubFour',
+			title: 'Four',
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayMultiStepNavWithBasicItems
+					active={value}
+					onActiveChange={setValue}
+					state="error"
+					steps={steps}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Indicator position
 
@@ -73,4 +223,46 @@ Some use cases don't need the title or subtitle to add context to the steps, in 
 
 Using `ClayMultiStepNavWithBasicItems` in combination with `maxStepsShown` prop you can collapse the steps that don't fit into a dropdown to ensure good user experience.
 
-<MultiStepNavWithBasicItems />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayMultiStepNavWithBasicItems} from '@clayui/multi-step-nav';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(1);
+
+	const steps = [
+		{
+			subTitle: 'SubOne',
+			title: 'One',
+		},
+		{
+			subTitle: 'SubTwo',
+			title: 'Two',
+		},
+		{
+			subTitle: 'SubThree',
+			title: 'Three',
+		},
+		{
+			subTitle: 'SubFour',
+			title: 'Four',
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayMultiStepNavWithBasicItems
+					active={value}
+					maxStepsShown={2}
+					onActiveChange={setValue}
+					steps={steps}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

@@ -6,14 +6,14 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * Specifies whether the `tbar-nav-wrap` class should be added to the Toolbar.Nav
 	 */
 	wrap?: boolean;
 }
 
-const Nav = ({children, className, wrap, ...otherProps}: IProps) => (
+export const Nav = ({children, className, wrap, ...otherProps}: IProps) => (
 	<ul
 		className={classNames(className, 'tbar-nav', {
 			'tbar-nav-wrap': wrap,
@@ -25,5 +25,3 @@ const Nav = ({children, className, wrap, ...otherProps}: IProps) => (
 );
 
 Nav.displayName = 'ClayToolbarNav';
-
-export default Nav;

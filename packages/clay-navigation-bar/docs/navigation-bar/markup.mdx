@@ -1,0 +1,609 @@
+---
+title: 'Navigation Bar'
+description: 'A navigation bar, navbar, is a horizontal bar that provides several access points to different parts of a system.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/navigation/horizontal-nav/'
+packageNpm: '@clayui/navigation-bar'
+packageUse: "import NavigationBar from '@clayui/navigation-bar';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	You will need to adjust the z-index of{' '}
+	<code className="gatsby-code-text">.navbar-collapse</code> in the collapsed
+	state if there are multiple{' '}
+	<code className="gatsby-code-text">.navbar-collapse-absolute</code>'s near
+	each other.
+</div>
+
+<div className="clay-site-alert alert alert-warning">
+	Bootstrap 4 doesn't support Dropdown Menu's with Popper.js positioning
+	inside Navbars. They align them manually via CSS classes. See{' '}
+	<a href="/docs/components/drop-down#alignment">Dropdown Alignment</a>.
+</div>
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/#aria_lh_navigation">
+		WAI-ARIA
+	</a>
+	accessibility pratices for alerts when writting your markup.
+</div>
+
+## Light
+
+<div className="sheet-example">
+	<nav className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-light">
+		<div className="container-fluid container-fluid-max-xl">
+			<a
+				aria-controls="navigationBarCollapse00"
+				aria-expanded="false"
+				aria-label="Toggle Navigation"
+				className="collapsed navbar-toggler navbar-toggler-link"
+				data-toggle="collapse"
+				href="#navigationBarCollapse00"
+				role="button"
+			>
+				<span className="navbar-text-truncate">App Section 2</span>
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</a>
+			<div
+				className="collapse navbar-collapse"
+				id="navigationBarCollapse00"
+				style={{zIndex: '505'}}
+			>
+				<div className="container-fluid container-fluid-max-xl">
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								<span className="navbar-text-truncate">
+									App Section 1
+								</span>
+							</a>
+						</li>
+						<li aria-label="Current Page" className="nav-item">
+							<a className="active nav-link" href="#1">
+								<span className="navbar-text-truncate">
+									App Section 2
+								</span>
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								<span className="navbar-text-truncate">
+									App Section 3
+								</span>
+							</a>
+						</li>
+						<li className="dropdown nav-item show-dropdown-on-collapse">
+							<a
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="dropdown-toggle nav-link"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<span className="navbar-text-truncate">
+									More
+								</span>
+								<svg
+									className="lexicon-icon lexicon-icon-caret-bottom"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#caret-bottom"></use>
+								</svg>
+							</a>
+							<ul
+								aria-labelledby=""
+								className="dropdown-menu dropdown-menu-width-shrink"
+							>
+								<li>
+									<a className="dropdown-item" href="#1">
+										App Section 4
+									</a>
+								</li>
+								<li>
+									<a className="dropdown-item" href="#1">
+										App Section 5
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav
+	className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-light"
+>
+	<div className="container-fluid container-fluid-max-xl">
+		<a
+			aria-controls="navigationBarCollapse00"
+			aria-expanded="false"
+			aria-label="Toggle Navigation"
+			className="collapsed navbar-toggler navbar-toggler-link"
+			data-toggle="collapse"
+			href="#navigationBarCollapse00"
+			role="button"
+		>
+			<span className="navbar-text-truncate">App Section 2</span>
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom"></use>
+			</svg>
+		</a>
+		<div
+			className="collapse navbar-collapse"
+			id="navigationBarCollapse00"
+			style={{zIndex: '505'}}
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							<span className="navbar-text-truncate"
+								>App Section 1</span
+							>
+						</a>
+					</li>
+					<li aria-label="Current Page" className="nav-item">
+						<a className="active nav-link" href="#1">
+							<span className="navbar-text-truncate"
+								>App Section 2</span
+							>
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							<span className="navbar-text-truncate"
+								>App Section 3</span
+							>
+						</a>
+					</li>
+					<li className="dropdown nav-item show-dropdown-on-collapse">
+						<a
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="dropdown-toggle nav-link"
+							data-toggle="dropdown"
+							href="#1"
+							role="button"
+						>
+							<span className="navbar-text-truncate">More</span>
+							<svg
+								className="lexicon-icon lexicon-icon-caret-bottom"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#caret-bottom"
+								></use>
+							</svg>
+						</a>
+						<ul
+							aria-labelledby=""
+							className="dropdown-menu dropdown-menu-width-shrink"
+						>
+							<li>
+								<a className="dropdown-item" href="#1"
+									>App Section 4</a
+								>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1"
+									>App Section 5</a
+								>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+```
+
+## Secondary
+
+<div className="sheet-example">
+	<nav className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary">
+		<div className="container-fluid container-fluid-max-xl">
+			<a
+				aria-controls="navigationBarCollapse01"
+				aria-expanded="false"
+				aria-label="Toggle Navigation"
+				className="collapsed navbar-toggler navbar-toggler-link"
+				data-toggle="collapse"
+				href="#navigationBarCollapse01"
+				role="button"
+			>
+				<span className="navbar-text-truncate">App Section 2</span>
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</a>
+			<div
+				className="collapse navbar-collapse"
+				id="navigationBarCollapse01"
+				style={{zIndex: '504'}}
+			>
+				<div className="container-fluid container-fluid-max-xl">
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								<span className="navbar-text-truncate">
+									App Section 1
+								</span>
+							</a>
+						</li>
+						<li aria-label="Current Page" className="nav-item">
+							<a className="active nav-link" href="#1">
+								<span className="navbar-text-truncate">
+									App Section 2
+								</span>
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								<span className="navbar-text-truncate">
+									App Section 3
+								</span>
+							</a>
+						</li>
+						<li className="dropdown nav-item show-dropdown-on-collapse">
+							<a
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="dropdown-toggle nav-link"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<span className="navbar-text-truncate">
+									More
+								</span>
+								<svg
+									className="lexicon-icon lexicon-icon-caret-bottom"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#caret-bottom"></use>
+								</svg>
+							</a>
+							<ul
+								aria-labelledby=""
+								className="dropdown-menu dropdown-menu-width-shrink"
+							>
+								<li>
+									<a className="dropdown-item" href="#1">
+										App Section 4
+									</a>
+								</li>
+								<li>
+									<a className="dropdown-item" href="#1">
+										App Section 5
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav
+	className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
+>
+	<div className="container-fluid container-fluid-max-xl">
+		<a
+			aria-controls="navigationBarCollapse01"
+			aria-expanded="false"
+			aria-label="Toggle Navigation"
+			className="collapsed navbar-toggler navbar-toggler-link"
+			data-toggle="collapse"
+			href="#navigationBarCollapse01"
+			role="button"
+		>
+			<span className="navbar-text-truncate">App Section 2</span>
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom"></use>
+			</svg>
+		</a>
+		<div
+			className="collapse navbar-collapse"
+			id="navigationBarCollapse01"
+			style={{zIndex: '504'}}
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							<span className="navbar-text-truncate"
+								>App Section 1</span
+							>
+						</a>
+					</li>
+					<li aria-label="Current Page" className="nav-item">
+						<a className="active nav-link" href="#1">
+							<span className="navbar-text-truncate"
+								>App Section 2</span
+							>
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							<span className="navbar-text-truncate"
+								>App Section 3</span
+							>
+						</a>
+					</li>
+					<li className="dropdown nav-item show-dropdown-on-collapse">
+						<a
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="dropdown-toggle nav-link"
+							data-toggle="dropdown"
+							href="#1"
+							role="button"
+						>
+							<span className="navbar-text-truncate">More</span>
+							<svg
+								className="lexicon-icon lexicon-icon-caret-bottom"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#caret-bottom"
+								></use>
+							</svg>
+						</a>
+						<ul
+							aria-labelledby=""
+							className="dropdown-menu dropdown-menu-width-shrink"
+						>
+							<li>
+								<a className="dropdown-item" href="#1"
+									>App Section 4</a
+								>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1"
+									>App Section 5</a
+								>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+```
+
+## Using Buttons
+
+<div className="sheet-example">
+	<nav className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-light">
+		<div className="container-fluid container-fluid-max-xl">
+			<button
+				aria-controls="navigationBarCollapse03"
+				aria-expanded="false"
+				aria-label="Toggle Navigation"
+				className="collapsed navbar-toggler navbar-toggler-link"
+				data-target="#navigationBarCollapse03"
+				data-toggle="collapse"
+				type="button"
+			>
+				<span className="navbar-text-truncate">App Section 2</span>
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</button>
+			<div
+				className="collapse navbar-collapse"
+				id="navigationBarCollapse03"
+				style={{zIndex: '503'}}
+			>
+				<div className="container-fluid container-fluid-max-xl">
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<button
+								className="btn btn-unstyled nav-link"
+								type="button"
+							>
+								<span className="navbar-text-truncate">
+									App Section 1
+								</span>
+							</button>
+						</li>
+						<li aria-label="Current Page" className="nav-item">
+							<button
+								className="active btn btn-unstyled nav-link"
+								type="button"
+							>
+								<span className="navbar-text-truncate">
+									App Section 2
+								</span>
+							</button>
+						</li>
+						<li className="nav-item">
+							<button
+								className="btn btn-unstyled nav-link"
+								type="button"
+							>
+								<span className="navbar-text-truncate">
+									App Section 3
+								</span>
+							</button>
+						</li>
+						<li className="dropdown nav-item show-dropdown-on-collapse">
+							<button
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="btn btn-unstyled dropdown-toggle nav-link"
+								data-toggle="dropdown"
+								type="button"
+							>
+								<span className="navbar-text-truncate">
+									More
+								</span>
+								<svg
+									className="lexicon-icon lexicon-icon-caret-bottom"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#caret-bottom"></use>
+								</svg>
+							</button>
+							<ul
+								aria-labelledby=""
+								className="dropdown-menu dropdown-menu-width-shrink"
+							>
+								<li>
+									<button
+										className="dropdown-item"
+										type="button"
+									>
+										App Section 4
+									</button>
+								</li>
+								<li>
+									<button
+										className="dropdown-item"
+										type="button"
+									>
+										App Section 5
+									</button>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav
+	className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-light"
+>
+	<div className="container-fluid container-fluid-max-xl">
+		<button
+			aria-controls="navigationBarCollapse03"
+			aria-expanded="false"
+			aria-label="Toggle Navigation"
+			className="collapsed navbar-toggler navbar-toggler-link"
+			data-target="#navigationBarCollapse03"
+			data-toggle="collapse"
+			type="button"
+		>
+			<span className="navbar-text-truncate">App Section 2</span>
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom"></use>
+			</svg>
+		</button>
+		<div
+			className="collapse navbar-collapse"
+			id="navigationBarCollapse03"
+			style={{zIndex: '503'}}
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<button className="btn btn-unstyled nav-link" type="button">
+							<span className="navbar-text-truncate"
+								>App Section 1</span
+							>
+						</button>
+					</li>
+					<li aria-label="Current Page" className="nav-item">
+						<button
+							className="active btn btn-unstyled nav-link"
+							type="button"
+						>
+							<span className="navbar-text-truncate"
+								>App Section 2</span
+							>
+						</button>
+					</li>
+					<li className="nav-item">
+						<button className="btn btn-unstyled nav-link" type="button">
+							<span className="navbar-text-truncate"
+								>App Section 3</span
+							>
+						</button>
+					</li>
+					<li className="dropdown nav-item show-dropdown-on-collapse">
+						<button
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="btn btn-unstyled dropdown-toggle nav-link"
+							data-toggle="dropdown"
+							type="button"
+						>
+							<span className="navbar-text-truncate">More</span>
+							<svg
+								className="lexicon-icon lexicon-icon-caret-bottom"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#caret-bottom"
+								></use>
+							</svg>
+						</button>
+						<ul
+							aria-labelledby=""
+							className="dropdown-menu dropdown-menu-width-shrink"
+						>
+							<li>
+								<button className="dropdown-item" type="button">
+									App Section 4
+								</button>
+							</li>
+							<li>
+								<button className="dropdown-item" type="button">
+									App Section 5
+								</button>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+```

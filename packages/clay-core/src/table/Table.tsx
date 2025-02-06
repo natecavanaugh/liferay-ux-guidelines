@@ -17,7 +17,7 @@ import {useTreeNavigation} from './useTreeNavigation';
 
 import type {AnnouncerAPI} from '../live-announcer';
 
-export type Props = {
+interface IProps extends React.HTMLAttributes<HTMLTableElement> {
 	/**
 	 * Defines the columns that are always visible and will be ignored by the
 	 * visible columns functionality.
@@ -108,7 +108,65 @@ export type Props = {
 	 * Defines the size of the table.
 	 */
 	size?: 'sm' | 'lg';
-} & React.ComponentProps<typeof RootTable>;
+
+	/**
+	 * This property vertically align the contents
+	 * inside the table body according a given position.
+	 */
+	bodyVerticalAlignment?: 'bottom' | 'middle' | 'top';
+
+	/**
+	 * Applies a Bordered style on Table's columns.
+	 */
+	borderedColumns?: boolean;
+
+	/**
+	 * Removes the default border and rounded corners from table.
+	 */
+	borderless?: boolean;
+
+	/**
+	 * This property keeps all the headings on one line.
+	 */
+	headingNoWrap?: boolean;
+
+	/**
+	 * This property vertically align the contents
+	 * inside the table header according a given position.
+	 */
+	headVerticalAlignment?: 'bottom' | 'middle' | 'top';
+
+	/**
+	 * Applies a Hover style on Table.
+	 */
+	hover?: boolean;
+
+	/**
+	 * This property enables keeping everything on one line.
+	 */
+	noWrap?: boolean;
+
+	/**
+	 * Turns the table responsive.
+	 */
+	responsive?: boolean;
+
+	/**
+	 * Defines the responsive sizing.
+	 */
+	responsiveSize?: 'lg' | 'md' | 'sm' | 'xl';
+
+	/**
+	 * Applies a Striped style on Table.
+	 */
+	striped?: boolean;
+
+	/**
+	 * This property vertically align the contents
+	 * inside the table according a given position.
+	 */
+	tableVerticalAlignment?: 'bottom' | 'middle' | 'top';
+}
 
 const focusableElements = ['[role="row"]', 'td[role="gridcell"]'];
 const locator = {
@@ -117,8 +175,8 @@ const locator = {
 };
 const defaultSet = new Set<React.Key>();
 
-export const Table = React.forwardRef<HTMLDivElement, Props>(
-	function TableInner(
+export const Table = React.forwardRef(
+	(
 		{
 			alwaysVisibleColumns = new Set(),
 			columnsVisibility = true,
@@ -147,9 +205,9 @@ export const Table = React.forwardRef<HTMLDivElement, Props>(
 			sort: externalSort,
 			nestedKey,
 			...otherProps
-		}: Props,
-		outRef
-	) {
+		}: IProps,
+		outRef: React.Ref<HTMLTableElement>
+	) => {
 		const [expandedKeys, setExpandedKeys] = useControlledState<
 			Set<React.Key>
 		>({
@@ -295,3 +353,5 @@ export const Table = React.forwardRef<HTMLDivElement, Props>(
 		);
 	}
 );
+
+Table.displayName = 'Table';

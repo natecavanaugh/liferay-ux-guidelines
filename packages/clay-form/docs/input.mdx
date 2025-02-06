@@ -3,29 +3,66 @@ title: 'Input'
 description: 'This section demonstrates the different text input types.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/text-input/'
 packageNpm: '@clayui/form'
-navigationParent: 'docs/components/form.html'
+packageUse: "import {ClayCheckbox} from '@clayui/form';"
 storybookPath: 'design-system-components-input'
+packageTypes: ['clay-form/src/Input.tsx']
 ---
-
-import {FormInput, FormInputTextArea} from '$packages/clay-form/docs/input';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Basic Usage](#basic-usage)
--   [Using another elements as an input](#using-another-elements-as-an-input)
-
-</div>
-</div>
 
 `ClayInput` is exported from the `@clayui/form` package, consisting of some low-level utilities that provides the ability to create Inputs and Input Groups.
 
-### Basic Usage
+## Basic Usage
 
-<FormInput />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
 
-### Using another elements as an input
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form.Group>
+					<label htmlFor="basicInputText">Name</label>
+					<ClayInput
+						id="basicInputText"
+						placeholder="Insert your name here"
+						type="text"
+					/>
+				</Form.Group>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Using another elements as an input
 
 If you want to use another component instead of input for enter text typed things, you can just pass this tag to `component` property, like the example below:
 
-<FormInputTextArea />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form.Group>
+					<label htmlFor="basicInputText">Name</label>
+					<ClayInput
+						component="textarea"
+						id="basicInputText"
+						placeholder="Insert your name here"
+						type="text"
+					/>
+				</Form.Group>
+			</div>
+		</Provider>
+	);
+}
+```

@@ -40,7 +40,7 @@ interface IProps extends React.HTMLAttributes<HTMLSpanElement> {
 	translucent?: boolean;
 }
 
-const ClayBadge = React.forwardRef<HTMLSpanElement, IProps>(
+const Badge = React.forwardRef<HTMLSpanElement, IProps>(
 	(
 		{
 			className,
@@ -81,6 +81,6 @@ const ClayBadge = React.forwardRef<HTMLSpanElement, IProps>(
 	}
 );
 
-ClayBadge.displayName = 'ClayBadge';
+Badge.displayName = 'ClayBadge';
 
-export default ClayBadge;
+export default Badge;

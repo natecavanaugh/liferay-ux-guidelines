@@ -8,7 +8,7 @@ import React from 'react';
 
 import Context from './Context';
 
-const ClayCardRow = ({
+const Row = ({
 	children,
 	className,
 	...otherProps
@@ -24,4 +24,4 @@ const ClayCardRow = ({
 	);
 };
 
-export default ClayCardRow;
+export default Row;

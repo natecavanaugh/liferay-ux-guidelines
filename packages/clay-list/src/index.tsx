@@ -3,9 +3,21 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import ClayList from './List';
-import {ClayListWithItems} from './ListWithItems';
+import Header from './Header';
+import Item from './Item';
+import ItemText from './ItemText';
+import ItemTitle from './ItemTitle';
+import List from './List';
+import {ListWithItems} from './ListWithItems';
+import QuickActionMenu from './QuickActionMenu';
 
-export {ClayListWithItems};
+export {
+	ListWithItems as ClayListWithItems,
+	Header,
+	Item,
+	ItemText,
+	ItemTitle,
+	QuickActionMenu,
+};
 
-export default ClayList;
+export default List;

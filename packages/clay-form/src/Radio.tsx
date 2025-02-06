@@ -6,8 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IRadioProps
-	extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IRadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	/**
 	 * Props for the outer most container element.
 	 */
@@ -29,7 +28,7 @@ export interface IRadioProps
 	value: React.ReactText;
 }
 
-const ClayRadio = React.forwardRef<HTMLInputElement, IRadioProps>(
+const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
 	(
 		{
 			checked,
@@ -82,6 +81,6 @@ const ClayRadio = React.forwardRef<HTMLInputElement, IRadioProps>(
 	}
 );
 
-ClayRadio.displayName = 'ClayRadio';
+Radio.displayName = 'ClayRadio';
 
-export default ClayRadio;
+export default Radio;

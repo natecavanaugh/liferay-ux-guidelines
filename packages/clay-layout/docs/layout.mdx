@@ -3,20 +3,17 @@ title: 'Layout'
 description: 'A set of utilities for layouting out a page or content on a page'
 lexiconDefinition: 'https://liferay.design/lexicon/foundations/grid/'
 packageNpm: '@clayui/layout'
+packageUse: "import Layout from '@clayui/layout';"
+packageTypes:
+    [
+        'clay-layout/src/Col.tsx',
+        'clay-layout/src/Container.tsx',
+        'clay-layout/src/ContainerFluid.tsx',
+        'clay-layout/src/Content.tsx',
+        'clay-layout/src/Row.tsx',
+        'clay-layout/src/Sheet.tsx',
+    ]
 ---
-
-import {LayoutContainer, LayoutContent} from '$packages/clay-layout/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Container vs. Content](#container-vs-content)
--   [Container, Rows, Columns](#basic-usage)
--   [Container Demo](#container-demo)
--   [Content Demo](#content-demo)
-
-</div>
-</div>
 
 ## Container vs. Content
 
@@ -44,8 +41,127 @@ Small container components to be used as direct wrappers of your content. These 
 
 ## Container Demo
 
-<LayoutContainer />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Layout from '@clayui/layout';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const colStyles = {
+		backgroundColor: '#E7E7ED',
+		border: '1px solid #CDCED9',
+		paddingBottom: '.75rem',
+		paddingTop: '.75rem',
+	};
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Layout.ContainerFluid view>
+					<Layout.Row justify="start">
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+					</Layout.Row>
+					<Layout.Row justify="center">
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+					</Layout.Row>
+					<Layout.Row justify="end">
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+					</Layout.Row>
+					<Layout.Row justify="around">
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+					</Layout.Row>
+					<Layout.Row justify="between">
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+						<Layout.Col size={4} style={colStyles}>
+							{'One of two columns'}
+						</Layout.Col>
+					</Layout.Row>
+				</Layout.ContainerFluid>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Content Demo
 
-<LayoutContent />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Layout from '@clayui/layout';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Layout.ContentRow padded>
+					<Layout.ContentCol>
+						<div className="form-check">
+							<label className="form-check-label">
+								<input
+									className="form-check-input"
+									type="checkbox"
+									value=""
+								/>
+							</label>
+						</div>
+					</Layout.ContentCol>
+					<Layout.ContentCol expand>
+						<Layout.ContentSection>
+							<h6>
+								<span className="text-truncate-inline">
+									<span className="text-truncate">
+										Alberto Calvo, modified 2 hours ago.
+									</span>
+								</span>
+							</h6>
+							<p>
+								<span className="text-truncate-inline">
+									<a className="text-truncate" href="#1">
+										ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+									</a>
+								</span>
+							</p>
+						</Layout.ContentSection>
+					</Layout.ContentCol>
+					<Layout.ContentCol>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</Layout.ContentCol>
+				</Layout.ContentRow>
+			</div>
+		</Provider>
+	);
+}
+```

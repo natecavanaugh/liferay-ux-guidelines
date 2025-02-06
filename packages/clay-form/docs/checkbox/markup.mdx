@@ -1,0 +1,568 @@
+---
+title: 'Checkbox'
+description: 'A checkbox is a component that lets the user select the value that is written in its corresponding text label. A user can select multiple checkboxes from a group at the same time.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/radio-check-toggle/'
+packageNpm: '@clayui/form'
+packageUse: "import {ClayCheckbox} from '@clayui/form';"
+storybookPath: 'design-system-components-checkbox'
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check
+	[WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#checkbox) accessibility
+	pratices for checkboxes when writting your markup.
+</div>
+
+Default checkboxes and radios are improved upon with the help of `.form-check`, **a single class for both input types that improves the layout and behavior of their HTML elements**. Checkboxes are for selecting one or several options in a list, while radios are for selecting one option from many.
+By [Bootstrap](https://getbootstrap.com/docs/4.1/components/forms/#checkboxes-and-radios)
+
+## Default
+
+By default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with `.form-check`.
+
+### Checkboxes
+
+<div className="sheet-example">
+	<div className="form-check">
+		<input
+			className="form-check-input"
+			type="checkbox"
+			value=""
+			id="defaultCheck1"
+		/>
+		<label className="form-check-label" for="defaultCheck1">
+			Default checkbox
+		</label>
+	</div>
+	<div className="form-check">
+		<input
+			className="form-check-input"
+			type="checkbox"
+			value=""
+			id="defaultCheck2"
+			disabled
+		/>
+		<label className="form-check-label" for="defaultCheck2">
+			Disabled checkbox
+		</label>
+	</div>
+</div>
+
+```html
+<div className="form-check">
+	<input
+		className="form-check-input"
+		type="checkbox"
+		value=""
+		id="defaultCheck1"
+	/>
+	<label className="form-check-label" for="defaultCheck1">
+		Default checkbox
+	</label>
+</div>
+<div className="form-check">
+	<input
+		className="form-check-input"
+		type="checkbox"
+		value=""
+		id="defaultCheck2"
+		disabled
+	/>
+	<label className="form-check-label" for="defaultCheck2">
+		Disabled checkbox
+	</label>
+</div>
+```
+
+### Radios
+
+<div className="sheet-example">
+	<div className="form-check">
+		<input
+			className="form-check-input"
+			type="radio"
+			name="exampleRadios"
+			id="exampleRadios1"
+			value="option1"
+			checked
+		/>
+		<label className="form-check-label" for="exampleRadios1">
+			Default radio
+		</label>
+	</div>
+	<div className="form-check">
+		<input
+			className="form-check-input"
+			type="radio"
+			name="exampleRadios"
+			id="exampleRadios2"
+			value="option2"
+		/>
+		<label className="form-check-label" for="exampleRadios2">
+			Second default radio
+		</label>
+	</div>
+	<div className="form-check">
+		<input
+			className="form-check-input"
+			type="radio"
+			name="exampleRadios"
+			id="exampleRadios3"
+			value="option3"
+			disabled
+		/>
+		<label className="form-check-label" for="exampleRadios3">
+			Disabled radio
+		</label>
+	</div>
+</div>
+
+```html
+<div className="form-check">
+	<input
+		className="form-check-input"
+		type="radio"
+		name="exampleRadios"
+		id="exampleRadios1"
+		value="option1"
+		checked
+	/>
+	<label className="form-check-label" for="exampleRadios1">
+		Default radio
+	</label>
+</div>
+<div className="form-check">
+	<input
+		className="form-check-input"
+		type="radio"
+		name="exampleRadios"
+		id="exampleRadios2"
+		value="option2"
+	/>
+	<label className="form-check-label" for="exampleRadios2">
+		Second default radio
+	</label>
+</div>
+<div className="form-check">
+	<input
+		className="form-check-input"
+		type="radio"
+		name="exampleRadios"
+		id="exampleRadios3"
+		value="option3"
+		disabled
+	/>
+	<label className="form-check-label" for="exampleRadios3">
+		Disabled radio
+	</label>
+</div>
+```
+
+## Inline
+
+Group checkboxes or radios on the same horizontal row by adding `.form-check-inline` to any `.form-check`.
+
+### Checkbox
+
+<div className="sheet-example">
+	<div className="form-check form-check-inline">
+		<label className="form-check-label">
+			<input
+				className="form-check-input"
+				type="checkbox"
+				value=""
+				id="inlineCheckbox1"
+			/>
+			<span className="form-check-label-text">1</span>
+		</label>
+	</div>
+	<div className="form-check form-check-inline">
+		<label className="form-check-label">
+			<input
+				className="form-check-input"
+				type="checkbox"
+				value=""
+				id="inlineCheckbox2"
+				disabled
+			/>
+			<span className="form-check-label-text">2</span>
+		</label>
+	</div>
+</div>
+
+```html
+<div className="form-check form-check-inline">
+	<label className="form-check-label">
+		<input
+			className="form-check-input"
+			type="checkbox"
+			value=""
+			id="inlineCheckbox1"
+		/>
+		<span className="form-check-label-text">1</span>
+	</label>
+</div>
+<div className="form-check form-check-inline">
+	<label className="form-check-label">
+		<input
+			className="form-check-input"
+			type="checkbox"
+			value=""
+			id="inlineCheckbox2"
+			disabled
+		/>
+		<span className="form-check-label-text">2</span>
+	</label>
+</div>
+```
+
+### Radio
+
+<div className="sheet-example">
+	<div className="form-check form-check-inline">
+		<label className="form-check-label">
+			<input
+				className="form-check-input"
+				type="radio"
+				name="inlineRadioOptions"
+				value="option1"
+				id="inlineRadio1"
+			/>
+			<span className="form-check-label-text">1</span>
+		</label>
+	</div>
+	<div className="form-check form-check-inline">
+		<label className="form-check-label">
+			<input
+				className="form-check-input"
+				type="radio"
+				name="inlineRadioOptions"
+				value="option2"
+				id="inlineRadio2"
+				disabled
+			/>
+			<span className="form-check-label-text">2</span>
+		</label>
+	</div>
+</div>
+
+```html
+<div className="form-check form-check-inline">
+	<label className="form-check-label">
+		<input
+			className="form-check-input"
+			type="radio"
+			name="inlineRadioOptions"
+			value="option1"
+			id="inlineRadio1"
+		/>
+		<span className="form-check-label-text">1</span>
+	</label>
+</div>
+<div className="form-check form-check-inline">
+	<label className="form-check-label">
+		<input
+			className="form-check-input"
+			type="radio"
+			name="inlineRadioOptions"
+			value="option2"
+			id="inlineRadio2"
+			disabled
+		/>
+		<span className="form-check-label-text">2</span>
+	</label>
+</div>
+```
+
+## Disabled
+
+Disable checkboxes or radios by adding a `disabled` prop.
+
+<div className="sheet-example">
+	<div className="custom-control custom-radio">
+		<label>
+			<input
+				disabled=""
+				className="custom-control-input"
+				id="radio1"
+				name="customDisabledRadio"
+				type="radio"
+			/>
+			<span className="custom-control-label">
+				<span className="custom-control-label-text">
+					Toggle this custom radio
+				</span>
+			</span>
+		</label>
+	</div>
+	<div className="custom-control custom-checkbox">
+		<label>
+			<input
+				disabled=""
+				className="custom-control-input"
+				type="checkbox"
+				id="customDisabledCheck1"
+			/>
+			<span className="custom-control-label">
+				<span className="custom-control-label-text">
+					Check this custom checkbox
+				</span>
+			</span>
+		</label>
+	</div>
+</div>
+
+```html
+<div className="custom-control custom-radio">
+	<label>
+		<input
+			disabled=""
+			className="custom-control-input"
+			id="radio1"
+			name="customDisabledRadio"
+			type="radio"
+		/>
+		<span className="custom-control-label">
+			<span className="custom-control-label-text"
+				>Toggle this custom radio</span
+			>
+		</span>
+	</label>
+</div>
+<div className="custom-control custom-checkbox">
+	<label>
+		<input
+			disabled=""
+			className="custom-control-input"
+			type="checkbox"
+			id="customDisabledCheck1"
+		/>
+		<span className="custom-control-label">
+			<span className="custom-control-label-text"
+				>Check this custom checkbox</span
+			>
+		</span>
+	</label>
+</div>
+```
+
+## Without Labels
+
+Remember to still provide some form of label for assistive technologies (for instance, using `aria-label`).
+
+<div className="sheet-example">
+	<div className="form-check">
+		<label className="form-check-label">
+			<input
+				className="form-check-input"
+				type="checkbox"
+				id="withoutLabelCheckbox"
+				value=""
+			/>
+		</label>
+	</div>
+	<div className="form-check">
+		<label className="form-check-label">
+			<input
+				className="form-check-input"
+				type="checkbox"
+				id="withoutLabelCheckbox1"
+				value=""
+			/>
+		</label>
+	</div>
+</div>
+
+```html
+<div className="form-check">
+	<label className="form-check-label">
+		<input
+			className="form-check-input"
+			type="checkbox"
+			id="withoutLabelCheckbox"
+			value=""
+		/>
+	</label>
+</div>
+<div className="form-check">
+	<label className="form-check-label">
+		<input
+			className="form-check-input"
+			type="checkbox"
+			id="withoutLabelCheckbox1"
+			value=""
+		/>
+	</label>
+</div>
+```
+
+## Custom
+
+The two ways for you to structure the marking of a Checkbox and Radio:
+
+It is packaged in a classless `<label>` and `<label className="custom-control-label"/>` is replaced by `<span>`:
+
+```html
+<div className="custom-control custom-checkbox">
+	<label>
+		<input
+			className="custom-control-input"
+			type="checkbox"
+			id="customCheck1"
+		/>
+		<span className="custom-control-label">
+			<span className="custom-control-label-text"
+				>Check this custom checkbox</span
+			>
+		</span>
+	</label>
+</div>
+```
+
+Using the `id` binding engine with `<label />`and `<input />`.
+
+```html
+<div className="custom-control custom-checkbox">
+	<input className="custom-control-input" type="checkbox" id="customCheck2" />
+	<label className="custom-control-label" for="customCheck2">
+		<span className="custom-control-label-text"
+			>Check this custom checkbox</span
+		>
+	</label>
+</div>
+```
+
+### Checkboxes
+
+<div className="sheet-example">
+	<div className="custom-control custom-checkbox">
+		<label>
+			<input
+				className="custom-control-input"
+				type="checkbox"
+				id="customCheck1"
+			/>
+			<span className="custom-control-label">
+				<span className="custom-control-label-text">
+					Check this custom checkbox
+				</span>
+			</span>
+		</label>
+	</div>
+</div>
+
+```html
+<div className="custom-control custom-checkbox">
+	<label>
+		<input
+			className="custom-control-input"
+			type="checkbox"
+			id="customCheck1"
+		/>
+		<span className="custom-control-label">
+			<span className="custom-control-label-text"
+				>Check this custom checkbox</span
+			>
+		</span>
+	</label>
+</div>
+```
+
+#### Custom Checkbox Indeterminate
+
+Custom checkboxes can also utilize the `:indeterminate` pseudo class when manually set via JavaScript (there is no available HTML attribute for specifying it).
+
+<div className="sheet-example">
+	<div className="clay-site-custom-checkbox-indeterminate">
+		<div className="custom-control custom-checkbox">
+			<label>
+				<input className="custom-control-input" type="checkbox" />
+				<span className="custom-control-label">
+					<span className="custom-control-label-text">
+						Indeterminate
+					</span>
+				</span>
+			</label>
+		</div>
+	</div>
+</div>
+
+### Radios
+
+<div className="sheet-example">
+	<div className="custom-control custom-radio">
+		<label>
+			<input
+				checked=""
+				className="custom-control-input"
+				id="radio1"
+				name="customRadio"
+				type="radio"
+			/>
+			<span className="custom-control-label">
+				<span className="custom-control-label-text">
+					Toggle this custom radio
+				</span>
+			</span>
+		</label>
+	</div>
+	<div className="custom-control custom-radio">
+		<label>
+			<input
+				className="custom-control-input"
+				id="radio1"
+				name="customRadio"
+				type="radio"
+			/>
+			<span className="custom-control-label">
+				<span className="custom-control-label-text">
+					Or toggle this other custom radio
+				</span>
+			</span>
+		</label>
+	</div>
+</div>
+
+```html
+<div className="custom-control custom-radio">
+	<label>
+		<input
+			checked=""
+			className="custom-control-input"
+			id="radio1"
+			name="customRadio"
+			type="radio"
+		/>
+		<span className="custom-control-label">
+			<span className="custom-control-label-text"
+				>Toggle this custom radio</span
+			>
+		</span>
+	</label>
+</div>
+<div className="custom-control custom-radio">
+	<label>
+		<input
+			className="custom-control-input"
+			id="radio1"
+			name="customRadio"
+			type="radio"
+		/>
+		<span className="custom-control-label">
+			<span className="custom-control-label-text"
+				>Or toggle this other custom radio</span
+			>
+		</span>
+	</label>
+</div>
+```
+
+<script>
+	{`(function() {
+	var indeterminateCheckbox = document.querySelectorAll('.clay-site-custom-checkbox-indeterminate .custom-control-input');
+
+	indeterminateCheckbox.forEach(function(checkbox) {
+		checkbox.indeterminate = true;
+	});
+	})();`}
+</script>

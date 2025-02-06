@@ -30,7 +30,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	warn?: boolean;
 }
 
-const ClayProgressBar = ({
+const ProgressBar = ({
 	children,
 	className,
 	feedback = false,
@@ -89,4 +89,4 @@ const ClayProgressBar = ({
 	);
 };
 
-export default ClayProgressBar;
+export default ProgressBar;

@@ -46,7 +46,7 @@ interface IMenuRendererProps {
 
 type MenuRenderer = (props: IMenuRendererProps) => JSX.Element;
 
-export interface IProps<T>
+interface IProps<T>
 	extends Omit<
 			React.HTMLAttributes<HTMLInputElement>,
 			'onChange' | 'children'
@@ -237,7 +237,18 @@ export interface IProps<T>
 	loadingState?: number;
 }
 
-function ClayMultiSelectInner<T extends Record<string, any> = Item>(
+interface IForwardRef<T, P = {}>
+	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
+	Item: typeof AutocompleteItem;
+}
+
+function forwardRef<T, P = {}>(component: React.RefForwardingComponent<T, P>) {
+	return React.forwardRef<T, P>(component) as IForwardRef<T, P>;
+}
+
+const MultiSelect = forwardRef(function MultiSelectInner<
+	T extends Record<string, any> = Item
+>(
 	{
 		active: externalActive,
 		allowsCustomLabel = true,
@@ -533,9 +544,9 @@ function ClayMultiSelectInner<T extends Record<string, any> = Item>(
 			</div>
 		</Container>
 	);
-}
+});
 
-ClayMultiSelectInner.displayName = 'ClayMultiSelect';
+MultiSelect.displayName = 'ClayMultiSelect';
 
 /**
  * Utility used for filtering an array of items based off the locator which
@@ -548,16 +559,6 @@ export const itemLabelFilter = (
 	_locator = 'label'
 ) => items;
 
-type ForwardRef = {
-	Item: typeof AutocompleteItem;
-	displayName: string;
-	<T>(props: IProps<T> & {ref?: React.Ref<HTMLInputElement>}): JSX.Element;
-};
+MultiSelect.Item = AutocompleteItem;
 
-const ClayMultiSelect = React.forwardRef(
-	ClayMultiSelectInner
-) as unknown as ForwardRef;
-
-ClayMultiSelect.Item = AutocompleteItem;
-
-export default ClayMultiSelect;
+export default MultiSelect;

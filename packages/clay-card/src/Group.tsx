@@ -6,15 +6,14 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface ICardGroupProps
-	extends React.HTMLAttributes<HTMLUListElement> {
+interface ICardGroupProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * Header's label of Card Group
 	 */
 	label?: string;
 }
 
-const ClayCardGroup = ({
+const Group = ({
 	children,
 	className,
 	label,
@@ -40,4 +39,4 @@ const ClayCardGroup = ({
 	);
 };
 
-export default ClayCardGroup;
+export default Group;

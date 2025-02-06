@@ -15,7 +15,9 @@ import {useFocusWithin} from '../aria';
 import {Scope, useScope} from './ScopeContext';
 import {useRow, useTable} from './context';
 
-type Props = {
+interface IProps
+	extends React.ThHTMLAttributes<HTMLTableCellElement>,
+		React.TdHTMLAttributes<HTMLTableCellElement> {
 	/**
 	 * Aligns the text inside the Cell.
 	 */
@@ -39,13 +41,11 @@ type Props = {
 	expanded?: boolean;
 
 	/**
-	 * Internal property.
 	 * @ignore
 	 */
 	index?: number;
 
 	/**
-	 * Internal property.
 	 * @ignore
 	 */
 	keyValue?: React.Key;
@@ -96,11 +96,10 @@ type Props = {
 	UNSAFE_resizerOnMouseDown?: (
 		event: React.MouseEvent<HTMLDivElement, MouseEvent>
 	) => void;
-} & React.ThHTMLAttributes<HTMLTableCellElement> &
-	React.TdHTMLAttributes<HTMLTableCellElement>;
+}
 
-export const Cell = React.forwardRef<HTMLTableCellElement, Props>(
-	function CellInner(
+export const Cell = React.forwardRef(
+	(
 		{
 			UNSAFE_resizable,
 			UNSAFE_resizerClassName,
@@ -119,9 +118,9 @@ export const Cell = React.forwardRef<HTMLTableCellElement, Props>(
 			width = 'auto',
 			wrap = true,
 			...otherProps
-		},
-		ref
-	) {
+		}: IProps,
+		ref: React.Ref<HTMLTableCellElement>
+	) => {
 		const {
 			columnsVisibility,
 			expandedKeys,
@@ -199,6 +198,16 @@ export const Cell = React.forwardRef<HTMLTableCellElement, Props>(
 						: undefined
 				}
 				className={classNames(className, {
+					'order-arrow-down-active': isSortable
+						? sort &&
+						  keyValue === sort.column &&
+						  sort.direction === 'descending'
+						: undefined,
+					'order-arrow-up-active': isSortable
+						? sort &&
+						  keyValue === sort.column &&
+						  sort.direction === 'ascending'
+						: undefined,
 					'table-cell-expand': truncate || expanded,
 					[`table-cell-${delimiter}`]: delimiter,
 					[`table-column-text-${textAlign}`]: textAlign,
@@ -259,15 +268,7 @@ export const Cell = React.forwardRef<HTMLTableCellElement, Props>(
 								title={messages['sortDescription']}
 								type="button"
 							>
-								<Icon
-									symbol={
-										sort && keyValue === sort.column
-											? sort.direction === 'descending'
-												? 'order-list-down'
-												: 'order-list-up'
-											: 'order-arrow'
-									}
-								/>
+								<Icon symbol="order-arrow" />
 							</button>
 						</Layout.ContentCol>
 					</Layout.ContentRow>

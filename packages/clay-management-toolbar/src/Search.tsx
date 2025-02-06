@@ -7,7 +7,7 @@ import ClayLayout from '@clayui/layout';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {
+interface IProps extends React.FormHTMLAttributes<HTMLFormElement> {
 	/**
 	 * Flag to indicate when there is only the search element within a
 	 * Management Toolbar.

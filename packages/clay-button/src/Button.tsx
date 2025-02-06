@@ -9,7 +9,7 @@ import warning from 'warning';
 
 import Group from './Group';
 
-export type DisplayType =
+type DisplayType =
 	| null
 	| 'primary'
 	| 'secondary'
@@ -22,7 +22,7 @@ export type DisplayType =
 	| 'beta-dark'
 	| 'unstyled';
 
-export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Flag to indicate if button is used within an alert component.
 	 */
@@ -83,7 +83,16 @@ export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	translucent?: boolean;
 }
 
-const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
+export interface IForwardRef<T, P = {}>
+	extends React.ForwardRefExoticComponent<P & React.RefAttributes<T>> {
+	Group: typeof Group;
+}
+
+function forwardRef<T, P = {}>(component: React.RefForwardingComponent<T, P>) {
+	return React.forwardRef<T, P>(component) as IForwardRef<T, P>;
+}
+
+const Button = forwardRef(
 	(
 		{
 			alert,
@@ -102,7 +111,7 @@ const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
 			type = 'button',
 			...otherProps
 		}: IProps,
-		ref
+		ref: React.Ref<HTMLButtonElement>
 	) => {
 		const childArray = React.Children.toArray(children);
 
@@ -153,6 +162,7 @@ const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
 	}
 );
 
-ClayButton.displayName = 'ClayButton';
+Button.Group = Group;
+Button.displayName = 'ClayButton';
 
-export default Object.assign(ClayButton, {Group});
+export default Button;

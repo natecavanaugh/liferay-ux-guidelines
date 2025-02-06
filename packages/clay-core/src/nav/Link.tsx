@@ -8,7 +8,7 @@ import {LinkOrButton} from '@clayui/shared';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface IProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 	/**
 	 * Flag to indicate if `active` class should be applied.
 	 */

@@ -8,7 +8,7 @@ import React, {useContext} from 'react';
 
 import {NavigationBarContext} from './context';
 
-export interface IItemProps extends React.HTMLAttributes<HTMLLIElement> {
+interface IProps extends React.HTMLAttributes<HTMLLIElement> {
 	/**
 	 * Determines the active state of an dropdown list item.
 	 */
@@ -20,19 +20,19 @@ export interface IItemProps extends React.HTMLAttributes<HTMLLIElement> {
 	children: React.ReactElement;
 }
 
-const ClayNavigationBarIcon = ({
+export const Item = ({
 	active = false,
 	children,
 	className,
 	...otherProps
-}: IItemProps) => {
+}: IProps) => {
 	const {ariaCurrent} = useContext(NavigationBarContext);
 
 	return (
 		<li {...otherProps} className={classNames('nav-item', className)}>
 			{React.Children.map(
 				children,
-				(child: React.ReactElement<IItemProps>, index) => {
+				(child: React.ReactElement<IProps>, index) => {
 					if (
 						// @ts-ignore
 						child?.type.displayName === 'ClayLink' ||
@@ -70,5 +70,3 @@ const ClayNavigationBarIcon = ({
 		</li>
 	);
 };
-
-export default ClayNavigationBarIcon;

@@ -3,9 +3,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import ClayPagination from './Pagination';
+import {Pagination} from './Pagination';
 import {ClayPaginationWithBasicItems} from './PaginationWithBasicItems';
 
-export {ClayPaginationWithBasicItems};
-
-export default ClayPagination;
+export {Ellipsis} from './Ellipsis';
+export {Item} from './Item';
+export {Pagination, ClayPaginationWithBasicItems};
+export default Pagination;

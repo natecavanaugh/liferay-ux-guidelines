@@ -3,27 +3,119 @@ title: 'Localized Input'
 description: 'A text input variation used in fields that can be translated into multiple languages.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/text-input-localizable/'
 packageNpm: '@clayui/localized-input'
+packageUse: "import LocalizedInput from '@clayui/localized-input';"
+packageTypes: ['clay-localized-input/src/index.tsx']
 ---
-
-import {
-	LocalizableInput,
-	LocalizableInputWithURL,
-} from '$packages/clay-localized-input/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Localized URL](#localized-url)
-
-</div>
-</div>
 
 Use it when you want to enable the users to define values like post titles, headings in multiple languages not having to rely on automatic translations.
 
-<LocalizableInput />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LocalizedInput from '@clayui/localized-input';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const locales = [
+		{
+			label: 'en-US',
+			symbol: 'en-us',
+		},
+		{
+			label: 'es-ES',
+			symbol: 'es-es',
+		},
+		{
+			label: 'fr-FR',
+			symbol: 'fr-fr',
+		},
+		{
+			label: 'hr-HR',
+			symbol: 'hr-hr',
+		},
+	];
+
+	const [selectedLocale, setSelectedLocale] = useState(locales[0]);
+	const [translations, setTranslations] = useState({
+		'en-US': 'Apple',
+		'es-ES': 'Manzana',
+	});
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LocalizedInput
+					id="locale1"
+					locales={locales}
+					onSelectedLocaleChange={setSelectedLocale}
+					onTranslationsChange={setTranslations}
+					selectedLocale={selectedLocale}
+					translations={translations}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Localized URL
 
 You might want to allow your users to localize URLs, in that case here's an example of how to compose Localized Input to get the desired result. The main parts are the `prependContent` and `resultFormatter` props.
 
-<LocalizableInputWithURL />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LocalizedInput from '@clayui/localized-input';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const locales = [
+		{
+			label: 'en-US',
+			symbol: 'en-us',
+		},
+		{
+			label: 'es-ES',
+			symbol: 'es-es',
+		},
+		{
+			label: 'fr-FR',
+			symbol: 'fr-fr',
+		},
+		{
+			label: 'hr-HR',
+			symbol: 'hr-hr',
+		},
+	];
+
+	const [selectedLocale, setSelectedLocale] = useState(locales[0]);
+	const [translations, setTranslations] = useState({
+		'en-US': 'Apple',
+		'es-ES': 'Manzana',
+	});
+
+	const prepend = '/home/';
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LocalizedInput
+					id="locale2"
+					label="As a URL"
+					locales={locales}
+					onSelectedLocaleChange={setSelectedLocale}
+					onTranslationsChange={setTranslations}
+					prependContent={prepend}
+					resultFormatter={(value) =>
+						'https://liferay.com' + prepend + value
+					}
+					selectedLocale={selectedLocale}
+					translations={translations}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

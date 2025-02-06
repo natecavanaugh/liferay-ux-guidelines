@@ -16,7 +16,7 @@ import Description from './Description';
 import Group from './Group';
 import Row from './Row';
 
-export interface ICardProps extends IContext {
+interface ICardProps extends IContext {
 	/**
 	 * Flag that indicates if `active` class is applied
 	 */
@@ -33,13 +33,13 @@ export interface ICardProps extends IContext {
 	selectable?: boolean;
 }
 
-export interface IProps
+interface IProps
 	extends ICardProps,
 		React.BaseHTMLAttributes<
 			HTMLAnchorElement | HTMLSpanElement | HTMLDivElement
 		> {}
 
-const ClayCard = ({
+const CardBase = ({
 	active,
 	children,
 	className,
@@ -77,26 +77,12 @@ const ClayCard = ({
 	);
 };
 
-function ClayCardHybrid(props: IProps): JSX.Element & {
-	AspectRatio: typeof AspectRatio;
-	Body: typeof Body;
-	Caption: typeof Caption;
-	Description: typeof Description;
-	Group: typeof Group;
-	Row: typeof Row;
-};
-
-function ClayCardHybrid({
-	children,
-	horizontal,
-	interactive,
-	...otherProps
-}: IProps) {
+function Card({children, horizontal, interactive, ...otherProps}: IProps) {
 	const Container = interactive
 		? ClayCardNavigation
 		: horizontal
 		? ClayCardHorizontal
-		: ClayCard;
+		: CardBase;
 
 	return (
 		<Container horizontal={horizontal} {...otherProps}>
@@ -105,13 +91,13 @@ function ClayCardHybrid({
 	);
 }
 
-ClayCardHybrid.displayName = 'ClayCard';
+Card.displayName = 'ClayCard';
 
-ClayCardHybrid.AspectRatio = AspectRatio;
-ClayCardHybrid.Body = Body;
-ClayCardHybrid.Caption = Caption;
-ClayCardHybrid.Description = Description;
-ClayCardHybrid.Group = Group;
-ClayCardHybrid.Row = Row;
+Card.AspectRatio = AspectRatio;
+Card.Body = Body;
+Card.Caption = Caption;
+Card.Description = Description;
+Card.Group = Group;
+Card.Row = Row;
 
-export default ClayCardHybrid;
+export default Card;

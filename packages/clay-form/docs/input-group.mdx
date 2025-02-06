@@ -3,27 +3,10 @@ title: 'Input Group'
 description: 'A Text Input with added elements that provide a more complex input structure.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/input-group/'
 packageNpm: '@clayui/form'
-navigationParent: 'docs/components/form.html'
+packageUse: "import ClayForm, {ClayInput} from '@clayui/form';"
 storybookPath: 'design-system-components-inputgroup'
+packageTypes: ['clay-form/src/Input.tsx']
 ---
-
-import {
-	FormInputGroupConnected,
-	FormInputGroupMixed,
-	FormInputGroupSeparated,
-	FormInputGroupStacked,
-} from '$packages/clay-form/docs/input';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Separated](#separated)
--   [Connected](#connected)
--   [Mixed](#mixed)
--   [Stacked](#stacked)
-
-</div>
-</div>
 
 If you want to create groups of inputs, use `<ClayInput.Group>`, `<ClayInput.GroupInsetItem>`, `<ClayInput.GroupItem>` and `<ClayInput.GroupText>`.
 
@@ -31,20 +14,189 @@ If you want to create groups of inputs, use `<ClayInput.Group>`, `<ClayInput.Gro
 
 Wrap each item in a `<ClayInput.Group>` with `<ClayInput.GroupItem>`. If you want to make an item shrink to fit, use the `shrink` property.
 
-<FormInputGroupSeparated />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Form.Group>
+						<ClayInput.Group>
+							<ClayInput.GroupItem shrink>
+								<ClayButton
+									displayType="secondary"
+									type="submit"
+								>
+									Search
+								</ClayButton>
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem>
+								<ClayInput
+									placeholder="Search Query"
+									type="text"
+								/>
+							</ClayInput.GroupItem>
+						</ClayInput.Group>
+					</Form.Group>
+					<Form.Group>
+						<ClayInput.Group>
+							<ClayInput.GroupItem shrink>
+								<ClayInput.GroupText>$</ClayInput.GroupText>
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem>
+								<ClayInput placeholder="5,000" type="text" />
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem shrink>
+								<ClayInput.GroupText>.00</ClayInput.GroupText>
+							</ClayInput.GroupItem>
+						</ClayInput.Group>
+					</Form.Group>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Connected
 
 For creating a connected input group, use `prepend` property for each `<ClayInput.GroupItem>` and for the last `<ClayInput.GroupItem>` use the property `append`.
 
-<FormInputGroupConnected />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Form.Group>
+						<ClayInput.Group>
+							<ClayInput.GroupItem shrink prepend>
+								<ClayButton
+									displayType="secondary"
+									type="submit"
+								>
+									Search
+								</ClayButton>
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem append>
+								<ClayInput
+									placeholder="Search Query"
+									type="text"
+								/>
+							</ClayInput.GroupItem>
+						</ClayInput.Group>
+					</Form.Group>
+					<Form.Group>
+						<ClayInput.Group>
+							<ClayInput.GroupItem prepend>
+								<ClayInput placeholder="Email" type="text" />
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem append shrink>
+								<ClayInput.GroupText>
+									@liferay.com
+								</ClayInput.GroupText>
+							</ClayInput.GroupItem>
+						</ClayInput.Group>
+					</Form.Group>
+					<Form.Group>
+						<ClayInput.Group>
+							<ClayInput.GroupItem shrink prepend>
+								<ClayInput.GroupText>$</ClayInput.GroupText>
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem prepend>
+								<ClayInput placeholder="5,000" type="text" />
+							</ClayInput.GroupItem>
+							<ClayInput.GroupItem append shrink>
+								<ClayInput.GroupText>.00</ClayInput.GroupText>
+							</ClayInput.GroupItem>
+						</ClayInput.Group>
+					</Form.Group>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Mixed
 
-<FormInputGroupMixed />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form.Group>
+					<ClayInput.Group>
+						<ClayInput.GroupItem shrink>
+							<ClayInput.GroupText>@</ClayInput.GroupText>
+						</ClayInput.GroupItem>
+						<ClayInput.GroupItem prepend>
+							<ClayInput placeholder="Username" type="text" />
+						</ClayInput.GroupItem>
+						<ClayInput.GroupItem append shrink>
+							<ClayButton displayType="secondary" type="submit">
+								Submit
+							</ClayButton>
+						</ClayInput.GroupItem>
+					</ClayInput.Group>
+				</Form.Group>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Stacked
 
 For creating a stack of the items inside a item group, use `stacked` property in the `<ClayInput.Group>` and use `shrink` property for using in screens sizes less than 576px.
 
-<FormInputGroupStacked />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form.Group>
+					<ClayInput.Group stacked>
+						<ClayInput.GroupItem prepend>
+							<ClayInput placeholder="Email" type="text" />
+						</ClayInput.GroupItem>
+						<ClayInput.GroupItem shrink prepend>
+							<ClayInput.GroupText>@</ClayInput.GroupText>
+						</ClayInput.GroupItem>
+						<ClayInput.GroupItem prepend>
+							<ClayInput placeholder="liferay" type="text" />
+						</ClayInput.GroupItem>
+						<ClayInput.GroupItem append shrink>
+							<ClayInput.GroupText>.com</ClayInput.GroupText>
+						</ClayInput.GroupItem>
+					</ClayInput.Group>
+				</Form.Group>
+			</div>
+		</Provider>
+	);
+}
+```

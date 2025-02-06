@@ -1,0 +1,184 @@
+---
+title: 'Clay v3: Clay CSS Mixin Updates'
+author: [patrickyeo]
+---
+
+## Introduction
+
+We have begun implementing a new pattern for customizing and generating CSS properties in Clay CSS. It uses the mixin, [clay-css](https://github.com/liferay/clay/blob/01a8e7607608936922df4a994df02cd25adb1cac/packages/clay-css/src/scss/mixins/_globals.scss#L11), that accepts a Sass map as a parameter to generate CSS properties and values for a selector. The valid property names are listed in the link.
+
+## Implications
+
+In the past, we have followed the pattern of mapping a Sass variable to to a single CSS property. We are converting to using maps instead. The name of the Sass map variable will refer to the CSS selector of the component. For example the variables:
+
+```scss
+$alert-close-font-size: 0.875rem !default;
+$alert-close-height: 2rem !default;
+$alert-close-line-height: null !default;
+$alert-close-opacity: null !default;
+$alert-close-margin-left: null !default;
+$alert-close-padding-bottom: 0 !default;
+$alert-close-padding-left: 0 !default;
+$alert-close-padding-right: 0 !default;
+$alert-close-padding-top: 0 !default;
+$alert-close-position-right: 0.5rem !default;
+$alert-close-position-top: 0.75rem !default;
+$alert-close-width: $alert-close-height !default;
+```
+
+have been combined into a single map:
+
+```scss
+$alert-close: () !default;
+$alert-close: map-deep-merge(
+	(
+		color: inherit,
+		font-size: $alert-close-font-size,
+		height: $alert-close-height,
+		line-height: $alert-close-line-height,
+		margin-left: $alert-close-margin-left,
+		opacity: $alert-close-opacity,
+		padding-bottom: $alert-close-padding-bottom,
+		padding-left: $alert-close-padding-left,
+		padding-right: $alert-close-padding-right,
+		padding-top: $alert-close-padding-top,
+		position: absolute,
+		right: $alert-close-position-right,
+		top: $alert-close-position-top,
+		width: $alert-close-width,
+		hover: (
+			color: inherit,
+		),
+	),
+	$alert-close
+);
+```
+
+The variable name will resemble the CSS selector; `$alert-close` maps to `.alert .close`. The main motivation behind this change was to reduce the number of variables we had to define and increase the number of properties we could customize.
+
+We will be deprecating most variables that map to a single CSS property. We encourage updating your variable themes to this new map pattern where ever possible. It will make future upgrades easier and less time consuming.
+
+## Variable Key Names
+
+We are converting key names like `bg`, `bg-image`, `padding-x`, `padding-y`, `margin-x`, and `margin-y` to match the CSS property they are referencing. They are now `background-color` and `background-image`. The keys `padding-x` and `padding-y` have been split into `padding-left`, `padding-right`, `padding-bottom`, and `padding-top`. The same goes for `margin-x` and `margin-y`.
+
+Key names like `hover-bg`, `focus-border-color`, `active-focus-box-shadow`, and `disabled-opacity` have been nested inside maps with keys with the same name as the pseudo classes they represent. An example:
+
+```scss
+$btn-primary: () !default;
+$btn-primary: map-deep-merge(
+	(
+		// bg,
+		background-color: value,
+		// bg-image,
+		background-image: value,
+		// padding-y,
+		margin-bottom: value,
+		// padding-x,
+		margin-left: value,
+		// padding-x,
+		margin-right: value,
+		// padding-y,
+		margin-top: value,
+		// padding-y,
+		padding-bottom: value,
+		// padding-x,
+		padding-left: value,
+		// padding-x,
+		padding-right: value,
+		// padding-y,
+		padding-top: value,
+		hover: (
+			// hover-bg,
+			background-color: value
+		),
+		focus: (
+			// focus-border-color,
+			border-color: value
+		),
+		active: (
+			focus: (
+				// active-focus-box-shadow,
+				box-shadow: value,
+			),
+		),
+		disabled: (
+			// disabled-opacity,
+			opacity: value
+		)
+	),
+	$btn-primary
+);
+```
+
+The old key names are still valid and will win over new key names. One quirk that may arise from using the new key names is if you are extending a variable theme that still uses the old keys or if Clay CSS forgot to convert a map to the new keys. The old keys will win even if you did everything right. An example:
+
+```scss
+// Your extending theme using new keys
+
+$btn-primary: (
+	background-color: #3d536b,
+	hover: (
+		background-color: #34465b,
+	),
+	focus: (
+		background-color: #2b3a4b,
+	),
+);
+
+// Variable Theme still using old keys
+
+$btn-primary: () !default;
+$btn-primary: map-deep-merge(
+	(
+		bg: #5924eb,
+		hover-bg: #4429b3,
+		focus-bg: #3c249e,
+	),
+	$btn-primary
+);
+
+// $btn-primary will contain the old values:
+//  (
+//  	background-color: #5924EB,
+//  	hover: (
+//  		background-color: #4429B3,
+//  	),
+//  	focus: (
+//  		background-color: #3C249E,
+//  	),
+//  )
+```
+
+## Unset Properties
+
+Properties can be unset in maps by setting the value to `$clay-unset` or `$c-unset`. The variable `$clay-unset` contains the key word `clay-unset`. Clay functions and mixins will return `null` when it encounters that key word. This is a workaround for Sass outputting properties like `background-color: null;`. Example below:
+
+```scss
+$btn-primary: () !default;
+$btn-primary: map-deep-merge(
+	(
+		background-color: $c-unset,
+		border-color: $c-unset,
+		color: $c-unset,
+	),
+	$btn-primary
+);
+
+$btn-primary: () !default;
+$btn-primary: map-deep-merge(
+	(
+		background-color: aliceblue,
+		border-color: aliceblue,
+		color: black,
+	),
+	$btn-primary
+);
+
+// $btn-primary contains nothing:
+// ()
+```
+
+## Conclusion
+
+We believe these updates will provide more value. It enables a developer to add, remove, and replace CSS properties inside clay.css instead of duplicating and overwriting them. We won't be removing compatibility for any of the old variables or key names any time soon. We understand upgrading is a difficult process and want to make any transitions as smooth as possible.

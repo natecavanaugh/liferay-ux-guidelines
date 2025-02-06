@@ -3,39 +3,57 @@ title: 'Autocomplete'
 description: 'An autocomplete text field is an input that offers the user text suggestions while they type.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/text-input-variations/'
 packageNpm: '@clayui/autocomplete'
+packageUse: "import Autocomplete from '@clayui/autocomplete';"
+packageTypes:
+    [
+        'clay-autocomplete/src/LegacyAutocomplete.tsx',
+        'clay-autocomplete/src/Item.tsx',
+    ]
 ---
-
-import {
-	MenuTriggerAutocomplete,
-	SearchAutocomplete,
-} from '$packages/clay-autocomplete/docs/index';
-
-<div class="nav-toc-title">
-
-## Table of contents
-
-</div>
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Content](#content)
-    -   [Static](#static)
-    -   [Dynamic](#dinamic)
-    -   [Internationalization](#internationalization)
--   [Value](#value)
--   [Asynchronous loading](#asynchronous-loading)
--   [Custom Filtering](#custom-filtering)
--   [Trigger options](#trigger-options)
-
-</div>
-</div>
 
 ## Example
 
-<SearchAutocomplete />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Autocomplete from '@clayui/autocomplete';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form.Group>
+					<label
+						htmlFor="clay-autocomplete-1"
+						id="clay-autocomplete-label-1"
+					>
+						Numbers (one-five)
+					</label>
+					<Autocomplete
+						aria-labelledby="clay-autocomplete-label-1"
+						id="clay-autocomplete-1"
+						defaultItems={['one', 'two', 'three', 'four', 'five']}
+						messages={{
+							loading: 'Loading...',
+							notFound: 'No results found',
+						}}
+						placeholder="Enter a number from One to Five"
+					>
+						{(item) => (
+							<Autocomplete.Item key={item}>
+								{item}
+							</Autocomplete.Item>
+						)}
+					</Autocomplete>
+				</Form.Group>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Introduction
 
@@ -314,4 +332,52 @@ function Example() {
 
 By default, Autocomplete show the menu when the user types in the input field. Alternatively this mode can be modified by setting the `menuTrigger` property to `focus`, which shows the menu when Autocomplete is focused.
 
-<MenuTriggerAutocomplete />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Autocomplete from '@clayui/autocomplete';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form.Group>
+					<label
+						htmlFor="clay-autocomplete-2"
+						id="clay-autocomplete-label-2"
+					>
+						Fruits
+					</label>
+					<Autocomplete
+						aria-labelledby="clay-autocomplete-label-2"
+						id="clay-autocomplete-2"
+						defaultItems={[
+							'Apples',
+							'Bananas',
+							'Cantaloupe',
+							'Mangos',
+							'Oranges',
+							'Strawberries',
+						]}
+						messages={{
+							loading: 'Loading...',
+							notFound: 'No results found',
+						}}
+						placeholder="Enter the name of a fruit"
+						menuTrigger="focus"
+					>
+						{(item) => (
+							<Autocomplete.Item key={item}>
+								{item}
+							</Autocomplete.Item>
+						)}
+					</Autocomplete>
+				</Form.Group>
+			</div>
+		</Provider>
+	);
+}
+```

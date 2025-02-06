@@ -10,7 +10,7 @@ import React, {useContext} from 'react';
 
 import {DropDownContext} from './DropDownContext';
 
-export interface IProps
+interface IProps
 	extends React.HTMLAttributes<
 		HTMLSpanElement | HTMLButtonElement | HTMLAnchorElement
 	> {
@@ -58,7 +58,7 @@ export interface IProps
 	symbolRight?: string;
 }
 
-const ClayDropDownItem = React.forwardRef<HTMLLIElement, IProps>(
+const Item = React.forwardRef<HTMLLIElement, IProps>(
 	(
 		{
 			active,
@@ -148,6 +148,6 @@ const ClayDropDownItem = React.forwardRef<HTMLLIElement, IProps>(
 	}
 );
 
-ClayDropDownItem.displayName = 'ClayDropDownItem';
+Item.displayName = 'ClayDropDownItem';
 
-export default ClayDropDownItem;
+export default Item;

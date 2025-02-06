@@ -3,90 +3,195 @@ title: 'Date Picker'
 description: 'Date and Time pickers let users select a date and time for a form.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/picker-date-time/'
 packageNpm: '@clayui/date-picker'
+packageUse: "import DatePicker from '@clayui/date-picker';"
+packageTypes: ['clay-date-picker/src/index.tsx']
 ---
 
-import {
-	DatePickerCustomFooter,
-	DatePickerLocale,
-	DatePickerWithRange,
-	DatePickerWithState,
-	DatePickerWithTime,
-} from '$packages/clay-date-picker/docs/index';
+Date Picker is created following the principles of [Lexicon](https://liferay.design/lexicon/core-components/forms/picker-date-time), Internationalization and Extension Points by default is integrated with Time Picker that offers the minimum of features to set a time.
 
-<div class="nav-toc-absolute">
-<div class="nav-toc">
+By default Date Picker does not handle input masking, letting you take control so you can take care of internationalization. Date Picker will update the Calendar only when the value entered in the input is a valid date, respecting the [`dateFormat`](#api-dateFormat) API.
 
--   [Time](#time)
--   [Range](#range)
--   [Internationalization](#internationalization)
--   [Custom Footer](#custom-footer)
--   [Programatically Expand Dropdown](#programatically-expand-dropdown)
--   [Note about Moment.js](#note-about-moment.js)
+For mobile viewing mode, Lexicon encourages you to use the native Date Picker, they are many robust and more accessible in the mobile view, Clay offers the [`useNative`](#api-useNative) API to replace the Date Picker view mode with the native and continue to get the features of the component.
 
-</div>
-</div>
-
-Date Picker is created following the principles of <a href="https://liferay.design/lexicon/core-components/forms/picker-date-time/">Lexicon</a>, Internationalization and Extension Points by default is integrated with Time Picker that offers the minimum of features to set a time.
-
-By default Date Picker does not handle input masking, letting you take control so you can take care of internationalization. Date Picker will update the Calendar only when the value entered in the input is a valid date, respecting the [`dateFormat`](date-picker/api.html#api-dateFormat) API.
-
-For mobile viewing mode, Lexicon encourages you to use the native Date Picker, they are many robust and more accessible in the mobile view, Clay offers the [`useNative`](date-picker/api.html#api-useNative) API to replace the Date Picker view mode with the native and continue to get the features of the component.
-
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	These components are meant to cover desktop browser needs. The OS native component
 	must be used on mobile devices.
 </div>
 
-The component is treated as controlled, use the [`onValueChange`](date-picker/api.html#api-onValueChange) and [`value`](date-picker/api.html#api-value) APIs to control the flow of information.
+The component is treated as controlled, use the [`onValueChange`](#api-onValueChange) and [`value`](#api-value) APIs to control the flow of information.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	You can set a range of years using the API <code class="language-text">
-		<a href="date-picker/api.html#api-years">years</a>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	You can set a range of years using the API <code className="language-text">
+		<a href="#api-years">years</a>
 	</code>, which can be displayed in the Date Picker, if the user enters a year
 	that is not within the range will be treated as an invalid date.
 </div>
 
-<DatePickerWithState />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DatePicker from '@clayui/date-picker';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(null);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DatePicker
+					onChange={setValue}
+					placeholder="YYYY-MM-DD"
+					value={value}
+					years={{
+						end: 2024,
+						start: 1997,
+					}}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Time
 
-The ClayTimePicker by default is already implemented in the Date Picker, you can enable it using the [`time`](date-picker/api.html#api-time) API. To provide a context for the timezone user, use the [`timezone`](date-picker/api.html#api-timezone) API for this.
+The ClayTimePicker by default is already implemented in the Date Picker, you can enable it using the [`time`](#api-time) API. To provide a context for the timezone user, use the [`timezone`](#api-timezone) API for this.
 
-<DatePickerWithTime />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DatePicker from '@clayui/date-picker';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(null);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DatePicker
+					onChange={setValue}
+					placeholder="YYYY-MM-DD HH:mm"
+					time
+					timezone="GMT+01:00"
+					value={value}
+					years={{
+						end: 2024,
+						start: 2008,
+					}}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Range
 
 Range is used to allowing the user to select a date range using a single calendar. The user can interact in the single `input` to select the start and end dates using the `-` separator, the separator is fixed.
 
-When a range is selected using the `input` or the calendar, the [`onValueChange`](date-picker/api.html#api-onValueChange) callback is called with the value in `string` type, respecting the format of the [`dateFormat`](date-picker/api.html#api-dateFormat) for both dates together with the separator.
+When a range is selected using the `input` or the calendar, the [`onValueChange`](#api-onValueChange) callback is called with the value in `string` type, respecting the format of the [`dateFormat`](#api-dateFormat) for both dates together with the separator.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	The <code class="language-text">time</code> is not supported when the <code class="language-text">
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	The <code className="language-text">time</code> is not supported when the <code className="language-text">
 		range
 	</code> is enabled.
 </div>
 
-<DatePickerWithRange />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DatePicker from '@clayui/date-picker';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(null);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DatePicker
+					onChange={setValue}
+					placeholder="YYYY-MM-DD - YYYY-MM-DD"
+					range
+					value={value}
+					years={{
+						end: 2024,
+						start: 1997,
+					}}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Internationalization
 
-To set internationalization of the component, you need to configure the props according to the language. Date Picker offers low level APIs to configure [`firstDayOfWeek`](date-picker/api.html#api-firstDayOfWeek), [`weekdaysShort`](date-picker/api.html#api-weekdaysShort), [`months`](date-picker/api.html#api-months), [`timezone`](date-picker/api.html#api-timezone) and [`dateFormat`](date-picker/api.html#api-dateFormat), you can follow the example below to set up a Date Picker for Russian.
+To set internationalization of the component, you need to configure the props according to the language. Date Picker offers low level APIs to configure [`firstDayOfWeek`](#api-firstDayOfWeek), [`weekdaysShort`](#api-weekdaysShort), [`months`](#api-months), [`timezone`](#api-timezone) and [`dateFormat`](#api-dateFormat), you can follow the example below to set up a Date Picker for Russian.
 
-<DatePickerLocale />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DatePicker from '@clayui/date-picker';
+import React, {useState} from 'react';
 
--   [`firstDayOfWeek`](date-picker/api.html#api-firstDayOfWeek) by default the value by default the value is 0 (Sunday) and its values are the days of the week, 1 (Monday), 2 (Tuesday), 3 (Wednesday), 4 (Thursday), 5 (Friday), 6 (Saturday).
--   [`dateFormat`](date-picker/api.html#api-dateFormat) and `timeFormat` is defined according to the **formatting rules of [date-fns](https://date-fns.org/v2.14.0/docs/format)** which is an implementation of the [unicode technical standards](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
--   [`months`](date-picker/api.html#api-months) is an `Array<string>` with available months **starting January to December**.
--   [`weekdaysShort`](date-picker/api.html#api-weekdaysShort) is an `Array<string>` with the **names of the days of the week in short form**, starting from **Sunday to Saturday**.
+import '@clayui/css/lib/css/atlas.css';
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	It is not necessary to reverse or change the order of the values ​​of <code class="language-text">
+export default function App() {
+	const [value, setValue] = useState(null);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DatePicker
+					dateFormat="dd.MM.yyyy"
+					firstDayOfWeek={1}
+					months={[
+						'Январь',
+						'Февраль',
+						'Март',
+						'Апрель',
+						'Май',
+						'Июнь',
+						'Июль',
+						'Август',
+						'Сентябрь',
+						'Октябрь',
+						'Ноябрь',
+						'Декабрь',
+					]}
+					onChange={setValue}
+					placeholder="DD.MM.YYYY"
+					value={value}
+					weekdaysShort={['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']}
+					years={{
+						end: 2024,
+						start: 2008,
+					}}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
+
+-   [`firstDayOfWeek`](#api-firstDayOfWeek) by default the value by default the value is 0 (Sunday) and its values are the days of the week, 1 (Monday), 2 (Tuesday), 3 (Wednesday), 4 (Thursday), 5 (Friday), 6 (Saturday).
+-   [`dateFormat`](#api-dateFormat) and `timeFormat` is defined according to the **formatting rules of [date-fns](https://date-fns.org/v2.14.0/docs/format)** which is an implementation of the [unicode technical standards](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
+-   [`months`](#api-months) is an `Array<string>` with available months **starting January to December**.
+-   [`weekdaysShort`](#api-weekdaysShort) is an `Array<string>` with the **names of the days of the week in short form**, starting from **Sunday to Saturday**.
+
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	It is not necessary to reverse or change the order of the values ​​of <code className="language-text">
 		weekdaysShort
-	</code> the definition of the API <code class="language-text">
+	</code> the definition of the API <code className="language-text">
 		firstDayOfWeek
 	</code> will take care of changing this, <b>
 		keep the order from Sunday to Saturday
@@ -95,9 +200,36 @@ To set internationalization of the component, you need to configure the props ac
 
 ## Custom Footer
 
-To customize the Date Picker content footer you can use the [`footerElement`](date-picker/api.html#api-footerElement) API, its type is a Function that should return an element ([Read more about renders props](https://reactjs.org/docs/render-props.html)), this personalization point is treated as an extension point in the <a href="https://liferay.design/lexicon/">Lexicon</a> language.
+To customize the Date Picker content footer you can use the [`footerElement`](#api-footerElement) API, its type is a Function that should return an element ([Read more about renders props](https://reactjs.org/docs/render-props.html)), this personalization point is treated as an extension point in the <a href="https://liferay.design/lexicon/">Lexicon</a> language.
 
-<DatePickerCustomFooter />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DatePicker from '@clayui/date-picker';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(null);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DatePicker
+					footerElement={() => <span>Footer Content</span>}
+					onChange={setValue}
+					placeholder="YYYY-MM-DD"
+					value={value}
+					years={{
+						end: 2024,
+						start: 2008,
+					}}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Programatically Expand Dropdown
 

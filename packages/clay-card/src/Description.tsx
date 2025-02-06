@@ -7,16 +7,14 @@ import ClayLink from '@clayui/link';
 import classNames from 'classnames';
 import React from 'react';
 
-type CardDescriptionDisplayType = 'text' | 'title' | 'subtitle';
-
-export interface ICardDescriptionProps
+interface ICardDescriptionProps
 	extends React.HTMLAttributes<
 		HTMLHeadingElement | HTMLDivElement | HTMLSpanElement
 	> {
 	/**
 	 * Type of description that can be applied for a text.
 	 */
-	displayType: CardDescriptionDisplayType;
+	displayType: 'text' | 'title' | 'subtitle';
 
 	/**
 	 * Flag to indicate if href will be disabled.
@@ -39,7 +37,7 @@ export interface ICardDescriptionProps
 	truncate?: boolean;
 }
 
-const ClayCardDescription = ({
+const Description = ({
 	children,
 	className,
 	disabled,
@@ -73,4 +71,4 @@ const ClayCardDescription = ({
 	);
 };
 
-export default ClayCardDescription;
+export default Description;

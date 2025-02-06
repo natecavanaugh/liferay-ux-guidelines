@@ -3,19 +3,10 @@ title: 'Focus Trap'
 description: 'Focus Trap keeps the focus within its focusable children elements.'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {FocusTrap} from '@clayui/core';"
 storybookPath: 'design-system-components-focus-trap'
+packageTypes: ['clay-core/src/focus-trap/FocusTrap.tsx']
 ---
-
-import {FocusTrapExample} from '$packages/clay-core/docs/focus-trap';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [Example](#example)
-
-</div>
-</div>
 
 ## Introduction
 
@@ -23,11 +14,50 @@ Focus Trap is a component that wraps elements in the DOM and prevents focus from
 
 It definitely is used when trying to build accessible components, blocking all interactions outside of it while Focus Trap is active.
 
-<div class="clay-site-alert alert alert-warning">
+<div className="clay-site-alert alert alert-warning">
 	It's the responsibility of the user to add an escape method for the focus
 	trap, either with a button or the escape key.
 </div>
 
 ## Example
 
-<FocusTrapExample />
+```jsx preview
+import {Provider, Button, FocusTrap} from '@clayui/core';
+import React, {useEffect, useRef, useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [active, setActive] = useState(false);
+	const activateButtonRef = useRef(null);
+
+	useEffect(() => {
+		if (active) {
+			return () => activateButtonRef.current?.focus();
+		}
+	}, [active]);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Button onClick={() => setActive(true)} ref={activateButtonRef}>
+					Activate trap
+				</Button>
+				{active && (
+					<FocusTrap active={active}>
+						<div className="sheet c-mt-2 c-p-4">
+							<Button displayType="link">Button 1</Button>
+							<Button displayType="link">Button 2</Button>
+							<div className="c-mt-4">
+								<Button onClick={() => setActive(false)}>
+									Leave trap
+								</Button>
+							</div>
+						</div>
+					</FocusTrap>
+				)}
+			</div>
+		</Provider>
+	);
+}
+```

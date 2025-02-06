@@ -2,7 +2,7 @@
 	"private": true,
 	"repository": "https://github.com/liferay/clay",
 	"engines": {
-		"node": ">=18"
+		"node": "18.x"
 	},
 	"size-limit": [
 		{
@@ -21,7 +21,7 @@
 		"checkDeps": "turbo run build --filter=@clayui/* && node scripts/check-deps/check-dependencies.js",
 		"ci": "yarn lint && yarn format:check && yarn test && yarn checkDeps",
 		"coverage": "jest --coverage",
-		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdx,json,scss}\"",
+		"format": "prettier --write \"**/*.{js,ts,mjs,tsx,md,mdx,json,scss}\"",
 		"format:all": "yarn lint:fix && yarn format",
 		"format:changed": "git ls-files -mz \"*.js\" \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" \"*.md\" \"**/*.md\" \"**/*.mdx\" \"*.json\" \"**/*.json\" \"**/*.scss\" | xargs -0 prettier --write --",
 		"format:check": "prettier --list-different -- \"**/*.{js,ts,tsx,md,mdx,json,scss}\"",
@@ -35,7 +35,7 @@
 		"lint:fix": "eslint --fix \".*.js\" \"**/*.{js,ts,tsx}\"",
 		"lint:quiet": "eslint --quiet \".*.js\" \"**/*.{js,ts,tsx}\"",
 		"lint:typescript": "tsc --project ./tsconfig.global.json",
-		"lint": "eslint \".*.js\" \"**/*.{js,ts,tsx}\"",
+		"lint": "eslint \".*.js\" \"!(www)/**/*.{js,ts,tsx}\"",
 		"site": "cd clayui.com && yarn build && yarn serve",
 		"sizeLimit": "size-limit",
 		"storybook:build": "NODE_OPTIONS=--max_old_space_size=8192 build-storybook -c .storybook -o .storybook-static",
@@ -128,5 +128,8 @@
 		"js-beautify": "1.7.5",
 		"event-stream": "3.3.4",
 		"graceful-fs": "^4.2.4"
+	},
+	"dependencies": {
+		"next": "^14.2.5"
 	}
 }

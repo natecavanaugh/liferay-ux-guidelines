@@ -1,0 +1,1184 @@
+---
+title: 'Multi Select'
+description: 'Multi select is the field type that allows writing text to create “tags” that are represented in the shape of labels.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/selector/'
+packageNpm: '@clayui/multi-select'
+packageUse: "import MultiSelect from '@clayui/multi-select';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/examples/grid/LayoutGrids.html">
+		WAI-ARIA
+	</a>
+	accessibility pratices for <b>grids</b> when writting your markup.
+</div>
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/#aria_lh_search">
+		WAI-ARIA
+	</a>
+	accessibility pratices for <b>search</b> when writting your markup.
+</div>
+
+## Example
+
+<div className="clay-site-alert alert alert-warning">
+	This requires external javascript to populate, add labels, and show/hide the{' '}
+	<code className="gatsby-code-text">dropdown-menu</code>.
+</div>
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="tagsField1">Tags</label>
+		<div className="input-group input-group-stacked-sm-down">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<div className="form-control form-control-tag-group">
+						<span className="autofit-row">
+							<span className="autofit-col autofit-col-expand">
+								<input
+									className="form-control-inset"
+									id="tagsField1"
+									type="text"
+									value="some value"
+								/>
+							</span>
+						</span>
+					</div>
+					<ul className="autocomplete-dropdown-menu dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong> meal
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						You can use a comma to enter tags.
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<button className="btn btn-secondary" type="button">
+					Select
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="tagsField1">Tags</label>
+	<div className="input-group input-group-stacked-sm-down">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<div className="form-control form-control-tag-group">
+					<span className="autofit-row">
+						<span className="autofit-col autofit-col-expand">
+							<input
+								className="form-control-inset"
+								id="tagsField1"
+								type="text"
+								value="some value"
+							/>
+						</span>
+					</span>
+				</div>
+				<ul className="autocomplete-dropdown-menu dropdown-menu">
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong> meal</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+				</div>
+			</div>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<button className="btn btn-secondary" type="button">Select</button>
+		</div>
+	</div>
+</div>
+```
+
+## Labels
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="tagsField2">Tags</label>
+		<div className="input-group input-group-stacked-sm-down">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<div className="form-control form-control-tag-group">
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-before">
+								<span className="sticker">
+									<span className="sticker-overlay">
+										<img
+											alt="thumbnail"
+											className="sticker-img"
+											src="/images/thumbnail_dock.jpg"
+										/>
+									</span>
+								</span>
+							</span>
+							<span className="label-item label-item-expand">
+								wall
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-before">
+								<span className="sticker">
+									<span className="sticker-overlay">
+										<img
+											alt="thumbnail"
+											className="sticker-img"
+											src="/images/thumbnail_dock.jpg"
+										/>
+									</span>
+								</span>
+							</span>
+							<span className="label-item label-item-expand">
+								wallpaper
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-before">
+								<span className="sticker">
+									<span className="sticker-overlay">
+										<img
+											alt="thumbnail"
+											className="sticker-img"
+											src="/images/thumbnail_dock.jpg"
+										/>
+									</span>
+								</span>
+							</span>
+							<span className="label-item label-item-expand">
+								wonderwall
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-expand">
+								winterfell
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-expand">
+								ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAre
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span className="autofit-row">
+							<span className="autofit-col autofit-col-expand">
+								<input
+									className="form-control-inset"
+									id="tagsField2"
+									type="text"
+									value="some value"
+								/>
+							</span>
+						</span>
+					</div>
+					<ul className="autocomplete-dropdown-menu dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong> meal
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						You can use a comma to enter tags.
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<button className="btn btn-secondary" type="button">
+					Select
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="tagsField2">Tags</label>
+	<div className="input-group input-group-stacked-sm-down">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<div className="form-control form-control-tag-group">
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-before">
+							<span className="sticker">
+								<span className="sticker-overlay">
+									<img
+										alt="thumbnail"
+										className="sticker-img"
+										src="/images/thumbnail_dock.jpg"
+									/>
+								</span>
+							</span>
+						</span>
+						<span className="label-item label-item-expand"
+							>wall</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-before">
+							<span className="sticker">
+								<span className="sticker-overlay">
+									<img
+										alt="thumbnail"
+										className="sticker-img"
+										src="/images/thumbnail_dock.jpg"
+									/>
+								</span>
+							</span>
+						</span>
+						<span className="label-item label-item-expand"
+							>wallpaper</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-before">
+							<span className="sticker">
+								<span className="sticker-overlay">
+									<img
+										alt="thumbnail"
+										className="sticker-img"
+										src="/images/thumbnail_dock.jpg"
+									/>
+								</span>
+							</span>
+						</span>
+						<span className="label-item label-item-expand"
+							>wonderwall</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-expand"
+							>winterfell</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-expand"
+							>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAre</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span className="autofit-row">
+						<span className="autofit-col autofit-col-expand">
+							<input
+								className="form-control-inset"
+								id="tagsField2"
+								type="text"
+								value="some value"
+							/>
+						</span>
+					</span>
+				</div>
+				<ul className="autocomplete-dropdown-menu dropdown-menu">
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong> meal</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+				</div>
+			</div>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<button className="btn btn-secondary" type="button">Select</button>
+		</div>
+	</div>
+</div>
+```
+
+## Loading
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="tagsField2">Tags</label>
+		<div className="input-group input-group-stacked-sm-down">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<div className="form-control form-control-tag-group">
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-before">
+								<span className="sticker">
+									<span className="sticker-overlay">
+										<img
+											alt="thumbnail"
+											className="sticker-img"
+											src="/images/thumbnail_dock.jpg"
+										/>
+									</span>
+								</span>
+							</span>
+							<span className="label-item label-item-expand">
+								wall
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-before">
+								<span className="sticker">
+									<span className="sticker-overlay">
+										<img
+											alt="thumbnail"
+											className="sticker-img"
+											src="/images/thumbnail_dock.jpg"
+										/>
+									</span>
+								</span>
+							</span>
+							<span className="label-item label-item-expand">
+								wallpaper
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span
+							className="label label-dismissible label-secondary"
+							tabindex="0"
+						>
+							<span className="label-item label-item-before">
+								<span className="sticker">
+									<span className="sticker-overlay">
+										<img
+											alt="thumbnail"
+											className="sticker-img"
+											src="/images/thumbnail_dock.jpg"
+										/>
+									</span>
+								</span>
+							</span>
+							<span className="label-item label-item-expand">
+								wonderwall
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									tabindex="-1"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times reference-mark"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times" />
+									</svg>
+								</button>
+							</span>
+						</span>
+						<span className="autofit-row">
+							<span className="autofit-col autofit-col-expand">
+								<input
+									className="form-control-inset"
+									id="tagsField2"
+									type="text"
+									value="some value"
+								/>
+							</span>
+							<span className="autofit-col">
+								<span className="inline-item">
+									<span
+										className="loading-animation"
+										role="presentation"
+									></span>
+								</span>
+							</span>
+						</span>
+					</div>
+					<ul className="autocomplete-dropdown-menu dropdown-menu show">
+						<li>
+							<span className="disabled dropdown-item">
+								Loading...
+							</span>
+						</li>
+					</ul>
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						You can use a comma to enter tags.
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<button className="btn btn-secondary" type="button">
+					Select All
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="tagsField2">Tags</label>
+	<div className="input-group input-group-stacked-sm-down">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<div className="form-control form-control-tag-group">
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-before">
+							<span className="sticker">
+								<span className="sticker-overlay">
+									<img
+										alt="thumbnail"
+										className="sticker-img"
+										src="/images/thumbnail_dock.jpg"
+									/>
+								</span>
+							</span>
+						</span>
+						<span className="label-item label-item-expand"
+							>wall</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-before">
+							<span className="sticker">
+								<span className="sticker-overlay">
+									<img
+										alt="thumbnail"
+										className="sticker-img"
+										src="/images/thumbnail_dock.jpg"
+									/>
+								</span>
+							</span>
+						</span>
+						<span className="label-item label-item-expand"
+							>wallpaper</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span
+						className="label label-dismissible label-secondary"
+						tabindex="0"
+					>
+						<span className="label-item label-item-before">
+							<span className="sticker">
+								<span className="sticker-overlay">
+									<img
+										alt="thumbnail"
+										className="sticker-img"
+										src="/images/thumbnail_dock.jpg"
+									/>
+								</span>
+							</span>
+						</span>
+						<span className="label-item label-item-expand"
+							>wonderwall</span
+						>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								tabindex="-1"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times reference-mark"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#times" />
+								</svg>
+							</button>
+						</span>
+					</span>
+					<span className="autofit-row">
+						<span className="autofit-col autofit-col-expand">
+							<input
+								className="form-control-inset"
+								id="tagsField2"
+								type="text"
+								value="some value"
+							/>
+						</span>
+						<span className="autofit-col">
+							<span className="inline-item">
+								<span
+									className="loading-animation"
+									role="presentation"
+								></span>
+							</span>
+						</span>
+					</span>
+				</div>
+				<ul className="autocomplete-dropdown-menu dropdown-menu show">
+					<li>
+						<span className="disabled dropdown-item"
+							>Loading...</span
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+				</div>
+			</div>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<button className="btn btn-secondary" type="button">
+				Select All
+			</button>
+		</div>
+	</div>
+</div>
+```
+
+## Contenteditable Elements
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="formControlContentEditable1">Label</label>
+		<div className="input-group input-group-stacked-sm-down">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<div className="form-control form-control-tag-group">
+						<span className="autofit-row">
+							<span className="autofit-col autofit-col-expand">
+								<textarea
+									aria-hidden="true"
+									className="form-control-hidden"
+									id="formControlContentEditable1"
+									tabindex="-1"
+								></textarea>
+								<div
+									className="form-control-inset"
+									contenteditable="true"
+								></div>
+							</span>
+						</span>
+					</div>
+					<ul className="autocomplete-dropdown-menu dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong> meal
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						You can use a comma to enter tags.
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<button className="btn btn-secondary" type="submit">
+					Select
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="formControlContentEditable1">Label</label>
+	<div className="input-group input-group-stacked-sm-down">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<div className="form-control form-control-tag-group">
+					<span className="autofit-row">
+						<span className="autofit-col autofit-col-expand">
+							<textarea
+								aria-hidden="true"
+								className="form-control-hidden"
+								id="formControlContentEditable1"
+								tabindex="-1"
+							></textarea>
+							<div
+								className="form-control-inset"
+								contenteditable="true"
+							></div>
+						</span>
+					</span>
+				</div>
+				<ul className="autocomplete-dropdown-menu dropdown-menu">
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong> meal</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+				</div>
+			</div>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<button className="btn btn-secondary" type="submit">Select</button>
+		</div>
+	</div>
+</div>
+```
+
+## Sizes
+
+### Small
+
+The modifier class `form-control-tag-group-sm` on `form-control-tag-group` will render a smaller version of Clay Multi Select.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<div className="dropdown">
+			<div className="form-control form-control-tag-group form-control-tag-group-sm">
+				<span className="autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<input
+							className="form-control-inset"
+							type="text"
+							value="some value"
+						/>
+					</span>
+				</span>
+			</div>
+			<ul className="autocomplete-dropdown-menu dropdown-menu show">
+				<li>
+					<a className="dropdown-item" href="#1">
+						<strong>some value</strong>
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						<strong>some value</strong> meal
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div className="form-feedback-group">
+			<div className="form-text">You can use a comma to enter tags.</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<div className="dropdown">
+		<div
+			className="form-control form-control-tag-group form-control-tag-group-sm"
+		>
+			<span className="autofit-row">
+				<span className="autofit-col autofit-col-expand">
+					<input
+						className="form-control-inset"
+						type="text"
+						value="some value"
+					/>
+				</span>
+			</span>
+		</div>
+		<ul className="autocomplete-dropdown-menu dropdown-menu show">
+			<li>
+				<a className="dropdown-item" href="#1"
+					><strong>some value</strong></a
+				>
+			</li>
+			<li>
+				<a className="dropdown-item" href="#1"
+					><strong>some value</strong> meal</a
+				>
+			</li>
+		</ul>
+	</div>
+	<div className="form-feedback-group">
+		<div className="form-text">You can use a comma to enter tags.</div>
+	</div>
+</div>
+```
+
+For variations with buttons, the modifier classes `input-group-sm` or `form-group-sm` can be added to `input-group` or `form-group`, respectively.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="tagsField3">Tags with input-group-sm</label>
+		<div className="input-group input-group-stacked-sm-down input-group-sm">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<div className="form-control form-control-tag-group">
+						<span className="autofit-row">
+							<span className="autofit-col autofit-col-expand">
+								<input
+									className="form-control-inset"
+									id="tagsField3"
+									type="text"
+									value="some value"
+								/>
+							</span>
+						</span>
+					</div>
+					<ul className="autocomplete-dropdown-menu dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong> meal
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						You can use a comma to enter tags.
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<button className="btn btn-secondary" type="button">
+					Select
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="tagsField3">Tags with input-group-sm</label>
+	<div className="input-group input-group-stacked-sm-down input-group-sm">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<div className="form-control form-control-tag-group">
+					<span className="autofit-row">
+						<span className="autofit-col autofit-col-expand">
+							<input
+								className="form-control-inset"
+								id="tagsField3"
+								type="text"
+								value="some value"
+							/>
+						</span>
+					</span>
+				</div>
+				<ul className="autocomplete-dropdown-menu dropdown-menu">
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong> meal</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+				</div>
+			</div>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<button className="btn btn-secondary" type="button">Select</button>
+		</div>
+	</div>
+</div>
+```
+
+<div className="sheet-example">
+	<div className="form-group-sm">
+		<label for="tagsField4">Tags with form-group-sm</label>
+		<div className="input-group input-group-stacked-sm-down input-group-sm">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<div className="form-control form-control-tag-group">
+						<span className="autofit-row">
+							<span className="autofit-col autofit-col-expand">
+								<input
+									className="form-control-inset"
+									id="tagsField4"
+									type="text"
+									value="some value"
+								/>
+							</span>
+						</span>
+					</div>
+					<ul className="autocomplete-dropdown-menu dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<strong>some value</strong> meal
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						You can use a comma to enter tags.
+					</div>
+				</div>
+			</div>
+			<div className="input-group-item input-group-item-shrink">
+				<button className="btn btn-secondary" type="button">
+					Select
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group-sm">
+	<label for="tagsField4">Tags with form-group-sm</label>
+	<div className="input-group input-group-stacked-sm-down input-group-sm">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<div className="form-control form-control-tag-group">
+					<span className="autofit-row">
+						<span className="autofit-col autofit-col-expand">
+							<input
+								className="form-control-inset"
+								id="tagsField4"
+								type="text"
+								value="some value"
+							/>
+						</span>
+					</span>
+				</div>
+				<ul className="autocomplete-dropdown-menu dropdown-menu">
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							><strong>some value</strong> meal</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+				</div>
+			</div>
+		</div>
+		<div className="input-group-item input-group-item-shrink">
+			<button className="btn btn-secondary" type="button">Select</button>
+		</div>
+	</div>
+</div>
+```

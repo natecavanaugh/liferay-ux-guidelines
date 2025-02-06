@@ -1,0 +1,1239 @@
+---
+title: 'Pagination Bar'
+description: 'Pagination bar provides navigation through datasets'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/pagination/'
+packageNpm: '@clayui/pagination-bar'
+packageUse: "import PaginationBar, {PaginationBarWithBasicItems} from '@clayui/pagination-bar';"
+---
+
+Use `pagination-bar`'s preset styles to give your users more control over the content being displayed on the page.
+
+<div className="sheet-example">
+	<div className="pagination-bar">
+		<div className="dropdown pagination-items-per-page">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				10 entries
+				<svg
+					className="lexicon-icon lexicon-icon-caret-double-l"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-double-l"></use>
+				</svg>
+			</a>
+			<ul className="dropdown-menu dropdown-menu-top">
+				<li>
+					<a className="dropdown-item" href="#1">
+						5
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						10
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						20
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						30
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						50
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div className="pagination-results">
+			Showing 1 to 20 of 203 entries.
+		</div>
+		<ul className="pagination">
+			<li className="disabled page-item">
+				<a className="page-link" href="#1" role="button" tabindex="-1">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-left"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-left"></use>
+					</svg>
+					<span className="sr-only">Previous</span>
+				</a>
+			</li>
+			<li className="active page-item">
+				<a className="page-link" href="#1" tabindex="-1">
+					1
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					2
+				</a>
+			</li>
+			<li className="dropdown page-item">
+				<a
+					aria-label="More"
+					title="More"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle page-link"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<ul className="dropdown-menu dropdown-menu-top-center">
+					<li>
+						<ul className="inline-scroller">
+							<li>
+								<a className="dropdown-item" href="#1">
+									3
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									4
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									5
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									6
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									7
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									8
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									9
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					16
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1" role="button">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-right"></use>
+					</svg>
+					<span className="sr-only">Next</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+```html
+<div className="pagination-bar">
+	<div className="dropdown pagination-items-per-page">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			10 entries
+			<svg
+				className="lexicon-icon lexicon-icon-caret-double-l"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-double-l"></use>
+			</svg>
+		</a>
+		<ul className="dropdown-menu dropdown-menu-top">
+			<li><a className="dropdown-item" href="#1">5</a></li>
+			<li><a className="dropdown-item" href="#1">10</a></li>
+			<li><a className="dropdown-item" href="#1">20</a></li>
+			<li><a className="dropdown-item" href="#1">30</a></li>
+			<li><a className="dropdown-item" href="#1">50</a></li>
+		</ul>
+	</div>
+	<div className="pagination-results">Showing 1 to 20 of 203 entries.</div>
+	<ul className="pagination">
+		<li className="disabled page-item">
+			<a className="page-link" href="#1" role="button" tabindex="-1">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-left"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-left"></use>
+				</svg>
+				<span className="sr-only">Previous</span>
+			</a>
+		</li>
+		<li className="active page-item">
+			<a className="page-link" href="#1" tabindex="-1">1</a>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">2</a></li>
+		<li className="dropdown page-item">
+			<a
+				aria-label="More"
+				title="More"
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle page-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+				>...</a
+			>
+			<ul className="dropdown-menu dropdown-menu-top-center">
+				<li>
+					<ul className="inline-scroller">
+						<li><a className="dropdown-item" href="#1">3</a></li>
+						<li><a className="dropdown-item" href="#1">4</a></li>
+						<li><a className="dropdown-item" href="#1">5</a></li>
+						<li><a className="dropdown-item" href="#1">6</a></li>
+						<li><a className="dropdown-item" href="#1">7</a></li>
+						<li><a className="dropdown-item" href="#1">8</a></li>
+						<li><a className="dropdown-item" href="#1">9</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">16</a></li>
+		<li className="page-item">
+			<a className="page-link" href="#1" role="button">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-right"></use>
+				</svg>
+				<span className="sr-only">Next</span>
+			</a>
+		</li>
+	</ul>
+</div>
+```
+
+## Sizes
+
+More sizing options, add `pagination-sm` or `pagination-lg` to any pagination component to make it smaller or larger. It can be added to the parent container, such as `pagination-bar`, to size all the pagination components that reside within.
+
+### Small
+
+<div className="sheet-example">
+	<div className="pagination-bar pagination-sm">
+		<div className="dropdown pagination-items-per-page">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				10 entries
+				<svg
+					className="lexicon-icon lexicon-icon-caret-double-l"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-double-l"></use>
+				</svg>
+			</a>
+			<ul className="dropdown-menu dropdown-menu-top">
+				<li>
+					<a className="dropdown-item" href="#1">
+						5
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						10
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						20
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						30
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						50
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div className="pagination-results">
+			Showing 1 to 20 of 203 entries.
+		</div>
+		<ul className="pagination">
+			<li className="disabled page-item">
+				<a className="page-link" href="#1" role="button" tabindex="-1">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-left"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-left"></use>
+					</svg>
+					<span className="sr-only">Previous</span>
+				</a>
+			</li>
+			<li className="active page-item">
+				<a className="page-link" href="#1" tabindex="-1">
+					1
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					2
+				</a>
+			</li>
+			<li className="dropdown page-item">
+				<a
+					aria-label="More"
+					title="More"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle page-link"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<ul className="dropdown-menu dropdown-menu-top-center">
+					<li>
+						<ul className="inline-scroller">
+							<li>
+								<a className="dropdown-item" href="#1">
+									3
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									4
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									5
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									6
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									7
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									8
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									9
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					16
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1" role="button">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-right"></use>
+					</svg>
+					<span className="sr-only">Next</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+```html
+<div className="pagination-bar pagination-sm">
+	<div className="dropdown pagination-items-per-page">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			10 entries
+			<svg
+				className="lexicon-icon lexicon-icon-caret-double-l"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-double-l"></use>
+			</svg>
+		</a>
+		<ul className="dropdown-menu dropdown-menu-top">
+			<li><a className="dropdown-item" href="#1">5</a></li>
+			<li><a className="dropdown-item" href="#1">10</a></li>
+			<li><a className="dropdown-item" href="#1">20</a></li>
+			<li><a className="dropdown-item" href="#1">30</a></li>
+			<li><a className="dropdown-item" href="#1">50</a></li>
+		</ul>
+	</div>
+	<div className="pagination-results">Showing 1 to 20 of 203 entries.</div>
+	<ul className="pagination">
+		<li className="disabled page-item">
+			<a className="page-link" href="#1" role="button" tabindex="-1">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-left"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-left"></use>
+				</svg>
+				<span className="sr-only">Previous</span>
+			</a>
+		</li>
+		<li className="active page-item">
+			<a className="page-link" href="#1" tabindex="-1">1</a>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">2</a></li>
+		<li className="dropdown page-item">
+			<a
+				aria-label="More"
+				title="More"
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle page-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+				>...</a
+			>
+			<ul className="dropdown-menu dropdown-menu-top-center">
+				<li>
+					<ul className="inline-scroller">
+						<li><a className="dropdown-item" href="#1">3</a></li>
+						<li><a className="dropdown-item" href="#1">4</a></li>
+						<li><a className="dropdown-item" href="#1">5</a></li>
+						<li><a className="dropdown-item" href="#1">6</a></li>
+						<li><a className="dropdown-item" href="#1">7</a></li>
+						<li><a className="dropdown-item" href="#1">8</a></li>
+						<li><a className="dropdown-item" href="#1">9</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">16</a></li>
+		<li className="page-item">
+			<a className="page-link" href="#1" role="button">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-right"></use>
+				</svg>
+				<span className="sr-only">Next</span>
+			</a>
+		</li>
+	</ul>
+</div>
+```
+
+### Default
+
+<div className="sheet-example">
+	<div className="pagination-bar">
+		<div className="dropdown pagination-items-per-page">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				10 entries
+				<svg
+					className="lexicon-icon lexicon-icon-caret-double-l"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-double-l"></use>
+				</svg>
+			</a>
+			<ul className="dropdown-menu dropdown-menu-top">
+				<li>
+					<a className="dropdown-item" href="#1">
+						5
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						10
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						20
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						30
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						50
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div className="pagination-results">
+			Showing 1 to 20 of 203 entries.
+		</div>
+		<ul className="pagination">
+			<li className="disabled page-item">
+				<a className="page-link" href="#1" role="button" tabindex="-1">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-left"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-left"></use>
+					</svg>
+					<span className="sr-only">Previous</span>
+				</a>
+			</li>
+			<li className="active page-item">
+				<a className="page-link" href="#1" tabindex="-1">
+					1
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					2
+				</a>
+			</li>
+			<li className="dropdown page-item">
+				<a
+					aria-label="More"
+					title="More"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle page-link"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<ul className="dropdown-menu dropdown-menu-top-center">
+					<li>
+						<ul className="inline-scroller">
+							<li>
+								<a className="dropdown-item" href="#1">
+									3
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									4
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									5
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									6
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									7
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									8
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									9
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					16
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1" role="button">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-right"></use>
+					</svg>
+					<span className="sr-only">Next</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+```html
+<div className="pagination-bar">
+	<div className="dropdown pagination-items-per-page">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			10 entries
+			<svg
+				className="lexicon-icon lexicon-icon-caret-double-l"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-double-l"></use>
+			</svg>
+		</a>
+		<ul className="dropdown-menu dropdown-menu-top">
+			<li><a className="dropdown-item" href="#1">5</a></li>
+			<li><a className="dropdown-item" href="#1">10</a></li>
+			<li><a className="dropdown-item" href="#1">20</a></li>
+			<li><a className="dropdown-item" href="#1">30</a></li>
+			<li><a className="dropdown-item" href="#1">50</a></li>
+		</ul>
+	</div>
+	<div className="pagination-results">Showing 1 to 20 of 203 entries.</div>
+	<ul className="pagination">
+		<li className="disabled page-item">
+			<a className="page-link" href="#1" role="button" tabindex="-1">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-left"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-left"></use>
+				</svg>
+				<span className="sr-only">Previous</span>
+			</a>
+		</li>
+		<li className="active page-item">
+			<a className="page-link" href="#1" tabindex="-1">1</a>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">2</a></li>
+		<li className="dropdown page-item">
+			<a
+				aria-label="More"
+				title="More"
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle page-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+				>...</a
+			>
+			<ul className="dropdown-menu dropdown-menu-top-center">
+				<li>
+					<ul className="inline-scroller">
+						<li><a className="dropdown-item" href="#1">3</a></li>
+						<li><a className="dropdown-item" href="#1">4</a></li>
+						<li><a className="dropdown-item" href="#1">5</a></li>
+						<li><a className="dropdown-item" href="#1">6</a></li>
+						<li><a className="dropdown-item" href="#1">7</a></li>
+						<li><a className="dropdown-item" href="#1">8</a></li>
+						<li><a className="dropdown-item" href="#1">9</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">16</a></li>
+		<li className="page-item">
+			<a className="page-link" href="#1" role="button">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-right"></use>
+				</svg>
+				<span className="sr-only">Next</span>
+			</a>
+		</li>
+	</ul>
+</div>
+```
+
+### Large
+
+<div className="sheet-example">
+	<div className="pagination-bar pagination-lg">
+		<div className="dropdown pagination-items-per-page">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				10 entries
+				<svg
+					className="lexicon-icon lexicon-icon-caret-double-l"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-double-l"></use>
+				</svg>
+			</a>
+			<ul className="dropdown-menu dropdown-menu-top">
+				<li>
+					<a className="dropdown-item" href="#1">
+						5
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						10
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						20
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						30
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						50
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div className="pagination-results">
+			Showing 1 to 20 of 203 entries.
+		</div>
+		<ul className="pagination">
+			<li className="disabled page-item">
+				<a className="page-link" href="#1" role="button" tabindex="-1">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-left"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-left"></use>
+					</svg>
+					<span className="sr-only">Previous</span>
+				</a>
+			</li>
+			<li className="active page-item">
+				<a className="page-link" href="#1" tabindex="-1">
+					1
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					2
+				</a>
+			</li>
+			<li className="dropdown page-item">
+				<a
+					aria-label="More"
+					title="More"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle page-link"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<ul className="dropdown-menu dropdown-menu-top-center">
+					<li>
+						<ul className="inline-scroller">
+							<li>
+								<a className="dropdown-item" href="#1">
+									3
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									4
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									5
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									6
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									7
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									8
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									9
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1">
+					16
+				</a>
+			</li>
+			<li className="page-item">
+				<a className="page-link" href="#1" role="button">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-right"></use>
+					</svg>
+					<span className="sr-only">Next</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+```html
+<div className="pagination-bar pagination-lg">
+	<div className="dropdown pagination-items-per-page">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			10 entries
+			<svg
+				className="lexicon-icon lexicon-icon-caret-double-l"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-double-l"></use>
+			</svg>
+		</a>
+		<ul className="dropdown-menu dropdown-menu-top">
+			<li><a className="dropdown-item" href="#1">5</a></li>
+			<li><a className="dropdown-item" href="#1">10</a></li>
+			<li><a className="dropdown-item" href="#1">20</a></li>
+			<li><a className="dropdown-item" href="#1">30</a></li>
+			<li><a className="dropdown-item" href="#1">50</a></li>
+		</ul>
+	</div>
+	<div className="pagination-results">Showing 1 to 20 of 203 entries.</div>
+	<ul className="pagination">
+		<li className="disabled page-item">
+			<a className="page-link" href="#1" role="button" tabindex="-1">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-left"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-left"></use>
+				</svg>
+				<span className="sr-only">Previous</span>
+			</a>
+		</li>
+		<li className="active page-item">
+			<a className="page-link" href="#1" tabindex="-1">1</a>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">2</a></li>
+		<li className="dropdown page-item">
+			<a
+				aria-label="More"
+				title="More"
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle page-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+				>...</a
+			>
+			<ul className="dropdown-menu dropdown-menu-top-center">
+				<li>
+					<ul className="inline-scroller">
+						<li><a className="dropdown-item" href="#1">3</a></li>
+						<li><a className="dropdown-item" href="#1">4</a></li>
+						<li><a className="dropdown-item" href="#1">5</a></li>
+						<li><a className="dropdown-item" href="#1">6</a></li>
+						<li><a className="dropdown-item" href="#1">7</a></li>
+						<li><a className="dropdown-item" href="#1">8</a></li>
+						<li><a className="dropdown-item" href="#1">9</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li className="page-item"><a className="page-link" href="#1">16</a></li>
+		<li className="page-item">
+			<a className="page-link" href="#1" role="button">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-right"></use>
+				</svg>
+				<span className="sr-only">Next</span>
+			</a>
+		</li>
+	</ul>
+</div>
+```
+
+### Using Buttons
+
+<div className="sheet-example">
+	<div className="pagination-bar">
+		<div className="dropdown pagination-items-per-page">
+			<button
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="btn btn-unstyled dropdown-toggle"
+				data-toggle="dropdown"
+				type="button"
+			>
+				10 entries
+				<svg
+					className="lexicon-icon lexicon-icon-caret-double-l"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-double-l"></use>
+				</svg>
+			</button>
+			<ul className="dropdown-menu dropdown-menu-top">
+				<li>
+					<a className="dropdown-item" href="#1">
+						5
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						10
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						20
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						30
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						50
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div className="pagination-results">
+			Showing 1 to 20 of 203 entries.
+		</div>
+		<ul className="pagination">
+			<li className="disabled page-item">
+				<button
+					className="btn btn-unstyled page-link"
+					disabled=""
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-angle-left"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-left"></use>
+					</svg>
+					<span className="sr-only">Previous</span>
+				</button>
+			</li>
+			<li className="active page-item">
+				<button
+					className="btn btn-unstyled page-link"
+					tabindex="-1"
+					type="button"
+				>
+					1
+				</button>
+			</li>
+			<li className="page-item">
+				<button className="btn btn-unstyled page-link" type="button">
+					2
+				</button>
+			</li>
+			<li className="dropdown page-item">
+				<button
+					aria-label="More"
+					title="More"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="btn btn-unstyled dropdown-toggle page-link"
+					data-toggle="dropdown"
+					type="button"
+				>
+					...
+				</button>
+				<ul className="dropdown-menu dropdown-menu-top-center">
+					<li>
+						<ul className="inline-scroller">
+							<li>
+								<a className="dropdown-item" href="#1">
+									3
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									4
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									5
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									6
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									7
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									8
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									9
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li className="page-item">
+				<button className="btn btn-unstyled page-link" type="button">
+					16
+				</button>
+			</li>
+			<li className="page-item">
+				<button className="btn btn-unstyled page-link" type="button">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-right"></use>
+					</svg>
+					<span className="sr-only">Next</span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>
+
+```html
+<div className="pagination-bar">
+	<div className="dropdown pagination-items-per-page">
+		<button
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="btn btn-unstyled dropdown-toggle"
+			data-toggle="dropdown"
+			type="button"
+		>
+			10 entries
+			<svg
+				className="lexicon-icon lexicon-icon-caret-double-l"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-double-l"></use>
+			</svg>
+		</button>
+		<ul className="dropdown-menu dropdown-menu-top">
+			<li><a className="dropdown-item" href="#1">5</a></li>
+			<li><a className="dropdown-item" href="#1">10</a></li>
+			<li><a className="dropdown-item" href="#1">20</a></li>
+			<li><a className="dropdown-item" href="#1">30</a></li>
+			<li><a className="dropdown-item" href="#1">50</a></li>
+		</ul>
+	</div>
+	<div className="pagination-results">Showing 1 to 20 of 203 entries.</div>
+	<ul className="pagination">
+		<li className="disabled page-item">
+			<button
+				className="btn btn-unstyled page-link"
+				disabled=""
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-angle-left"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-left"></use>
+				</svg>
+				<span className="sr-only">Previous</span>
+			</button>
+		</li>
+		<li className="active page-item">
+			<button
+				className="btn btn-unstyled page-link"
+				tabindex="-1"
+				type="button"
+			>
+				1
+			</button>
+		</li>
+		<li className="page-item">
+			<button className="btn btn-unstyled page-link" type="button">
+				2
+			</button>
+		</li>
+		<li className="dropdown page-item">
+			<button
+				aria-label="More"
+				title="More"
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="btn btn-unstyled dropdown-toggle page-link"
+				data-toggle="dropdown"
+				type="button"
+			>
+				...
+			</button>
+			<ul className="dropdown-menu dropdown-menu-top-center">
+				<li>
+					<ul className="inline-scroller">
+						<li><a className="dropdown-item" href="#1">3</a></li>
+						<li><a className="dropdown-item" href="#1">4</a></li>
+						<li><a className="dropdown-item" href="#1">5</a></li>
+						<li><a className="dropdown-item" href="#1">6</a></li>
+						<li><a className="dropdown-item" href="#1">7</a></li>
+						<li><a className="dropdown-item" href="#1">8</a></li>
+						<li><a className="dropdown-item" href="#1">9</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li className="page-item">
+			<button className="btn btn-unstyled page-link" type="button">
+				16
+			</button>
+		</li>
+		<li className="page-item">
+			<button className="btn btn-unstyled page-link" type="button">
+				<svg
+					className="lexicon-icon lexicon-icon-angle-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#angle-right"></use>
+				</svg>
+				<span className="sr-only">Next</span>
+			</button>
+		</li>
+	</ul>
+</div>
+```

@@ -3,26 +3,13 @@ title: 'Label'
 description: 'Labels are a visual pattern used to categorize information providing quick and easy recognition.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/labels/'
 packageNpm: '@clayui/label'
+packageUse: "import Label from '@clayui/label';"
+packageTypes: ['clay-label/src/index.tsx']
 ---
-
-import {
-	Label,
-	LabelClosingActions,
-	LabelDisplayTypes,
-} from '$packages/clay-label/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Display Types](#display-types)
--   [Closing Actions](#closing-actions)
-
-</div>
-</div>
 
 ## Overview
 
-`ClayLabel` offers two different APIs for use by toggling the prop `withClose`. By default(`withClose={true}`), `ClayLabel` behaves like a high-level component. If you want to use the lower-level components and compose multiple parts to your label, all you need to do is set `withClose={false}`.
+`Label` offers two different APIs for use by toggling the prop `withClose`. By default(`withClose={true}`), `Label` behaves like a high-level component. If you want to use the lower-level components and compose multiple parts to your label, all you need to do is set `withClose={false}`.
 
 Check out [this storybook example](https://storybook.clayui.com/?path=/story/design-system-components-label--content-before) for a demo.
 
@@ -30,7 +17,29 @@ Check out [this storybook example](https://storybook.clayui.com/?path=/story/des
 
 Using [`displayType`](#api-displayType) property you can use these color variations on Label component:
 
-<LabelDisplayTypes />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Label from '@clayui/label';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Label displayType="success">Label Success</Label>
+					<Label displayType="info">Label Info</Label>
+					<Label displayType="secondary">Label Secondary</Label>
+					<Label displayType="warning">Label Warning</Label>
+					<Label displayType="danger">Label Danger</Label>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Closing Actions
 
@@ -42,8 +51,62 @@ Use [`closeButtonProps`](#api-closeButtonProps) property for applying custom pro
 
 In this example, an Id was settled for the closing element:
 
-<LabelClosingActions />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Label from '@clayui/label';
+import React from 'react';
 
-You can also set a state for the visibility of the ClayLabel for example, handling `onClick` property on the closing element.
+import '@clayui/css/lib/css/atlas.css';
 
-<Label />
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Label
+					closeButtonProps={{
+						'aria-label': 'Close',
+						title: 'Close',
+						id: 'closeId',
+					}}
+					displayType="success"
+				>
+					Label Text
+				</Label>
+			</div>
+		</Provider>
+	);
+}
+```
+
+You can also set a state for the visibility of the Label for example, handling `onClick` property on the closing element.
+
+```jsx preview
+import {Provider} from '@clayui/core';
+import Label from '@clayui/label';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [visible, setVisible] = useState(true);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				{visible && (
+					<Label
+						closeButtonProps={{
+							'aria-label': 'Close',
+							title: 'Close',
+							onClick: () => setVisible((val) => !val),
+						}}
+						displayType="success"
+					>
+						Label Text
+					</Label>
+				)}
+			</div>
+		</Provider>
+	);
+}
+```

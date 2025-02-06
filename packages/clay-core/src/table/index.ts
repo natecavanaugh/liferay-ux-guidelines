@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-export {Body} from './Body';
+export {ForwardBody as Body} from './Body';
 export {Cell} from './Cell';
-export {Head} from './Head';
-export {Row} from './Row';
+export {ForwardHead as Head} from './Head';
+export {ForwardRow as Row} from './Row';
 export {Table} from './Table';

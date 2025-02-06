@@ -7,10 +7,16 @@ import ClayButton from '@clayui/button';
 import {Option, Picker} from '@clayui/core';
 import ClayIcon from '@clayui/icon';
 import {ClayPaginationWithBasicItems} from '@clayui/pagination';
-import {InternalDispatch, sub, useControlledState, useId} from '@clayui/shared';
+import {
+	AlignPoints,
+	InternalDispatch,
+	sub,
+	useControlledState,
+	useId,
+} from '@clayui/shared';
 import React, {useEffect} from 'react';
 
-import PaginationBar from './PaginationBar';
+import {PaginationBar} from './PaginationBar';
 
 const defaultDeltas = [
 	{
@@ -60,9 +66,7 @@ interface IProps extends React.ComponentProps<typeof PaginationBar> {
 	 * Sets the default DropDown position of the component. The component
 	 * receives the Align constant values from the `@clayui/drop-down` package.
 	 */
-	alignmentPosition?: React.ComponentProps<
-		typeof ClayPaginationWithBasicItems
-	>['alignmentPosition'];
+	alignmentPosition?: number | AlignPoints;
 
 	/**
 	 * Possible values of items per page.
@@ -106,11 +110,8 @@ interface IProps extends React.ComponentProps<typeof PaginationBar> {
 	 */
 	labels?: {
 		itemsPerPagePickerAriaLabel?: string;
-
 		paginationResults: string;
-
 		perPageItems: string;
-
 		selectPerPageItems: string;
 	};
 

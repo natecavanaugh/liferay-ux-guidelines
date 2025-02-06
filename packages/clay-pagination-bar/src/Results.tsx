@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayPaginationBarResults = ({
+export const Results = ({
 	children,
 	className,
 	...otherProps
@@ -20,5 +20,3 @@ const ClayPaginationBarResults = ({
 		</div>
 	);
 };
-
-export default ClayPaginationBarResults;

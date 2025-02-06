@@ -3,32 +3,22 @@ title: 'Card'
 description: 'Cards are a specific form of data visualization focused mainly on displaying images.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/cards/'
 packageNpm: '@clayui/card'
+packageUse: "import ClayCard from '@clayui/card';"
+packageTypes:
+    [
+        'clay-card/src/Card.tsx',
+        'clay-card/src/CardWithHorizontal.tsx',
+        'clay-card/src/CardWithInfo.tsx',
+        'clay-card/src/CardWithNavigation.tsx',
+        'clay-card/src/CardWithUser.tsx',
+        'clay-card/src/AspectRatio.tsx',
+        'clay-card/src/Body.tsx',
+        'clay-card/src/Caption.tsx',
+        'clay-card/src/Description.tsx',
+        'clay-card/src/Group.tsx',
+        'clay-card/src/Row.tsx',
+    ]
 ---
-
-import {
-	CardBasic,
-	CardBasicHorizontal,
-	CardWithInfo,
-	CardWithNavigation,
-	CardWithUser,
-	CardWithHorizontal,
-	Card,
-} from '$packages/clay-card/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Composing](#composing)
-    -   [Horizontal composing](#horizontal-composing)
-    -   [Lexicon specs](#lexicon-specs)
--   [High-level Components](#high-level-components)
-    -   [CardWithInfo](#cardwithinfo)
-    -   [CardWithNavigation](#cardwithnavigation)
-    -   [CardWithUser](#cardwithuser)
-    -   [CardWithHorizontal](#cardwithhorizontal)
-
-</div>
-</div>
 
 ## Composing
 
@@ -38,13 +28,87 @@ This documentation focuses on how you can use ClayCard low-level components to r
 
 You can only leverage the body of `Card` and `Card.Body` to create the white card and add more elements.
 
-<CardBasic />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Card from '@clayui/card';
+import Button from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="col-md-5">
+					<Card>
+						<Card.Body>
+							<Card.Description displayType="title">
+								{'Card Title'}
+							</Card.Description>
+							<Card.Description
+								truncate={false}
+								displayType="text"
+							>
+								{
+									'Some quick example text to build on the card title and make up the bulk of the card content.'
+								}
+							</Card.Description>
+							<Button>{'Go somewhere'}</Button>
+						</Card.Body>
+					</Card>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 #### Horizontal composing
 
 You can use the Card in horizontal format and use the `autofit` utilities to create more possibilities.
 
-<CardBasicHorizontal />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Card from '@clayui/card';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Card horizontal>
+					<Card.Row>
+						<div className="autofit-col">
+							<img
+								alt="thumbnail"
+								className="card-item-first"
+								src="/images/thumbnail_placeholder.gif"
+								style={{width: '150px'}}
+							/>
+						</div>
+						<div className="autofit-col autofit-col-expand autofit-col-gutters">
+							<section className="autofit-section">
+								<Card.Description displayType="title">
+									{'So ristretto cappuccino'}
+								</Card.Description>
+								<Card.Description
+									truncate={false}
+									displayType="text"
+								>
+									{'Wings eu, pumpkin spice robusta.'}
+								</Card.Description>
+							</section>
+						</div>
+					</Card.Row>
+				</Card>
+			</div>
+		</Provider>
+	);
+}
+```
 
 #### Lexicon specs
 
@@ -52,7 +116,59 @@ The low-level components for ClayCard have been built thinking about how you can
 
 For some low-level components it is necessary to pass some modifier classes in order for the component to reach the Lexicon result, this was necessary since we did not want to attach the component just for this case and the low-level components could be used more flexibly and allow you to create new possibilities.
 
-<Card />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Card from '@clayui/card';
+import Icon from '@clayui/icon';
+import Sticker from '@clayui/sticker';
+import Label from '@clayui/label';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="col-md-4">
+					<Card displayType="file">
+						<Card.AspectRatio className="card-item-first">
+							<div className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon">
+								<Icon symbol="documents-and-media" />
+							</div>
+							<Sticker
+								displayType="danger"
+								position="bottom-left"
+							>
+								{'DOC'}
+							</Sticker>
+						</Card.AspectRatio>
+						<Card.Body>
+							<Card.Row>
+								<div className="autofit-col autofit-col-expand">
+									<section className="autofit-section">
+										<Card.Description displayType="title">
+											{'deliverable.doc'}
+										</Card.Description>
+										<Card.Description displayType="subtitle">
+											{'Stevie Ray Vaughn'}
+										</Card.Description>
+										<Card.Caption>
+											<Label displayType="success">
+												{'Approved'}
+											</Label>
+										</Card.Caption>
+									</section>
+								</div>
+							</Card.Row>
+						</Card.Body>
+					</Card>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## High-level Components
 
@@ -68,16 +184,189 @@ ClayCard's high-level components predict the major cases of the Lexicon specific
 
 `ClayCardWithInfo` you can use to create cards with images and documents.
 
-<CardWithInfo />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCardWithInfo} from '@clayui/card';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="row">
+				<div className="col-md-4">
+					<ClayCardWithInfo
+						actions={[
+							{
+								label: 'clickable',
+								onClick: () => {
+									alert('you clicked!');
+								},
+							},
+							{type: 'divider'},
+							{
+								href: '#',
+								label: 'linkable',
+							},
+						]}
+						description="A cool description"
+						href="#"
+						labels={[
+							{
+								displayType: 'success',
+								value: 'Awesome',
+							},
+							{
+								displayType: 'danger',
+								value: 'Crazy',
+							},
+						]}
+						onSelectChange={(newVal) => setValue(newVal)}
+						selected={value}
+						stickerProps={{
+							content: 'DOC',
+							displayType: 'danger',
+						}}
+						title="Selectable File"
+					/>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 #### CardWithNavigation
 
-<CardWithNavigation />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCardWithNavigation} from '@clayui/card';
+import Icon from '@clayui/icon';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="row">
+					<div className="col-md-4">
+						<ClayCardWithNavigation
+							description="Pick and choose your layout..."
+							onClick={() => alert('clicked')}
+							title="onClick Card with icon"
+						>
+							<Icon symbol="page-template" />
+						</ClayCardWithNavigation>
+					</div>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 #### CardWithUser
 
-<CardWithUser />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCardWithUser} from '@clayui/card';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="row">
+					<div className="col-md-4">
+						<ClayCardWithUser
+							actions={[
+								{
+									label: 'clickable',
+									onClick: () => {
+										alert('you clicked!');
+									},
+								},
+								{type: 'divider'},
+								{
+									href: '#',
+									label: 'linkable',
+								},
+							]}
+							description="Assistant to the regional manager"
+							href="#"
+							labels={[
+								{
+									displayType: 'success',
+									value: 'Awesome',
+								},
+								{
+									displayType: 'danger',
+									value: 'Crazy',
+								},
+							]}
+							name="Abraham Kuyper"
+							onSelectChange={() => {}}
+							selected={true}
+						/>
+					</div>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 #### CardWithHorizontal
 
-<CardWithHorizontal />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCardWithHorizontal} from '@clayui/card';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="row">
+					<div className="col-md-4">
+						<ClayCardWithHorizontal
+							actions={[
+								{
+									label: 'clickable',
+									onClick: () => {
+										alert('you clicked!');
+									},
+								},
+								{type: 'divider'},
+								{
+									href: '#',
+									label: 'linkable',
+								},
+							]}
+							href="#"
+							onSelectChange={setValue}
+							selected={value}
+							title="Selectable Folder"
+						/>
+					</div>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```

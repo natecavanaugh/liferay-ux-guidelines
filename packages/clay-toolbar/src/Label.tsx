@@ -7,9 +7,9 @@ import ClayLabel from '@clayui/label';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.ComponentProps<typeof ClayLabel> {}
+interface IProps extends React.ComponentProps<typeof ClayLabel> {}
 
-const Label = ({children, className, ...otherProps}: IProps) => (
+export const Label = ({children, className, ...otherProps}: IProps) => (
 	<ClayLabel
 		className={classNames(className, 'component-label tbar-label')}
 		{...otherProps}
@@ -19,5 +19,3 @@ const Label = ({children, className, ...otherProps}: IProps) => (
 );
 
 Label.displayName = 'ClayToolbarLabel';
-
-export default Label;

@@ -1,0 +1,826 @@
+---
+title: 'Nav'
+description: 'Clay Nav provides a clear and semantic navigation for your site'
+packageNpm: '@clayui/nav'
+packageUse: "import Nav from '@clayui/nav';"
+---
+
+### Nav
+
+<div className="clay-site-alert alert alert-warning">
+	This is a component. Navigations share general markup and styles from the
+	.nav class, therefore the components Nav Tabs, Nav Underline, Menubar,
+	Navbar, Application Bar, Management Bar, and Navigation Bar all use{' '}
+	<code className="gatsby-code-text">.nav</code> as its base.
+</div>
+
+`.nav-link` and `.active.nav-link` in the Nav doesn't have any special styling to make it easier to overwrite via color modifiers used in Clay's components above. If you would like to use a custom color scheme for the Nav, create a custom color modifier class and use the `clay-nav-variant($map)` mixin.
+
+<div className="sheet-example">
+	<ul className="nav">
+		<li className="nav-item">
+			<a className="active nav-link" href="#1">
+				Details
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Categorization
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="disabled nav-link" href="#1">
+				Documents and Media
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Site Template
+			</a>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="nav">
+	<li className="nav-item">
+		<a className="active nav-link" href="#1">Details</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Categorization</a>
+	</li>
+	<li className="nav-item">
+		<a className="disabled nav-link" href="#1">Documents and Media</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Site Template</a>
+	</li>
+</ul>
+```
+
+### Nav Divider
+
+Add the class `nav-divider` on `nav-item` to show a border at the start. The class `nav-divider-end` should be used on `nav-item` to show a border at the end.
+
+<div className="sheet-example">
+	<ul className="nav">
+		<li className="nav-item">
+			<a className="active nav-link" href="#1">
+				Details
+			</a>
+		</li>
+		<li className="nav-item nav-divider nav-divider-end">
+			<a className="nav-link" href="#1">
+				Categorization
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="disabled nav-link" href="#1">
+				Documents and Media
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Site Template
+			</a>
+		</li>
+	</ul>
+</div>
+
+### Nav Stacked
+
+Use `.nav-stacked` class alongside with `.nav`.
+
+<div className="sheet-example">
+	<ul className="nav nav-stacked">
+		<li className="nav-item">
+			<a className="active nav-link" href="#1">
+				Details
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Categorization
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="disabled nav-link" href="#1">
+				Documents and Media
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Site Template
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Configuration
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Identification
+			</a>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="nav nav-stacked">
+	<li className="nav-item">
+		<a className="active nav-link" href="#1">Details</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Categorization</a>
+	</li>
+	<li className="nav-item">
+		<a className="disabled nav-link" href="#1">Documents and Media</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Site Template</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Configuration</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Identification</a>
+	</li>
+</ul>
+```
+
+### Nav Nested
+
+Add class `nav-nested` to the outermost nav to use padding to indent each nested nav.
+
+Also collapsible when used with [Bootstrap Collapse Plugin](https://getbootstrap.com/docs/4.0/components/collapse/).
+
+<div className="sheet-example">
+	<ul className="nav nav-nested">
+		<li className="nav-item">
+			<a
+				aria-controls="navCollapse01"
+				aria-expanded="true"
+				className="collapse-icon nav-link"
+				data-toggle="collapse"
+				href="#navCollapse01"
+				role="button"
+			>
+				Basic Information
+				<span className="collapse-icon-closed">
+					<svg
+						className="lexicon-icon lexicon-icon-caret-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-right"></use>
+					</svg>
+				</span>
+				<span className="collapse-icon-open">
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</span>
+			</a>
+			<div className="collapse show" id="navCollapse01">
+				<ul className="nav nav-stacked">
+					<li className="nav-item">
+						<a className="active nav-link" href="#1">
+							Details
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Categorization
+						</a>
+					</li>
+					<li className="nav-item">
+						<a
+							aria-controls="navCollapse02"
+							aria-expanded="false"
+							className="collapsed collapse-icon nav-link"
+							data-toggle="collapse"
+							href="#navCollapse02"
+							role="button"
+						>
+							Documents and Media
+							<span className="collapse-icon-closed">
+								<svg
+									className="lexicon-icon lexicon-icon-caret-right"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#caret-right"></use>
+								</svg>
+							</span>
+							<span className="collapse-icon-open">
+								<svg
+									className="lexicon-icon lexicon-icon-caret-bottom"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#caret-bottom"></use>
+								</svg>
+							</span>
+						</a>
+						<div className="collapse" id="navCollapse02">
+							<ul className="nav nav-stacked">
+								<li className="nav-item">
+									<a className="nav-link" href="#1">
+										Details
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="#1">
+										Categorization
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="#1">
+										Documents and Media
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="#1">
+										Site Template
+									</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Site Template
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navCollapse03"
+				aria-expanded="false"
+				className="collapsed collapse-icon nav-link"
+				data-toggle="collapse"
+				href="#navCollapse03"
+				role="button"
+			>
+				SEO
+				<span className="collapse-icon-closed">
+					<svg
+						className="lexicon-icon lexicon-icon-caret-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-right"></use>
+					</svg>
+				</span>
+				<span className="collapse-icon-open">
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</span>
+			</a>
+			<div className="collapse" id="navCollapse03">
+				<ul className="nav nav-stacked">
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Sitemap
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Robots
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navCollapse04"
+				aria-expanded="false"
+				className="collapsed collapse-icon nav-link"
+				data-toggle="collapse"
+				href="#navCollapse04"
+				role="button"
+			>
+				Advanced
+				<span className="collapse-icon-closed">
+					<svg
+						className="lexicon-icon lexicon-icon-caret-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-right"></use>
+					</svg>
+				</span>
+				<span className="collapse-icon-open">
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</span>
+			</a>
+			<div className="collapse" id="navCollapse04">
+				<ul className="nav nav-stacked">
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Default User Associations
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Staging
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Analytics
+						</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" href="#1">
+							Maps
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="nav nav-nested">
+	<li className="nav-item">
+		<a
+			aria-controls="navCollapse01"
+			aria-expanded="true"
+			className="collapse-icon nav-link"
+			data-toggle="collapse"
+			href="#navCollapse01"
+			role="button"
+		>
+			Basic Information
+			<span className="collapse-icon-closed">
+				<svg
+					className="lexicon-icon lexicon-icon-caret-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-right"></use>
+				</svg>
+			</span>
+			<span className="collapse-icon-open">
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</span>
+		</a>
+		<div className="collapse show" id="navCollapse01">
+			<ul className="nav nav-stacked">
+				<li className="nav-item">
+					<a className="active nav-link" href="#1">Details</a>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Categorization</a>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-controls="navCollapse02"
+						aria-expanded="false"
+						className="collapsed collapse-icon nav-link"
+						data-toggle="collapse"
+						href="#navCollapse02"
+						role="button"
+					>
+						Documents and Media
+						<span className="collapse-icon-closed">
+							<svg
+								className="lexicon-icon lexicon-icon-caret-right"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#caret-right"
+								></use>
+							</svg>
+						</span>
+						<span className="collapse-icon-open">
+							<svg
+								className="lexicon-icon lexicon-icon-caret-bottom"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#caret-bottom"
+								></use>
+							</svg>
+						</span>
+					</a>
+					<div className="collapse" id="navCollapse02">
+						<ul className="nav nav-stacked">
+							<li className="nav-item">
+								<a className="nav-link" href="#1">Details</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="#1"
+									>Categorization</a
+								>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="#1"
+									>Documents and Media</a
+								>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" href="#1"
+									>Site Template</a
+								>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Site Template</a>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li className="nav-item">
+		<a
+			aria-controls="navCollapse03"
+			aria-expanded="false"
+			className="collapsed collapse-icon nav-link"
+			data-toggle="collapse"
+			href="#navCollapse03"
+			role="button"
+		>
+			SEO
+			<span className="collapse-icon-closed">
+				<svg
+					className="lexicon-icon lexicon-icon-caret-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-right"></use>
+				</svg>
+			</span>
+			<span className="collapse-icon-open">
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</span>
+		</a>
+		<div className="collapse" id="navCollapse03">
+			<ul className="nav nav-stacked">
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Sitemap</a>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Robots</a>
+				</li>
+			</ul>
+		</div>
+	</li>
+	<li className="nav-item">
+		<a
+			aria-controls="navCollapse04"
+			aria-expanded="false"
+			className="collapsed collapse-icon nav-link"
+			data-toggle="collapse"
+			href="#navCollapse04"
+			role="button"
+		>
+			Advanced
+			<span className="collapse-icon-closed">
+				<svg
+					className="lexicon-icon lexicon-icon-caret-right"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-right"></use>
+				</svg>
+			</span>
+			<span className="collapse-icon-open">
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</span>
+		</a>
+		<div className="collapse" id="navCollapse04">
+			<ul className="nav nav-stacked">
+				<li className="nav-item">
+					<a className="nav-link" href="#1"
+						>Default User Associations</a
+					>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Staging</a>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Analytics</a>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link" href="#1">Maps</a>
+				</li>
+			</ul>
+		</div>
+	</li>
+</ul>
+```
+
+### Nav Nested Margins
+
+The same of [Nav Nested](#nav-nested-margins) but instead of use `nav-nested` class, use `nav-nested-margins`.
+
+### Nav Unstyled
+
+Add `nav-unstyled` to your nav to remove spacing around `nav-link` and `nav-btn`.
+
+<div className="sheet-example">
+	<ul className="nav nav-unstyled">
+		<li className="nav-item">
+			<a className="active nav-link" href="#1">
+				Details
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Categorization
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="disabled nav-link" href="#1">
+				Documents and Media
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link" href="#1">
+				Site Template
+			</a>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="nav nav-unstyled">
+	<li className="nav-item">
+		<a className="active nav-link" href="#1">Details</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Categorization</a>
+	</li>
+	<li className="nav-item">
+		<a className="disabled nav-link" href="#1">Documents and Media</a>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link" href="#1">Site Template</a>
+	</li>
+</ul>
+```
+
+### Helpers
+
+Dropdown toggle with anchor: `dropdown-toggle nav-link`.
+
+Dropdown toggle with button: `btn btn-unstyled dropdown-toggle nav-link`.
+
+An anchor in Nav Item styled like btn: `btn btn-primary nav-btn nav-btn-monospaced`.
+
+A button in Nav Item styled like nav-link: `btn btn-unstyled nav-link`.
+
+A button in Nav Item: `btn btn-primary nav-btn`.
+
+A monospaced anchor in Nav Item: `nav-link nav-link-monospaced`.
+
+A monospaced button in Nav Item: `btn btn-primary nav-btn nav-btn-monospaced`.
+
+<div className="sheet-example">
+	<ul className="nav">
+		<li className="nav-item">
+			<a className="active nav-link" href="#1">
+				Basic Information
+			</a>
+		</li>
+		<li className="nav-item">
+			<button className="btn btn-unstyled nav-link" type="button">
+				Details
+			</button>
+		</li>
+		<li className="nav-item">
+			<button className="btn btn-primary nav-btn" type="button">
+				Details
+			</button>
+		</li>
+		<li className="nav-item">
+			<button className="btn btn-link nav-btn" type="button">
+				Details
+			</button>
+		</li>
+		<li className="nav-item">
+			<button
+				className="btn btn-primary nav-btn nav-btn-monospaced"
+				type="button"
+			>
+				De
+			</button>
+		</li>
+		<li className="nav-item">
+			<a className="disabled nav-link" href="#1">
+				Categorization
+			</a>
+		</li>
+		<li className="dropdown nav-item">
+			<button
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="btn btn-unstyled dropdown-toggle nav-link"
+				data-toggle="dropdown"
+				type="button"
+			>
+				More
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</button>
+			<ul aria-labelledby="" className="dropdown-menu">
+				<li>
+					<a className="dropdown-item" href="#1">
+						App Section 4
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						App Section 5
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						App Section 6
+					</a>
+				</li>
+				<li>
+					<a className="dropdown-item" href="#1">
+						App Section 7
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li className="nav-item">
+			<a className="nav-link nav-link-monospaced" href="#1">
+				<svg
+					className="lexicon-icon lexicon-icon-cog"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#cog"></use>
+				</svg>
+			</a>
+		</li>
+		<li className="nav-item">
+			<a className="btn btn-primary nav-btn nav-btn-monospaced" href="#1">
+				<svg
+					className="lexicon-icon lexicon-icon-cog"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#cog"></use>
+				</svg>
+			</a>
+		</li>
+		<li className="nav-item">
+			<button
+				className="btn btn-unstyled nav-btn nav-btn-monospaced"
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-cog"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#cog"></use>
+				</svg>
+			</button>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="nav">
+	<li className="nav-item">
+		<a className="active nav-link" href="#1">Basic Information</a>
+	</li>
+	<li className="nav-item">
+		<button className="btn btn-unstyled nav-link" type="button">
+			Details
+		</button>
+	</li>
+	<li className="nav-item">
+		<button className="btn btn-primary nav-btn" type="button">
+			Details
+		</button>
+	</li>
+	<li className="nav-item">
+		<button className="btn btn-link nav-btn" type="button">Details</button>
+	</li>
+	<li className="nav-item">
+		<button
+			className="btn btn-primary nav-btn nav-btn-monospaced"
+			type="button"
+		>
+			De
+		</button>
+	</li>
+	<li className="nav-item">
+		<a className="disabled nav-link" href="#1">Categorization</a>
+	</li>
+	<li className="dropdown nav-item">
+		<button
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="btn btn-unstyled dropdown-toggle nav-link"
+			data-toggle="dropdown"
+			type="button"
+		>
+			More
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom"></use>
+			</svg>
+		</button>
+		<ul aria-labelledby="" className="dropdown-menu">
+			<li><a className="dropdown-item" href="#1">App Section 4</a></li>
+			<li><a className="dropdown-item" href="#1">App Section 5</a></li>
+			<li><a className="dropdown-item" href="#1">App Section 6</a></li>
+			<li><a className="dropdown-item" href="#1">App Section 7</a></li>
+		</ul>
+	</li>
+	<li className="nav-item">
+		<a className="nav-link nav-link-monospaced" href="#1">
+			<svg
+				className="lexicon-icon lexicon-icon-cog"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#cog"></use>
+			</svg>
+		</a>
+	</li>
+	<li className="nav-item">
+		<a className="btn btn-primary nav-btn nav-btn-monospaced" href="#1">
+			<svg
+				className="lexicon-icon lexicon-icon-cog"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#cog"></use>
+			</svg>
+		</a>
+	</li>
+	<li className="nav-item">
+		<button
+			className="btn btn-unstyled nav-btn nav-btn-monospaced"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-cog"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#cog"></use>
+			</svg>
+		</button>
+	</li>
+</ul>
+```

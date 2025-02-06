@@ -1,0 +1,789 @@
+---
+title: 'Toolbar'
+description: 'A toolbar is a set of actions related to a specific context that are grouped into a horizontal bar.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/toolbars/'
+packageNpm: '@clayui/toolbar'
+packageUse: "import TimePicker from '@clayui/toolbar';"
+---
+
+<div className="sheet-example">
+	<nav className="component-tbar tbar">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav">
+				<li className="tbar-item">
+					<a
+						aria-label="Previous"
+						title="Previous"
+						className="component-action disabled"
+						href="#1"
+						role="button"
+						tabindex="-1"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-angle-left"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#angle-left" />
+						</svg>
+					</a>
+				</li>
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="text-truncate-inline">
+							<span className="text-truncate">
+								Item 1 of
+								3,138,732,873,467,182,321,341,231,234,342,559,827,334,424
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<a
+						aria-label="Next"
+						title="Next"
+						className="component-action"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-angle-right"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#angle-right" />
+						</svg>
+					</a>
+				</li>
+				<li className="tbar-item">
+					<a
+						aria-label="Close"
+						title="Close"
+						className="component-action"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#times" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="component-tbar tbar">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav">
+			<li className="tbar-item">
+				<a
+					aria-label="Previous"
+					title="Previous"
+					className="component-action disabled"
+					href="#1"
+					role="button"
+					tabindex="-1"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-angle-left"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#angle-left" />
+					</svg>
+				</a>
+			</li>
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span className="text-truncate-inline">
+						<span className="text-truncate"
+							>Item 1 of
+							3,138,732,873,467,182,321,341,231,234,342,559,827,334,424</span
+						>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<a
+					aria-label="Next"
+					title="Next"
+					className="component-action"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#angle-right" />
+					</svg>
+				</a>
+			</li>
+			<li className="tbar-item">
+				<a
+					aria-label="Close"
+					title="Close"
+					className="component-action"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#times" />
+					</svg>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+## Subnav
+
+Subnavigation to use with main navigations such as [Management Toolbar](/docs/components/management-toolbar).
+
+<div className="sheet-example">
+	<nav className="tbar subnav-tbar">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav">
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="text-truncate-inline">
+							<span className="text-truncate">
+								25,392 results for{' '}
+								<strong>
+									ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+								</strong>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<a
+						className="component-link tbar-link"
+						href="#1"
+						role="button"
+					>
+						Clear
+					</a>
+				</li>
+				<li className="tbar-item">
+					<button
+						className="btn btn-unstyled component-link tbar-link"
+						type="button"
+					>
+						Clear
+					</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="tbar subnav-tbar">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav">
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span className="text-truncate-inline">
+						<span className="text-truncate"
+							>25,392 results for
+							<strong
+								>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</strong
+							></span
+						>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<a className="component-link tbar-link" href="#1" role="button"
+					>Clear</a
+				>
+			</li>
+			<li className="tbar-item">
+				<button
+					className="btn btn-unstyled component-link tbar-link"
+					type="button"
+				>
+					Clear
+				</button>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+### Subnav Light
+
+Subnavigation used in [Modals](/docs/components/modal)
+
+<div className="sheet-example">
+	<div className="tbar subnav-tbar subnav-tbar-light">
+		<div className="container-fluid container-fluid-max-xl">
+			<div className="tbar-nav">
+				<div className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="component-text text-truncate-inline">
+							<span className="text-truncate">
+								User Information
+							</span>
+						</span>
+					</div>
+				</div>
+				<div className="tbar-item">
+					<span className="component-text">Step 1 of 2</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="tbar subnav-tbar subnav-tbar-light">
+	<div className="container-fluid container-fluid-max-xl">
+		<div className="tbar-nav">
+			<div className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span className="component-text text-truncate-inline">
+						<span className="text-truncate">User Information</span>
+					</span>
+				</div>
+			</div>
+			<div className="tbar-item">
+				<span className="component-text">Step 1 of 2</span>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Subnav Primary
+
+Subnavigation used in [Management Toolbar](/docs/components/management-toolbar).
+
+<div className="sheet-example">
+	<nav className="tbar tbar-inline-md-down subnav-tbar subnav-tbar-primary">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav tbar-nav-wrap">
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-text">
+							7 results for "<strong>banner</strong>"
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-label label label-dismissible tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Category: <strong>Productivity</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-label label label-dismissible tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Status: <strong>Approved</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="component-label label label-dismissible tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Type: <strong>png</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									disabled
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<a
+							className="component-link disabled tbar-link"
+							href="#1"
+							role="button"
+							tabindex="-1"
+						>
+							Apply to Root
+						</a>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<button
+							className="btn btn-unstyled component-link tbar-link"
+							type="button"
+						>
+							Clear All
+						</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="tbar tbar-inline-md-down subnav-tbar subnav-tbar-primary">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav tbar-nav-wrap">
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span className="component-text"
+						>7 results for "<strong>banner</strong>"</span
+					>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span
+						className="component-label label label-dismissible tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Category: <strong>Productivity</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span
+						className="component-label label label-dismissible tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Status: <strong>Approved</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span
+						className="component-label label label-dismissible tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Type: <strong>png</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								disabled
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<a
+						className="component-link disabled tbar-link"
+						href="#1"
+						role="button"
+						tabindex="-1"
+						>Apply to Root</a
+					>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<button
+						className="btn btn-unstyled component-link tbar-link"
+						type="button"
+					>
+						Clear All
+					</button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+### Subnav Primary Disabled
+
+Disabled sub-navigation used in [Management Toolbar](/docs/components/management-toolbar), just add `subnav-tbar-disabled`. The `disabled` attribute must be added to any `button` tag. The class `disabled` and attribute `tabindex="-1"` must be added to any `anchor` tag and clicks disabled via javascript.
+
+<div className="sheet-example">
+	<nav className="tbar tbar-inline-md-down subnav-tbar subnav-tbar-disabled subnav-tbar-primary">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav tbar-nav-wrap">
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-text">
+							7 results for "<strong>banner</strong>"
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-label label label-dismissible tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Category: <strong>Productivity</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									disabled
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-label label label-dismissible tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Status: <strong>Approved</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									disabled
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="component-label label label-dismissible tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Type: <strong>png</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									aria-label="Close"
+									className="close"
+									disabled
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlink:href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<a
+							className="component-link disabled tbar-link"
+							href="#1"
+							role="button"
+							tabindex="-1"
+						>
+							Apply to Root
+						</a>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<button
+							className="btn btn-unstyled component-link tbar-link"
+							disabled
+							type="button"
+						>
+							Clear All
+						</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav
+	className="tbar tbar-inline-md-down subnav-tbar subnav-tbar-disabled subnav-tbar-primary"
+>
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav tbar-nav-wrap">
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span className="component-text"
+						>7 results for "<strong>banner</strong>"</span
+					>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span
+						className="component-label label label-dismissible tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Category: <strong>Productivity</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								disabled
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span
+						className="component-label label label-dismissible tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Status: <strong>Approved</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								disabled
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span
+						className="component-label label label-dismissible tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Type: <strong>png</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								aria-label="Close"
+								className="close"
+								disabled
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										xlink:href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<a
+						className="component-link disabled tbar-link"
+						href="#1"
+						role="button"
+						tabindex="-1"
+						>Apply to Root</a
+					>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<button
+						className="btn btn-unstyled component-link tbar-link"
+						disabled
+						type="button"
+					>
+						Clear All
+					</button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+## Helper Classes
+
+**`tbar-inline-{xs|sm|md|lg|xl}-down`**
+
+A helper class on `tbar` that turns `tbar-nav`, `tbar-item`, `tbar-section`, and `component-title` inline at specific breakpoints.
+
+**`tbar-nav-wrap`**
+
+A helper class on `tbar-nav` that breaks `tbar-nav` content to new line when the container becomes too small.
+
+**`tbar-nav-shrink`**
+
+A helper class on `tbar-nav` that makes it only as wide as its content, use with other `tbar-nav`'s.

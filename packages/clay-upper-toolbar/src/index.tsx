@@ -8,9 +8,9 @@ import ClayLayout from '@clayui/layout';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IInputProps extends React.ComponentProps<typeof ClayInput> {}
+interface IInputProps extends React.ComponentProps<typeof ClayInput> {}
 
-const Input = ({className, ...otherProps}: IInputProps) => (
+export const Input = ({className, ...otherProps}: IInputProps) => (
 	<Item expand>
 		<ClayInput.Group>
 			<ClayInput.GroupItem>
@@ -33,7 +33,12 @@ interface IItemProps extends React.HTMLAttributes<HTMLLIElement> {
 	expand?: boolean;
 }
 
-const Item = ({children, className, expand, ...otherProps}: IItemProps) => {
+export const Item = ({
+	children,
+	className,
+	expand,
+	...otherProps
+}: IItemProps) => {
 	return (
 		<li
 			className={classNames(className, 'tbar-item', {
@@ -48,7 +53,7 @@ const Item = ({children, className, expand, ...otherProps}: IItemProps) => {
 
 Item.displayName = 'ClayUpperToolbarItem';
 
-const ClayUpperToolbar = ({
+const UpperToolbar = ({
 	children,
 	className,
 	...otherProps
@@ -70,6 +75,9 @@ const ClayUpperToolbar = ({
 	);
 };
 
-ClayUpperToolbar.displayName = 'ClayUpperToolbar';
+UpperToolbar.displayName = 'ClayUpperToolbar';
 
-export default Object.assign(ClayUpperToolbar, {Input, Item});
+UpperToolbar.Item = Item;
+UpperToolbar.Input = Input;
+
+export default UpperToolbar;

@@ -6,7 +6,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-const ClayDropDownCaption = ({
+const Caption = ({
 	children,
 	className,
 	...otherProps
@@ -22,4 +22,4 @@ const ClayDropDownCaption = ({
 	);
 };
 
-export default ClayDropDownCaption;
+export default Caption;

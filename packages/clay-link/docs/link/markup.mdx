@@ -1,0 +1,219 @@
+---
+title: 'Link'
+description: 'Also known as a hyperlink, a link is a clickable (text or image) element used for navigation purposes.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/link/'
+packageNpm: '@clayui/link'
+packageUse: "import Link from '@clayui/link';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/#link">WAI-ARIA</a>{' '}
+	accessibility practices for links when writing your markup.
+</div>
+
+## Styles
+
+<div className="sheet-example">
+	<div>
+		<a href="#1">Regular Anchor Tag</a>
+	</div>
+	<div>
+		<a className="link-primary" href="#1">
+			.link-primary
+		</a>
+	</div>
+</div>
+
+```html
+<div><a href="#1">Regular Anchor Tag</a></div>
+<div><a className="link-primary" href="#1">.link-primary</a></div>
+```
+
+## Single Link
+
+Use `.single-link` on an anchor to add a semi-bold style to the link and should be used for standalone links defined by https://liferay.design/lexicon/core-components/link/.
+
+<div className="sheet-example">
+	<a className="link-primary single-link" href="#1">
+		{' '}
+		.link-primary.single-link{' '}
+	</a>
+</div>
+
+```html
+<a className="link-primary single-link" href="#1">.link-primary.single-link</a>
+```
+
+## Component Links
+
+Use these patterns for links, titles, subtitles in components.
+
+The colors, sizing, and other CSS Properties can change for these items depending on the component you put them in (requires custom CSS).
+
+<div className="sheet-example">
+	<a className="component-link" href="#1">
+		.component-link
+	</a>
+	<h4 className="component-title">.component-title</h4>
+	<h4 className="component-title">
+		<a href="#1">.component-title a</a>
+	</h4>
+	<p className="component-subtitle">.component-subtitle</p>
+	<p className="component-subtitle">
+		<a href="#1">.component-subtitle a</a>
+	</p>
+</div>
+
+```html
+<a className="component-link" href="#1">.component-link</a>
+<h4 className="component-title">.component-title</h4>
+<h4 className="component-title"><a href="#1">.component-title a</a></h4>
+<p className="component-subtitle">.component-subtitle</p>
+<p className="component-subtitle"><a href="#1">.component-subtitle a</a></p>
+```
+
+## Component Action
+
+Use these patterns for actions in components.
+
+### Anchor
+
+<div className="sheet-example">
+	<a className="component-action" href="#1" role="button">
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#times" />
+		</svg>
+	</a>
+	<a
+		className="component-action disabled"
+		href="#1"
+		role="button"
+		tabindex="-1"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#times" />
+		</svg>
+	</a>
+</div>
+
+```html
+<a className="component-action" href="#1" role="button">
+	<svg
+		className="lexicon-icon lexicon-icon-times"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#times" />
+	</svg>
+</a>
+<a className="component-action disabled" href="#1" role="button" tabindex="-1">
+	<svg
+		className="lexicon-icon lexicon-icon-times"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#times" />
+	</svg>
+</a>
+```
+
+### Button
+
+<div className="sheet-example">
+	<button className="component-action" role="button">
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+	<button className="component-action" disabled type="button" tabindex="-1">
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+```html
+<button className="component-action" role="button">
+	<svg
+		className="lexicon-icon lexicon-icon-times"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#times" />
+	</svg>
+</button>
+<button className="component-action" disabled type="button" tabindex="-1">
+	<svg
+		className="lexicon-icon lexicon-icon-times"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#times" />
+	</svg>
+</button>
+```
+
+## External Link
+
+<div className="sheet-example">
+	<a
+		aria-label="External Link"
+		className="link-primary"
+		href="#link-styles"
+		title="External Link"
+	>
+		External Link
+	</a>
+</div>
+
+```html
+<a
+	aria-label="External Link"
+	className="link-primary"
+	href="#link-styles"
+	title="External Link"
+>
+	External Link
+</a>
+```
+
+## Title Link
+
+<div className="sheet-example">
+	<a
+		aria-label="Title Link"
+		className="component-title link-primary"
+		href="#title-link"
+		title="Title"
+	>
+		Title Link
+	</a>
+</div>
+
+```html
+<a
+	aria-label="Title Link"
+	className="component-title link-primary"
+	href="#title-link"
+	title="Title"
+>
+	Title Link
+</a>
+```

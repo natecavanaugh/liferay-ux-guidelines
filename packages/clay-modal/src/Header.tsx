@@ -20,7 +20,7 @@ export const ItemGroup = ({
 	</div>
 );
 
-export interface IItemProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IItemProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag for indicating if item should autofitting the width
 	 */
@@ -155,7 +155,7 @@ const ClayModalHeader = ({
 	</div>
 );
 
-export interface IHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag for indicating if you want to use the Header its children being the title.
 	 * Set to `false` if you want to use this as a low-level component.
@@ -163,11 +163,7 @@ export interface IHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
 	withTitle?: boolean;
 }
 
-const ClayModalHeaderHybrid = ({
-	children,
-	withTitle = true,
-	...otherProps
-}: IHeaderProps) => {
+const Header = ({children, withTitle = true, ...otherProps}: IHeaderProps) => {
 	const {onClose, spritemap, status} = React.useContext(Context);
 
 	return (
@@ -187,4 +183,4 @@ const ClayModalHeaderHybrid = ({
 	);
 };
 
-export default ClayModalHeaderHybrid;
+export default Header;

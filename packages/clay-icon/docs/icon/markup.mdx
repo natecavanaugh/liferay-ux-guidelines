@@ -1,0 +1,77 @@
+---
+title: 'Icon'
+description: 'Icons are a visual representation of an idea and/or action.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/icons/'
+packageNpm: '@clayui/icon'
+packageUse: "import Icon from '@clayui/icon';"
+---
+
+## Usage
+
+We use SVG elements that link to an SVG sprite, like so:
+
+```html
+<svg
+	className="lexicon-icon lexicon-icon-add-column"
+	focusable="false"
+	role="presentation"
+>
+	<use xlink:href="path/to/icons.svg#add-column" />
+</svg>
+```
+
+Note that the ID after the # symbol is the ID of the icon to use, so if you wanted to use plus icon, you would do change the href to `path/to/icons.svg#plus`.
+
+## Language Flags
+
+People tend to have pretty strong opinions on whether flags should be used as a visual cue for indicating a language, mainly because in many parts of the world the flag may have cultural and geographic meanings that we might not be aware of, or the flag itself isn't fully accurate to the dialects spoken in that region.
+
+While we understand this reasoning, we've found that when a user is not familiar with the currently displayed language, flags somewhat eliminate the use of other mechanisms, such as the name of the language (since the current language could be in an entirely different character set). Given this, there is often at least some familiarity with the identity of a country that speaks a shared language.
+
+Or, to paraphrase Winston C hurchill, "Using flags is the worst system for indicating language, except for all others". :)
+
+To use the flags below, follow the same process as you would for a standard icon, and use the locale and country code indicated in parenthesis for the icon's name (e.g. to use the Japanese icon, you would use `ja-jp`)
+
+### SVG Icons as Background Images
+
+We have created a Sass function to turn Lexicon SVG icon's into data uri schemes, which enables you to use them as a background images on an HTML element. The Sass function `clay-icon(icon-name, color)` takes the name of a Lexicon SVG Icon and a color. For example, the Sass rule set `.site-add-cell { background-image: clay-icon(add-cell, #5AF); background-size: contain; display: inline-block; height: 20px; width: 20px; }` will place the SVG icon add-cell as a background-image on any element with class site-add-cell.
+
+<span className="clay-site-add-cell clay-site-svg-bg">add-cell</span>
+<span className="clay-site-add-column clay-site-svg-bg">add-column</span>
+<span className="clay-site-add-row clay-site-svg-bg">add-row</span>
+<span className="clay-site-adjust clay-site-svg-bg">adjust</span>
+<span className="clay-site-align-center clay-site-svg-bg">align-center</span>
+<span className="clay-site-asterisk clay-site-svg-bg">asterisk</span>
+<span className="clay-site-svg-bg clay-site-times-circle">times-circle</span>
+<span className="clay-site-svg-bg clay-site-workflow">workflow</span>
+
+## Clay-svg-url()
+
+You can turn your custom SVG into a data uri using the Sass function `clay-svg-url($svg)`, where `$svg` is the code for your inline SVG. The function returns `url(your_svg_as_data_uri)`.
+
+<div className="alert alert-info">
+	When using `clay-svg-url()`, wrap your inline SVG code with single quotes if
+	your SVG's attributes are delimited with double quotes.
+</div>
+
+<span className="clay-site-linux-tux clay-site-svg-bg">Linux Tux</span>
+
+## Why do we use SVG
+
+Font icons, while fairly simple, suffer drawbacks, such as sub-pixel
+aliasing. This results in a lower quality than we would like. SVG gives us
+and you a greater amount of freedom in styling the icons, as well as a
+higher level of fidelity and clarity in the icons. Also, SVG supports
+multi-color icons, as shown below:
+
+<div className="lexicon-icon-examples">
+	<svg className="lexicon-icon lexicon-icon-asterisk">
+		<use href="/images/icons/icons.svg#asterisk" />
+	</svg>
+	<svg className="lexicon-icon lexicon-icon-logout">
+		<use href="/images/icons/icons.svg#logout" />
+	</svg>
+	<svg className="lexicon-icon lexicon-icon-exclamation-full">
+		<use href="/images/icons/icons.svg#exclamation-full" />
+	</svg>
+</div>

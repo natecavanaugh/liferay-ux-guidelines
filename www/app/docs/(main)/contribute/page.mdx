@@ -1,0 +1,139 @@
+import Heading from '@/app/_components/Heading';
+
+export const metadata = {
+	title: 'Contributing to Clay',
+};
+
+<Heading
+	title="Contributing to Clay"
+	description="Want to contribute to Clay? There are a few things you need to know before you start sending your pull requests or opening issues."
+/>
+
+Here's a set of guidelines to contribute to Clay and its packages. Use your common sense, and feel free to propose changes to this document in a pull request.
+
+The Clay repository follows the monorepo approach; the pillars of Clay, all the major components, are in this one repository.
+
+-   [css](https://github.com/liferay/clay/blob/master/packages/clay-css) - Provides the colors and structure for Clay. It contains the CSS and example HTML markup for each component.
+-   [components](https://github.com/liferay/clay/blob/master/packages) - The components that follow clay-css markup and Lexicon use cases. They are developed on React.js in version 3.x.
+-   [clayui.com](https://github.com/liferay/clay/blob/master/clayui.com) - Contains the source code and documentation for clayui.com.
+
+## How Can I Contribute?
+
+### Reporting Bugs
+
+This section shows you how to submit an error report to Clay. Follow these guidelines so maintainers can clearly understand your report, reproduce the behavior, and find related reports.
+
+#### Before Submitting a Bug Report
+
+-   **Check [existing issues](https://github.com/search?q=is%3Aissue+repo%3Aliferay%2Fclay)** to see if the problem has already been reported. If it has and the issue is still open, add a comment to the existing issue instead of opening a new one.
+
+#### How Do I Submit a Good Bug Report?
+
+Bugs are tracked as [Github issues](https://github.com/liferay/clay/issues). Create an issue, and provide the information listed below so the maintainers can reproduce the problem:
+
+-   **Use a clear and descriptive title** for the issue that identifies the problem.
+-   **Describe the exact steps to reproduce the problem** in as much detail as possible.
+-   **Describe the behavior you observed after following the steps**, and explain the problem with that behavior.
+-   **Explain the desired behavior you expected and why.**
+-   **Include screenshots and animated GIFs** if necessary.
+-   **If the problem is related to performance or memory**, include a [CPU profile capture](https://developers.google.com/web/tools/chrome-devtools/rendering-tools/js-execution) with your report.
+-   **If the problem only occurs in a specific browser**, specify the name and version of the browser.
+
+Provide more context by answering this question:
+
+-   **Can you reliably reproduce the issue?** If not, provide details about how frequently the problem occurs and under which conditions it normally happens.
+
+### Your First Pull Request
+
+If you want to contribute to this project but you don't know where to begin, issues with the "[good first issue](https://github.com/liferay/clay/labels/good%20first%20issue)" label are a great place to start.
+
+If you decide to fix an issue, please check the comment thread first to make sure that no one else is working on a fix. If nobody is working on it at the moment, please leave a comment stating that you intend to work on it so other people don’t duplicate your effort.
+
+### Proposing a Change
+
+This section shows you how to propose a public API change, make non-trivial changes to the implementation, or propose something new. Follow these guidelines so maintainers can clearly understand your suggestion and your point of view.
+
+#### Before Submitting a Suggestion for Improvement
+
+-   **Check existing suggestions** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+
+#### How Do I Submit a Suggestion for Improvement?
+
+Suggestions for enhancement or API changes are tracked as [Github issues](https://github.com/liferay/clay/issues). Create an issue in this repository and provide the following information:
+
+-   **Use a clear and descriptive title** for the issue that states your suggestion.
+-   **Provide a step-by-step description of the suggested enhancement** in as much detail as possible.
+-   **Describe the current behavior**, and explain the behavior you want to see instead and why.
+-   **Provide details of the impact your change will make** and how you will use it.
+-   **Provide the pros and cons of your change.**
+-   **Provide at least one alternative for your change.**
+
+### Sending a Pull Request
+
+This section shows you how to send a pull request. The main staff are always monitoring pull requests, so rest assured that they will review yours. Follow these guidelines so the maintainers can complete a thorough review of your request.
+
+> Be sure to check the accessibility tab of the Storybook to ensure accessibility tests are going pass.
+
+#### Before Sending a Pull Request
+
+-   Fork the repository and create your branch from **master**.
+-   Run `yarn` at the root of the repository to install the project dependencies.
+-   Run `yarn lerna` to install the dependencies of each package and link them together.
+-   Run `yarn build` to build all packages.
+-   **If you’ve fixed a bug or added code that should be tested, add tests!**
+-   Run `yarn test` to ensure the test suite passes.
+-   Run `yarn format` to format your code with Prettier.
+-   Run `yarn lint` to make sure your code lints.
+
+## Style Guides
+
+### Git Commit Messages
+
+This section shows you how to write commit messages in Clay. Follow these guidelines to help us maintain order and make it easier to locate your changes.
+
+Each commit message consists of a header, a body and a footer. The header has a special format that includes a type, a scope, a jira ticket number and a subject:
+
+```
+<type>(<scope>): <jira ticket number> <subject>
+```
+
+The header is mandatory and the scope of the header is optional.
+
+> Clay follows the "[Conventional Commits](https://www.conventionalcommits.org/)" specification.
+
+#### Type
+
+-   **feat**: A new feature
+-   **fix**: A bug fix
+-   **docs**: Documentation-only changes
+-   **refactor**: A code change that neither fixes a bug nor adds a feature
+-   **chore**: Changes in the build process, auxiliary tools, libraries, tests or formatting
+
+#### Scope
+
+The scope could be anything specifying place of the commit change. For example `feat(@clayui/dropdown)`, `feat(@clayui/css)`, `fix(clayui.com)`, `docs(Badge)`, `fix(useCache)`, etc...
+
+#### Jira Ticket Number
+
+At present, we are exclusively utilizing LPD tickets for management. [Link for How To Open a LPD Ticket to Clay](https://liferay.atlassian.net/wiki/spaces/PEDS/pages/2391179332/Clay+New+Process)
+
+### JavaScript Style Guide
+
+All JavaScript must adhere to the [Liferay JavaScript style guide](https://www.npmjs.com/package/eslint-config-liferay).
+
+### CSS Guidelines
+
+See guidelines for [contribution with CSS](https://github.com/liferay/clay/blob/master/packages/clay-css/CONTRIBUTING.md).
+
+### Documentation Style Guide
+
+Clay uses [TypeScript](https://www.typescriptlang.org/), obviating the need to write explicit [JSDOC](http://usejsdoc.org/) annotations for parameter and return types. We still write descriptions, however, for `interface`, `type`, `enum` etc to make it easier to use components.
+
+```typescript
+interface IProps {
+	/**
+	 * Default position of menu element. Values come from `metal-position`.
+	 */
+	alignmentPosition?: number;
+}
+```

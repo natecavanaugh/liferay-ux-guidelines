@@ -7,8 +7,7 @@ import {LinkOrButton} from '@clayui/shared';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps
-	extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
+interface IProps extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
 	/**
 	 * Flag to indicate if the component is active or not.
 	 *

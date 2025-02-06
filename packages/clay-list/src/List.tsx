@@ -14,10 +14,10 @@ import ItemText from './ItemText';
 import ItemTitle from './ItemTitle';
 import QuickActionMenu from './QuickActionMenu';
 
-type TLIAttributes = React.ReactElement<React.HTMLAttributes<HTMLLIElement>>;
-
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
-	children?: TLIAttributes | Array<TLIAttributes>;
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+	children?:
+		| React.ReactElement<React.HTMLAttributes<HTMLLIElement>>
+		| Array<React.ReactElement<React.HTMLAttributes<HTMLLIElement>>>;
 
 	/*
 	 * Flag to indicate if action items should be shown on hover.
@@ -28,16 +28,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 
 const CLAY_REGEX = /Clay(?!ListItem|ListHeader).+/;
 
-function ClayList(props: IProps): JSX.Element & {
-	Header: typeof Header;
-	Item: typeof Item;
-	ItemField: typeof ClayLayout.ContentCol;
-	ItemText: typeof ItemText;
-	ItemTitle: typeof ItemTitle;
-	QuickActionMenu: typeof QuickActionMenu;
-};
-
-function ClayList({
+function List({
 	children,
 	className,
 	showQuickActionsOnHover = true,
@@ -73,13 +64,13 @@ function ClayList({
 	);
 }
 
-ClayList.displayName = 'ClayList';
+List.displayName = 'ClayList';
 
-ClayList.Header = Header;
-ClayList.Item = Item;
-ClayList.ItemField = ClayLayout.ContentCol;
-ClayList.ItemText = ItemText;
-ClayList.ItemTitle = ItemTitle;
-ClayList.QuickActionMenu = QuickActionMenu;
+List.Header = Header;
+List.Item = Item;
+List.ItemField = ClayLayout.ContentCol;
+List.ItemText = ItemText;
+List.ItemTitle = ItemTitle;
+List.QuickActionMenu = QuickActionMenu;
 
-export default ClayList;
+export default List;

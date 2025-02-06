@@ -1,0 +1,324 @@
+---
+title: 'Clay v3: Slimming Down Clay CSS'
+author: [patrickyeo]
+---
+
+## Introduction
+
+This post will walk through the process of reducing the size of Clay CSS to help improve your first contentful paint. Clay CSS bundles many components that may not be relevant to guest requests (e.g., landing pages). We will try to answer the question:
+
+> Is there any way I could somehow load just what's needed for guest requests (e.g., css variables and some utility classes) and just load the rest for logged in requests where I assume the bulk of it is needed?
+
+## Liferay Theme
+
+Liferay DXP provides robust out of the box functionality for collaboration, forms, and content management among other things. Clay CSS provides base styles for every component in Liferay DXP. We currently have no meaningful way to predict which components and fragments are likely to be used on guest pages. Our solution is to load it all and hope for the best.
+
+All hope isn't lost though, Clay CSS is highly modular, meaning we can pick and choose which components we want to load. It just requires some knowledge of file locations and loading order for Clay CSS.
+
+## Clay CSS Structure
+
+Clay CSS 3.x consists of Sass functions, variables, mixins, and components. The functions, variables, and mixins output no styles by themselves. They must be explicitly declared inside a CSS selector for styles to be output. It is safe to import these as it will not increase the final size of your CSS file.
+
+The components section is where all styles are output. Our modifications will happen here.
+
+## How to Modify Clay CSS in Liferay
+
+A Liferay Theme imports Clay CSS through the file `clay.scss`. It contains `@import 'clay/base';` for Styled Theme and `@import 'clay/atlas';` for Classic Theme. These imports include everything mentioned above. We can break this down into their individual imports to make it easier to see what to remove.
+
+<div class="clay-site-alert alert alert-warning">
+	Modifying the imports in the `clay.scss` file will require manual
+	maintenance of Clay CSS component imports. New components added by Clay CSS
+	will not be available in your theme which is probably what you want if you
+	are reading this post.
+</div>
+
+The line `@import 'clay/atlas';` imports:
+
+<div class="clay-site-alert alert alert-info">
+	The import paths have been slightly modified relative to the location of the{' '}
+	<code>clay.scss</code> file.
+</div>
+
+<div class="h6 font-italic">clay.scss</div>
+
+```scss
+@import 'clay/_license-text';
+
+@import 'clay/functions/_global-functions';
+
+@import 'clay_variables';
+
+@import 'clay/atlas/_variables';
+
+@import 'clay/_variables';
+
+@import 'clay/_mixins';
+
+@if ($font-import-url) {
+	@import url($font-import-url);
+}
+
+@import 'clay/components/_root';
+
+@import 'clay/components/_reboot';
+@import 'clay/components/_type';
+
+@import 'clay/components/_code';
+@import 'clay/components/_images';
+
+@import 'clay/components/_carousel';
+@import 'clay/components/_jumbotron';
+@import 'clay/components/_spinners';
+@import 'clay/components/_toasts';
+
+@import 'clay/components/_icons';
+
+@import 'clay/components/_aspect-ratio';
+@import 'clay/components/_buttons';
+@import 'clay/components/_transitions';
+
+@import 'clay/components/_grid';
+
+@import 'clay/components/_alerts';
+@import 'clay/components/_badges';
+@import 'clay/components/_breadcrumbs';
+@import 'clay/components/_button-groups';
+@import 'clay/components/_empty-state';
+@import 'clay/components/_labels';
+@import 'clay/components/_media';
+@import 'clay/components/_stickers';
+
+@import 'clay/components/_cards';
+@import 'clay/components/_dropdowns';
+
+@import 'clay/components/_drilldown';
+@import 'clay/components/_forms';
+@import 'clay/components/_links';
+
+@import 'clay/components/_range';
+@import 'clay/components/_reorder';
+
+@import 'clay/components/_clay-color';
+@import 'clay/components/_custom-forms';
+@import 'clay/components/_time';
+
+@import 'clay/components/_date-picker';
+@import 'clay/components/_dual-listbox';
+@import 'clay/components/_form-validation';
+@import 'clay/components/_input-groups';
+@import 'clay/components/_list-group';
+@import 'clay/components/_modals';
+@import 'clay/components/_multi-step-nav';
+
+@import 'clay/components/_navs';
+
+@import 'clay/components/_menubar';
+@import 'clay/components/_navbar';
+
+@import 'clay/components/_application-bar';
+@import 'clay/components/_management-bar';
+@import 'clay/components/_navigation-bar';
+
+@import 'clay/components/_pagination';
+@import 'clay/components/_panels';
+@import 'clay/components/_popovers';
+@import 'clay/components/_progress-bars';
+@import 'clay/components/_quick-action';
+@import 'clay/components/_sheets';
+@import 'clay/components/_side-navigation';
+@import 'clay/components/_sidebar';
+@import 'clay/components/_slideout';
+@import 'clay/components/_tables';
+@import 'clay/components/_tbar';
+@import 'clay/components/_timelines';
+@import 'clay/components/_toggle-switch';
+@import 'clay/components/_tooltip';
+
+@import 'clay/components/_utilities';
+@import 'clay/components/_utilities-functional-important';
+
+@import 'clay/components/_loaders';
+
+@import 'clay/components/_print';
+
+@import 'liferay_variables_custom';
+@import 'liferay_variables';
+@import 'bourbon';
+@import 'clay_custom';
+@import 'liferay_custom';
+```
+
+We will comment out every component except the components that import CSS variables, CSS style resets, grid, modal, and utilities. We need the modal styles to be able to sign in on a vanilla Liferay instance. You can remove this if it is not relevant to you.
+
+<div class="h6 font-italic">clay.scss</div>
+
+```scss
+@import 'clay/_license-text';
+
+@import 'clay/functions/_global-functions';
+
+@import 'clay_variables';
+
+@import 'clay/atlas/_variables';
+
+@import 'clay/_variables';
+
+@import 'clay/_mixins';
+
+@if ($font-import-url) {
+	@import url($font-import-url);
+}
+
+@import 'clay/components/_root';
+
+@import 'clay/components/_reboot';
+// @import 'clay/components/_type';
+
+// @import 'clay/components/_code';
+// @import 'clay/components/_images';
+
+// @import 'clay/components/_carousel';
+// @import 'clay/components/_jumbotron';
+// @import 'clay/components/_spinners';
+// @import 'clay/components/_toasts';
+
+// @import 'clay/components/_icons';
+
+// @import 'clay/components/_aspect-ratio';
+// @import 'clay/components/_buttons';
+// @import 'clay/components/_transitions';
+
+@import 'clay/components/_grid';
+
+// @import 'clay/components/_alerts';
+// @import 'clay/components/_badges';
+// @import 'clay/components/_breadcrumbs';
+// @import 'clay/components/_button-groups';
+// @import 'clay/components/_empty-state';
+// @import 'clay/components/_labels';
+// @import 'clay/components/_media';
+// @import 'clay/components/_stickers';
+
+// @import 'clay/components/_cards';
+// @import 'clay/components/_dropdowns';
+
+// @import 'clay/components/_drilldown';
+// @import 'clay/components/_forms';
+// @import 'clay/components/_links';
+
+// @import 'clay/components/_range';
+// @import 'clay/components/_reorder';
+
+// @import 'clay/components/_clay-color';
+// @import 'clay/components/_custom-forms';
+// @import 'clay/components/_time';
+
+// @import 'clay/components/_date-picker';
+// @import 'clay/components/_dual-listbox';
+// @import 'clay/components/_form-validation';
+// @import 'clay/components/_input-groups';
+// @import 'clay/components/_list-group';
+// @import 'clay/components/_modals';
+// @import 'clay/components/_multi-step-nav';
+
+// @import 'clay/components/_navs';
+
+// @import 'clay/components/_menubar';
+// @import 'clay/components/_navbar';
+
+// @import 'clay/components/_application-bar';
+// @import 'clay/components/_management-bar';
+// @import 'clay/components/_navigation-bar';
+
+// @import 'clay/components/_pagination';
+// @import 'clay/components/_panels';
+// @import 'clay/components/_popovers';
+// @import 'clay/components/_progress-bars';
+// @import 'clay/components/_quick-action';
+// @import 'clay/components/_sheets';
+// @import 'clay/components/_side-navigation';
+// @import 'clay/components/_sidebar';
+// @import 'clay/components/_slideout';
+// @import 'clay/components/_tables';
+// @import 'clay/components/_tbar';
+// @import 'clay/components/_timelines';
+// @import 'clay/components/_toggle-switch';
+// @import 'clay/components/_tooltip';
+
+// @import 'clay/components/_utilities';
+@import 'clay/components/_utilities-functional-important';
+
+// @import 'clay/components/_loaders';
+
+// @import 'clay/components/_print';
+
+// @import "liferay_variables_custom";
+// @import "liferay_variables";
+// @import "bourbon";
+// @import "clay_custom";
+// @import "liferay_custom";
+```
+
+This should have reduced the size of `clay.css` in 7.4 to ~127kb or ~16kb gzipped. Your results may vary depending on the version of Clay you are using. We removed the last 5 Liferay Theme related imports. They contain Liferay specific extensions of Clay and a few backward compatible styles. By removing these imports, it also helps avoid a potential build error if you are not importing Clay's alert component.
+
+## Load Everything for Logged in Users
+
+The next step is to load Clay CSS, in full, for users that have logged in. This step may not be needed in 7.4 due to the [Clay Admin feature](/blog/2021-09-13-clay-css-cadmin). It provides styles for most of Liferay's admin components so you only need to worry about your page styles. It is loaded only for users that have logged in.
+
+We recommend not removing variable imports. There are component specific variables that are reused in other components in Clay. We were not able to completely modularize it due to backward compatibility issues. You will most likely encounter build errors without further customization. If you are a completionist and need to do it anyway, this is your warning.
+
+### 7.3
+
+7.3 does not include Clay Admin. We will need to load Clay CSS fully, otherwise most admin related controls will be unstyled. We can create a file `clay_loggedin_user.scss` in your theme's `src/css/` directory, then import atlas.
+
+<div class="h6 font-italic">clay_loggedin_user.scss</div>
+
+```scss
+@import 'clay/atlas';
+```
+
+We can gate this behind an if statement in the `head` tag of your theme's `portal_normal.ftl`. The code below checks if a user has signed in.
+
+<div class="h6 font-italic">portal_normal.ftl</div>
+
+```html
+<head>
+	<title>${html_title}</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	<#if is_setup_complete && themeDisplay.isSignedIn()>
+		<link data-senna-track="temporary" href="${themeDisplay.getPathThemeCss()}/clay_loggedin_user.css" rel="stylesheet" type="text/css" />
+	</#if>
+
+	<@liferay_util["include"] page=top_head_include />
+</head>
+```
+
+It is included before `<@liferay_util["include"] page=top_head_include />` so our `clay.css` styles will win over `clay_loggedin_user.css`.
+
+We can refine the amount of CSS further for signed in and admin users. It will not be covered here, but the steps above just need to be repeated.
+
+<div class="h6 font-italic">portal_normal.ftl</div>
+
+```html
+<head>
+	<title>${html_title}</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	<#if is_setup_complete && themeDisplay.getPermissionChecker().isOmniadmin()>
+		<link data-senna-track="temporary" href="${themeDisplay.getPathThemeCss()}/clay_omni_admin_user.css" rel="stylesheet" type="text/css" />
+	</#if>
+
+	<#if is_setup_complete && themeDisplay.isSignedIn()>
+		<link data-senna-track="temporary" href="${themeDisplay.getPathThemeCss()}/clay_loggedin_user.css" rel="stylesheet" type="text/css" />
+	</#if>
+
+	<@liferay_util["include"] page=top_head_include />
+</head>
+```
+
+## Conclusion
+
+This is one method for slimming down Clay in Liferay DXP. If you have another method please share and contribute to this post by [sending a pull request](https://github.com/liferay/clay)!

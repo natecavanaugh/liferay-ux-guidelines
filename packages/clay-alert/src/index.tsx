@@ -8,8 +8,8 @@ import ClayLayout from '@clayui/layout';
 import classNames from 'classnames';
 import React from 'react';
 
-import Footer from './Footer';
-import ToastContainer from './ToastContainer';
+import {ClayAlertFooter} from './Footer';
+import {ClayToastContainer} from './ToastContainer';
 
 const useAutoClose = (autoClose?: boolean | number, onClose = () => {}) => {
 	const startedTime = React.useRef<number>(0);
@@ -55,14 +55,7 @@ const useAutoClose = (autoClose?: boolean | number, onClose = () => {}) => {
 	};
 };
 
-export type DisplayType =
-	| 'danger'
-	| 'info'
-	| 'secondary'
-	| 'success'
-	| 'warning';
-
-export interface IClayAlertProps
+interface IClayAlertProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'role'> {
 	/**
 	 * A React Component to render the alert actions.
@@ -89,7 +82,7 @@ export interface IClayAlertProps
 	/**
 	 * Determines the style of the alert.
 	 */
-	displayType?: DisplayType;
+	displayType?: 'danger' | 'info' | 'secondary' | 'success' | 'warning';
 
 	/**
 	 * Flag to indicate if close icon should be show. This prop is used in
@@ -128,12 +121,7 @@ const ICON_MAP = {
 
 const VARIANTS = ['inline', 'feedback'];
 
-function ClayAlert(props: IClayAlertProps): JSX.Element & {
-	Footer: typeof Footer;
-	ToastContainer: typeof ToastContainer;
-};
-
-function ClayAlert({
+const ClayAlert = ({
 	actions,
 	autoClose,
 	children,
@@ -147,7 +135,7 @@ function ClayAlert({
 	title,
 	variant,
 	...otherProps
-}: IClayAlertProps) {
+}: IClayAlertProps) => {
 	const {pauseAutoCloseTimer, startAutoCloseTimer} = useAutoClose(
 		autoClose,
 		onClose
@@ -208,7 +196,7 @@ function ClayAlert({
 							{children}
 
 							{variant !== 'inline' && actions && (
-								<Footer>{actions}</Footer>
+								<ClayAlertFooter>{actions}</ClayAlertFooter>
 							)}
 						</ClayLayout.ContentSection>
 					</ClayLayout.ContentCol>
@@ -235,9 +223,10 @@ function ClayAlert({
 			</ConditionalContainer>
 		</div>
 	);
-}
+};
 
-ClayAlert.Footer = Footer;
-ClayAlert.ToastContainer = ToastContainer;
+ClayAlert.displayName = 'ClayAlert';
+ClayAlert.Footer = ClayAlertFooter;
+ClayAlert.ToastContainer = ClayToastContainer;
 
 export default ClayAlert;

@@ -36,11 +36,21 @@ import InputDate from './InputDate';
 import TimePicker from './TimePicker';
 import Weekday from './Weekday';
 import WeekdayHeader from './WeekdayHeader';
-import {FirstDayOfWeek, IAriaLabels, IYears} from './types';
+import {IAriaLabels, IYears} from './types';
 
 import type {Input} from '@clayui/time-picker';
 
 import type {ISelectOption} from './Select';
+
+enum FirstDayOfWeek {
+	Sunday = 0,
+	Monday = 1,
+	Tuesday = 2,
+	Wednesday = 3,
+	Thursday = 4,
+	Friday = 5,
+	Saturday = 6,
+}
 
 interface IProps
 	extends Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'> {
@@ -195,7 +205,10 @@ interface IProps
 	/**
 	 * List of years available for navigation within the selector.
 	 */
-	years?: IYears;
+	years?: {
+		end: number;
+		start: number;
+	};
 
 	/**
 	 * Flag to indicate whether the DatePicker should validate if the year
@@ -220,10 +233,7 @@ const TIME_FORMAT_12H = 'hh:mm aa';
 const normalizeTime = (date: Date) =>
 	setDate(date, {hours: 12, milliseconds: 0, minutes: 0, seconds: 0});
 
-/**
- * ClayDatePicker component.
- */
-const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
+const DatePicker = React.forwardRef<HTMLInputElement, IProps>(
 	(
 		{
 			ariaLabels = {
@@ -239,7 +249,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 			defaultValue,
 			disabled,
 			expanded,
-			firstDayOfWeek = FirstDayOfWeek.Sunday,
+			firstDayOfWeek = 0,
 			footerElement,
 			id,
 			initialExpanded = false,
@@ -833,7 +843,7 @@ function fromRangeToString(range: [Date, Date], dateFormat: string) {
 	)}`;
 }
 
-ClayDatePicker.displayName = 'ClayDatePicker';
+DatePicker.displayName = 'ClayDatePicker';
 
 export {FirstDayOfWeek};
-export default ClayDatePicker;
+export default DatePicker;

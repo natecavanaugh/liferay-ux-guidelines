@@ -1,0 +1,2172 @@
+---
+title: 'List'
+description: 'Lists are a visual representation of a dataset, based on groups of related content, that is organized vertically.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/list/'
+packageNpm: '@clayui/list'
+packageUse: "import List from '@clayui/list';"
+---
+
+<div className="alert alert-info">
+	Check the [Lexicon](https://liferay.design/lexicon) [List
+	Pattern](https://liferay.design/lexicon/core-components/list/) for a more
+	in-depth look at the motivations and proper usage of this component.
+</div>
+
+List sections help separate content by a specific category or type.
+
+## Example
+
+Align content inside a `.list-group-item` element with a flexbox with `.list-group-item-flex`.
+
+Use a combination of `.flex-col` and `.flex-col.flex-col-expand` to control the size of each cell.
+
+Add the class `show-dropdown-action-on-active` to display `dropdown-menu`s when active in List Groups.
+
+<div className="alert alert-warning">
+	Direct descendants of <code>flex-col</code> become block level elements by
+	default. See{' '}
+	<a href="https://www.w3.org/TR/css-flexbox-1/#flex-items">
+		https://www.w3.org/TR/css-flexbox-1/#flex-items
+	</a>
+	. If you want to display content using <code>floats</code>, <code>
+		inline
+	</code>, or <code>inline-block</code>, wrap the content with a block level element
+	such as a div.
+</div>
+
+<div className="sheet-example">
+	<ul className="list-group show-quick-actions-on-hover">
+		<li className="list-group-header">
+			<h3 className="list-group-header-title">List Section</h3>
+		</li>
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<p className="list-group-title text-truncate">
+					<a href="#1">Account Example One</a>
+				</p>
+				<p className="list-group-text text-truncate">
+					Second Level Text
+				</p>
+				<p className="list-group-subtext">Third Level Text</p>
+				<div className="list-group-detail">
+					<span className="label label-success">
+						<span className="label-item label-item-expand">
+							Approved
+						</span>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="quick-action-menu">
+					<a
+						aria-label="Delete"
+						title="Delete"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-trash"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#trash" />
+						</svg>
+					</a>
+					<a
+						aria-label="Download"
+						title="Download"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-download"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#download" />
+						</svg>
+					</a>
+					<a
+						aria-label="Info"
+						title="Info"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle-open"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#info-circle-open" />
+						</svg>
+					</a>
+				</div>
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<div
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<ul className="list-unstyled">
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Remove
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Edit
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Move
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Checkout
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li className="list-group-item list-group-item-flex active">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							checked
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<p className="list-group-title">
+					<a href="#1">Account Example One</a>
+				</p>
+				<p className="list-group-text">Second Level Text</p>
+				<p className="list-group-subtext">Third Level Text</p>
+				<div className="list-group-detail">
+					<span className="label label-success">
+						<span className="label-item label-item-expand">
+							Approved
+						</span>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="quick-action-menu">
+					<a
+						aria-label="Delete"
+						title="Delete"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-trash"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#trash" />
+						</svg>
+					</a>
+					<a
+						aria-label="Download"
+						title="Download"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-download"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#download" />
+						</svg>
+					</a>
+					<a
+						aria-label="Info"
+						title="Info"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle-open"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#info-circle-open" />
+						</svg>
+					</a>
+				</div>
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<div
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<ul className="list-unstyled">
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Remove
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Edit
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Move
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Checkout
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group show-quick-actions-on-hover">
+	<li className="list-group-header">
+		<h3 className="list-group-header-title">List Section</h3>
+	</li>
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<p className="list-group-title text-truncate">
+				<a href="#1">Account Example One</a>
+			</p>
+			<p className="list-group-text text-truncate">Second Level Text</p>
+			<p className="list-group-subtext">Third Level Text</p>
+			<div className="list-group-detail">
+				<span className="label label-success">
+					<span className="label-item label-item-expand"
+						>Approved</span
+					>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="quick-action-menu">
+				<a
+					aria-label="Delete"
+					title="Delete"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<a
+					aria-label="Download"
+					title="Download"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<a
+					aria-label="Info"
+					title="Info"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+			</div>
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+	<li className="list-group-item list-group-item-flex active">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input
+						checked
+						className="custom-control-input"
+						type="checkbox"
+					/>
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<p className="list-group-title">
+				<a href="#1">Account Example One</a>
+			</p>
+			<p className="list-group-text">Second Level Text</p>
+			<p className="list-group-subtext">Third Level Text</p>
+			<div className="list-group-detail">
+				<span className="label label-success">
+					<span className="label-item label-item-expand"
+						>Approved</span
+					>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="quick-action-menu">
+				<a
+					aria-label="Delete"
+					title="Delete"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<a
+					aria-label="Download"
+					title="Download"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<a
+					aria-label="Info"
+					title="Info"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+			</div>
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+</ul>
+```
+
+## Variations
+
+### Bordered
+
+Use `.list-group-bordered` on `.list-group` to style `.list-group-item-flex` like a table.
+
+<div className="sheet-example">
+	<ul className="list-group list-group-bordered">
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<span className="text-truncate-inline">
+							<a className="text-truncate" href="#1">
+								Text Truncate Example
+							</a>
+						</span>
+					</div>
+					<p className="list-group-subtitle">.list-group-subtitle</p>
+					<p className="list-group-subtitle">
+						<a href="#1">.list-group-subtitle a</a>
+					</p>
+					<p className="list-group-text">
+						This is an example of .list-group-text and a{' '}
+						<a href="#1">link</a>.
+					</p>
+					<p className="list-group-text">
+						<a className="list-group-text-link" href="#1">
+							a.list-group-text-link
+						</a>
+					</p>
+					<p className="list-group-text">
+						<span className="text-truncate-inline">
+							<a
+								className="list-group-text-link text-truncate"
+								href="#1"
+							>
+								Truncated a.list-group-text-link
+							</a>
+							and another <a href="#1">link</a>
+						</span>
+					</p>
+					<p className="list-group-subtext">
+						This is .list-group-subtext and a <a href="#1">link</a>.
+					</p>
+					<p className="list-group-subtext">
+						<a className="list-group-subtext-link" href="#1">
+							Regular a.list-group-subtext-link
+						</a>
+					</p>
+					<p className="list-group-subtext">
+						<span className="text-truncate-inline">
+							<a
+								className="list-group-subtext-link text-truncate"
+								href="#1"
+							>
+								Truncated a.list-group-subtext-link
+							</a>
+							and another <a href="#1">link</a>
+						</span>
+					</p>
+					<div className="list-group-detail">
+						<span className="label label-warning">
+							<span className="label-item label-item-expand">
+								Pending
+							</span>
+						</span>
+					</div>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Remove
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Download
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Checkout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<a href="#1">Account Example Two</a>
+					</div>
+					<p className="list-group-subtext">List Group Subtext</p>
+					<div className="list-group-detail">
+						<span className="label label-info">
+							<span className="label-item label-item-expand">
+								Info
+							</span>
+						</span>
+					</div>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Remove
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Download
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Checkout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group list-group-bordered">
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<span className="text-truncate-inline">
+						<a className="text-truncate" href="#1"
+							>Text Truncate Example</a
+						>
+					</span>
+				</div>
+				<p className="list-group-subtitle">.list-group-subtitle</p>
+				<p className="list-group-subtitle">
+					<a href="#1">.list-group-subtitle a</a>
+				</p>
+				<p className="list-group-text">
+					This is an example of .list-group-text and a
+					<a href="#1">link</a>.
+				</p>
+				<p className="list-group-text">
+					<a className="list-group-text-link" href="#1"
+						>a.list-group-text-link</a
+					>
+				</p>
+				<p className="list-group-text">
+					<span className="text-truncate-inline">
+						<a
+							className="list-group-text-link text-truncate"
+							href="#1"
+							>Truncated a.list-group-text-link</a
+						>
+						and another <a href="#1">link</a>
+					</span>
+				</p>
+				<p className="list-group-subtext">
+					This is .list-group-subtext and a <a href="#1">link</a>.
+				</p>
+				<p className="list-group-subtext">
+					<a className="list-group-subtext-link" href="#1"
+						>Regular a.list-group-subtext-link</a
+					>
+				</p>
+				<p className="list-group-subtext">
+					<span className="text-truncate-inline">
+						<a
+							className="list-group-subtext-link text-truncate"
+							href="#1"
+							>Truncated a.list-group-subtext-link</a
+						>
+						and another <a href="#1">link</a>
+					</span>
+				</p>
+				<div className="list-group-detail">
+					<span className="label label-warning">
+						<span className="label-item label-item-expand"
+							>Pending</span
+						>
+					</span>
+				</div>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<a href="#1">Account Example Two</a>
+				</div>
+				<p className="list-group-subtext">List Group Subtext</p>
+				<div className="list-group-detail">
+					<span className="label label-info">
+						<span className="label-item label-item-expand"
+							>Info</span
+						>
+					</span>
+				</div>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Default
+
+<div className="sheet-example">
+	<ul className="list-group">
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<p className="list-group-title text-truncate">
+					<a href="#1">Account Example One</a>
+				</p>
+				<p className="list-group-subtitle text-truncate">
+					Second Level Text
+				</p>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<div
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<ul className="list-unstyled">
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Remove
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Edit
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Move
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Checkout
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group">
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-indicator"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">...</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<p className="list-group-title text-truncate">
+				<a href="#1">Account Example One</a>
+			</p>
+			<p className="list-group-subtitle text-truncate">
+				Second Level Text
+			</p>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Notification
+
+<div className="sheet-example">
+	<ul className="list-group list-group-notification">
+		<li className="list-group-item list-group-item-flex list-group-item-primary">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<a href="#1">Account Example One</a>
+					</div>
+					<p className="list-group-text">Second Level Text</p>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Remove
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Download
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Checkout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<a href="#1">Account Example Two</a>
+					</div>
+					<p className="list-group-text">Second Level Text</p>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Remove
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Download
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Checkout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group list-group-notification">
+	<li
+		className="list-group-item list-group-item-flex list-group-item-primary"
+	>
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">...</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<a href="#1">Account Example One</a>
+				</div>
+				<p className="list-group-text">Second Level Text</p>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<a href="#1">Account Example Two</a>
+				</div>
+				<p className="list-group-text">Second Level Text</p>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+</ul>
+```
+
+## Group Elements
+
+### Header
+
+Use the `.list-group-header` and `.list-group-header-title` class.
+
+<div className="sheet-example">
+	<ul className="list-group">
+		<li className="list-group-header">
+			<h3 className="list-group-header-title">List Group Header</h3>
+		</li>
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<span className="text-truncate-inline">
+							<a className="text-truncate" href="#1">
+								ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+							</a>
+						</span>
+					</div>
+					<p className="list-group-text">
+						<span className="text-truncate-inline">
+							<span className="text-truncate">
+								Second Level Text
+							</span>
+						</span>
+					</p>
+					<div className="list-group-detail">
+						<span className="label label-success">
+							<span className="label-item label-item-expand">
+								Approved
+							</span>
+						</span>
+					</div>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Remove
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Download
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Checkout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group">
+	<li className="list-group-header">
+		<h3 className="list-group-header-title">List Group Header</h3>
+	</li>
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<span className="text-truncate-inline">
+						<a className="text-truncate" href="#1"
+							>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</a
+						>
+					</span>
+				</div>
+				<p className="list-group-text">
+					<span className="text-truncate-inline">
+						<span className="text-truncate">Second Level Text</span>
+					</span>
+				</p>
+				<div className="list-group-detail">
+					<span className="label label-success">
+						<span className="label-item label-item-expand"
+							>Approved</span
+						>
+					</span>
+				</div>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+</ul>
+```
+
+### Items
+
+#### Colors
+
+<div className="sheet-example">
+	<ul className="list-group">
+		<li className="list-group-item">List Item Normal</li>
+		<li className="list-group-item list-group-item-success">
+			List Item Success
+		</li>
+		<li className="list-group-item list-group-item-info">List Item Info</li>
+		<li className="list-group-item list-group-item-warning">
+			List Item Warning
+		</li>
+		<li className="list-group-item list-group-item-danger">
+			List Item Danger
+		</li>
+		<li className="list-group-item list-group-item-light">
+			List Item Light
+		</li>
+		<li className="list-group-item list-group-item-dark">List Item Dark</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group">
+	<li className="list-group-item">List Item Normal</li>
+	<li className="list-group-item list-group-item-success">
+		List Item Success
+	</li>
+	<li className="list-group-item list-group-item-info">List Item Info</li>
+	<li className="list-group-item list-group-item-warning">
+		List Item Warning
+	</li>
+	<li className="list-group-item list-group-item-danger">List Item Danger</li>
+	<li className="list-group-item list-group-item-light">List Item Light</li>
+	<li className="list-group-item list-group-item-dark">List Item Dark</li>
+</ul>
+```
+
+#### Active Colors
+
+<div className="sheet-example">
+	<div className="list-group">
+		<a className="active list-group-item list-group-item-action" href="#1">
+			List Item Action Normal Active
+		</a>
+		<a
+			className="active list-group-item list-group-item-action list-group-item-success"
+			href="#1"
+		>
+			List Item Action Success Active
+		</a>
+		<a
+			className="active list-group-item list-group-item-action list-group-item-info"
+			href="#1"
+		>
+			List Item Action Info Active
+		</a>
+		<a
+			className="active list-group-item list-group-item-action list-group-item-warning"
+			href="#1"
+		>
+			List Item Action Warning Active
+		</a>
+		<a
+			className="active list-group-item list-group-item-action list-group-item-danger"
+			href="#1"
+		>
+			List Item Action Danger Active
+		</a>
+		<a
+			className="active list-group-item list-group-item-action list-group-item-light"
+			href="#1"
+		>
+			List Item Action Light Active
+		</a>
+		<a
+			className="active list-group-item list-group-item-action list-group-item-dark"
+			href="#1"
+		>
+			List Item Action Dark Active
+		</a>
+	</div>
+</div>
+
+```html
+<div className="list-group">
+	<a className="active list-group-item list-group-item-action" href="#1"
+		>List Item Action Normal Active</a
+	>
+	<a
+		className="active list-group-item list-group-item-action list-group-item-success"
+		href="#1"
+		>List Item Action Success Active</a
+	>
+	<a
+		className="active list-group-item list-group-item-action list-group-item-info"
+		href="#1"
+		>List Item Action Info Active</a
+	>
+	<a
+		className="active list-group-item list-group-item-action list-group-item-warning"
+		href="#1"
+		>List Item Action Warning Active</a
+	>
+	<a
+		className="active list-group-item list-group-item-action list-group-item-danger"
+		href="#1"
+		>List Item Action Danger Active</a
+	>
+	<a
+		className="active list-group-item list-group-item-action list-group-item-light"
+		href="#1"
+		>List Item Action Light Active</a
+	>
+	<a
+		className="active list-group-item list-group-item-action list-group-item-dark"
+		href="#1"
+		>List Item Action Dark Active</a
+	>
+</div>
+```
+
+#### Items as Links and Buttons
+
+<div className="sheet-example">
+	<div className="list-group">
+		<a className="list-group-item list-group-item-action" href="#1">
+			List Item 1
+		</a>
+		<a className="list-group-item list-group-item-action" href="#1">
+			List Item 2
+		</a>
+		<button
+			className="list-group-item list-group-item-action"
+			type="button"
+		>
+			List Item 3
+		</button>
+		<a className="list-group-item list-group-item-action" href="#1">
+			List Item 4
+		</a>
+	</div>
+</div>
+
+```html
+<div className="list-group">
+	<a className="list-group-item list-group-item-action" href="#1"
+		>List Item 1</a
+	>
+	<a className="list-group-item list-group-item-action" href="#1"
+		>List Item 2</a
+	>
+	<button className="list-group-item list-group-item-action" type="button">
+		List Item 3
+	</button>
+	<a className="list-group-item list-group-item-action" href="#1"
+		>List Item 4</a
+	>
+</div>
+```
+
+#### Actions on Hover
+
+##### Anchors
+
+<div className="sheet-example">
+	<ul className="list-group show-quick-actions-on-hover">
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#folder"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<a href="#1">Anchors</a>
+					</div>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="quick-action-menu">
+					<a
+						aria-label="Delete"
+						title="Delete"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-trash"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#trash"></use>
+						</svg>
+					</a>
+					<a
+						aria-label="Download"
+						title="Download"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-download"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#download"></use>
+						</svg>
+					</a>
+					<a
+						aria-label="Expand"
+						title="Expand"
+						className="component-action quick-action-item"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-expand"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#expand"></use>
+						</svg>
+					</a>
+				</div>
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#ellipsis-v"></use>
+						</svg>
+					</a>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Remove
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Download
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Checkout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group show-quick-actions-on-hover">
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<a href="#1">Anchors</a>
+				</div>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="quick-action-menu">
+				<a
+					aria-label="Delete"
+					title="Delete"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<a
+					aria-label="Download"
+					title="Download"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+				<a
+					aria-label="Expand"
+					title="Expand"
+					className="component-action quick-action-item"
+					href="#1"
+					role="button"
+				>
+					...
+				</a>
+			</div>
+			<div className="dropdown dropdown-action">
+				<a
+					aria-label="More Actions"
+					title="More Actions"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="component-action dropdown-toggle"
+					data-toggle="dropdown"
+					href="#1"
+					id="dropdownAction1"
+					role="button"
+				>
+					...
+				</a>
+				<ul
+					aria-labelledby=""
+					className="dropdown-menu dropdown-menu-right"
+				>
+					<li>
+						<a className="dropdown-item" href="#1" role="button"
+							>Remove</a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1" role="button"
+							>Download</a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1" role="button"
+							>Checkout</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+##### Buttons
+
+<div className="sheet-example">
+	<ul className="list-group show-quick-actions-on-hover">
+		<li className="list-group-item list-group-item-flex">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#folder"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<section className="autofit-section">
+					<div className="list-group-title">
+						<span className="text-truncate-inline">
+							<a className="text-truncate" href="#1">
+								Account Example One
+							</a>
+						</span>
+					</div>
+					<p className="list-group-text">
+						<span className="text-truncate-inline">
+							<span className="text-truncate">
+								Second Level Text
+							</span>
+						</span>
+					</p>
+				</section>
+			</div>
+			<div className="autofit-col">
+				<div className="quick-action-menu">
+					<button
+						aria-label="Delete"
+						title="Delete"
+						className="component-action quick-action-item"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-trash"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#trash"></use>
+						</svg>
+					</button>
+					<button
+						aria-label="Download"
+						title="Download"
+						className="component-action quick-action-item"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-download"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#download"></use>
+						</svg>
+					</button>
+					<button
+						aria-label="Expand"
+						title="Expand"
+						className="component-action quick-action-item"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-expand"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#expand"></use>
+						</svg>
+					</button>
+				</div>
+				<div className="dropdown dropdown-action">
+					<button
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						id="dropdownAction1"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#ellipsis-v"></use>
+						</svg>
+					</button>
+					<ul
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<button className="dropdown-item" type="button">
+								Remove
+							</button>
+						</li>
+						<li>
+							<button className="dropdown-item" type="button">
+								Download
+							</button>
+						</li>
+						<li>
+							<button className="dropdown-item" type="button">
+								Checkout
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group show-quick-actions-on-hover">
+	<li className="list-group-item list-group-item-flex">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input className="custom-control-input" type="checkbox" />
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<section className="autofit-section">
+				<div className="list-group-title">
+					<span className="text-truncate-inline">
+						<a className="text-truncate" href="#1"
+							>Account Example One</a
+						>
+					</span>
+				</div>
+				<p className="list-group-text">
+					<span className="text-truncate-inline">
+						<span className="text-truncate">Second Level Text</span>
+					</span>
+				</p>
+			</section>
+		</div>
+		<div className="autofit-col">
+			<div className="quick-action-menu">
+				<button
+					aria-label="Delete"
+					title="Delete"
+					className="component-action quick-action-item"
+					type="button"
+				>
+					...
+				</button>
+				<button
+					aria-label="Download"
+					title="Download"
+					className="component-action quick-action-item"
+					type="button"
+				>
+					...
+				</button>
+				<button
+					aria-label="Expand"
+					title="Expand"
+					className="component-action quick-action-item"
+					type="button"
+				>
+					...
+				</button>
+			</div>
+			<div className="dropdown dropdown-action">
+				<button
+					aria-label="More Actions"
+					title="More Actions"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="component-action dropdown-toggle"
+					data-toggle="dropdown"
+					id="dropdownAction1"
+					type="button"
+				>
+					...
+				</button>
+				<ul
+					aria-labelledby=""
+					className="dropdown-menu dropdown-menu-right"
+				>
+					<li>
+						<button className="dropdown-item" type="button">
+							Remove
+						</button>
+					</li>
+					<li>
+						<button className="dropdown-item" type="button">
+							Download
+						</button>
+					</li>
+					<li>
+						<button className="dropdown-item" type="button">
+							Checkout
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</li>
+</ul>
+```
+
+#### Active
+
+Use the `.active` class on the same element that you putted `.list-group-item`.
+
+<div className="sheet-example">
+	<ul className="list-group">
+		<li className="list-group-item list-group-item-flex active">
+			<div className="autofit-col">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							checked
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="sticker sticker-secondary">
+					<span className="inline-item">
+						<svg
+							className="lexicon-icon lexicon-icon-folder"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#folder" />
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<p className="list-group-title text-truncate">
+					<a href="#1">Account Example One</a>
+				</p>
+				<p className="list-group-text text-truncate">
+					Second Level Text
+				</p>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-label="More Actions"
+						title="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						id="dropdownAction1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<div
+						aria-labelledby=""
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<ul className="list-unstyled">
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Remove
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Edit
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Move
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Checkout
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="list-group">
+	<li className="list-group-item list-group-item-flex active">
+		<div className="autofit-col">
+			<div className="custom-control custom-checkbox">
+				<label>
+					<input
+						checked
+						className="custom-control-input"
+						type="checkbox"
+					/>
+					<span className="custom-control-label"></span>
+				</label>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="sticker sticker-secondary">
+				<span className="inline-item"> ... </span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<p className="list-group-title text-truncate">
+				<a href="#1">Account Example One</a>
+			</p>
+			<p className="list-group-text text-truncate">Second Level Text</p>
+		</div>
+		<div className="autofit-col">
+			<div className="dropdown dropdown-action">...</div>
+		</div>
+	</li>
+</ul>
+```

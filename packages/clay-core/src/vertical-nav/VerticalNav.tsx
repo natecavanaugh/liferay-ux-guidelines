@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import Button from '@clayui/button';
 import Icon from '@clayui/icon';
 import {
 	InternalDispatch,
@@ -17,23 +16,10 @@ import warning from 'warning';
 import {Collection, useCollection} from '../collection';
 import {Nav} from '../nav';
 import {Item} from './Item';
+import {Trigger} from './Trigger';
 import {VerticalNavContext} from './context';
 
 import type {ChildrenFunction} from '../collection';
-
-const Trigger = ({
-	children,
-	className,
-	...otherProps
-}: React.ComponentProps<typeof Button>) => (
-	<Button
-		className={classNames(className, 'menubar-toggler')}
-		displayType="unstyled"
-		{...otherProps}
-	>
-		{children}
-	</Button>
-);
 
 type Props<T extends Record<string, any> | string> = {
 	/**

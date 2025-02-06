@@ -6,25 +6,21 @@
 import classNames from 'classnames';
 import React from 'react';
 
-type DisplayType = null | 'primary' | 'secondary' | 'light';
-type Shape = null | 'circle' | 'squares';
-type Size = null | 'xs' | 'sm' | 'md' | 'lg';
-
 interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Determines the color of the visual indicator.
 	 */
-	displayType?: DisplayType;
+	displayType?: null | 'primary' | 'secondary' | 'light';
 
 	/**
 	 * Determines the style of the visual indicator.
 	 */
-	shape?: Shape;
+	shape?: null | 'circle' | 'squares';
 
 	/**
 	 * Determines the size of the visual indicator.
 	 */
-	size?: Size;
+	size?: null | 'xs' | 'sm' | 'md' | 'lg';
 
 	/**
 	 * Flag to indicate the 'light' variant
@@ -39,7 +35,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	small?: boolean;
 }
 
-const ClayLoadingIndicator = React.forwardRef<HTMLSpanElement, IProps>(
+const LoadingIndicator = React.forwardRef<HTMLSpanElement, IProps>(
 	(
 		{
 			className,
@@ -72,6 +68,6 @@ const ClayLoadingIndicator = React.forwardRef<HTMLSpanElement, IProps>(
 	}
 );
 
-ClayLoadingIndicator.displayName = 'ClayLoadingIndicator';
+LoadingIndicator.displayName = 'ClayLoadingIndicator';
 
-export default ClayLoadingIndicator;
+export default LoadingIndicator;

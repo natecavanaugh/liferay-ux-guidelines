@@ -1,0 +1,793 @@
+---
+title: 'Input'
+description: 'This section demonstrates the different text input types.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/text-input/'
+packageNpm: '@clayui/form'
+packageUse: "import {ClayCheckbox} from '@clayui/form';"
+storybookPath: 'design-system-components-input'
+---
+
+## Example
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="basicInputTypeText">Name</label>
+		<input
+			className="form-control"
+			id="basicInputTypeText"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="basicInputTypeText">Name</label>
+	<input
+		className="form-control"
+		id="basicInputTypeText"
+		placeholder="Placeholder"
+		type="text"
+	/>
+</div>
+```
+
+> Be sure to use an appropriate `type` attribute on all inputs (e.g., `email` for email address or number for numerical information) to take advantage of newer input controls like email verification, number selection, and more.
+
+## Disabled
+
+Add the `disabled` boolean attribute on an input to prevent user interactions and make it appear lighter.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label className="disabled" for="basicInputTypeTextDisabled">
+			Name
+		</label>
+		<input
+			disabled
+			className="form-control"
+			id="basicInputTypeTextDisabled"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label className="disabled" for="basicInputTypeTextDisabled">Name</label>
+	<input
+		disabled
+		className="form-control"
+		id="basicInputTypeTextDisabled"
+		placeholder="Placeholder"
+		type="text"
+	/>
+</div>
+```
+
+## Readonly
+
+Add the `readonly` boolean attribute on an input to prevent modification of the input’s value. Read-only inputs appear lighter (just like disabled inputs), but retain the standard cursor.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="basicInputTypeTextReadOnly">User ID</label>
+		<input
+			readonly
+			className="form-control"
+			id="basicInputTypeTextReadOnly"
+			type="text"
+			value="59432"
+		/>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="basicInputTypeTextReadOnly">User ID</label>
+	<input
+		readonly
+		className="form-control"
+		id="basicInputTypeTextReadOnly"
+		type="text"
+		value="59432"
+	/>
+</div>
+```
+
+## Sizes
+
+Set heights using classes like `.form-control-lg` and `.form-control-sm`.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="smallTextInput">.form-control-sm</label>
+		<input
+			className="form-control form-control-sm"
+			id="smallTextInput"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+	<div className="form-group">
+		<label for="normalTextInput">Default</label>
+		<input
+			className="form-control"
+			id="normalTextInput"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+	<div className="form-group">
+		<label for="largeTextInput">.form-control-lg</label>
+		<input
+			className="form-control form-control-lg"
+			id="largeTextInput"
+			placeholder="Placeholder"
+			type="text"
+		/>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="smallTextInput">.form-control-sm</label>
+	<input
+		className="form-control form-control-sm"
+		id="smallTextInput"
+		placeholder="Placeholder"
+		type="text"
+	/>
+</div>
+<div className="form-group">
+	<label for="normalTextInput">Default</label>
+	<input
+		className="form-control"
+		id="normalTextInput"
+		placeholder="Placeholder"
+		type="text"
+	/>
+</div>
+<div className="form-group">
+	<label for="largeTextInput">.form-control-lg</label>
+	<input
+		className="form-control form-control-lg"
+		id="largeTextInput"
+		placeholder="Placeholder"
+		type="text"
+	/>
+</div>
+```
+
+## Textarea
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="basicInputTypeTextarea">Textarea</label>
+		<textarea
+			className="form-control"
+			id="basicInputTypeTextarea"
+			placeholder="Placeholder"
+		></textarea>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="basicInputTypeTextarea">Textarea</label>
+	<textarea
+		className="form-control"
+		id="basicInputTypeTextarea"
+		placeholder="Placeholder"
+	></textarea>
+</div>
+```
+
+## Validations
+
+### Success
+
+<div className="sheet-example">
+	<div className="form-group has-success">
+		<label for="inputSuccess1">
+			has-success
+			<svg
+				className="lexicon-icon lexicon-icon-asterisk reference-mark"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#asterisk" />
+			</svg>
+		</label>
+		<input className="form-control" id="inputSuccess1" type="text" />
+		<div className="form-feedback-group">
+			<div className="form-feedback-item">
+				This is a form-feedback-item.
+			</div>
+			<div className="form-feedback-item">
+				<span className="form-feedback-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#check-circle-full" />
+					</svg>
+				</span>
+				This is a form-feedback-indicator.
+			</div>
+			<div className="form-text">This is form-text.</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group has-success">
+	<label for="inputSuccess1">
+		has-success
+		<svg
+			className="lexicon-icon lexicon-icon-asterisk reference-mark"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#asterisk" />
+		</svg>
+	</label>
+	<input className="form-control" id="inputSuccess1" type="text" />
+	<div className="form-feedback-group">
+		<div className="form-feedback-item">This is a form-feedback-item.</div>
+		<div className="form-feedback-item">
+			<span className="form-feedback-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-check-circle-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#check-circle-full" />
+				</svg>
+			</span>
+			This is a form-feedback-indicator.
+		</div>
+		<div className="form-text">This is form-text.</div>
+	</div>
+</div>
+```
+
+### Warning
+
+<div className="sheet-example">
+	<div className="form-group has-warning">
+		<label for="inputWarning1">
+			has-warning
+			<svg
+				className="lexicon-icon lexicon-icon-asterisk reference-mark"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#asterisk" />
+			</svg>
+		</label>
+		<input className="form-control" id="inputWarning1" type="text" />
+		<div className="form-feedback-group">
+			<div className="form-feedback-item">
+				This is a form-feedback-item.
+			</div>
+			<div className="form-feedback-item">
+				<span className="form-feedback-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-warning-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#warning-full" />
+					</svg>
+				</span>
+				This is a form-feedback-indicator.
+			</div>
+			<div className="form-text">This is form-text.</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group has-warning">
+	<label for="inputWarning1">
+		has-warning
+		<svg
+			className="lexicon-icon lexicon-icon-asterisk reference-mark"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#asterisk" />
+		</svg>
+	</label>
+	<input className="form-control" id="inputWarning1" type="text" />
+	<div className="form-feedback-group">
+		<div className="form-feedback-item">This is a form-feedback-item.</div>
+		<div className="form-feedback-item">
+			<span className="form-feedback-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-warning-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#warning-full" />
+				</svg>
+			</span>
+			This is a form-feedback-indicator.
+		</div>
+		<div className="form-text">This is form-text.</div>
+	</div>
+</div>
+```
+
+### Error
+
+<div className="sheet-example">
+	<div className="form-group has-error">
+		<label for="inputError1">
+			has-error
+			<svg
+				className="lexicon-icon lexicon-icon-asterisk reference-mark"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#asterisk" />
+			</svg>
+		</label>
+		<input
+			aria-describedby="input-error-1-error-message"
+			aria-invalid="true"
+			className="form-control"
+			id="inputError1"
+			type="text"
+		/>
+		<div className="form-feedback-group">
+			<div
+				className="form-feedback-item"
+				id="input-error-1-error-message"
+			>
+				This is a form-feedback-item.
+			</div>
+			<div className="form-feedback-item">
+				<span className="form-feedback-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-exclamation-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#exclamation-full" />
+					</svg>
+				</span>
+				This is a form-feedback-indicator.
+			</div>
+			<div className="form-text">This is form-text.</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group has-error">
+	<label for="inputError1">
+		has-error
+		<svg
+			className="lexicon-icon lexicon-icon-asterisk reference-mark"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#asterisk" />
+		</svg>
+	</label>
+	<input
+		aria-describedby="input-error-1-error-message"
+		aria-invalid="true"
+		className="form-control"
+		id="inputError1"
+		type="text"
+	/>
+	<div className="form-feedback-group">
+		<div className="form-feedback-item" id="input-error-1-error-message">
+			This is a form-feedback-item.
+		</div>
+		<div className="form-feedback-item">
+			<span className="form-feedback-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-exclamation-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#exclamation-full" />
+				</svg>
+			</span>
+			This is a form-feedback-indicator.
+		</div>
+		<div className="form-text">This is form-text.</div>
+	</div>
+</div>
+```
+
+## HTML 5 Validations
+
+The browser default form validation. Submit the form to see it in action.
+
+<div className="sheet-example">
+	<form
+		action="/docs/components/input/markup?#css-html-5-validations"
+		method="get"
+	>
+		<div className="form-group-autofit">
+			<div className="form-group-item">
+				<label for="formValidationLettersOnly">
+					Letters Only
+					<svg
+						className="lexicon-icon lexicon-icon-asterisk reference-mark"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#asterisk" />
+					</svg>
+				</label>
+				<input
+					className="form-control"
+					id="formValidationLettersOnly"
+					pattern="^[A-Za-z]+$"
+					placeholder="Enter Letters Only"
+					required
+					type="text"
+				/>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please enter letters only.
+				</div>
+			</div>
+			<div className="form-group-item">
+				<label for="formValidationNumbersOnly">
+					Numbers Only
+					<svg
+						className="lexicon-icon lexicon-icon-asterisk reference-mark"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#asterisk" />
+					</svg>
+				</label>
+				<input
+					className="form-control"
+					id="formValidationNumbersOnly"
+					pattern="^[0-9]*$"
+					placeholder="Enter Numbers Only"
+					required
+					type="text"
+				/>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please enter numbers only.
+				</div>
+			</div>
+		</div>
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="submit">
+					Submit
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+### Novalidate Attribute
+
+The `novalidate` attribute on the `form` element will disable the browser's default validation tooltip. This allows us to display custom validation text while taking advantage of the browser's built in form validation API.
+
+You will need to prevent form submission if there are invalid fields by using the `HTMLInputElement.checkValidity()` method.
+
+```javascript
+document.addEventListener('submit', function (event) {
+	var t = event.target;
+
+	if (t.getAttribute('novalidate') === '') {
+		if (t.checkValidity() === false) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+
+		t.classList.add('was-validated');
+	}
+});
+```
+
+The `was-validated` class on the `form` element displays the success or error messages for `:valid` and `:invalid` fields. It should be added when the form is submitted. Documentation on HTML5 form validation attributes can be found on <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#using_built-in_form_validation" rel="noreferrer noopener" target="_blank">MDN</a>.
+
+<div className="sheet-example">
+	<form
+		action="/docs/components/input/markup?#css-html-5-validations-novalidate-attribute"
+		novalidate
+		method="get"
+	>
+		<div className="form-group-autofit">
+			<div className="form-group-item">
+				<label for="formValidationLettersOnly1">
+					Letters Only
+					<svg
+						className="lexicon-icon lexicon-icon-asterisk reference-mark"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#asterisk" />
+					</svg>
+				</label>
+				<input
+					className="form-control"
+					id="formValidationLettersOnly1"
+					placeholder="Letters Only"
+					required
+					pattern="^[A-Za-z]+$"
+					type="text"
+				/>
+				<div className="valid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#check-circle-full" />
+						</svg>
+					</span>
+					This is correct!
+				</div>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please enter letters only.
+				</div>
+			</div>
+			<div className="form-group-item">
+				<label for="formValidationNumbersOnly1">
+					Numbers Only
+					<svg
+						className="lexicon-icon lexicon-icon-asterisk reference-mark"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#asterisk" />
+					</svg>
+				</label>
+				<input
+					className="form-control"
+					id="formValidationNumbersOnly1"
+					pattern="^[0-9]*$"
+					placeholder="Numbers Only"
+					required
+					type="text"
+				/>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please enter numbers only.
+				</div>
+			</div>
+		</div>
+		<div className="form-group-autofit">
+			<div className="form-group-item">
+				<label for="formValidationCity1">
+					City
+					<svg
+						className="lexicon-icon lexicon-icon-asterisk reference-mark"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlink:href="/images/icons/icons.svg#asterisk" />
+					</svg>
+				</label>
+				<input
+					className="form-control"
+					id="formValidationCity1"
+					pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
+					placeholder="City"
+					required
+					type="text"
+				/>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please enter a valid city.
+				</div>
+			</div>
+			<div className="form-group-item">
+				<label for="formValidationState1">State</label>
+				<select
+					className="form-control"
+					id="formValidationState1"
+					required
+				>
+					<option selected disabled value="">
+						Choose...
+					</option>
+					<option>AL</option>
+					<option>CA</option>
+					<option>FL</option>
+					<option>HI</option>
+					<option>NV</option>
+					<option>WA</option>
+				</select>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please select a state.
+				</div>
+			</div>
+			<div className="form-group-item">
+				<label for="formValidationZip1">Zip Code</label>
+				<input
+					className="form-control"
+					id="formValidationZip1"
+					pattern="^\d{5}(?:[-\s]\d{4})?$"
+					placeholder="Zip"
+					required
+					type="text"
+				/>
+				<div className="invalid-feedback">
+					<span className="form-feedback-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlink:href="/images/icons/icons.svg#exclamation-full" />
+						</svg>
+					</span>
+					Please enter a valid zip code.
+				</div>
+				<div className="form-feedback-group">
+					<div className="form-text">
+						Plunger pot, extra siphon latte, as americano aromatic
+						roast cultivar cup cup frappuccino.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button
+					className="btn btn-primary submit-html5-form"
+					type="submit"
+				>
+					Submit
+				</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+```html
+<form
+	action="/docs/components/input/markup?#css-html-5-validations-novalidate-attribute"
+	novalidate
+	method="get"
+>
+	<div className="form-group-autofit">
+		<div className="form-group-item">
+			<label for="formValidationLettersOnly1">
+				Letters Only
+				<svg
+					className="lexicon-icon lexicon-icon-asterisk reference-mark"
+					focusable="false"
+					role="presentation"
+				>
+					<use xlink:href="/images/icons/icons.svg#asterisk" />
+				</svg>
+			</label>
+			<input
+				className="form-control"
+				id="formValidationLettersOnly1"
+				placeholder="Letters Only"
+				required
+				pattern="^[A-Za-z]+$"
+				type="text"
+			/>
+			<div className="invalid-feedback">
+				<span className="form-feedback-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-exclamation-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlink:href="/images/icons/icons.svg#exclamation-full"
+						/>
+					</svg>
+				</span>
+				Please enter letters only.
+			</div>
+		</div>
+		<div className="form-group-item">
+			<label for="formValidationNumbersOnly1">
+				Numbers Only
+				<svg
+					className="lexicon-icon lexicon-icon-asterisk reference-mark"
+					focusable="false"
+					role="presentation"
+				>
+					<use xlink:href="/images/icons/icons.svg#asterisk" />
+				</svg>
+			</label>
+			<input
+				className="form-control"
+				id="formValidationNumbersOnly1"
+				pattern="^[0-9]*$"
+				placeholder="Numbers Only"
+				required
+				type="text"
+			/>
+			<div className="invalid-feedback">
+				<span className="form-feedback-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-exclamation-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlink:href="/images/icons/icons.svg#exclamation-full"
+						/>
+					</svg>
+				</span>
+				Please enter numbers only.
+			</div>
+		</div>
+	</div>
+	<div className="btn-group">
+		<div className="btn-group-item">
+			<button className="btn btn-primary submit-html5-form" type="submit">
+				Submit
+			</button>
+		</div>
+	</div>
+</form>
+```

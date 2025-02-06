@@ -8,7 +8,7 @@ import React, {useContext} from 'react';
 
 import {ItemContext} from './Item';
 
-export type Props = {
+type Props = {
 	/**
 	 * Flag to indicate if step should show its been completed
 	 * @deprecated since v3.91.0 - this is no longer necessary.
@@ -38,7 +38,7 @@ export type Props = {
 	subTitle?: React.ReactText;
 };
 
-const ClayMultiStepNavIndicator = React.forwardRef<HTMLDivElement, Props>(
+const MultiStepNavIndicator = React.forwardRef<HTMLDivElement, Props>(
 	({complete, innerRef, label, onClick, spritemap, subTitle}: Props, ref) => {
 		const {state} = useContext(ItemContext);
 
@@ -67,6 +67,6 @@ const ClayMultiStepNavIndicator = React.forwardRef<HTMLDivElement, Props>(
 	}
 );
 
-ClayMultiStepNavIndicator.displayName = 'ClayMultiStepNavIndicator';
+MultiStepNavIndicator.displayName = 'ClayMultiStepNavIndicator';
 
-export default ClayMultiStepNavIndicator;
+export default MultiStepNavIndicator;

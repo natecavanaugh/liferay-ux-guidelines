@@ -3,60 +3,247 @@ title: 'Alerts'
 description: 'Alerts are used to capture the attention of the user in an intrusive way.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/alerts/'
 packageNpm: '@clayui/alert'
+packageUse: "import Alert from '@clayui/alert';"
+packageTypes:
+    [
+        'clay-alert/src/index.tsx',
+        'clay-alert/src/Footer.tsx',
+        'clay-alert/src/ToastContainer.tsx',
+    ]
 ---
 
-import {
-	Alert,
-	AlertIcon,
-	AlertToastContainer,
-	AlertVariants,
-	AlertWithButton,
-	InlineAlert,
-} from '$packages/clay-alert/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Display Types](#alert-display-types)
--   [Variants](#variants)
--   [Icons](#alert-icons)
--   [Using with ClayButton](#using-with-claybutton)
-    -   [Inline](#inline)
--   [Using with ToastContainer](#using-with-toastcontainer)
-
-</div>
-</div>
-
-## Display Types(#alert-display-types)
+## Display Types
 
 The available `displayTypes` are `info`, `secondary`, `success`, `warning`, and `danger`.
 
-<Alert />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Alert from '@clayui/alert';
+import React from 'react';
 
-We recommend that you review the use cases in the <a href="https://storybook.clayui.com/?path=/story/design-system-components-alert--default">Storybook</a>.
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Alert displayType="info" title="Info" role={null}>
+					This is an info message.
+				</Alert>
+
+				<Alert displayType="success" title="Success" role={null}>
+					This is a success message.
+				</Alert>
+
+				<Alert displayType="warning" title="Warning" role={null}>
+					This is a warning message.
+				</Alert>
+
+				<Alert displayType="danger" title="Danger" role={null}>
+					This is a danger message.
+				</Alert>
+			</div>
+		</Provider>
+	);
+}
+```
+
+We recommend that you review the use cases in the [Storybook](https://storybook.clayui.com/?path=/story/design-system-components-alert--default).
 
 ## Variants
 
 You can use alert with the `feedback`, `inline`, and `stripe` variants.
 
-<AlertVariants />
+```jsx preview
+import {Provider, Button} from '@clayui/core';
+import Alert from '@clayui/alert';
+import React from 'react';
 
-## Icons(#alert-icons)
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="c-mt-3">
+					<Alert
+						actions={
+							<Button.Group spaced>
+								<Button displayType="warning" small>
+									Replace
+								</Button>
+								<Button alert>Keep Both</Button>
+							</Button.Group>
+						}
+						displayType="warning"
+						onClose={() => {}}
+						title="Alert"
+						variant="inline"
+					>
+						A file with this name already exists.
+					</Alert>
+				</div>
+
+				<Alert
+					displayType="info"
+					title="Info"
+					variant="stripe"
+					role={null}
+				>
+					This is a stripe variant.
+				</Alert>
+
+				<div className="c-mt-3">
+					<Alert
+						displayType="success"
+						title="This is an inline variant."
+						variant="inline"
+						role={null}
+					/>
+				</div>
+
+				<div className="c-mt-3">
+					<Alert
+						displayType="danger"
+						title="This is a feedback variant."
+						variant="feedback"
+						role={null}
+					/>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Icons
 
 Each Alert `displayType` has a default icon, the icon can be changed through the `symbol` attribute.
 
-<AlertIcon />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Alert from '@clayui/alert';
+import React from 'react';
 
-## Using with ClayButton
+import '@clayui/css/lib/css/atlas.css';
 
-<AlertWithButton />
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Alert
+					displayType="info"
+					symbol="thumbs-up-full"
+					title="Info"
+					variant="stripe"
+					role={null}
+				>
+					This is a stripe variant.
+				</Alert>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Using with Button
+
+```jsx preview
+import {Provider, Button} from '@clayui/core';
+import Alert from '@clayui/alert';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Alert displayType="info" title="With a Button" role={null}>
+					This is an alert with a button!
+					<Alert.Footer>
+						<Button alert>View</Button>
+					</Alert.Footer>
+				</Alert>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Inline
 
-<InlineAlert />
+```jsx preview
+import {Provider, Button} from '@clayui/core';
+import Alert from '@clayui/alert';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Alert
+					actions={<Button alert>View</Button>}
+					displayType="info"
+					title="With a Button"
+					variant="inline"
+					role={null}
+				>
+					This is an alert with a button!
+				</Alert>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Using with ToastContainer
 
 You can use alerts with a `ToastContainer` to render the alerts in a container with `position: fixed`.
 
-<AlertToastContainer />
+```jsx preview
+import {Provider, Button} from '@clayui/core';
+import Alert from '@clayui/alert';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [toastItems, setToastItems] = useState([]);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div>
+					<Button
+						onClick={() =>
+							setToastItems([...toastItems, Math.random() * 100])
+						}
+					>
+						Add Alert
+					</Button>
+				</div>
+
+				<Alert.ToastContainer>
+					{toastItems.map((value) => (
+						<Alert
+							autoClose={5000}
+							key={value}
+							onClose={() => {
+								setToastItems((prevItems) =>
+									prevItems.filter((item) => item !== value)
+								);
+							}}
+							title="Hola:"
+						>
+							My value is {value}
+						</Alert>
+					))}
+				</Alert.ToastContainer>
+			</div>
+		</Provider>
+	);
+}
+```

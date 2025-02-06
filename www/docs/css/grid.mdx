@@ -1,0 +1,533 @@
+---
+title: 'Grid'
+description: 'The aim of the Lexicon layout framework is to provide a common structural reference that contributes to streamlining the component construction and page composition processes, as well as favoring visual consistency between the different elements of the interface.'
+---
+
+<div className="clay-site-alert alert alert-info">
+	Check the <a href="https://liferay.design/lexicon">Lexicon</a>{' '}
+	<a href="https://liferay.design/lexicon/foundations/grid/">Grid Pattern</a>{' '}
+	for a more in-depth look at the motivations and proper usage of this.
+</div>
+
+## Container
+
+`.container` has a specific `max-width` for each grid breakpoint (e.g., Atlas 540px wide, 720px wide, 960px wide, and 1248px wide).
+
+<table className="table">
+	<thead>
+		<tr>
+			<th colSpan="2">Base</th>
+		</tr>
+		<tr>
+			<th>Breakpoint (min-width)</th>
+			<th>Container (max-width)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>576px</td>
+			<td>540px</td>
+		</tr>
+		<tr>
+			<td>768px</td>
+			<td>720px</td>
+		</tr>
+		<tr>
+			<td>992px</td>
+			<td>960px</td>
+		</tr>
+		<tr>
+			<td>1200px</td>
+			<td>1140px</td>
+		</tr>
+	</tbody>
+</table>
+
+<table className="table mb-4">
+	<thead>
+		<tr>
+			<th colSpan="2">Atlas</th>
+		</tr>
+		<tr>
+			<th>Breakpoint (min-width)</th>
+			<th>Container (max-width)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>576px</td>
+			<td>540px</td>
+		</tr>
+		<tr>
+			<td>768px</td>
+			<td>720px</td>
+		</tr>
+		<tr>
+			<td>992px</td>
+			<td>960px</td>
+		</tr>
+		<tr>
+			<td>1280px</td>
+			<td>1248px</td>
+		</tr>
+	</tbody>
+</table>
+
+<div className="sheet-example">
+	<div className="bg-dark container">
+		<div className="text-white">container</div>
+	</div>
+</div>
+
+```html
+<div className="container"></div>
+```
+
+## Container Fluid
+
+Use the `.container-fluid` class with the `.container-fluid-max-{sm|md|lg|xl}` class to create fluid containers that don't expand beyond a set width (e.g., For Atlas xl => 1248px).
+
+<a href="https://getbootstrap.com/docs/4.0/layout/grid/">
+	https://getbootstrap.com/docs/4.0/layout/grid/
+</a>
+
+<table className="table">
+	<thead>
+		<tr>
+			<th colSpan="2">Base</th>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<th>Container Fluid (max-width)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>.container-fluid-max-sm</td>
+			<td>540px</td>
+		</tr>
+		<tr>
+			<td>.container-fluid-max-md</td>
+			<td>720px</td>
+		</tr>
+		<tr>
+			<td>.container-fluid-max-lg</td>
+			<td>960px</td>
+		</tr>
+		<tr>
+			<td>.container-fluid-max-xl</td>
+			<td>1140px</td>
+		</tr>
+	</tbody>
+</table>
+<table className="table mb-4">
+	<thead>
+		<tr>
+			<th colSpan="2">Atlas</th>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<th>Container Fluid (max-width)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>.container-fluid-max-sm</td>
+			<td>540px</td>
+		</tr>
+		<tr>
+			<td>.container-fluid-max-md</td>
+			<td>720px</td>
+		</tr>
+		<tr>
+			<td>.container-fluid-max-lg</td>
+			<td>960px</td>
+		</tr>
+		<tr>
+			<td>.container-fluid-max-xl</td>
+			<td>1248px</td>
+		</tr>
+	</tbody>
+</table>
+
+<div className="sheet-example">
+	<div
+		className="container-fluid container-fluid-max-sm"
+		style={{backgroundColor: '#CDCED9'}}
+	>
+		<div className="text-white">container-fluid-max-sm</div>
+	</div>
+	<div
+		className="container-fluid container-fluid-max-md"
+		style={{backgroundColor: '#A7A9BC'}}
+	>
+		<div className="text-white">container-fluid-max-md</div>
+	</div>
+	<div
+		className="container-fluid container-fluid-max-lg"
+		style={{backgroundColor: '#6B6C7E'}}
+	>
+		<div className="text-white">container-fluid-max-lg</div>
+	</div>
+	<div
+		className="container-fluid container-fluid-max-xl"
+		style={{backgroundColor: '#393A4A'}}
+	>
+		<div className="text-white">container-fluid-max-xl</div>
+	</div>
+</div>
+
+```html
+<div className="container-fluid container-fluid-max-sm"></div>
+
+<div className="container-fluid container-fluid-max-md"></div>
+
+<div className="container-fluid container-fluid-max-lg"></div>
+
+<div className="container-fluid container-fluid-max-xl"></div>
+```
+
+## Container Form Lg
+
+Use the `.container-form-lg` class with the `.container` class or `.container-fluid` class to properly space between application controls and the form. This class only modifies the `padding` on the container.
+
+<div className="clay-site-alert alert alert-warning">
+	f you need additional breakpoints such as{' '}
+	<code>.container-form-sm|md|xl</code>, you will need to define them
+	yourself.
+</div>
+
+<div className="sheet-example">
+	<nav className="application-bar application-bar-dark navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<a className="nav-link nav-link-monospaced" href="#1">
+						<svg
+							className="lexicon-icon lexicon-icon-product-menu-closed"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#product-menu-closed" />
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link nav-link-monospaced" href="#1">
+						<svg
+							className="lexicon-icon lexicon-icon-angle-left"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#angle-left" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<h1 className="navbar-title navbar-text-truncate">Application</h1>
+			<ul className="navbar-nav">
+				<li className="dropdown nav-item">
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link nav-link-monospaced"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby="navbarDropdownMenuLink"
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Another action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Something else here
+							</a>
+						</li>
+						<li className="dropdown-divider"></li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Separated link
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div className="container-fluid container-fluid-max-xl container-form-lg">
+		<div className="sheet sheet-lg">
+			<h2 className="sheet-title">Form Title</h2>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="container-fluid container-fluid-max-xl container-form-lg"></div>
+```
+
+## Container View
+
+Use the `.container-view` class with the `.container` class or `.container-fluid` class to properly space between application controls and view pages (e.g., Card View, Table View, or List View). This class only modifies the `padding` on the container.
+
+<div className="sheet-example">
+	<nav className="application-bar application-bar-dark navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<a className="nav-link nav-link-monospaced" href="#1">
+						<svg
+							className="lexicon-icon lexicon-icon-product-menu-closed"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#product-menu-closed" />
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item">
+					<a className="nav-link nav-link-monospaced" href="#1">
+						<svg
+							className="lexicon-icon lexicon-icon-angle-left"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#angle-left" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<h1 className="navbar-title navbar-text-truncate">Application</h1>
+			<ul className="navbar-nav">
+				<li className="dropdown nav-item">
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link nav-link-monospaced"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v" />
+						</svg>
+					</a>
+					<ul
+						aria-labelledby="navbarDropdownMenuLink"
+						className="dropdown-menu dropdown-menu-right"
+					>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Another action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Something else here
+							</a>
+						</li>
+						<li className="dropdown-divider"></li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Separated link
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div className="container-fluid container-fluid-max-xl container-view">
+		<form>
+			<div className="table-responsive">
+				<table className="show-quick-actions-on-hover table table-autofit table-heading-nowrap table-list">
+					<thead>
+						<tr>
+							<th></th>
+							<th colSpan="2">
+								Item Title
+								<svg
+									className="d-none lexicon-icon lexicon-icon-order-arrow-up"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#order-arrow-up" />
+								</svg>
+								<svg
+									className="lexicon-icon lexicon-icon-order-arrow-down"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#order-arrow-down" />
+								</svg>
+							</th>
+							<th>Size</th>
+							<th>Status</th>
+							<th>Creation Date</th>
+							<th>Modification Date</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<div className="custom-control custom-checkbox">
+									<label>
+										<input
+											className="custom-control-input"
+											type="checkbox"
+										/>
+										<span className="custom-control-label"></span>
+									</label>
+								</div>
+							</td>
+							<td>
+								<span className="sticker sticker-danger">
+									PNG
+								</span>
+							</td>
+							<td className="table-cell-expand">
+								<span
+									className="text-truncate"
+									title="Wings eu, pumpkin spice robusta, kopi-luwak mocha caffeine froth grounds."
+								>
+									Wings eu, pumpkin spice robusta, kopi-luwak
+									mocha caffeine froth grounds.
+								</span>
+							</td>
+							<td>700KB</td>
+							<td>
+								<span className="label label-success">
+									<span className="label-item label-item-expand">
+										Approved
+									</span>
+								</span>
+							</td>
+							<td>6 days ago</td>
+							<td>4 days ago</td>
+							<td>
+								<div className="quick-action-menu">
+									<a
+										className="component-action quick-action-item"
+										href="#1"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-trash"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#trash" />
+										</svg>
+									</a>
+									<a
+										className="component-action quick-action-item"
+										href="#1"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-download"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#download" />
+										</svg>
+									</a>
+									<a
+										className="component-action quick-action-item"
+										href="#1"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-expand"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#expand" />
+										</svg>
+									</a>
+								</div>
+								<div className="dropdown dropdown-action">
+									<a
+										aria-expanded="false"
+										aria-haspopup="true"
+										className="component-action dropdown-toggle"
+										data-toggle="dropdown"
+										href="#1"
+										id="dropdownAction1"
+										role="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-ellipsis-v"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#ellipsis-v" />
+										</svg>
+									</a>
+									<ul
+										aria-labelledby=""
+										className="dropdown-menu dropdown-menu-right"
+									>
+										<li>
+											<a
+												className="dropdown-item"
+												href="#1"
+											>
+												Remove
+											</a>
+										</li>
+										<li>
+											<a
+												className="dropdown-item"
+												href="#1"
+											>
+												Download
+											</a>
+										</li>
+										<li>
+											<a
+												className="dropdown-item"
+												href="#1"
+											>
+												Checkout
+											</a>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>
+
+```html
+<div className="container-fluid container-fluid-max-xl container-view"></div>
+```

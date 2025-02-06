@@ -43,7 +43,7 @@ interface IItemWithItems extends IItem {
 	items?: Array<IItem>;
 }
 
-export interface IProps extends React.ComponentProps<typeof VerticalNav> {
+interface IProps extends React.ComponentProps<typeof VerticalNav> {
 	/**
 	 * Flag to define if the item represents the current page. Disable this
 	 * attribute only if there are multiple navigations on the page.
@@ -100,11 +100,6 @@ export interface IProps extends React.ComponentProps<typeof VerticalNav> {
 	 */
 	spritemap?: string;
 }
-
-function ClayVerticalNav(props: IProps): JSX.Element & {
-	Trigger: typeof VerticalNav.Trigger;
-	Item: typeof VerticalNav.Item;
-};
 
 function ClayVerticalNav({
 	activeLabel,

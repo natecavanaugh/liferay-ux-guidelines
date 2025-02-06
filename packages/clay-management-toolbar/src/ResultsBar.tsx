@@ -8,13 +8,7 @@ import React from 'react';
 
 import ResultsBarItem from './ResultsBarItem';
 
-function ClayResultsBar(
-	props: React.HTMLAttributes<HTMLElement>
-): JSX.Element & {
-	Item: typeof ResultsBarItem;
-};
-
-function ClayResultsBar({
+function ResultsBar({
 	children,
 	...otherProps
 }: React.HTMLAttributes<HTMLElement>) {
@@ -30,6 +24,6 @@ function ClayResultsBar({
 	);
 }
 
-ClayResultsBar.Item = ResultsBarItem;
+ResultsBar.Item = ResultsBarItem;
 
-export default ClayResultsBar;
+export default ResultsBar;

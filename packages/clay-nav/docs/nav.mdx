@@ -2,18 +2,45 @@
 title: 'Nav'
 description: 'Clay Nav provides a clear and semantic navigation for your site'
 packageNpm: '@clayui/nav'
+packageUse: "import Nav from '@clayui/nav';"
+packageTypes:
+    [
+        'clay-core/src/nav/Nav.tsx',
+        'clay-core/src/nav/Link.tsx',
+        'clay-core/src/nav/Item.tsx',
+    ]
 ---
-
-import {Navigation} from '$packages/clay-nav/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Basic Usage](#basic-usage)
-
-</div>
-</div>
 
 ## Basic Usage
 
-<Navigation />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Nav from '@clayui/nav';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Nav>
+					<Nav.Item>
+						<Nav.Link active href="#">
+							{'Active'}
+						</Nav.Link>
+					</Nav.Item>
+					<Nav.Item>
+						<Nav.Link href="#">{'Normal'}</Nav.Link>
+					</Nav.Item>
+					<Nav.Item>
+						<Nav.Link disabled href="#">
+							{'Disabled'}
+						</Nav.Link>
+					</Nav.Item>
+				</Nav>
+			</div>
+		</Provider>
+	);
+}
+```

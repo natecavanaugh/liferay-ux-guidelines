@@ -19,7 +19,7 @@ jobs:
                 path: '**/node_modules'
                 key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
             - name: Install Dependencies
-              run: yarn install
+              run: yarn install && cd ./www && yarn install
             - name: Lint
               run: yarn lint
             - name: Types

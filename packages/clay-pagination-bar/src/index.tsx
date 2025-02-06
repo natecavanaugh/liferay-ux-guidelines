@@ -3,9 +3,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import ClayPaginationBar from './PaginationBar';
+import {PaginationBar} from './PaginationBar';
 import {ClayPaginationBarWithBasicItems} from './PaginationBarWithBasicItems';
 
-export {ClayPaginationBarWithBasicItems};
-
-export default ClayPaginationBar;
+export {ClayPaginationBarWithBasicItems, PaginationBar};
+export {DropDown} from './DropDown';
+export {Results} from './Results';
+export default PaginationBar;

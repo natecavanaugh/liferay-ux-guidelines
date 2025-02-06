@@ -1,0 +1,28 @@
+.navbar {
+	padding: 16px 0;
+	padding-right: 64px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar_items {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.navbar a {
+	color: #6b6c7e;
+}
+
+.navbar_item {
+	font-weight: 500;
+	font-size: 16px;
+}
+
+@media (max-width: 520px) {
+	.navbar {
+		padding-right: inherit;
+	}
+}

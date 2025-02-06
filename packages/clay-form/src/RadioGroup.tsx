@@ -7,8 +7,8 @@ import {InternalDispatch, useControlledState} from '@clayui/shared';
 import classNames from 'classnames';
 import React from 'react';
 
-import {IRadioProps} from './Radio';
-import {IToggleProps} from './Toggle';
+import Radio from './Radio';
+import Toggle from './Toggle';
 
 interface IGroupProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -16,7 +16,8 @@ interface IGroupProps
 	 * Takes either Radio or Toggle as a child.
 	 */
 	children: Array<
-		React.ReactElement<IRadioProps> | React.ReactElement<IToggleProps>
+		| React.ReactElement<React.ComponentProps<typeof Radio>>
+		| React.ReactElement<React.ComponentProps<typeof Toggle>>
 	>;
 
 	/**
@@ -58,7 +59,7 @@ interface IGroupProps
 	value?: React.ReactText;
 }
 
-const ClayRadioGroup = ({
+const RadioGroup = ({
 	children,
 	className,
 	defaultValue,
@@ -83,7 +84,13 @@ const ClayRadioGroup = ({
 		<div {...otherProps} className={classNames(className)}>
 			{React.Children.map(
 				children,
-				(child: React.ReactElement<IToggleProps | IRadioProps>, i) => {
+				(
+					child: React.ReactElement<
+						| React.ComponentProps<typeof Radio>
+						| React.ComponentProps<typeof Toggle>
+					>,
+					i
+				) => {
 					return React.cloneElement(child, {
 						...child.props,
 						checked: internalValue === child.props.value,
@@ -99,4 +106,4 @@ const ClayRadioGroup = ({
 	);
 };
 
-export default ClayRadioGroup;
+export default RadioGroup;

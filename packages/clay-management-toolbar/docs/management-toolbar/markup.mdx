@@ -1,0 +1,2564 @@
+---
+title: 'Management Toolbar'
+description: 'Management toolbar is an extension of Toolbar. It is a combination of different components, including filters, orders, search, visualization select, and other actions that let users manage a dataset.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/toolbars/management-bar/'
+packageNpm: '@clayui/management-toolbar'
+packageStatus: 'Deprecated'
+packageUse: "import ManagementToolbar from '@clayui/management-toolbar';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Collapsing the Search Input in mobile requires additional javascript to add
+	and remove the show class on{' '}
+	<code className="gatsby-code-text">navbar-overlay-sm-down</code>.
+</div>
+
+<div className="clay-site-alert alert alert-warning">
+	Bootstrap 4 doesn't support Dropdown Menu's with Popper.js positioning
+	inside Navbars. They align them manually via CSS classes. See{' '}
+	<a href="/docs/components/drop-down#alignment">Dropdown Alignment</a>.
+</div>
+
+## Light
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-light navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<div className="custom-control custom-checkbox">
+						<label>
+							<input
+								className="custom-control-input"
+								aria-label="Select all"
+								type="checkbox"
+							/>
+							<span className="custom-control-label"></span>
+						</label>
+					</div>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link navbar-breakpoint-down-d-none"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<span className="navbar-text-truncate">
+							Filter and Order
+						</span>
+						<svg
+							className="lexicon-icon lexicon-icon-caret-bottom"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#caret-bottom"></use>
+						</svg>
+					</a>
+					<a
+						aria-label="Order"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="nav-link nav-link-monospaced dropdown-toggle navbar-breakpoint-d-none"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-filter"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#filter"></use>
+						</svg>
+					</a>
+					<ul className="dropdown-menu">
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Filter Action 1
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Filter Action 2
+							</a>
+						</li>
+						<li>
+							<a
+								className="dropdown-item"
+								href="#1"
+								role="button"
+							>
+								Filter Action 3
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-label="Order"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-order-list-up"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#order-list-up"></use>
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+				<div className="container-fluid container-fluid-max-xl">
+					<form role="search">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-after"
+									placeholder="Search for..."
+									type="text"
+								/>
+								<span className="input-group-inset-item input-group-inset-item-after">
+									<button
+										aria-label="Search"
+										className="btn btn-monospaced btn-unstyled"
+										type="submit"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-search"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#search"></use>
+										</svg>
+									</button>
+									<button
+										aria-label="Close search"
+										className="btn btn-monospaced btn-unstyled d-none"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-times"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#times"></use>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<ul className="navbar-nav">
+				<li className="nav-item navbar-breakpoint-d-none">
+					<a
+						aria-label="Search"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-search"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#search"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-label="Open"
+						className="nav-link nav-link-monospaced"
+						href="#uniqueSidenavCollapseId2"
+						id="uniqueSidenavToggler2"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-circle-open"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#circle-open"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-label="Display view"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link nav-link-monospaced"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-list"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#list"></use>
+						</svg>
+					</a>
+					<ul className="dropdown-menu dropdown-menu-right dropdown-menu-indicator-start">
+						<li>
+							<a className="active dropdown-item" href="#1">
+								<span className="dropdown-item-indicator-start">
+									<svg
+										className="lexicon-icon lexicon-icon-list"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#list"></use>
+									</svg>
+								</span>
+								List View
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<span className="dropdown-item-indicator-start">
+									<svg
+										className="lexicon-icon lexicon-icon-table"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#table"></use>
+									</svg>
+								</span>
+								Table View
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<span className="dropdown-item-indicator-start">
+									<svg
+										className="lexicon-icon lexicon-icon-cards2"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#cards2"></use>
+									</svg>
+								</span>
+								Card View
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-label="Add"
+						className="btn btn-primary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+						href="#1"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-plus"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#plus"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-label="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="btn btn-primary dropdown-toggle nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-plus"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#plus"></use>
+						</svg>
+					</a>
+					<ul className="dropdown-menu dropdown-menu-right">
+						<li>
+							<a className="active dropdown-item" href="#1">
+								Option 1
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Option 2
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Option 3
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-light navbar navbar-expand-md">
+	...
+</nav>
+```
+
+## Primary
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-primary navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav navbar-expand">
+				<li className="nav-item">
+					<div className="custom-control custom-checkbox">
+						<label>
+							<input
+								aria-label="Select all"
+								aria-describedby="checkbox-description-1"
+								className="custom-control-input"
+								type="checkbox"
+							/>
+							<span className="custom-control-label"></span>
+						</label>
+					</div>
+				</li>
+				<li className="nav-item nav-item-shrink">
+					<span className="navbar-text" id="checkbox-description-1">
+						3 of 7
+						<span className="navbar-breakpoint-down-d-none">
+							items selected
+						</span>
+					</span>
+				</li>
+				<li className="nav-item nav-item-shrink">
+					<button className="btn btn-link nav-btn" type="button">
+						<span className="text-truncate-inline">
+							<span className="text-truncate">Select All</span>
+						</span>
+					</button>
+				</li>
+			</ul>
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<a
+						aria-label="Delete"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-trash"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#trash"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-label="Paste"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-paste"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#paste"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-label="More Actions"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link nav-link-monospaced"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#ellipsis-v"></use>
+						</svg>
+					</a>
+					<ul className="dropdown-menu dropdown-menu-right dropdown-menu-indicator-start">
+						<li>
+							<a className="active dropdown-item" href="#1">
+								<span className="dropdown-item-indicator-start">
+									<svg
+										className="lexicon-icon lexicon-icon-list"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#list"></use>
+									</svg>
+								</span>
+								List View
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<span className="dropdown-item-indicator-start">
+									<svg
+										className="lexicon-icon lexicon-icon-table"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#table"></use>
+									</svg>
+								</span>
+								Table View
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								<span className="dropdown-item-indicator-start">
+									<svg
+										className="lexicon-icon lexicon-icon-cards2"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#cards2"></use>
+									</svg>
+								</span>
+								Card View
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li className="nav-item nav-divider">
+					<a
+						aria-label="Info"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle-open"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#info-circle-open"></use>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-primary navbar navbar-expand-md">
+	...
+</nav>
+```
+
+## Overlay
+
+Use `navbar-overlay navbar-overlay-up` on any direct descendant of navbar to create an overlay on top of the navbar with alternate content, useful for expanding search bars or an alternate navbar that depends on some state in your application. Toggle the `navbar-overlay`'s visibility by adding or removing the class `show` to `navbar-overlay`.
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-light navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<div className="custom-control custom-checkbox">
+						<label>
+							<input
+								aria-label="Select all"
+								className="custom-control-input"
+								type="checkbox"
+							/>
+							<span className="custom-control-label"></span>
+						</label>
+					</div>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-label="Order"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link nav-link-monospaced navbar-breakpoint-d-none"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-filter"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#filter"></use>
+						</svg>
+					</a>
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link navbar-breakpoint-d-block"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<span className="navbar-text-truncate">
+							Filter and Order
+						</span>
+						<svg
+							className="lexicon-icon lexicon-icon-caret-bottom"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#caret-bottom"></use>
+						</svg>
+					</a>
+					<ul className="dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								Action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Another action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Something else here
+							</a>
+						</li>
+						<li className="dropdown-divider"></li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Separated link
+							</a>
+						</li>
+						<li className="dropdown-divider"></li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								One more separated link
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-label="Order"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-order-list-up"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#order-list-up"></use>
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+				<div className="container-fluid container-fluid-max-xl">
+					<form role="search">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-after"
+									placeholder="Search for..."
+									type="text"
+								/>
+								<span className="input-group-inset-item input-group-inset-item-after">
+									<button
+										aria-label="Search"
+										className="btn btn-monospaced btn-unstyled"
+										type="submit"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-search"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#search"></use>
+										</svg>
+									</button>
+									<button
+										aria-label="Close search"
+										className="btn btn-monospaced btn-unstyled d-none"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-times"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#times"></use>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<ul className="navbar-nav">
+				<li className="nav-item navbar-breakpoint-d-none">
+					<a
+						aria-label="Search"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-search"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#search"></use>
+						</svg>
+					</a>
+				</li>
+				<li
+					aria-label="View"
+					className="nav-item navbar-breakpoint-down-d-none"
+				>
+					<a
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-view"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#view"></use>
+						</svg>
+					</a>
+				</li>
+				<li
+					aria-label="Table"
+					className="nav-item navbar-breakpoint-down-d-none"
+				>
+					<a
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-table"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#table"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item">
+					<button
+						className="btn btn-secondary clay-site-open-overlay-up nav-btn"
+						type="button"
+					>
+						Open Overlay
+					</button>
+				</li>
+			</ul>
+			<div className="navbar-overlay navbar-overlay-up">
+				<div className="container-fluid container-fluid-max-xl">
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<div className="custom-control custom-checkbox">
+								<label>
+									<input
+										className="custom-control-input"
+										type="checkbox"
+									/>
+									<span className="custom-control-label"></span>
+								</label>
+							</div>
+						</li>
+						<li className="dropdown nav-item nav-item-shrink">
+							<span className="navbar-text">3 of 25</span>
+						</li>
+						<li className="nav-item">
+							<button
+								className="btn btn-link nav-btn"
+								type="button"
+							>
+								Select All
+							</button>
+						</li>
+					</ul>
+					<ul className="navbar-nav">
+						<li className="dropdown nav-item">
+							<a
+								aria-label="More Actions"
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="dropdown-toggle nav-link nav-link-monospaced"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-ellipsis-v"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#ellipsis-v"></use>
+								</svg>
+							</a>
+							<ul className="dropdown-menu dropdown-menu-right">
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Delete
+									</a>
+								</li>
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Copy
+									</a>
+								</li>
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Info
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li className="nav-item">
+							<button
+								className="btn btn-secondary clay-site-close-overlay-up nav-btn"
+								type="button"
+							>
+								Close Overlay
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-light navbar navbar-expand-md">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="navbar-nav">
+			<li className="nav-item">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</li>
+			<li className="dropdown nav-item">
+				<a
+					aria-label="Filter"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle nav-link nav-link-monospaced navbar-breakpoint-d-none"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-filter"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#filter"></use>
+					</svg>
+				</a>
+				<a
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle nav-link navbar-breakpoint-d-block"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					<span className="navbar-text-truncate"
+						>Filter and Order</span
+					>
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</a>
+				<ul className="dropdown-menu">
+					<li><a className="dropdown-item" href="#1">Action</a></li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Another action</a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Something else here</a
+						>
+					</li>
+					<li className="dropdown-divider"></li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Separated link</a
+						>
+					</li>
+					<li className="dropdown-divider"></li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>One more separated link</a
+						>
+					</li>
+				</ul>
+			</li>
+			<li className="nav-item">
+				<a
+					aria-label="Order"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-order-list-up"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#order-list-up"></use>
+					</svg>
+				</a>
+			</li>
+		</ul>
+		<div
+			className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down"
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<form role="search">
+					<div className="input-group">
+						<div className="input-group-item">
+							<input
+								className="form-control input-group-inset input-group-inset-after"
+								placeholder="Search for..."
+								type="text"
+							/>
+							<span
+								className="input-group-inset-item input-group-inset-item-after"
+							>
+								<button
+									aria-label="search"
+									className="btn btn-monospaced btn-unstyled"
+									type="submit"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-search"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#search"
+										></use>
+									</svg>
+								</button>
+								<button
+									aria-label="Close search"
+									className="btn btn-monospaced btn-unstyled d-none"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#times"
+										></use>
+									</svg>
+								</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<ul className="navbar-nav">
+			<li className="nav-item navbar-breakpoint-d-none">
+				<a
+					aria-label="Search"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-search"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#search"></use>
+					</svg>
+				</a>
+			</li>
+			<li className="nav-item navbar-breakpoint-down-d-none">
+				<a
+					aria-label="View"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-view"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#view"></use>
+					</svg>
+				</a>
+			</li>
+			<li className="nav-item navbar-breakpoint-down-d-none">
+				<a
+					aria-label="Table"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-table"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#table"></use>
+					</svg>
+				</a>
+			</li>
+			<li className="nav-item">
+				<button
+					className="btn btn-secondary clay-site-open-overlay-up nav-btn"
+					type="button"
+				>
+					Open Overlay
+				</button>
+			</li>
+		</ul>
+		<div className="navbar-overlay navbar-overlay-up">
+			<div className="container-fluid container-fluid-max-xl">
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<div className="custom-control custom-checkbox">
+							<label>
+								<input
+									className="custom-control-input"
+									type="checkbox"
+								/>
+								<span className="custom-control-label"></span>
+							</label>
+						</div>
+					</li>
+					<li className="dropdown nav-item nav-item-shrink">
+						<span className="navbar-text">3 of 25</span>
+					</li>
+					<li className="nav-item">
+						<button className="btn btn-link nav-btn" type="button">
+							Select All
+						</button>
+					</li>
+				</ul>
+				<ul className="navbar-nav">
+					<li className="dropdown nav-item">
+						<a
+							aria-label="More Actions"
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="dropdown-toggle nav-link nav-link-monospaced"
+							data-toggle="dropdown"
+							href="#1"
+							role="button"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-ellipsis-v"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#ellipsis-v"
+								></use>
+							</svg>
+						</a>
+						<ul className="dropdown-menu dropdown-menu-right">
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+									>Delete</a
+								>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+									>Copy</a
+								>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+									>Info</a
+								>
+							</li>
+						</ul>
+					</li>
+					<li className="nav-item">
+						<button
+							className="btn btn-secondary clay-site-close-overlay-up nav-btn"
+							type="button"
+						>
+							Close Overlay
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+```
+
+### Breakpoints
+
+`navbar-overlay-up` overlays the navbar at all screen widths.
+`navbar-overlay-lg-down`: 1199px and below
+`navbar-overlay-md-down`: 991px and below
+`navbar-overlay-sm-down`: 767px and below
+`navbar-overlay-xs-down`: 575px and below
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-light navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<div className="custom-control custom-checkbox">
+						<label>
+							<input
+								className="custom-control-input"
+								type="checkbox"
+							/>
+							<span className="custom-control-label"></span>
+						</label>
+					</div>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-label="Filter"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link nav-link-monospaced navbar-breakpoint-d-none"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-filter"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#filter"></use>
+						</svg>
+					</a>
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link navbar-breakpoint-d-block"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<span className="navbar-text-truncate">
+							Filter and Order
+						</span>
+						<svg
+							className="lexicon-icon lexicon-icon-caret-bottom"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#caret-bottom"></use>
+						</svg>
+					</a>
+					<ul className="dropdown-menu">
+						<li>
+							<a className="dropdown-item" href="#1">
+								Action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Another action
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Something else here
+							</a>
+						</li>
+						<li className="dropdown-divider"></li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								Separated link
+							</a>
+						</li>
+						<li className="dropdown-divider"></li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								One more separated link
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-label="Order"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-order-list-up"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#order-list-up"></use>
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+				<div className="container-fluid container-fluid-max-xl">
+					<form role="search">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-after"
+									placeholder="Search for..."
+									type="text"
+								/>
+								<span className="input-group-inset-item input-group-inset-item-after">
+									<button
+										aria-label="Search"
+										className="btn btn-monospaced btn-unstyled"
+										type="submit"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-search"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#search"></use>
+										</svg>
+									</button>
+									<button
+										aria-label="Close search"
+										className="btn btn-monospaced btn-unstyled d-none"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-times"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#times"></use>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<ul className="navbar-nav">
+				<li className="nav-item navbar-breakpoint-d-none">
+					<a
+						aria-label="Search"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-search"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#search"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item navbar-breakpoint-down-d-none">
+					<a
+						aria-label="View"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-view"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#view"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item navbar-breakpoint-down-d-none">
+					<a
+						aria-label="Table"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-table"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#table"></use>
+						</svg>
+					</a>
+				</li>
+				<li className="nav-item">
+					<button
+						className="btn btn-secondary clay-site-open-overlay-up nav-btn"
+						type="button"
+					>
+						Open Overlay
+					</button>
+				</li>
+			</ul>
+			<div className="navbar-overlay navbar-overlay-up">
+				<div className="container-fluid container-fluid-max-xl">
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<div className="custom-control custom-checkbox">
+								<label>
+									<input
+										className="custom-control-input"
+										type="checkbox"
+									/>
+									<span className="custom-control-label"></span>
+								</label>
+							</div>
+						</li>
+						<li className="dropdown nav-item nav-item-shrink">
+							<span className="navbar-text">3 of 25</span>
+						</li>
+						<li className="nav-item">
+							<button
+								className="btn btn-link nav-btn"
+								type="button"
+							>
+								Select All
+							</button>
+						</li>
+					</ul>
+					<ul className="navbar-nav">
+						<li className="dropdown nav-item">
+							<a
+								aria-label="More Actions"
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="dropdown-toggle nav-link nav-link-monospaced"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-ellipsis-v"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#ellipsis-v"></use>
+								</svg>
+							</a>
+							<ul className="dropdown-menu dropdown-menu-right">
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Delete
+									</a>
+								</li>
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Copy
+									</a>
+								</li>
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Info
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li className="nav-item">
+							<button
+								className="btn btn-secondary clay-site-close-overlay-up nav-btn"
+								type="button"
+							>
+								Close Overlay
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-light navbar navbar-expand-md">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="navbar-nav">
+			<li className="nav-item">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</li>
+			<li className="dropdown nav-item">
+				<a
+					aria-label="Filter"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle nav-link nav-link-monospaced navbar-breakpoint-d-none"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-filter"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#filter"></use>
+					</svg>
+				</a>
+				<a
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle nav-link navbar-breakpoint-d-block"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					<span className="navbar-text-truncate"
+						>Filter and Order</span
+					>
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</a>
+				<ul className="dropdown-menu">
+					<li><a className="dropdown-item" href="#1">Action</a></li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Another action</a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Something else here</a
+						>
+					</li>
+					<li className="dropdown-divider"></li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Separated link</a
+						>
+					</li>
+					<li className="dropdown-divider"></li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>One more separated link</a
+						>
+					</li>
+				</ul>
+			</li>
+			<li className="nav-item">
+				<a
+					aria-label="Order"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-order-list-up"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#order-list-up"></use>
+					</svg>
+				</a>
+			</li>
+		</ul>
+		<div
+			className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down"
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<form role="search">
+					<div className="input-group">
+						<div className="input-group-item">
+							<input
+								className="form-control input-group-inset input-group-inset-after"
+								placeholder="Search for..."
+								type="text"
+							/>
+							<span
+								className="input-group-inset-item input-group-inset-item-after"
+							>
+								<button
+									aria-label="Search"
+									className="btn btn-monospaced btn-unstyled"
+									type="submit"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-search"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#search"
+										></use>
+									</svg>
+								</button>
+								<button
+									aria-label="Close search"
+									className="btn btn-monospaced btn-unstyled d-none"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#times"
+										></use>
+									</svg>
+								</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<ul className="navbar-nav">
+			<li className="nav-item navbar-breakpoint-d-none">
+				<a
+					aria-label="Search"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-search"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#search"></use>
+					</svg>
+				</a>
+			</li>
+			<li className="nav-item navbar-breakpoint-down-d-none">
+				<a
+					aria-label="View"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-view"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#view"></use>
+					</svg>
+				</a>
+			</li>
+			<li
+				aria-label="Table"
+				className="nav-item navbar-breakpoint-down-d-none"
+			>
+				<a
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-table"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#table"></use>
+					</svg>
+				</a>
+			</li>
+			<li className="nav-item">
+				<button
+					className="btn btn-secondary clay-site-open-overlay-up nav-btn"
+					type="button"
+				>
+					Open Overlay
+				</button>
+			</li>
+		</ul>
+		<div className="navbar-overlay navbar-overlay-up">
+			<div className="container-fluid container-fluid-max-xl">
+				<ul className="navbar-nav">
+					<li className="nav-item">
+						<div className="custom-control custom-checkbox">
+							<label>
+								<input
+									className="custom-control-input"
+									type="checkbox"
+								/>
+								<span className="custom-control-label"></span>
+							</label>
+						</div>
+					</li>
+					<li className="dropdown nav-item nav-item-shrink">
+						<span className="navbar-text">3 of 25</span>
+					</li>
+					<li className="nav-item">
+						<button className="btn btn-link nav-btn" type="button">
+							Select All
+						</button>
+					</li>
+				</ul>
+				<ul className="navbar-nav">
+					<li className="dropdown nav-item">
+						<a
+							aria-label="More Actions"
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="dropdown-toggle nav-link nav-link-monospaced"
+							data-toggle="dropdown"
+							href="#1"
+							role="button"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-ellipsis-v"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									href="/images/icons/icons.svg#ellipsis-v"
+								></use>
+							</svg>
+						</a>
+						<ul className="dropdown-menu dropdown-menu-right">
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+									>Delete</a
+								>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+									>Copy</a
+								>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+									>Info</a
+								>
+							</li>
+						</ul>
+					</li>
+					<li className="nav-item">
+						<button
+							className="btn btn-secondary clay-site-close-overlay-up nav-btn"
+							type="button"
+						>
+							Close Overlay
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+```
+
+## Only Search
+
+### Always Open
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-light navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<div className="navbar-form navbar-form-autofit">
+				<form role="search">
+					<div className="input-group">
+						<div className="input-group-item">
+							<input
+								className="form-control input-group-inset input-group-inset-after"
+								placeholder="Search for..."
+								type="text"
+							/>
+							<span className="input-group-inset-item input-group-inset-item-after">
+								<button
+									aria-label="Search"
+									className="btn btn-monospaced btn-unstyled"
+									type="submit"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-search"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#search"></use>
+									</svg>
+								</button>
+								<button
+									aria-label="Close search"
+									className="btn btn-monospaced btn-unstyled d-none"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#times"></use>
+									</svg>
+								</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-light navbar navbar-expand-md">
+	<div className="container-fluid container-fluid-max-xl">
+		<div className="navbar-form navbar-form-autofit">
+			<form role="search">
+				<div className="input-group">
+					<div className="input-group-item">
+						<input
+							className="form-control input-group-inset input-group-inset-after"
+							placeholder="Search for..."
+							type="text"
+						/>
+						<span
+							className="input-group-inset-item input-group-inset-item-after"
+						>
+							<button
+								aria-label="Search"
+								className="btn btn-monospaced btn-unstyled"
+								type="submit"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-search"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#search"
+									></use>
+								</svg>
+							</button>
+							<button
+								aria-label="Close search"
+								className="btn btn-monospaced btn-unstyled d-none"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#times"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</nav>
+```
+
+### Collapses in Mobile
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-light navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+				<div className="container-fluid container-fluid-max-xl">
+					<form role="search">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-after"
+									placeholder="Search for..."
+									type="text"
+								/>
+								<span className="input-group-inset-item input-group-inset-item-after">
+									<button
+										aria-label="Search"
+										className="btn btn-monospaced btn-unstyled"
+										type="submit"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-search"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#search"></use>
+										</svg>
+									</button>
+									<button
+										aria-label="Close search"
+										className="btn btn-monospaced btn-unstyled d-none"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-times"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#times"></use>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<ul className="navbar-nav navbar-nav-last">
+				<li className="nav-item navbar-breakpoint-d-none">
+					<a
+						aria-label="Search"
+						className="nav-link nav-link-monospaced"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-search"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#search"></use>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-light navbar navbar-expand-md">
+	<div className="container-fluid container-fluid-max-xl">
+		<div
+			className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down"
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<form role="search">
+					<div className="input-group">
+						<div className="input-group-item">
+							<input
+								className="form-control input-group-inset input-group-inset-after"
+								placeholder="Search for..."
+								type="text"
+							/>
+							<span
+								className="input-group-inset-item input-group-inset-item-after"
+							>
+								<button
+									aria-label="Search"
+									className="btn btn-monospaced btn-unstyled"
+									type="submit"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-search"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#search"
+										></use>
+									</svg>
+								</button>
+								<button
+									aria-label="Close search"
+									className="btn btn-monospaced btn-unstyled d-none"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#times"
+										></use>
+									</svg>
+								</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<ul className="navbar-nav navbar-nav-last">
+			<li className="nav-item navbar-breakpoint-d-none">
+				<a
+					aria-label="Search"
+					className="nav-link nav-link-monospaced"
+					href="#1"
+					role="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-search"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#search"></use>
+					</svg>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+## Search
+
+### Summary
+
+<div className="sheet-example">
+	<nav className="tbar subnav-tbar subnav-tbar-primary">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav">
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="component-title text-truncate-inline">
+							<span className="text-truncate">
+								Results for Master (19 Items)
+							</span>
+						</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="tbar subnav-tbar subnav-tbar-primary">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav">
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span className="component-title text-truncate-inline">
+						<span className="text-truncate"
+							>Results for Master (19 Items)</span
+						>
+					</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+### Results
+
+<div className="sheet-example">
+	<nav className="tbar subnav-tbar subnav-tbar-primary">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav">
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="component-text text-truncate-inline">
+							<span className="text-truncate">
+								25,392 results for
+								<strong>
+									ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+								</strong>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<button
+						className="btn btn-unstyled component-link tbar-link"
+						type="button"
+					>
+						Clear
+					</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="tbar subnav-tbar subnav-tbar-primary">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav">
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span className="component-text text-truncate-inline">
+						<span className="text-truncate"
+							>25,392 results for
+							<strong
+								>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</strong
+							></span
+						>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<button
+					className="btn btn-unstyled component-link tbar-link"
+					type="button"
+				>
+					Clear
+				</button>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+### Results with Filter
+
+<div className="sheet-example">
+	<nav className="tbar tbar-inline-md-down subnav-tbar subnav-tbar-primary">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="tbar-nav tbar-nav-wrap">
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="component-text text-truncate-inline">
+							<span className="text-truncate">
+								6 results for "<strong>red</strong>"
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="label component-label tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">Filter 1</div>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<span className="label label-dismissible component-label tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">Filter 2</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									className="btn close"
+									aria-label="close"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times-small"
+										focusable="false"
+										role="presentation"
+									>
+										<title>times</title>
+										<use href="/images/icons/icons.svg#times-small"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="label label-dismissible component-label tbar-label">
+							<span className="label-item label-item-expand">
+								<div className="label-section">
+									Category: <strong>Label 3</strong>
+								</div>
+							</span>
+							<span className="label-item label-item-after">
+								<button
+									className="btn close"
+									aria-label="close"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times-small"
+										focusable="false"
+										role="presentation"
+									>
+										<title>times</title>
+										<use href="/images/icons/icons.svg#times-small"></use>
+									</svg>
+								</button>
+							</span>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<div className="tbar-section">
+						<a className=" component-link tbar-link" href="#clear">
+							clear
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="tbar tbar-inline-md-down subnav-tbar subnav-tbar-primary">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="tbar-nav tbar-nav-wrap">
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span className="component-text text-truncate-inline">
+						<span className="text-truncate"
+							>6 results for "<strong>red</strong>"</span
+						>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span className="label component-label tbar-label">
+						<span className="label-item label-item-expand">
+							<div className="label-section">Filter 1</div>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<span
+						className="label label-dismissible component-label tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">Filter 2</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								className="btn close"
+								aria-label="close"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times-small"
+									focusable="false"
+									role="presentation"
+								>
+									<title>times</title>
+									<use
+										href="/images/icons/icons.svg#times-small"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item tbar-item-expand">
+				<div className="tbar-section">
+					<span
+						className="label label-dismissible component-label tbar-label"
+					>
+						<span className="label-item label-item-expand">
+							<div className="label-section">
+								Category: <strong>Label 3</strong>
+							</div>
+						</span>
+						<span className="label-item label-item-after">
+							<button
+								className="btn close"
+								aria-label="close"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times-small"
+									focusable="false"
+									role="presentation"
+								>
+									<title>times</title>
+									<use
+										href="/images/icons/icons.svg#times-small"
+									></use>
+								</svg>
+							</button>
+						</span>
+					</span>
+				</div>
+			</li>
+			<li className="tbar-item">
+				<div className="tbar-section">
+					<a className=" component-link tbar-link" href="#clear"
+						>clear</a
+					>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
+```
+
+## Using Buttons
+
+<div className="sheet-example">
+	<nav className="management-bar management-bar-primary navbar navbar-expand-md">
+		<div className="container-fluid container-fluid-max-xl">
+			<ul className="navbar-nav">
+				<li className="nav-item">
+					<div className="custom-control custom-checkbox">
+						<label>
+							<input
+								aria-label="Select all"
+								className="custom-control-input"
+								type="checkbox"
+							/>
+							<span className="custom-control-label"></span>
+						</label>
+					</div>
+				</li>
+				<li className="dropdown nav-item">
+					<button
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="btn btn-unstyled dropdown-toggle nav-link navbar-breakpoint-down-d-none"
+						data-toggle="dropdown"
+						type="button"
+					>
+						<span className="navbar-text-truncate">
+							Filter and Order
+						</span>
+						<svg
+							className="lexicon-icon lexicon-icon-caret-bottom"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#caret-bottom"></use>
+						</svg>
+					</button>
+					<button
+						aria-label="Filter"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="btn btn-unstyled dropdown-toggle nav-btn nav-btn-monospaced navbar-breakpoint-d-none"
+						data-toggle="dropdown"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-filter"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#filter"></use>
+						</svg>
+					</button>
+				</li>
+				<li className="nav-item">
+					<button
+						aria-label="Order"
+						className="btn btn-unstyled nav-btn nav-btn-monospaced"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-order-list-up"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#order-list-up"></use>
+						</svg>
+					</button>
+				</li>
+			</ul>
+			<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+				<div className="container-fluid container-fluid-max-xl">
+					<form role="search">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-after"
+									placeholder="Search for..."
+									type="text"
+								/>
+								<span className="input-group-inset-item input-group-inset-item-after">
+									<button
+										aria-label="Search"
+										className="btn btn-monospaced btn-unstyled"
+										type="submit"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-search"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#search"></use>
+										</svg>
+									</button>
+									<button
+										aria-label="Close search"
+										className="btn btn-monospaced btn-unstyled d-none"
+										type="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-times"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#times"></use>
+										</svg>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<ul className="navbar-nav">
+				<li className="nav-item navbar-breakpoint-d-none">
+					<button
+						aria-label="Search"
+						className="btn btn-unstyled nav-btn nav-btn-monospaced"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-search"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#search"></use>
+						</svg>
+					</button>
+				</li>
+				<li className="dropdown nav-item">
+					<button
+						aria-label="List"
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="btn btn-unstyled dropdown-toggle nav-btn nav-btn-monospaced"
+						data-toggle="dropdown"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-list"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#list"></use>
+						</svg>
+					</button>
+				</li>
+				<li className="nav-item">
+					<button
+						aria-label="Add"
+						className="btn btn-secondary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-plus"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#plus"></use>
+						</svg>
+					</button>
+				</li>
+				<li className="nav-item">
+					<button
+						aria-label="Add"
+						className="btn btn-primary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-plus"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#plus"></use>
+						</svg>
+					</button>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+```html
+<nav className="management-bar management-bar-primary navbar navbar-expand-md">
+	<div className="container-fluid container-fluid-max-xl">
+		<ul className="navbar-nav">
+			<li className="nav-item">
+				<div className="custom-control custom-checkbox">
+					<label>
+						<input
+							aria-label="Select all"
+							className="custom-control-input"
+							type="checkbox"
+						/>
+						<span className="custom-control-label"></span>
+					</label>
+				</div>
+			</li>
+			<li className="dropdown nav-item">
+				<button
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="btn btn-unstyled dropdown-toggle nav-link navbar-breakpoint-down-d-none"
+					data-toggle="dropdown"
+					type="button"
+				>
+					<span className="navbar-text-truncate"
+						>Filter and Order</span
+					>
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</button>
+				<button
+					aria-label="Filter"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="btn btn-unstyled dropdown-toggle nav-btn nav-btn-monospaced navbar-breakpoint-d-none"
+					data-toggle="dropdown"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-filter"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#filter"></use>
+					</svg>
+				</button>
+			</li>
+			<li className="nav-item">
+				<button
+					aria-label="Order"
+					className="btn btn-unstyled nav-btn nav-btn-monospaced"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-order-list-up"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#order-list-up"></use>
+					</svg>
+				</button>
+			</li>
+		</ul>
+		<div
+			className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down"
+		>
+			<div className="container-fluid container-fluid-max-xl">
+				<form role="search">
+					<div className="input-group">
+						<div className="input-group-item">
+							<input
+								className="form-control input-group-inset input-group-inset-after"
+								placeholder="Search for..."
+								type="text"
+							/>
+							<span
+								className="input-group-inset-item input-group-inset-item-after"
+							>
+								<button
+									aria-label="Search"
+									className="btn btn-monospaced btn-unstyled"
+									type="submit"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-search"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#search"
+										></use>
+									</svg>
+								</button>
+								<button
+									aria-label="Close search"
+									className="btn btn-monospaced btn-unstyled d-none"
+									type="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-times"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#times"
+										></use>
+									</svg>
+								</button>
+							</span>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<ul className="navbar-nav">
+			<li className="nav-item navbar-breakpoint-d-none">
+				<button
+					aria-label="Search"
+					className="btn btn-unstyled nav-btn nav-btn-monospaced"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-search"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#search"></use>
+					</svg>
+				</button>
+			</li>
+			<li className="dropdown nav-item">
+				<button
+					aria-label="List"
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="btn btn-unstyled dropdown-toggle nav-btn nav-btn-monospaced"
+					data-toggle="dropdown"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-list"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#list"></use>
+					</svg>
+				</button>
+			</li>
+			<li className="nav-item">
+				<button
+					aria-label="Add"
+					className="btn btn-secondary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-plus"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#plus"></use>
+					</svg>
+				</button>
+			</li>
+			<li className="nav-item">
+				<button
+					aria-label="Add"
+					className="btn btn-primary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-plus"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#plus"></use>
+					</svg>
+				</button>
+			</li>
+		</ul>
+	</div>
+</nav>
+```

@@ -3,22 +3,90 @@ title: 'List'
 description: 'Lists are a visual representation of a dataset, based on groups of related content, that is organized vertically.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/list/'
 packageNpm: '@clayui/list'
+packageUse: "import List from '@clayui/list';"
+packageTypes:
+    [
+        'clay-list/src/List.tsx',
+        'clay-list/src/Item.tsx',
+        'clay-list/src/ItemText.tsx',
+        'clay-list/src/ItemTitle.tsx',
+        'clay-list/src/Header.tsx',
+        'clay-list/src/ListWithItems.tsx',
+        'clay-list/src/QuickActionMenu.tsx',
+    ]
 ---
-
-import {List, ListQuickActionsMenu} from '$packages/clay-list/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [QuickActionMenu](#quickactionmenu)
--   [ClayList children](#claylist-children)
-
-</div>
-</div>
 
 A list can composable by a Header, an Item and Quick Actions.
 
-<List />
+```jsx preview
+import {Provider} from '@clayui/core';
+import List from '@clayui/list';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<List>
+					<List.Header>This is a header</List.Header>
+					<List.Item flex>
+						<List.ItemField>Item 1</List.ItemField>
+
+						<List.ItemField>ItemField</List.ItemField>
+
+						<List.ItemField expand>
+							<List.ItemTitle>
+								Item Title and expanded
+							</List.ItemTitle>
+							<List.ItemText>Item Text</List.ItemText>
+						</List.ItemField>
+
+						<List.ItemField>ItemField</List.ItemField>
+					</List.Item>
+
+					<List.Item flex>
+						<List.ItemField>Item 2</List.ItemField>
+						<List.ItemField expand>
+							<List.ItemTitle>
+								Item Title and expanded
+							</List.ItemTitle>
+							<List.ItemText>
+								Hover this item for action menu
+							</List.ItemText>
+						</List.ItemField>
+						<List.ItemField>
+							<List.QuickActionMenu>
+								<List.QuickActionMenu.Item
+									aria-label="Delete"
+									title="Delete"
+									onClick={() => alert('Clicked the trash!')}
+									symbol="trash"
+								/>
+
+								<List.QuickActionMenu.Item
+									aria-label="Settings"
+									title="Settings"
+									onClick={() => alert('Clicked the cog!')}
+									symbol="cog"
+								/>
+							</List.QuickActionMenu>
+						</List.ItemField>
+					</List.Item>
+
+					<List.Header>This is another header</List.Header>
+					<List.Item flex>
+						<List.ItemField>Item 3</List.ItemField>
+
+						<List.ItemField>ItemField</List.ItemField>
+					</List.Item>
+				</List>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## QuickActionMenu
 
@@ -26,8 +94,49 @@ Use `QuickActionMenu` composition inside `Item` for defining a QuickActionMenu.
 
 Wrap `QuickActionMenu.Item` inside `QuickActionMenu` for defining an `Item` of QuickActionMenu. See the following example:
 
-<ListQuickActionsMenu />
+```jsx preview
+import {Provider} from '@clayui/core';
+import List from '@clayui/list';
+import React from 'react';
 
-## ClayList children
+import '@clayui/css/lib/css/atlas.css';
 
-To ensure your html structure is accessible, make sure any children passed to `ClayList` are `li` elements. Both `ClayList.Item` and `ClayListHeader` are `li` elements.
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<List showQuickActionsOnHover>
+					<List.Item flex>
+						<List.ItemField expand>
+							<List.ItemTitle>Item 1</List.ItemTitle>
+							<List.ItemText>
+								Hover this item for quick action menu
+							</List.ItemText>
+						</List.ItemField>
+						<List.ItemField>
+							<List.QuickActionMenu>
+								<List.QuickActionMenu.Item
+									aria-label="Delete"
+									title="Delete"
+									onClick={() => alert('Clicked the trash!')}
+									symbol="trash"
+								/>
+								<List.QuickActionMenu.Item
+									aria-label="Settings"
+									title="Settings"
+									onClick={() => alert('Clicked the cog!')}
+									symbol="cog"
+								/>
+							</List.QuickActionMenu>
+						</List.ItemField>
+					</List.Item>
+				</List>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## List children
+
+To ensure your html structure is accessible, make sure any children passed to `List` are `li` elements. Both `List.Item` and `ClayListHeader` are `li` elements.

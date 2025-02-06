@@ -15,7 +15,7 @@ import ClayCard from './Card';
 
 import type {ButtonWithIconProps} from '@clayui/button';
 
-export interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
+interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
 	/**
 	 * List of actions in the dropdown menu
 	 */

@@ -3,35 +3,211 @@ title: 'Toolbar'
 description: 'A toolbar is a set of actions related to a specific context that are grouped into a horizontal bar.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/toolbars/'
 packageNpm: '@clayui/toolbar'
+packageUse: "import TimePicker from '@clayui/toolbar';"
+packageTypes:
+    [
+        'clay-toolbar/src/index.tsx',
+        'clay-toolbar/src/Action.tsx',
+        'clay-toolbar/src/Input.tsx',
+        'clay-toolbar/src/Item.tsx',
+        'clay-toolbar/src/Label.tsx',
+        'clay-toolbar/src/Link.tsx',
+        'clay-toolbar/src/Nav.tsx',
+        'clay-toolbar/src/Section.tsx',
+    ]
 ---
-
-import {ComplexToolbar, Toolbar} from '$packages/clay-toolbar/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [Composing](#composing)
-
-</div>
-</div>
 
 ## Introduction
 
 A toolbar organizes actions into a horizontal bar that is responsive. Its height changes to accommodate the height of the elements it contains. The toolbar always maintains the vertical alignment.
 
-<Toolbar />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Toolbar from '@clayui/toolbar';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Toolbar>
+					<Toolbar.Nav>
+						<Toolbar.Item>
+							<Toolbar.Action
+								aria-label="Previous"
+								disabled
+								href="#"
+								symbol="angle-left"
+								title="Previous"
+							/>
+						</Toolbar.Item>
+
+						<Toolbar.Item expand>
+							<Toolbar.Section>
+								<span className="text-truncate-inline">
+									<span className="text-truncate">
+										{
+											'Item 1 of 3,138,732,873,467,182,321,341,231,234,342,559,827,334,424'
+										}
+									</span>
+								</span>
+							</Toolbar.Section>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<Toolbar.Link href="#">
+								{'Component Link'}
+							</Toolbar.Link>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<Toolbar.Action
+								aria-label="Next"
+								title="Next"
+								disabled
+								href="#"
+								symbol="angle-right"
+							/>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<Toolbar.Action
+								aria-label="Close"
+								title="Close"
+								disabled
+								href="#"
+								symbol="times"
+							/>
+						</Toolbar.Item>
+					</Toolbar.Nav>
+				</Toolbar>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Composing
 
-**ClayToolbar.Nav** is the highest level wrapper to be used inside the Toolbar to wrap all the content inside.
+**Toolbar.Nav** is the highest level wrapper to be used inside the Toolbar to wrap all the content inside.
 
-**ClayToolbar.Item** represents a Toolbar child item, a list item that is supposed to wrap around any of the other low-level components.
+**Toolbar.Item** represents a Toolbar child item, a list item that is supposed to wrap around any of the other low-level components.
 
-**ClayToolbar.Section** is a wrapper to be used inside the **ClayToolbar.Item** that makes the contents it wraps display inline.
+**Toolbar.Section** is a wrapper to be used inside the **Toolbar.Item** that makes the contents it wraps display inline.
 
-**ClayToolbar.Action** is used when you want a clickable icon to add an action in the Toolbar.
+**Toolbar.Action** is used when you want a clickable icon to add an action in the Toolbar.
 
-**ClayToolbar.Input**, **ClayToolbar.Label** and **ClayToolbar.Link** are essentially a wrapper around their respective Clay components with some specifics related to Toolbar.
+**Toolbar.Input**, **Toolbar.Label** and **Toolbar.Link** are essentially a wrapper around their respective Clay components with some specifics related to Toolbar.
 
-<ComplexToolbar />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Toolbar from '@clayui/toolbar';
+import {ClayInput} from '@clayui/form';
+import Icon from '@clayui/icon';
+import {ClayDropDownWithItems} from '@clayui/drop-down';
+import Button, {ClayButtonWithIcon} from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Toolbar>
+					<Toolbar.Nav>
+						<Toolbar.Item className="text-left" expand>
+							<Toolbar.Section>
+								<label className="component-title">
+									{'Foo Bar'}
+								</label>
+
+								<Icon symbol="lock" />
+							</Toolbar.Section>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<ClayInput.Group>
+								<ClayInput.GroupItem>
+									<ClayInput
+										className="form-control-inline"
+										placeholder="Search..."
+									/>
+								</ClayInput.GroupItem>
+							</ClayInput.Group>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<Toolbar.Section>
+								<Button.Group>
+									<ClayButtonWithIcon
+										aria-label="Previous"
+										title="Previous"
+										displayType="secondary"
+										onClick={() => {}}
+										small
+										symbol="angle-left"
+									/>
+
+									<ClayButtonWithIcon
+										aria-label="Next"
+										title="Next"
+										displayType="secondary"
+										onClick={() => {}}
+										small
+										symbol="angle-right"
+									/>
+								</Button.Group>
+							</Toolbar.Section>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<Toolbar.Section>
+								<Button
+									displayType="secondary"
+									onClick={() => {}}
+								>
+									{'Delete'}
+								</Button>
+
+								<Button
+									className="inline-item-after"
+									onClick={() => {}}
+								>
+									{'Edit'}
+								</Button>
+							</Toolbar.Section>
+						</Toolbar.Item>
+
+						<Toolbar.Item>
+							<ClayDropDownWithItems
+								items={[
+									{href: '#one', label: 'one'},
+									{href: '#two', label: 'two'},
+									{
+										disabled: true,
+										href: '#three',
+										label: 'three',
+									},
+									{href: '#four', label: 'four'},
+								]}
+								trigger={
+									<ClayButtonWithIcon
+										aria-label="More Actions"
+										title="More Actions"
+										displayType="unstyled"
+										small
+										symbol="ellipsis-v"
+									/>
+								}
+							/>
+						</Toolbar.Item>
+					</Toolbar.Nav>
+				</Toolbar>
+			</div>
+		</Provider>
+	);
+}
+```

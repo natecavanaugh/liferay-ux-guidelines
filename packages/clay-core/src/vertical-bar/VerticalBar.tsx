@@ -90,13 +90,6 @@ type Props = {
 	resize?: boolean;
 };
 
-export function VerticalBar(props: Props): JSX.Element & {
-	Item: typeof Item;
-	Content: typeof Content;
-	Panel: typeof Panel;
-	Bar: typeof Bar;
-};
-
 export function VerticalBar({
 	absolute = false,
 	activation = 'manual',

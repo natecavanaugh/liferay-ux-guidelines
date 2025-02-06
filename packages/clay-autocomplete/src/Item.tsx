@@ -11,7 +11,51 @@ import React, {useCallback} from 'react';
 
 import {useAutocompleteState} from './Context';
 
-export interface IProps extends React.ComponentProps<typeof DropDown.Item> {
+interface IProps
+	extends React.HTMLAttributes<
+		HTMLSpanElement | HTMLButtonElement | HTMLAnchorElement
+	> {
+	/**
+	 * Flag that indicates if item is selected.
+	 */
+	active?: boolean;
+
+	/**
+	 * Flag that indicates if item is disabled or not.
+	 */
+	disabled?: boolean;
+
+	/**
+	 * @ignore
+	 */
+	'data-index'?: number;
+
+	/**
+	 * Path for item to link to.
+	 */
+	href?: string;
+
+	/**
+	 * Sets the role accessibility property of the item. Set the item's
+	 * container (<li />) role use the role="" prop instead of roleItem="".
+	 */
+	roleItem?: string;
+
+	/**
+	 * Path to icon spritemap from clay-css.
+	 */
+	spritemap?: string;
+
+	/**
+	 * Flag that indicates if there is an icon symbol on the left side.
+	 */
+	symbolLeft?: string;
+
+	/**
+	 * Flag that indicates if there is an icon symbol on the right side.
+	 */
+	symbolRight?: string;
+
 	/**
 	 * The item content.
 	 */
@@ -140,13 +184,19 @@ const ItemLegacy = React.forwardRef<HTMLLIElement, IProps>(function ItemLegacy(
 	);
 });
 
-const Item = React.forwardRef<HTMLLIElement, IProps>((props: IProps, ref) => {
-	const {onActiveDescendant} = useAutocompleteState();
+const Item = React.forwardRef<HTMLLIElement, IProps>(
+	({children, match = '', ...otherProps}: IProps, ref) => {
+		const {onActiveDescendant} = useAutocompleteState();
 
-	const Component = onActiveDescendant! ? NewItem : ItemLegacy;
+		const Component = onActiveDescendant! ? NewItem : ItemLegacy;
 
-	return <Component {...props} ref={ref} />;
-});
+		return (
+			<Component match={match} {...otherProps} ref={ref}>
+				{children}
+			</Component>
+		);
+	}
+);
 
 Item.displayName = 'Item';
 

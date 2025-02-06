@@ -3,38 +3,9 @@ title: 'Loading Indicator'
 description: 'The loading indicator shows the user that an external process, like a connection, is being executed.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/loading-indicator/'
 packageNpm: '@clayui/loading-indicator'
+packageUse: "import LoadingIndicator from '@clayui/loading-indicator';"
+packageTypes: ['clay-loading-indicator/src/index.tsx']
 ---
-
-import {
-	LoadingIndicator,
-	LoadingIndicatorSquares,
-	LoadingIndicatorPrimary,
-	LoadingIndicatorSecondary,
-	LoadingIndicatorLight,
-	LoadingIndicatorExtraSmall,
-	LoadingIndicatorSmall,
-	LoadingIndicatorMedium,
-	LoadingIndicatorLarge,
-} from '$packages/clay-loading-indicator/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Shapes](#shapes)
-    -   [Circle](#circle)
-    -   [Squares](#squares)
--   [Display Types](#display-types)
-    -   [Primary](#primary)
-    -   [Secondary](#secondary)
-    -   [Light](#light)
--   [Sizes](#sizes)
-    -   [Extra Small](#extra-small)
-    -   [Small](#small)
-    -   [Medium](#medium)
-    -   [Large](#large)
-
-</div>
-</div>
 
 ## Shapes
 
@@ -44,23 +15,59 @@ The loading indicator takes on the `currentColor` and `font-size` by default.
 
 The circle indicator is the default shape of the loading indicator. It should be used with small components such as badges, buttons, inputs, tables rows, etc.
 
-<div class="clay-site-alert alert alert-info">
+<div className="clay-site-alert alert alert-info">
 	It should be used with `size` `xs` and `sm`. The `displayType` should be
 	`secondary` or `light`.
 </div>
 
-<LoadingIndicator />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator displayType="secondary" size="sm" />
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Squares
 
 The squares indicator uses 2 square shapes taken from the Liferay logo. It helps us include some details from the brand in our product interfaces. It should be used only for bigger components such as cards, modals, sidebars, dashboards, etc. Enable the squares indicator by setting the property [shape](#api-shape) to `squares`.
 
-<div class="clay-site-alert alert alert-info">
+<div className="clay-site-alert alert alert-info">
 	It should be used with `size` `md` and `lg`. The `displayType` should be
 	`primary` or `light`.
 </div>
 
-<LoadingIndicatorSquares />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator
+					displayType="primary"
+					shape="squares"
+					size="md"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Display Types
 
@@ -70,19 +77,75 @@ The loading indicator uses the `currentColor` by default. You can force the stat
 
 Fix the color of the loading indicator to be the primary color by setting the [displayType](#api-displayType) to `primary`.
 
-<LoadingIndicatorPrimary />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator
+					displayType="primary"
+					shape="squares"
+					size="lg"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Secondary
 
 Fix the color of the loading indicator to be the secondary color by setting the [displayType](#api-displayType) to `secondary`.
 
-<LoadingIndicatorSecondary />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator displayType="primary" size="sm" />
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Light
 
 Fix the color of the loading indicator to be the light color by setting the [displayType](#api-displayType) to `light`. It allows the indicator to be more accessible in some cases.
 
-<LoadingIndicatorLight />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator
+					displayType="light"
+					shape="squares"
+					size="md"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Sizes
 
@@ -92,22 +155,94 @@ The loading indicator ships with four sizes, `xs`, `sm`, `md`, and `lg`. It inhe
 
 Fix the loading indicator `font-size` to be 10px by setting the [`size`](#api-size) property to `xs`.
 
-<LoadingIndicatorExtraSmall />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator displayType="secondary" size="xs" />
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Small
 
 Fix the loading indicator `font-size` to be 16px by setting the [`size`](#api-size) property to `sm`.
 
-<LoadingIndicatorSmall />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator displayType="secondary" size="sm" />
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Medium
 
 Fix the loading indicator `font-size` to be 32px by setting the [`size`](#api-size) property to `md`.
 
-<LoadingIndicatorMedium />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator
+					displayType="primary"
+					shape="squares"
+					size="md"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Large
 
 Fix the loading indicator `font-size` to be 64px by setting the [`size`](#api-size) property to `lg`.
 
-<LoadingIndicatorLarge />
+```jsx preview
+import {Provider} from '@clayui/core';
+import LoadingIndicator from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<LoadingIndicator
+					displayType="primary"
+					shape="squares"
+					size="lg"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

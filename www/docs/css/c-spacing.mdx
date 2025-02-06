@@ -1,0 +1,128 @@
+---
+title: 'C Spacing Utilities'
+description: ''
+---
+
+Utility classes for the spacing in your pages. (without the `!important` attribute)
+
+## How to Read the Class
+
+Example: `c-mt-sm-3`.
+
+Meaning: `{prefix}-{type}{direction}-{breakpoint}-{value}`.
+
+SCSS: `@include media-breakpoint-up(sm) { margin-top: 1rem; }`.
+
+CSS: `@media(min-width: 576px) { margin-top: 1rem; }`. _(576px can change depending on the site's configuration)_
+
+## How to Understand the Class
+
+`c` is the **prefix** and it stands for **Clay**. All the new classes have this prefix to avoid conflicts with other frameworks.
+
+`m` is the **type** of spacing you need. In this case it stands for **margin** but you probably will find **p** for **padding**. (example: `c-pt-sm-3` means `@media(min-width: 576px) { padding-top: 1rem; }`)
+
+`t` is the direction in this case it stands for **top** but you probably will find:
+
+-   `r` - **right**
+-   `b` - **bottom**
+-   `l` - **left**
+-   `y` - **top** and **bottom** (vertical axis)
+-   `x` - **right** and **left** (horizontal axis)
+-   _`empty`_ - when this value is not present it means you are applying this spacing to **all the directions** (example: `c-m-sm-3` means `@media(min-width: 576px) { margin: 1rem; }` )
+
+`sm` is the breakpoint where this rule starts to work, in this case **started from sm**, but we can also have: (see [Grid Documentation](../grid.html))
+
+-   `sm` - started from sm - _started from 576px_
+-   `md` - started from md - _started from 768px_
+-   `lg` - started from lg - _started from 992px_
+-   `xl` - started from xl - _started from 1200px_
+
+`3` is the value of the spacing you want to assign in the example. By default the spaces are:
+
+-   `0` - **0rem** - _0px_
+-   `1` - **0.25rem** - _4px_
+-   `2` - **0.5rem** - _8px_
+-   `3` - **1rem** - _16px_
+-   `4` - **1.5rem** - _24px_
+-   `5` - **3rem** - _48px_
+-   `6` - **4.5rem** - _72px_
+-   `7` - **6rem** - _96px_
+-   `8` - **7.5rem** - _120px_
+-   `auto` - will set the value to **auto**
+
+These spaces can be negative if we use `n` before the value, that means:
+
+-   `n1` | **-0.25rem** | _-4px_
+-   `n2` | **-0.5rem** | _-8px_
+-   `n3` | **-1rem** | _-16px_
+-   `n4` | **-1.5rem** | _-24px_
+-   `n5` | **-3rem** | _-48px_
+-   `n6` | **-4.5rem** | _-72px_
+-   `n7` | **-6rem** | _-96px_
+-   `n8` | **-7.5rem** | _-120px_
+
+## How to Use the Class
+
+The best usage of these classes take place in a responsive scenario:
+
+<img src="/images/spacing-example.png" className="img-fluid" />
+
+Let's focus on the buttons **Publish** and **Cancel**.
+
+We are leaving the style of these buttons to the classes `btn-one` and `btn-two` and taking care of the spacing using `c-mt-3 c-mt-sm-0 c-ml-sm-3`.
+
+```html
+<div>
+    <button className="btn-one">Cancel<button>
+    <button className="btn-two c-mt-3 c-mt-sm-0 c-ml-sm-3">Publish<button>
+</div>
+```
+
+If we translated these classes into CSS, this would be the result:
+
+```scss
+.btn-two {
+	margin-top: 1rem;
+
+	@media (min-width: 576px) {
+		margin-top: 0;
+		margin-left: 1rem;
+	}
+}
+```
+
+## Gap
+
+The gap CSS property sets the gutters between rows and columns of a flex or grid element. We use the same naming convention as margin and padding. The gap utility sizes are based on the `$spacers` scale, but can be customized to a different scale through the `$c-gap` Sass map.
+
+The classes `c-gap-{breakpoint}-{#}` sets the `gap` CSS property which is shorthand for `row-gap` and `column-gap`. The classes `c-gapx-{breakpoint}-{#}` sets the `column-gap` CSS property; the left and right spaces between elements. The classes `c-gapy-{breakpoint}-{#}` sets the `row-gap` CSS property; the top and bottom spaces between elements.
+
+<div className="sheet-example">
+	<div className="h6">c-gap-3</div>
+	<div className="d-flex flex-wrap c-gap-3">
+		<div className="bg-secondary text-center text-white w-25">1</div>
+		<div className="bg-secondary text-center text-white w-25">2</div>
+		<div className="bg-secondary text-center text-white w-25">3</div>
+		<div className="bg-secondary text-center text-white w-25">4</div>
+		<div className="bg-secondary text-center text-white w-25">5</div>
+		<div className="bg-secondary text-center text-white w-25">6</div>
+	</div>
+	<div className="h6 mt-3">c-gapx-3</div>
+	<div className="d-flex flex-wrap c-gapx-3">
+		<div className="bg-secondary text-center text-white w-25">1</div>
+		<div className="bg-secondary text-center text-white w-25">2</div>
+		<div className="bg-secondary text-center text-white w-25">3</div>
+		<div className="bg-secondary text-center text-white w-25">4</div>
+		<div className="bg-secondary text-center text-white w-25">5</div>
+		<div className="bg-secondary text-center text-white w-25">6</div>
+	</div>
+	<div className="h6 mt-3">c-gapy-3</div>
+	<div className="d-flex flex-wrap c-gapy-3">
+		<div className="bg-secondary text-center text-white w-25">1</div>
+		<div className="bg-secondary text-center text-white w-25">2</div>
+		<div className="bg-secondary text-center text-white w-25">3</div>
+		<div className="bg-secondary text-center text-white w-25">4</div>
+		<div className="bg-secondary text-center text-white w-25">5</div>
+		<div className="bg-secondary text-center text-white w-25">6</div>
+	</div>
+</div>

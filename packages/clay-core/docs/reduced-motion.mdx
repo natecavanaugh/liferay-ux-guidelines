@@ -2,17 +2,9 @@
 title: 'Reduced Motion'
 description: 'Provider component which aggregates the main Clay, Icon, and Modal.'
 packageNpm: '@clayui/core'
+packageUse: "import {Provider} from '@clayui/core';"
+packageTypes: ['clay-provider/src/Provider.tsx']
 ---
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [JS](#js)
--   [CSS](#css)
-
-</div>
-</div>
 
 ## Introduction
 
@@ -20,7 +12,7 @@ Setting the motion reduction of animations can be done in two different ways in 
 
 ## JS
 
-To remove transition from components in React, you need to declare the [`Provider`](/docs/components/provider.html) component at the root of your application and set the `reducedMotion` property to whichever option you want.
+To remove transition from components in React, you need to declare the [`Provider`](/docs/components/provider) component at the root of your application and set the `reducedMotion` property to whichever option you want.
 
 -   `user`: Respect user's device setting.
 -   `always`: Enforce reduced motion.

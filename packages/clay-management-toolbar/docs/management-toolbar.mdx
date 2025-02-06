@@ -4,37 +4,363 @@ description: 'Management toolbar is an extension of Toolbar. It is a combination
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/toolbars/management-bar/'
 packageNpm: '@clayui/management-toolbar'
 packageStatus: 'Deprecated'
+packageUse: "import ManagementToolbar from '@clayui/management-toolbar';"
+packageTypes:
+    [
+        'clay-management-toolbar/src/ManagementToolbar.tsx',
+        'clay-management-toolbar/src/ResultsBar.tsx',
+        'clay-management-toolbar/src/Item.tsx',
+        'clay-management-toolbar/src/ItemList.tsx',
+        'clay-management-toolbar/src/ResultsBarItem.tsx',
+        'clay-management-toolbar/src/Search.tsx',
+    ]
 ---
 
-import {
-	ManagementToolbar,
-	MinimalManagementToolbar,
-	ResultsBar,
-} from '$packages/clay-management-toolbar/docs/index';
-
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	Deprecated since version 3.54.x
 </div>
 
 ## Composing
 
-With ClayManagementToolbar you can create a variety of [Management Toolbar variations](https://liferay.design/lexicon/core-components/toolbars/management-bar/#layout-variations), use `ClayManagementToolbar` component as the outside container, `ClayManagementToolbar.ItemList` for creating groups of items and `ClayManagementToolbar.Item` for create items inside groups. Use `expand` property on `ClayManagementToolbar.ItemList` for expanding the item list.
+With ManagementToolbar you can create a variety of [Management Toolbar variations](https://liferay.design/lexicon/core-components/toolbars/management-bar/#layout-variations), use `ManagementToolbar` component as the outside container, `ManagementToolbar.ItemList` for creating groups of items and `ManagementToolbar.Item` for create items inside groups. Use `expand` property on `ManagementToolbar.ItemList` for expanding the item list.
 
 We recommend that you review the use cases in the <a href="https://storybook.clayui.com/?path=/story/design-system-components-managementtoolbar--default">Storybook</a>. Also, check our <a href="https://storybook.clayui.com/?path=/story/demos-templates--list-page">List Page Template</a> on Storybook.
 
-Use `ClayManagementToolbar.Search` for creating a Search input inside the management toolbar.
+Use `ManagementToolbar.Search` for creating a Search input inside the management toolbar.
 
-<MinimalManagementToolbar />
+```jsx preview
+import {Provider} from '@clayui/core';
+import ManagementToolbar from '@clayui/management-toolbar';
+import Button, {ClayButtonWithIcon} from '@clayui/button';
+import {ClayInput} from '@clayui/form';
+import Icon from '@clayui/icon';
+import React, {useState} from 'react';
 
-<br />
+import '@clayui/css/lib/css/atlas.css';
 
-Aggregating `ClayManagementToolbar.ItemList` and `ClayManagementToolbar.ResultsBar` you can reach this result:
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ManagementToolbar>
+					<ManagementToolbar.ItemList>
+						<ManagementToolbar.Search>
+							<ClayInput.Group>
+								<ClayInput.GroupItem>
+									<ClayInput
+										aria-label="Search"
+										className="form-control input-group-inset input-group-inset-after"
+										defaultValue="Red"
+										type="text"
+									/>
+									<ClayInput.GroupInsetItem after tag="span">
+										<ClayButtonWithIcon
+											aria-label="Close search"
+											className="navbar-breakpoint-d-none"
+											displayType="unstyled"
+											onClick={() =>
+												setSearchMobile(false)
+											}
+											symbol="times"
+										/>
+										<ClayButtonWithIcon
+											aria-label="Search"
+											displayType="unstyled"
+											symbol="search"
+											type="submit"
+										/>
+									</ClayInput.GroupInsetItem>
+								</ClayInput.GroupItem>
+							</ClayInput.Group>
+						</ManagementToolbar.Search>
 
-<ManagementToolbar />
+						<ManagementToolbar.Item>
+							<Button
+								aria-label="Info"
+								className="nav-link nav-link-monospaced"
+								displayType="unstyled"
+								onClick={() => {}}
+							>
+								<Icon symbol="info-circle-open" />
+							</Button>
+						</ManagementToolbar.Item>
+
+						<ManagementToolbar.Item>
+							<ClayButtonWithIcon
+								aria-label="Add"
+								className="nav-btn nav-btn-monospaced"
+								symbol="plus"
+							/>
+						</ManagementToolbar.Item>
+					</ManagementToolbar.ItemList>
+				</ManagementToolbar>
+			</div>
+		</Provider>
+	);
+}
+```
+
+Aggregating `ManagementToolbar.ItemList` and `ManagementToolbar.ClayResultsBar` you can reach this result:
+
+```jsx preview
+import {Provider} from '@clayui/core';
+import ManagementToolbar, {ClayResultsBar} from '@clayui/management-toolbar';
+import {ClayDropDownWithItems} from '@clayui/drop-down';
+import Button, {ClayButtonWithIcon} from '@clayui/button';
+import {ClayCheckbox, ClayInput} from '@clayui/form';
+import Icon from '@clayui/icon';
+import Label from '@clayui/label';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const filterItems = [
+		{label: 'Filter Action 1', onClick: () => alert('Filter clicked')},
+		{label: 'Filter Action 2', onClick: () => alert('Filter clicked')},
+	];
+
+	const viewTypes = [
+		{
+			label: 'List',
+			onClick: () => alert('Show view list'),
+			symbolLeft: 'list',
+		},
+		{
+			active: true,
+			label: 'Table',
+			onClick: () => alert('Show view table'),
+			symbolLeft: 'table',
+		},
+		{
+			label: 'Card',
+			onClick: () => alert('Show view card'),
+			symbolLeft: 'cards2',
+		},
+	];
+
+	const [searchMobile, setSearchMobile] = useState(false);
+	const [checked, setChecked] = useState(false);
+
+	const viewTypeActive = viewTypes.find((type) => type.active);
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<ManagementToolbar>
+						<ManagementToolbar.ItemList>
+							<ManagementToolbar.Item>
+								<ClayCheckbox
+									aria-label={
+										checked ? 'Unselect all' : 'Select all'
+									}
+									checked={checked}
+									onChange={(event) =>
+										setChecked(event.target.checked)
+									}
+								/>
+							</ManagementToolbar.Item>
+
+							<ClayDropDownWithItems
+								items={filterItems}
+								trigger={
+									<Button
+										className="nav-link"
+										displayType="unstyled"
+									>
+										<span className="navbar-breakpoint-down-d-none">
+											<span className="navbar-text-truncate">
+												{'Filter and Order'}
+											</span>
+										</span>
+										<span className="navbar-breakpoint-d-none">
+											<Icon symbol="filter" />
+										</span>
+									</Button>
+								}
+								triggerIcon="caret-bottom"
+							/>
+
+							<ManagementToolbar.Item>
+								<Button
+									aria-label="Order"
+									className="nav-link nav-link-monospaced"
+									displayType="unstyled"
+									onClick={() => {}}
+								>
+									<Icon symbol="order-list-up" />
+								</Button>
+							</ManagementToolbar.Item>
+						</ManagementToolbar.ItemList>
+
+						<ManagementToolbar.Search showMobile={searchMobile}>
+							<ClayInput.Group>
+								<ClayInput.GroupItem>
+									<ClayInput
+										aria-label="Search"
+										className="form-control input-group-inset input-group-inset-after"
+										defaultValue="Red"
+										type="text"
+									/>
+									<ClayInput.GroupInsetItem after tag="span">
+										<ClayButtonWithIcon
+											aria-label="Close search"
+											className="navbar-breakpoint-d-none"
+											displayType="unstyled"
+											onClick={() =>
+												setSearchMobile(false)
+											}
+											symbol="times"
+										/>
+										<ClayButtonWithIcon
+											aria-label="Search"
+											displayType="unstyled"
+											symbol="search"
+											type="submit"
+										/>
+									</ClayInput.GroupInsetItem>
+								</ClayInput.GroupItem>
+							</ClayInput.Group>
+						</ManagementToolbar.Search>
+
+						<ManagementToolbar.ItemList>
+							<ManagementToolbar.Item className="navbar-breakpoint-d-none">
+								<Button
+									aria-label="Search"
+									className="nav-link nav-link-monospaced"
+									displayType="unstyled"
+									onClick={() => setSearchMobile(true)}
+								>
+									<Icon symbol="search" />
+								</Button>
+							</ManagementToolbar.Item>
+
+							<ManagementToolbar.Item>
+								<Button
+									aria-label="Info"
+									className="nav-link nav-link-monospaced"
+									displayType="unstyled"
+									onClick={() => {}}
+								>
+									<Icon symbol="info-circle-open" />
+								</Button>
+							</ManagementToolbar.Item>
+
+							<ManagementToolbar.Item>
+								<ClayDropDownWithItems
+									items={viewTypes}
+									trigger={
+										<Button
+											aria-label="Display view"
+											className="nav-link-monospaced nav-link"
+											displayType="unstyled"
+										>
+											<Icon
+												symbol={
+													viewTypeActive
+														? viewTypeActive.symbolLeft
+														: ''
+												}
+											/>
+										</Button>
+									}
+									triggerIcon="caret-double-l"
+								/>
+							</ManagementToolbar.Item>
+
+							<ManagementToolbar.Item>
+								<ClayButtonWithIcon
+									aria-label="Add"
+									className="nav-btn nav-btn-monospaced"
+									symbol="plus"
+								/>
+							</ManagementToolbar.Item>
+						</ManagementToolbar.ItemList>
+					</ManagementToolbar>
+
+					<ClayResultsBar>
+						<ClayResultsBar.Item>
+							<span className="component-text text-truncate-inline">
+								<span className="text-truncate">
+									{'2 results for "'}
+									<strong>{'Red'}</strong>
+									{'"'}
+								</span>
+							</span>
+						</ClayResultsBar.Item>
+						<ClayResultsBar.Item expand>
+							<Label
+								className="component-label tbar-label"
+								displayType="unstyled"
+							>
+								{'Filter'}
+							</Label>
+						</ClayResultsBar.Item>
+						<ClayResultsBar.Item>
+							<Button
+								className="component-link tbar-link"
+								displayType="unstyled"
+							>
+								{'Clear'}
+							</Button>
+						</ClayResultsBar.Item>
+					</ClayResultsBar>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Results Bar
 
-Use `ClayManagementToolbar.ResultsBar` for creating a results bar and `ClayManagementToolbar.ResultsBarItem` for defining items inside Results Bar.
+Use `ManagementToolbar.ClayResultsBar` for creating a results bar and `ManagementToolbar.ResultsBarItem` for defining items inside Results Bar.
 
-<ResultsBar />
+```jsx preview
+import {Provider} from '@clayui/core';
+import ManagementToolbar, {ClayResultsBar} from '@clayui/management-toolbar';
+import Button from '@clayui/button';
+import Label from '@clayui/label';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ManagementToolbar>
+					<ClayResultsBar>
+						<ClayResultsBar.Item>
+							<span className="component-text text-truncate-inline">
+								<span className="text-truncate">
+									{'2 results for "'}
+									<strong>{'Red'}</strong>
+									{'"'}
+								</span>
+							</span>
+						</ClayResultsBar.Item>
+						<ClayResultsBar.Item expand>
+							<Label
+								className="component-label tbar-label"
+								displayType="unstyled"
+							>
+								{'Filter'}
+							</Label>
+						</ClayResultsBar.Item>
+						<ClayResultsBar.Item>
+							<Button
+								className="component-link tbar-link"
+								displayType="unstyled"
+							>
+								{'Clear'}
+							</Button>
+						</ClayResultsBar.Item>
+					</ClayResultsBar>
+				</ManagementToolbar>
+			</div>
+		</Provider>
+	);
+}
+```

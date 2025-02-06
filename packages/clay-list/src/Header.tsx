@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayListHeader = React.forwardRef<
+const Header = React.forwardRef<
 	HTMLLIElement,
 	React.HTMLAttributes<HTMLLIElement>
 >(({children, className, ...otherProps}, ref) => {
@@ -21,6 +21,6 @@ const ClayListHeader = React.forwardRef<
 	);
 });
 
-ClayListHeader.displayName = 'ClayListHeader';
+Header.displayName = 'ClayListHeader';
 
-export default ClayListHeader;
+export default Header;

@@ -1,0 +1,556 @@
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[build]
+command = "yarn build"
+publish = ".next"
+
+[[redirects]]
+from = "/blog"
+to = "/blog/2022-05-02-api-consistency-improvements-for-controlled-and-uncontrolled-components"
+status = 302
+
+[[redirects]]
+from = "/docs/components"
+to = "/docs/introduction/how-to-use-clay"
+status = 301
+
+[[redirects]]
+from = "/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components.html"
+to = "/blog/2022-05-02-api-consistency-improvements-for-controlled-and-uncontrolled-components"
+status = 301
+
+[[redirects]]
+from = "/blog/2022/02/08/slimming-down-clay-css.html"
+to = "/blog/2022-02-08-slimming-down-clay-css"
+status = 301
+
+[[redirects]]
+from = "/blog/2021/09/13/clay0-css-cadmin.html"
+to = "/blog/2021-09-13-clay-css-cadmin"
+status = 301
+
+[[redirects]]
+from = "/blog/2021/09/09/clay-css-mixin-updates.html"
+to = "/blog/2021-09-09-clay-css-mixin-updates"
+status = 301
+
+[[redirects]]
+from = "/blog/2019/10/25/introducing-clay-v3.html"
+to = "/blog/2019-10-25-introducing-clay-v3"
+status = 301
+
+[[redirects]]
+from = "/docs/css"
+to = "/docs/css/scss"
+status = 301
+
+[[redirects]]
+from = "/docs/contributing.html"
+to = "/docs/contribute"
+status = 301
+
+[[redirects]]
+from = "/docs/get-started/using-clay-in-jsps.html"
+to = "/docs/introduction/clay-in-jsps"
+status = 301
+
+[[redirects]]
+from = "/docs/components/text.html"
+to = "/docs/components/text"
+status = 301
+
+[[redirects]]
+from = "/docs/components/heading.html"
+to = "/docs/components/heading"
+status = 301
+
+[[redirects]]
+from = "/docs/components/focus-trap.html"
+to = "/docs/components/focus-trap"
+status = 301
+
+[[redirects]]
+from = "/docs/components/overlay-mask.html"
+to = "/docs/components/overlay-mask"
+status = 301
+
+[[redirects]]
+from = "/docs/components/reduced-motion.html"
+to = "/docs/components/reduced-motion"
+status = 301
+
+[[redirects]]
+from = "/docs/components/data-provider.html"
+to = "/docs/components/data-provider"
+status = 301
+
+[[redirects]]
+from = "/docs/components/vertical-bar.html"
+to = "/docs/components/vertical-bar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/picker.html"
+to = "/docs/components/picker"
+status = 301
+
+[[redirects]]
+from = "/docs/components/radio-group.html"
+to = "/docs/components/radio-group"
+status = 301
+
+[[redirects]]
+from = "/docs/components/vertical-nav.html"
+to = "/docs/components/vertical-nav"
+status = 301
+
+[[redirects]]
+from = "/docs/components/layout.html"
+to = "/docs/components/layout"
+status = 301
+
+[[redirects]]
+from = "/docs/components/pagination.html"
+to = "/docs/components/pagination"
+status = 301
+
+[[redirects]]
+from = "/docs/get-started/how-to-use-clay.html"
+to = "/docs/introduction/how-to-use-clay"
+status = 301
+
+[[redirects]]
+from = "/docs/components/time-picker.html"
+to = "/docs/components/time-picker"
+status = 301
+
+[[redirects]]
+from = "/docs/components/provider.html"
+to = "/docs/components/provider"
+status = 301
+
+[[redirects]]
+from = "/docs/get-started/composing.html"
+to = "/docs/introduction/composition"
+status = 301
+
+[[redirects]]
+from = "/docs/components/upper-toolbar.html"
+to = "/docs/components/upper-toolbar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/alert.html"
+to = "/docs/components/alert"
+status = 301
+
+[[redirects]]
+from = "/docs/components/autocomplete.html"
+to = "/docs/components/autocomplete"
+status = 301
+
+[[redirects]]
+from = "/docs/components/badge.html"
+to = "/docs/components/badge"
+status = 301
+
+[[redirects]]
+from = "/docs/components/breadcrumb.html"
+to = "/docs/components/breadcrumb"
+status = 301
+
+[[redirects]]
+from = "/docs/components/button.html"
+to = "/docs/components/button"
+status = 301
+
+[[redirects]]
+from = "/docs/components/card.html"
+to = "/docs/components/card"
+status = 301
+
+[[redirects]]
+from = "/docs/components/color-picker.html"
+to = "/docs/components/color-picker"
+status = 301
+
+[[redirects]]
+from = "/docs/components/table.html"
+to = "/docs/components/table"
+status = 301
+
+[[redirects]]
+from = "/docs/components/treeview.html"
+to = "/docs/components/tree-view"
+status = 301
+
+[[redirects]]
+from = "/docs/components/date-picker.html"
+to = "/docs/components/date-picker"
+status = 301
+
+[[redirects]]
+from = "/docs/components/drop-down.html"
+to = "/docs/components/drop-down"
+status = 301
+
+[[redirects]]
+from = "/docs/components/empty-state.html"
+to = "/docs/components/empty-state"
+status = 301
+
+[[redirects]]
+from = "/docs/components/checkbox.html"
+to = "/docs/components/checkbox"
+status = 301
+
+[[redirects]]
+from = "/docs/components/dual-list-box.html"
+to = "/docs/components/dual-list-box"
+status = 301
+
+[[redirects]]
+from = "/docs/components/form.html"
+to = "/docs/components/form"
+status = 301
+
+[[redirects]]
+from = "/docs/components/input.html"
+to = "/docs/components/input"
+status = 301
+
+[[redirects]]
+from = "/docs/components/input-group.html"
+to = "/docs/components/input-group"
+status = 301
+
+[[redirects]]
+from = "/docs/components/select.html"
+to = "/docs/components/select"
+status = 301
+
+[[redirects]]
+from = "/docs/components/select-box.html"
+to = "/docs/components/select-box"
+status = 301
+
+[[redirects]]
+from = "/docs/components/toggle-switch.html"
+to = "/docs/components/toggle-switch"
+status = 301
+
+[[redirects]]
+from = "/docs/components/icon.html"
+to = "/docs/components/icon"
+status = 301
+
+[[redirects]]
+from = "/docs/components/label.html"
+to = "/docs/components/label"
+status = 301
+
+[[redirects]]
+from = "/docs/components/link.html"
+to = "/docs/components/link"
+status = 301
+
+[[redirects]]
+from = "/docs/components/list.html"
+to = "/docs/components/list"
+status = 301
+
+[[redirects]]
+from = "/docs/components/loading-indicator.html"
+to = "/docs/components/loading-indicator"
+status = 301
+
+[[redirects]]
+from = "/docs/components/localized-input.html"
+to = "/docs/components/localized-input"
+status = 301
+
+[[redirects]]
+from = "/docs/components/management-toolbar.html"
+to = "/docs/components/management-toolbar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/modal.html"
+to = "/docs/components/modal"
+status = 301
+
+[[redirects]]
+from = "/docs/components/multi-select.html"
+to = "/docs/components/multi-select"
+status = 301
+
+[[redirects]]
+from = "/docs/components/multi-step-nav.html"
+to = "/docs/components/multi-step-nav"
+status = 301
+
+[[redirects]]
+from = "/docs/components/nav.html"
+to = "/docs/components/nav"
+status = 301
+
+[[redirects]]
+from = "/docs/components/navigation-bar.html"
+to = "/docs/components/navigation-bar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/pagination-bar.html"
+to = "/docs/components/pagination-bar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/panel.html"
+to = "/docs/components/panel"
+status = 301
+
+[[redirects]]
+from = "/docs/components/popover.html"
+to = "/docs/components/popover"
+status = 301
+
+[[redirects]]
+from = "/docs/components/progress-bar.html"
+to = "/docs/components/progress-bar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/slider.html"
+to = "/docs/components/slider"
+status = 301
+
+[[redirects]]
+from = "/docs/components/sticker.html"
+to = "/docs/components/sticker"
+status = 301
+
+[[redirects]]
+from = "/docs/components/tabs.html"
+to = "/docs/components/tabs"
+status = 301
+
+[[redirects]]
+from = "/docs/components/toolbar.html"
+to = "/docs/components/toolbar"
+status = 301
+
+[[redirects]]
+from = "/docs/components/tooltip.html"
+to = "/docs/components/tooltip"
+status = 301
+
+[[redirects]]
+from = "/docs/components/alert/markup.html"
+to = "/docs/components/alert/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/autocomplete/markup.html"
+to = "/docs/components/autocomplete/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/badge/markup.html"
+to = "/docs/components/badge/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/breadcrumb/markup.html"
+to = "/docs/components/breadcrumb/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/button/markup.html"
+to = "/docs/components/button/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/card/markup.html"
+to = "/docs/components/card/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/color-picker/markup.html"
+to = "/docs/components/color-picker/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/table/markup.html"
+to = "/docs/components/table/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/text/markup.html"
+to = "/docs/components/text/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/treeview/markup.html"
+to = "/docs/components/tree-view/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/date-picker/markup.html"
+to = "/docs/components/date-picker/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/drop-down/markup.html"
+to = "/docs/components/drop-down/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/empty-state/markup.html"
+to = "/docs/components/empty-state/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/checkbox/markup.html"
+to = "/docs/components/checkbox/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/dual-list-box/markup.html"
+to = "/docs/components/dual-list-box/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/form/markup.html"
+to = "/docs/components/form/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/input/markup.html"
+to = "/docs/components/input/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/input-group/markup.html"
+to = "/docs/components/input-group/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/select/markup.html"
+to = "/docs/components/select/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/select-box/markup.html"
+to = "/docs/components/select-box/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/toggle-switch/markup.html"
+to = "/docs/components/toggle-switch/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/icon/markup.html"
+to = "/docs/components/icon/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/label/markup.html"
+to = "/docs/components/label/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/link/markup.html"
+to = "/docs/components/link/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/list/markup.html"
+to = "/docs/components/list/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/loading-indicator/markup.html"
+to = "/docs/components/loading-indicator/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/localized-input/markup.html"
+to = "/docs/components/localized-input/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/management-toolbar/markup.html"
+to = "/docs/components/management-toolbar/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/modal/markup.html"
+to = "/docs/components/modal/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/multi-select/markup.html"
+to = "/docs/components/multi-select/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/multi-step-nav/markup.html"
+to = "/docs/components/multi-step-nav/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/nav/markup.html"
+to = "/docs/components/nav/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/navigation-bar/markup.html"
+to = "/docs/components/navigation-bar/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/pagination-bar/markup.html"
+to = "/docs/components/pagination-bar/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/panel/markup.html"
+to = "/docs/components/panel/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/popover/markup.html"
+to = "/docs/components/popover/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/progress-bar/markup.html"
+to = "/docs/components/progress-bar/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/slider/markup.html"
+to = "/docs/components/slider/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/sticker/markup.html"
+to = "/docs/components/sticker/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/tabs/markup.html"
+to = "/docs/components/tabs/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/toolbar/markup.html"
+to = "/docs/components/toolbar/markup"
+status = 301
+
+[[redirects]]
+from = "/docs/components/tooltip/markup.html"
+to = "/docs/components/tooltip/markup"
+status = 301

@@ -43,7 +43,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ClayCheckbox = React.forwardRef<HTMLInputElement, IProps>(
+const Checkbox = React.forwardRef<HTMLInputElement, IProps>(
 	(
 		{
 			checked,
@@ -111,6 +111,6 @@ const ClayCheckbox = React.forwardRef<HTMLInputElement, IProps>(
 	}
 );
 
-ClayCheckbox.displayName = 'ClayCheckbox';
+Checkbox.displayName = 'ClayCheckbox';
 
-export default ClayCheckbox;
+export default Checkbox;

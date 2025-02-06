@@ -3,67 +3,386 @@ title: 'Tabs'
 description: 'Tabs organize similar content together into individual sections in the same page.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/tabs/'
 packageNpm: '@clayui/tabs'
+packageUse: "import Tabs from '@clayui/tabs';"
+packageTypes:
+    [
+        'clay-tabs/src/index.tsx',
+        'clay-tabs/src/Content.tsx',
+        'clay-tabs/src/Item.tsx',
+        'clay-tabs/src/List.tsx',
+        'clay-tabs/src/TabPane.tsx',
+    ]
 ---
-
-import {
-	Tabs,
-	TabsLight,
-	ModernTabs,
-	TabsDropdown,
-} from '$packages/clay-tabs/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [Basic Tabs](#basic-tabs)
--   [Light Tabs](#light-tabs)
--   [Modern Tabs (Deprecated)](#modern-tabs)
--   [Dropdown Tabs](#dropdown-tabs)
--   [TabPanel](#tabpanel)
-
-</div>
-</div>
 
 ## Introduction
 
-`ClayTabs` is a controlled component, we left this component controlled because the user can use Dropdowns or another control to select a `TabPane` for render. Just creating states to manage it.
+`Tabs` is a controlled component, we left this component controlled because the user can use Dropdowns or another control to select a `TabPane` for render. Just creating states to manage it.
 
-Use `ClayTabs.Item` for defining a TabPane's trigger. For using this trigger as an `anchor` element, just define `href` property, otherwise, the trigger will be a `button`. Use `ClayTabs.TabPane` for wrapping the content that will be rendered by TabPane as the following example:
+Use `Tabs.Item` for defining a TabPane's trigger. For using this trigger as an `anchor` element, just define `href` property, otherwise, the trigger will be a `button`. Use `Tabs.TabPane` for wrapping the content that will be rendered by TabPane as the following example:
 
-## Tabs(#basic-tabs)
+## Tabs
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	The `displayType` attribute has been deprecated after 3.89.0.
 </div>
 
 This is the default tab. The `displayType` attribute was deprecated after 3.89.0. You no longer need to use `displayType="basic"` to output this style.
 
-<Tabs />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Tabs from '@clayui/tabs';
+import React, {useState} from 'react';
 
-## Light Tabs(#light-tabs)
+import '@clayui/css/lib/css/atlas.css';
 
-<TabsLight />
+export default function App() {
+	const [active, setActive] = useState(0);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Tabs active={active} onActiveChange={setActive}>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-1',
+							}}
+						>
+							Tab 1
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-2',
+							}}
+						>
+							Tab 2
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-3',
+							}}
+						>
+							Tab 3
+						</Tabs.Item>
+					</Tabs>
+					<Tabs.Content activeIndex={active} fade>
+						<Tabs.TabPane aria-labelledby="tab-1">
+							1. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-2">
+							2. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-3">
+							3. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+					</Tabs.Content>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Light Tabs
+
+```jsx preview
+import {Provider} from '@clayui/core';
+import Tabs from '@clayui/tabs';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [active, setActive] = useState(0);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Tabs
+						active={active}
+						displayType="light"
+						onActiveChange={setActive}
+					>
+						<Tabs.List>
+							<Tabs.Item
+								innerProps={{
+									'aria-controls': 'tabpanel-1',
+								}}
+							>
+								Tab 1
+							</Tabs.Item>
+							<Tabs.Item
+								innerProps={{
+									'aria-controls': 'tabpanel-2',
+								}}
+							>
+								Tab 2
+							</Tabs.Item>
+							<Tabs.Item
+								innerProps={{
+									'aria-controls': 'tabpanel-3',
+								}}
+							>
+								Tab 3
+							</Tabs.Item>
+						</Tabs.List>
+						<Tabs.Panels>
+							<Tabs.TabPanel aria-labelledby="tab-1">
+								1. Proin efficitur imperdiet dolor, a iaculis
+								orci lacinia eu.
+							</Tabs.TabPanel>
+							<Tabs.TabPanel aria-labelledby="tab-2">
+								2. Proin efficitur imperdiet dolor, a iaculis
+								orci lacinia eu.
+							</Tabs.TabPanel>
+							<Tabs.TabPanel aria-labelledby="tab-3">
+								3. Proin efficitur imperdiet dolor, a iaculis
+								orci lacinia eu.
+							</Tabs.TabPanel>
+						</Tabs.Panels>
+					</Tabs>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Modern Tabs
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	The `modern` attribute has been deprecated after 3.89.0. The styles for the `.nav-underline`
 	class have been removed.
 </div>
 
-For the modern variant of Tabs use the `modern` property. If you need to justify the text inside the `ClayTabs.Item`, use the `justified` property.
+For the modern variant of Tabs use the `modern` property. If you need to justify the text inside the `Tabs.Item`, use the `justified` property.
 
-<ModernTabs />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Tabs from '@clayui/tabs';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [active, setActive] = useState(0);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Tabs active={active} modern onActiveChange={setActive}>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-1',
+							}}
+						>
+							Tab 1
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-2',
+							}}
+						>
+							Tab 2
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-3',
+							}}
+						>
+							Tab 3
+						</Tabs.Item>
+					</Tabs>
+					<Tabs.Content activeIndex={active} fade>
+						<Tabs.TabPane aria-labelledby="tab-1">
+							1. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-2">
+							2. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-3">
+							3. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+					</Tabs.Content>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Dropdown Tabs
 
 As a controlled component, Tabs allows you to control the `active` TabPane. Thereby, we can select the active TabPane by a Dropdown menu. For example:
 
-<TabsDropdown />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Tabs from '@clayui/tabs';
+import Icon from '@clayui/icon';
+import DropDown, {Align} from '@clayui/drop-down';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+const DropDownWithState = ({children, trigger, ...others}) => {
+	return (
+		<DropDown
+			alignmentPosition={Align.BottomLeft}
+			hasRightSymbols
+			trigger={trigger}
+			{...others}
+		>
+			{children}
+		</DropDown>
+	);
+};
+
+export default function App() {
+	const [active, setActive] = useState(0);
+
+	const dropdownTabsItems = [
+		{
+			disabled: true,
+			label: 'Tab 5',
+			tabkey: 5,
+		},
+		{
+			label: 'Tab 6',
+			tabkey: 6,
+		},
+		{
+			label: 'Tab 7',
+			tabkey: 7,
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Tabs active={active} onActiveChange={setActive}>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-1',
+							}}
+						>
+							Tab 1
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-2',
+							}}
+						>
+							Tab 2
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-3',
+							}}
+						>
+							Tab 3
+						</Tabs.Item>
+						<Tabs.Item
+							innerProps={{
+								'aria-controls': 'tabpanel-4',
+							}}
+						>
+							Tab 4
+						</Tabs.Item>
+
+						<DropDownWithState
+							trigger={
+								<Tabs.Item
+									active={[5, 6, 7].includes(active)}
+									innerProps={{
+										'aria-controls': 'tabpanel-5',
+									}}
+								>
+									More
+									<Icon symbol="caret-bottom" />
+								</Tabs.Item>
+							}
+						>
+							<DropDown.ItemList>
+								{dropdownTabsItems.map(
+									({disabled = false, label, tabkey}, i) => {
+										return (
+											<DropDown.Item
+												active={active === tabkey}
+												aria-selected={
+													active === tabkey
+												}
+												disabled={disabled}
+												key={i}
+												onClick={() =>
+													setActive(tabkey)
+												}
+												role="tab"
+												symbolRight={
+													active === tabkey
+														? 'check'
+														: undefined
+												}
+											>
+												{label}
+											</DropDown.Item>
+										);
+									}
+								)}
+							</DropDown.ItemList>
+						</DropDownWithState>
+					</Tabs>
+					<Tabs.Content activeIndex={active} fade>
+						<Tabs.TabPane aria-labelledby="tab-1">
+							1. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-2">
+							2. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-3">
+							3. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-4">
+							4. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-5">
+							5. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-6">
+							6. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-7">
+							7. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+						<Tabs.TabPane aria-labelledby="tab-8">
+							8. Proin efficitur imperdiet dolor, a iaculis orci
+							lacinia eu.
+						</Tabs.TabPane>
+					</Tabs.Content>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## TabPanel
 
-Note that `ClayTabs.TabPanel` is an alias to `ClayTabs.TabPane`. The two are interchangeable.
+Note that `Tabs.TabPanel` is an alias to `Tabs.TabPane`. The two are interchangeable.

@@ -164,7 +164,7 @@ const DEFAULT_CONFIG = {
 
 const regex = /^\d+$/;
 
-const ClayTimePicker = ({
+const TimePicker = ({
 	ariaLabels = {
 		ampm: 'Select time of day (AM/PM) using up (PM) and down (AM) arrow keys',
 		clear: 'Delete the entered time',
@@ -599,4 +599,4 @@ const ClayTimePicker = ({
 	);
 };
 
-export default ClayTimePicker;
+export default TimePicker;

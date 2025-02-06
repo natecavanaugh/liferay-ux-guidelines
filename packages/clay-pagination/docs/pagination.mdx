@@ -3,21 +3,15 @@ title: 'Pagination'
 description: 'Pagination provides horizontal navigation between chunks(pages) of a dataset.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/pagination/'
 packageNpm: '@clayui/pagination'
+packageUse: "import Pagination, {ClayPaginationWithBasicItems} from '@clayui/pagination';"
+packageTypes:
+    [
+        'clay-pagination/src/PaginationWithBasicItems.tsx',
+        'clay-pagination/src/Pagination.tsx',
+        'clay-pagination/src/Item.tsx',
+        'clay-pagination/src/Ellipsis.tsx',
+    ]
 ---
-
-import {
-	Pagination,
-	PaginationWithBasicItems,
-} from '$packages/clay-pagination/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Numbered Pagination](#numbered-pagination)
-    -   [Accessibility](#numbered-pagination-accessibility)
-
-</div>
-</div>
 
 You can use `ClayPagination.Ellipsis` to display a dropdown with the specified page numbers as the dropdown's options.
 
@@ -25,19 +19,67 @@ You can use `ClayPagination.Ellipsis` to display a dropdown with the specified p
 
 Combining these you can reach the following result:
 
-<Pagination />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Pagination from '@clayui/pagination';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Pagination>
+					<Pagination.Item>{1}</Pagination.Item>
+					<Pagination.Ellipsis
+						aria-label="More"
+						title="More"
+						items={[2, 3, 4, 5]}
+					/>
+					<Pagination.Item>{'End'}</Pagination.Item>
+				</Pagination>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Numbered Pagination
 
 If you want to have a simple Pagination with integers as Pagination items you can use a simpler variant, `PaginationWithBasicItems` as you can see below:
 
-<PaginationWithBasicItems />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayPaginationWithBasicItems} from '@clayui/pagination';
+import React, {useState} from 'react';
 
-### Accessibility(#numbered-pagination-accessibility)
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [active, setActive] = useState(8);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayPaginationWithBasicItems
+					active={active}
+					ellipsisBuffer={2}
+					ellipsisProps={{'aria-label': 'More', title: 'More'}}
+					onActiveChange={setActive}
+					totalPages={25}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
+
+### Accessibility
 
 `ClayPaginationWithBasicItems` generates `aria-label`'s for the previous, next, page, and ellipsis links. Custom labels can be passed to the previous, next, and page links through the `ariaLabels` attribute. It is useful for providing translated labels for screen readers or custom text more relevant to your app. The component will replace the placeholder `{0}` with the page number.
 
-```tsx
+```jsx
 <ClayPaginationWithBasicItems
 	ariaLabels={{
 		link: 'Change the page to {0}',
@@ -52,7 +94,7 @@ If you want to have a simple Pagination with integers as Pagination items you ca
 
 The `aria-label` attribute on `ClayPaginationWithBasicItems` sets the `aria-label` on the `nav` element. It defaults to "Pagination".
 
-```tsx
+```jsx
 <ClayPaginationWithBasicItems
 	aria-label="Pagination for 25 pages worth of stuff"
 	activePage={8}
@@ -63,7 +105,7 @@ The `aria-label` attribute on `ClayPaginationWithBasicItems` sets the `aria-labe
 
 The ellipsis `aria-label` and `title` are customized through the `ellipsisProps` attribute. The placeholder text `{0}` will be replaced with the first page number on the list and `{1}` will be replaced with the last page number on the list.
 
-```tsx
+```jsx
 <ClayPaginationWithBasicItems
 	activePage={8}
 	ellipsisBuffer={2}

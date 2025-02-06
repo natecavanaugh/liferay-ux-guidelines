@@ -1,0 +1,728 @@
+---
+title: 'Button'
+description: 'Buttons communicate an action to happen on user interaction.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/buttons/'
+packageNpm: '@clayui/button'
+packageUse: "import Button from '@clayui/button';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/#button">WAI-ARIA</a>{' '}
+	accessibility pratices for buttons when writting your markup.
+</div>
+
+## Examples
+
+<div className="sheet-example">
+	<button className="btn btn-primary" type="button">
+		Primary
+	</button>
+	<button className="btn btn-secondary" type="button">
+		Secondary
+	</button>
+	<button className="btn btn-info" type="button">
+		Info
+	</button>
+	<button className="btn btn-success" type="button">
+		Success
+	</button>
+	<button className="btn btn-warning" type="button">
+		Warning
+	</button>
+	<button className="btn btn-danger" type="button">
+		Danger
+	</button>
+	<button className="btn btn-link" type="button">
+		Link
+	</button>
+</div>
+
+```html
+<button className="btn btn-primary" type="button">Primary</button>
+<button className="btn btn-secondary" type="button">Secondary</button>
+<button className="btn btn-info" type="button">Info</button>
+<button className="btn btn-success" type="button">Success</button>
+<button className="btn btn-warning" type="button">Warning</button>
+<button className="btn btn-danger" type="button">Danger</button>
+<button className="btn btn-link" type="button">Link</button>
+```
+
+### Button Variant Sass API
+
+The map `$btn-palette` allows generating any number of button variants. If a key starts with `.`, `#` or `%`, Clay will output it as is, otherwise we will prepend `.btn-` to the key (e.g., `.btn-primary`). It will also generate Sass placeholders prefix/appended by `%btn-` and `%btn-{color}-focus` (e.g., `%btn-primary` and `%btn-primary-focus`), respectively.
+
+```css
+$btn-palette: (
+	primary: (
+		background-color: $primary
+	),
+	'%btn-tertiary': (
+		background-color: green
+	),
+	'.btn-tertiary': (
+		extend: '%btn-tertiary'
+	),
+	'.btn-quaternary': (
+		extend: '%btn-tertiary'
+	)
+);
+```
+
+Outputs:
+
+```css
+.btn-primary {
+	background-color: #0b5fff;
+}
+
+.btn-tertiary,
+.btn-quaternary {
+	background-color: green;
+}
+```
+
+## Sizes
+
+<div className="sheet-example">
+	<button className="btn btn-primary" type="button">
+		Default
+	</button>
+	<button className="btn btn-primary btn-sm" type="button">
+		Small
+	</button>
+	<button className="btn btn-primary btn-xs" type="button">
+		Extra Small
+	</button>
+</div>
+
+```html
+<button className="btn btn-primary" type="button">Default</button>
+<button className="btn btn-primary btn-sm" type="button">Small</button>
+<button className="btn btn-primary btn-xs" type="button">Extra Small</button>
+```
+
+Create block level buttons—those that span the full width of a parent—by adding `.btn-block`.
+
+<div className="sheet-example">
+	<button className="btn btn-block btn-secondary btn-xs" type="button">
+		Extra Small Block Level Button
+	</button>
+	<button className="btn btn-block btn-secondary btn-sm" type="button">
+		Small Block Level Button
+	</button>
+	<button className="btn btn-block btn-secondary" type="button">
+		Normal Block Level Button
+	</button>
+</div>
+
+```html
+<button className="btn btn-block btn-secondary btn-xs" type="button">
+	Extra Small Block Level Button
+</button>
+<button className="btn btn-block btn-secondary btn-sm" type="button">
+	Small Block Level Button
+</button>
+<button className="btn btn-block btn-secondary" type="button">
+	Normal Block Level Button
+</button>
+```
+
+### Button Size Sass API
+
+The map `$btn-sizes` allows generating any number of button size variants. If a key starts with `btn-` Clay will prepend `.` to the key (e.g., `.btn-sm`). It will also generate a Sass placeholder prefixed by `%clay-` (e.g., `%clay-btn-sm`).
+
+```css
+$btn-sizes: (
+	btn-sm: (
+		font-size: 14px
+	),
+	'.btn-xs': (
+		extend: '%clay-btn-sm'
+	),
+	'%btn-xxs': (
+		font-size: 12px
+	),
+	'.btn-xxs': (
+		extend: '%btn-xxs'
+	)
+);
+```
+
+Outputs:
+
+```css
+.btn-sm,
+.btn-xs {
+	font-size: 14px;
+}
+
+.btn-xxs {
+	font-size: 12px;
+}
+```
+
+## Active State
+
+Buttons will appear pressed when active. However, you can still force the same active appearance with `.active` (and include the `aria-pressed="true"` attribute) should you need to replicate the state programmatically.
+
+<div className="sheet-example">
+	<button className="active btn btn-primary" type="button">
+		Primary
+	</button>
+	<button className="active btn btn-secondary" type="button">
+		Secondary
+	</button>
+</div>
+
+```html
+<button className="active btn btn-primary" type="button">Primary</button>
+<button className="active btn btn-secondary" type="button">Secondary</button>
+```
+
+## Disabled State
+
+Make buttons look inactive by adding the `disabled` boolean attribute to any `<button>` element.
+
+<div className="sheet-example">
+	<button className="btn btn-primary" disabled="" type="button">
+		Primary
+	</button>
+	<button className="btn btn-secondary" disabled="" type="button">
+		Secondary
+	</button>
+</div>
+
+```html
+<button className="btn btn-primary" disabled="" type="button">Primary</button>
+<button className="btn btn-secondary" disabled="" type="button">
+	Secondary
+</button>
+```
+
+## Group
+
+### Split Button
+
+Split buttons are used when you need to offer the user a quick main action along with secondary actions.
+
+<div className="sheet-example">
+	<div className="btn-group" role="group">
+		<button className="btn btn-primary" type="button">
+			Primary
+		</button>
+		<button
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="btn btn-primary btn-monospaced dropdown-toggle"
+			data-toggle="dropdown"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom" />
+			</svg>
+		</button>
+		<div className="dropdown-menu dropdown-menu-right">
+			<a className="dropdown-item" href="#1">
+				Action
+			</a>
+			<div className="dropdown-divider"></div>
+			<a className="dropdown-item" href="#1">
+				Scope
+			</a>
+		</div>
+	</div>
+	<div className="btn-group" role="group">
+		<button className="btn btn-secondary" type="button">
+			Secondary
+		</button>
+		<button
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="btn btn-secondary btn-monospaced dropdown-toggle"
+			data-toggle="dropdown"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom" />
+			</svg>
+		</button>
+		<div className="dropdown-menu dropdown-menu-right">
+			<a className="dropdown-item" href="#1">
+				Action
+			</a>
+			<div className="dropdown-divider"></div>
+			<a className="dropdown-item" href="#1">
+				Scope
+			</a>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="btn-group dropdown" role="group">
+	<button className="btn btn-primary" type="button">Primary</button>
+	<button
+		aria-expanded="false"
+		aria-haspopup="true"
+		className="btn btn-primary btn-monospaced dropdown-toggle"
+		data-toggle="dropdown"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-caret-bottom"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#caret-bottom" />
+		</svg>
+	</button>
+</div>
+```
+
+### Button group
+
+Button groups are used to switch between complementary views for example, but they must never be used for complementary actions, "Change and Cancel" actions, or "Save and Cancel" actions. In those cases, single buttons are the correct solution.
+
+<div className="sheet-example">
+	<div className="mb-2">
+		<div className="btn-group" role="group">
+			<button className="btn btn-secondary" type="button">
+				Day
+			</button>
+			<button className="active btn btn-secondary" type="button">
+				Month
+			</button>
+			<button className="btn btn-secondary" type="button">
+				Year
+			</button>
+		</div>
+	</div>
+	<div className="mb-2">
+		<div className="btn-group" role="group">
+			<button className="btn btn-secondary" type="button">
+				Day
+			</button>
+			<button className="active btn btn-secondary" type="button">
+				Month
+			</button>
+			<button className="btn btn-secondary" type="button">
+				Year
+			</button>
+			<button className="btn" disabled>
+				Agenda
+			</button>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="btn-group" role="group">
+	<button className="btn btn-secondary" type="button">Day</button>
+	<button className="active btn btn-secondary" type="button">Month</button>
+	<button className="btn" type="button">Year</button>
+</div>
+```
+
+## Icons
+
+Buttons can display icons instead of text. The icons, however, must be monospaced inside the button. Lexicon doesn't use buttons with text and icons or text and loading indicators. Icon buttons are used primarily in management bars. This button variation can be primary, secondary, or borderless type.
+
+Try adding the modifier class `.btn-monospaced`.
+
+<div className="sheet-example">
+	<div className="mb-2">
+		<button
+			aria-label="Blogs"
+			title="Blogs"
+			className="btn btn-monospaced btn-primary btn-xs"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#blogs"></use>
+			</svg>
+		</button>
+		<button
+			aria-label="Blogs"
+			title="Blogs"
+			className="btn btn-monospaced btn-secondary btn-xs"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#blogs"></use>
+			</svg>
+		</button>
+	</div>
+	<div className="mb-2">
+		<button
+			aria-label="Blogs"
+			title="Blogs"
+			className="btn btn-monospaced btn-primary btn-sm"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#blogs"></use>
+			</svg>
+		</button>
+		<button
+			aria-label="Blogs"
+			title="Blogs"
+			className="btn btn-monospaced btn-secondary btn-sm"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#blogs"></use>
+			</svg>
+		</button>
+	</div>
+	<div>
+		<button
+			aria-label="Blogs"
+			title="Blogs"
+			className="btn btn-monospaced btn-primary"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#blogs"></use>
+			</svg>
+		</button>
+		<button
+			aria-label="Blogs"
+			title="Blogs"
+			className="btn btn-monospaced btn-secondary"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#blogs"></use>
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<button
+	aria-label="Blogs"
+	title="Blogs"
+	className="btn btn-monospaced btn-primary btn-xs"
+	type="button"
+>
+	<svg
+		className="lexicon-icon lexicon-icon-blogs"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#blogs"></use>
+	</svg>
+</button>
+
+<button
+	aria-label="Blogs"
+	title="Blogs"
+	className="btn btn-monospaced btn-secondary btn-xs"
+	type="button"
+>
+	<svg
+		className="lexicon-icon lexicon-icon-blogs"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#blogs"></use>
+	</svg>
+</button>
+
+<button
+	aria-label="Blogs"
+	title="Blogs"
+	className="btn btn-monospaced btn-primary btn-sm"
+	type="button"
+>
+	<svg
+		className="lexicon-icon lexicon-icon-blogs"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#blogs"></use>
+	</svg>
+</button>
+
+<button
+	aria-label="Blogs"
+	title="Blogs"
+	className="btn btn-monospaced btn-secondary btn-sm"
+	type="button"
+>
+	<svg
+		className="lexicon-icon lexicon-icon-blogs"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#blogs"></use>
+	</svg>
+</button>
+
+<button
+	aria-label="Blogs"
+	title="Blogs"
+	className="btn btn-monospaced btn-primary"
+	type="button"
+>
+	<svg
+		className="lexicon-icon lexicon-icon-blogs"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#blogs"></use>
+	</svg>
+</button>
+
+<button
+	aria-label="Blogs"
+	title="Blogs"
+	className="btn btn-monospaced btn-secondary"
+	type="button"
+>
+	<svg
+		className="lexicon-icon lexicon-icon-blogs"
+		focusable="false"
+		role="presentation"
+	>
+		<use href="/images/icons/icons.svg#blogs"></use>
+	</svg>
+</button>
+```
+
+### Button Monospaced Sass API
+
+The map `$btn-monospaced-sizes` allows generating any number of button monospaced size variants. If a key starts with `btn-monospaced-` Clay will replace it with `.btn-monospaced.btn` (e.g., `.btn-monospaced.btn-sm`). It will also generate a Sass placeholder prefixed by `%clay-` (e.g., `%clay-btn-monospaced-sm`).
+
+```css
+$btn-monospaced-sizes: (
+	btn-monospaced-sm: (
+		font-size: 14px
+	),
+	'.btn-monospaced.btn-xs': (
+		extend: '%clay-btn-monospaced-sm'
+	),
+	'%btn-monospaced-xxs': (
+		font-size: 12px
+	),
+	'.btn-monospaced.btn-xxs': (
+		extend: '%btn-monospaced-xxs'
+	)
+);
+```
+
+Outputs:
+
+```css
+.btn-monospaced.btn-sm,
+.btn-monospaced.btn-xs {
+	font-size: 14px;
+}
+
+.btn-monospaced.btn-xxs {
+	font-size: 12px;
+}
+```
+
+### With Text Button
+
+This button type is only used in sites, outside of administration. The icon emphasizes and helps communicate the action. The label must match the icon's purpose.
+
+Wrap the icon with the `<span />` tag and adding the [Inline Item](/docs/css/inline-item) utilities, try adding the `.inline-item.inline-item-(before|after)` modifier class.
+
+<div className="sheet-example">
+	<button className="btn btn-secondary" type="button">
+		<span className="inline-item inline-item-before">
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#share"></use>
+			</svg>
+		</span>
+		Share
+	</button>
+	<button className="btn btn-secondary btn-sm" type="button">
+		<span className="inline-item inline-item-before">
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#share"></use>
+			</svg>
+		</span>
+		Share
+	</button>
+	<button className="btn btn-secondary btn-xs" type="button">
+		<span className="inline-item inline-item-before">
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#share"></use>
+			</svg>
+		</span>
+		Share
+	</button>
+</div>
+
+```html
+<button className="btn btn-secondary" type="button">
+	<span className="inline-item inline-item-before">
+		<svg
+			className="lexicon-icon lexicon-icon-blogs"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#share"></use>
+		</svg>
+	</span>
+	Share
+</button>
+
+<button className="btn btn-secondary btn-sm" type="button">
+	<span className="inline-item inline-item-before">
+		<svg
+			className="lexicon-icon lexicon-icon-blogs"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#share"></use>
+		</svg>
+	</span>
+	Share
+</button>
+
+<button className="btn btn-secondary btn-xs" type="button">
+	<span className="inline-item inline-item-before">
+		<svg
+			className="lexicon-icon lexicon-icon-blogs"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#share"></use>
+		</svg>
+	</span>
+	Share
+</button>
+```
+
+## Shapes
+
+### Rounded
+
+The class `rounded-pill` will make the button pill shaped.
+
+<div className="sheet-example">
+	<button className="btn btn-secondary rounded-pill" type="button">
+		<span className="inline-item inline-item-before">
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#share"></use>
+			</svg>
+		</span>
+		Share
+	</button>
+	<button className="btn btn-secondary btn-sm rounded-pill" type="button">
+		<span className="inline-item inline-item-before">
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#share"></use>
+			</svg>
+		</span>
+		Share
+	</button>
+	<button className="btn btn-secondary btn-xs rounded-pill" type="button">
+		<span className="inline-item inline-item-before">
+			<svg
+				className="lexicon-icon lexicon-icon-blogs"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#share"></use>
+			</svg>
+		</span>
+		Share
+	</button>
+</div>
+
+```html
+<button className="btn btn-secondary rounded-pill" type="button">
+	<span className="inline-item inline-item-before">
+		<svg
+			className="lexicon-icon lexicon-icon-blogs"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#share"></use>
+		</svg>
+	</span>
+	Share
+</button>
+<button className="btn btn-secondary btn-sm rounded-pill" type="button">
+	<span className="inline-item inline-item-before">
+		<svg
+			className="lexicon-icon lexicon-icon-blogs"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#share"></use>
+		</svg>
+	</span>
+	Share
+</button>
+<button className="btn btn-secondary btn-xs rounded-pill" type="button">
+	<span className="inline-item inline-item-before">
+		<svg
+			className="lexicon-icon lexicon-icon-blogs"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#share"></use>
+		</svg>
+	</span>
+	Share
+</button>
+```

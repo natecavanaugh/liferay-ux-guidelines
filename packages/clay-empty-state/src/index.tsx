@@ -44,7 +44,7 @@ interface IProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 }
 const defaultTile = 'No results found';
 
-const ClayEmptyState = ({
+const EmptyState = ({
 	children,
 	className,
 	description = 'Sorry, there are no results found',
@@ -143,4 +143,5 @@ const ClayEmptyState = ({
 		</div>
 	);
 };
-export default ClayEmptyState;
+
+export default EmptyState;

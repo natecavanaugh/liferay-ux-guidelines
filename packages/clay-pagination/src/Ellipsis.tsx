@@ -5,26 +5,23 @@
 
 import Button from '@clayui/button';
 import {__EXPERIMENTAL_MENU} from '@clayui/core';
-import DropDown from '@clayui/drop-down';
-import {sub} from '@clayui/shared';
+import {AlignPoints, sub} from '@clayui/shared';
 import React from 'react';
 
 const {Item, Menu} = __EXPERIMENTAL_MENU;
 
-export interface IPaginationEllipsisProps {
+type Props = {
 	'aria-label'?: string;
-	alignmentPosition?: React.ComponentProps<
-		typeof DropDown
-	>['alignmentPosition'];
+	alignmentPosition?: number | AlignPoints;
 	disabled?: boolean;
 	disabledPages?: Array<number>;
 	hrefConstructor?: (page?: number) => string;
 	items?: Array<number>;
 	onPageChange?: (page?: number) => void;
 	title?: string;
-}
+};
 
-const ClayPaginationEllipsis = ({
+export const Ellipsis = ({
 	alignmentPosition: _alignmentPosition,
 	disabled = false,
 	disabledPages = [],
@@ -32,7 +29,7 @@ const ClayPaginationEllipsis = ({
 	items = [],
 	onPageChange,
 	...otherProps
-}: IPaginationEllipsisProps) => {
+}: Props) => {
 	const ariaLabel =
 		otherProps['aria-label'] && !disabled
 			? sub(otherProps['aria-label'], [
@@ -82,5 +79,3 @@ const ClayPaginationEllipsis = ({
 		</li>
 	);
 };
-
-export default ClayPaginationEllipsis;

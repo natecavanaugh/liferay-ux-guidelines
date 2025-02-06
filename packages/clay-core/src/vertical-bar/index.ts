@@ -4,3 +4,7 @@
  */
 
 export {VerticalBar} from './VerticalBar';
+export {Bar} from './Bar';
+export {Item} from './Item';
+export {Panel} from './Panel';
+export {Content} from './Content';

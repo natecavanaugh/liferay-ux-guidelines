@@ -1,0 +1,726 @@
+---
+title: 'Toggle Switch'
+description: 'Toggle provide users with different selection and activation tools.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/radio-check-toggle/#toggle'
+packageNpm: '@clayui/form'
+packageUse: "import {ClayToggle} from '@clayui/form';"
+storybookPath: 'design-system-components-toggle'
+---
+
+## Example
+
+<div className="sheet-example">
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				role="switch"
+				type="checkbox"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				role="switch"
+				type="checkbox"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span
+					className="toggle-switch-handle"
+					data-label-off=""
+					data-label-on="LIVE"
+				>
+					<span className="button-icon button-icon-on toggle-switch-icon">
+						<svg
+							className="lexicon-icon lexicon-icon-live"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#live"></use>
+						</svg>
+					</span>
+					<span className="button-icon button-icon-off toggle-switch-icon">
+						<svg
+							className="lexicon-icon lexicon-icon-staging"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#staging"></use>
+						</svg>
+					</span>
+				</span>
+			</span>
+		</span>
+	</label>
+</div>
+
+```html
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span
+				className="toggle-switch-handle"
+				data-label-off=""
+				data-label-on="LIVE"
+			>
+				<span className="button-icon button-icon-on toggle-switch-icon">
+					<svg
+						className="lexicon-icon lexicon-icon-live"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#live"></use>
+					</svg>
+				</span>
+				<span
+					className="button-icon button-icon-off toggle-switch-icon"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-staging"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#staging"></use>
+					</svg>
+				</span>
+			</span>
+		</span>
+	</span>
+</label>
+```
+
+## Behavioral
+
+You may want the Toggle Switch to behave with a Radio or Checkbox but have the appearance of a switch.
+
+### Checkbox
+
+<div className="sheet-example">
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				role="switch"
+				type="checkbox"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				role="switch"
+				type="checkbox"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+</div>
+
+```html
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+```
+
+### Radio
+
+<div className="sheet-example">
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				name="toggleSwitchRadio1"
+				role="radio"
+				type="radio"
+				value="option1"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				name="toggleSwitchRadio1"
+				role="radio"
+				type="radio"
+				value="option2"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				name="toggleSwitchRadio1"
+				role="radio"
+				type="radio"
+				value="option3"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+</div>
+
+```html
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input
+			className="toggle-switch-check"
+			name="toggleSwitchRadio1"
+			role="radio"
+			type="radio"
+			value="option1"
+		/>
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input
+			className="toggle-switch-check"
+			name="toggleSwitchRadio1"
+			role="radio"
+			type="radio"
+			value="option2"
+		/>
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input
+			className="toggle-switch-check"
+			name="toggleSwitchRadio1"
+			role="radio"
+			type="radio"
+			value="option3"
+		/>
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+```
+
+## Disabled
+
+<div className="sheet-example">
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				disabled
+				className="toggle-switch-check"
+				role="switch"
+				type="checkbox"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				disabled
+				checked
+				className="toggle-switch-check"
+				name="toggleSwitchRadio1"
+				role="radio"
+				type="radio"
+				value="option1"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle"></span>
+			</span>
+		</span>
+	</label>
+</div>
+
+```html
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input
+			disabled
+			class="toggle-switch-check"
+			role="switch"
+			type="checkbox"
+		/>
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input
+			disabled
+			checked
+			className="toggle-switch-check"
+			name="toggleSwitchRadio1"
+			role="radio"
+			type="radio"
+			value="option1"
+		/>
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle"></span>
+		</span>
+	</span>
+</label>
+```
+
+## Composable
+
+### With Text
+
+You can display additional text with the toggle switch by adding the `.toggle-switch-text` class to the text element. Use the `.toggle-switch-text-left` and `.toggle-switch-text-right` classes to position the text on the left and right side of the toggle switch, respectively.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">Adding Required Text</span>
+			<span className="toggle-switch-text">Required *</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off=""
+						data-label-on="ON"
+					></span>
+				</span>
+			</span>
+		</label>
+	</div>
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">Adding Required Text</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off=""
+						data-label-on="ON"
+					></span>
+				</span>
+			</span>
+			<span className="toggle-switch-text">Required *</span>
+		</label>
+	</div>
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">Required Text on Right</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off=""
+						data-label-on="ON"
+					></span>
+				</span>
+			</span>
+			<span className="toggle-switch-text toggle-switch-text-right">
+				Required *
+			</span>
+		</label>
+	</div>
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">Required Text on Left</span>
+			<span className="toggle-switch-text toggle-switch-text-left">
+				Required *
+			</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off=""
+						data-label-on="ON"
+					></span>
+				</span>
+			</span>
+		</label>
+	</div>
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">The Kitchen Sink</span>
+			<span className="toggle-switch-text">Top Text</span>
+			<span className="toggle-switch-text toggle-switch-text-left">
+				Error
+			</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off="OFF"
+						data-label-on="ON"
+					></span>
+				</span>
+			</span>
+			<span className="toggle-switch-text toggle-switch-text-right">
+				Required *
+			</span>
+			<span className="toggle-switch-text">Bottom Text</span>
+		</label>
+	</div>
+</div>
+
+```html
+<label className="toggle-switch">
+	<span className="toggle-switch-label">Adding Required Text</span>
+	<span className="toggle-switch-text">Required *</span>
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span
+				className="toggle-switch-handle"
+				data-label-off=""
+				data-label-on="ON"
+			>
+			</span>
+		</span>
+	</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-label">Adding Required Text</span>
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span
+				className="toggle-switch-handle"
+				data-label-off=""
+				data-label-on="ON"
+			>
+			</span>
+		</span>
+	</span>
+	<span className="toggle-switch-text">Required *</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-label">Required Text on Right</span>
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span
+				className="toggle-switch-handle"
+				data-label-off=""
+				data-label-on="ON"
+			>
+			</span>
+		</span>
+	</span>
+	<span className="toggle-switch-text toggle-switch-text-right"
+		>Required *</span
+	>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-label">Required Text on Left</span>
+	<span className="toggle-switch-text toggle-switch-text-left"
+		>Required *</span
+	>
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span
+				className="toggle-switch-handle"
+				data-label-off=""
+				data-label-on="ON"
+			>
+			</span>
+		</span>
+	</span>
+</label>
+<label className="toggle-switch">
+	<span className="toggle-switch-label">The Kitchen Sink</span>
+	<span className="toggle-switch-text">Top Text</span>
+	<span className="toggle-switch-text toggle-switch-text-left">Error</span>
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span
+				className="toggle-switch-handle"
+				data-label-off="OFF"
+				data-label-on="ON"
+			>
+			</span>
+		</span>
+	</span>
+	<span className="toggle-switch-text toggle-switch-text-right"
+		>Required *</span
+	>
+	<span className="toggle-switch-text">Bottom Text</span>
+</label>
+```
+
+### With Icons
+
+Add `<span className="button-icon button-icon-on icon-volume-up toggle-switch-icon"/>` to add an icon to the switch for the on position.
+
+Add `<span className="button-icon button-icon-off icon-volume-off toggle-switch-icon"/>` to add an icon to the switch for the off position.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off=""
+						data-label-on=""
+					>
+						<span className="button-icon button-icon-on toggle-switch-icon">
+							<svg
+								className="lexicon-icon lexicon-icon-unlock"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#unlock" />
+							</svg>
+						</span>
+						<span className="button-icon button-icon-off toggle-switch-icon">
+							<svg
+								className="lexicon-icon lexicon-icon-lock"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#lock" />
+							</svg>
+						</span>
+					</span>
+				</span>
+			</span>
+		</label>
+	</div>
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">
+				Toggle Switch with data-label-on
+			</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off=""
+						data-label-on="LIVE"
+					>
+						<span className="button-icon button-icon-on toggle-switch-icon">
+							<svg
+								className="lexicon-icon lexicon-icon-live"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#live" />
+							</svg>
+						</span>
+						<span className="button-icon button-icon-off toggle-switch-icon">
+							<svg
+								className="lexicon-icon lexicon-icon-staging"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#staging" />
+							</svg>
+						</span>
+					</span>
+				</span>
+			</span>
+		</label>
+	</div>
+	<div className="form-group">
+		<label className="toggle-switch">
+			<span className="toggle-switch-label">
+				Toggle Switch with data-label on and data-label-off
+			</span>
+			<span className="toggle-switch-check-bar">
+				<input
+					className="toggle-switch-check"
+					role="switch"
+					type="checkbox"
+				/>
+				<span aria-hidden="true" className="toggle-switch-bar">
+					<span
+						className="toggle-switch-handle"
+						data-label-off="Product Menu Closed"
+						data-label-on="Product Menu Open"
+					>
+						<span className="button-icon button-icon-on toggle-switch-icon">
+							<svg
+								className="lexicon-icon lexicon-icon-product-menu-open"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#product-menu-open" />
+							</svg>
+						</span>
+						<span className="button-icon button-icon-off toggle-switch-icon">
+							<svg
+								className="lexicon-icon lexicon-icon-product-menu-closed"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#product-menu-closed" />
+							</svg>
+						</span>
+					</span>
+				</span>
+			</span>
+		</label>
+	</div>
+</div>
+
+Alternatively, you can add `<span className="icon-ok toggle-switch-icon toggle-switch-icon-on"/>` to add an icon to the switch for the on position.
+
+Alternatively, you can add `<span className="icon-remove toggle-switch-icon toggle-switch-icon-off"/>` to add an icon to the switch for the off position.
+
+<div className="sheet-example">
+	<label className="toggle-switch">
+		<span className="toggle-switch-check-bar">
+			<input
+				className="toggle-switch-check"
+				role="switch"
+				type="checkbox"
+			/>
+			<span aria-hidden="true" className="toggle-switch-bar">
+				<span className="toggle-switch-handle">
+					<span className="toggle-switch-icon toggle-switch-icon-on">
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+					<span className="toggle-switch-icon toggle-switch-icon-off">
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times" />
+						</svg>
+					</span>
+				</span>
+			</span>
+		</span>
+	</label>
+</div>
+
+```html
+<label className="toggle-switch">
+	<span className="toggle-switch-check-bar">
+		<input className="toggle-switch-check" role="switch" type="checkbox" />
+		<span aria-hidden="true" className="toggle-switch-bar">
+			<span className="toggle-switch-handle">
+				<span className="toggle-switch-icon toggle-switch-icon-on">
+					<svg
+						className="lexicon-icon lexicon-icon-check"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#check" />
+					</svg>
+				</span>
+				<span className="toggle-switch-icon toggle-switch-icon-off">
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#times" />
+					</svg>
+				</span>
+			</span>
+		</span>
+	</span>
+</label>
+```
+
+## Extending Toggles
+
+This section explains how to customize toggles. Use at your own risk.
+
+<img
+	alt="explaining how switch works"
+	style={{width: '700px'}}
+	src="/images/switch_components.png"
+/>
+
+-   Customize the **toggle-switch button in the off** position with `.toggle-switch-check:empty ~ .toggle-switch-bar:after {}`.
+-   Customize the **toggle-switch button icon in the off** position with `.toggle-switch-check:empty ~ .toggle-switch-bar .toggle-switch-icon.button-icon {}`.
+-   Customize the **toggle-switch bar in the off** position with `.toggle-switch-check:empty ~ .toggle-switch-bar:before {}`.
+-   Customize the **toggle-switch bar icon in the off** position with `.toggle-switch-check:empty ~ .toggle-switch-bar .toggle-switch-icon-off {}`.
+-   Customize the **toggle-switch button in the on** position with `.toggle-switch-check:checked ~ .toggle-switch-bar:after {}`.
+-   Customize the **toggle-switch button icon in the on** position with `.toggle-switch-check:checked ~ .toggle-switch-bar .toggle-switch-icon.button-icon.`
+-   Customize the **toggle-switch bar in the on** position with `.toggle-switch-check:checked ~ .toggle-switch-bar:before {}`.
+-   Customize the **toggle-switch bar icon in the on** position with `.toggle-switch-check:checked ~ .toggle-switch-bar .toggle-switch-icon-on {}`.

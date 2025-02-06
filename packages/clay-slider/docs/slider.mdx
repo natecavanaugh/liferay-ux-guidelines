@@ -3,24 +3,59 @@ title: 'Slider'
 description: 'A Slider allows the user to select values in a linear range of values.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/slider/'
 packageNpm: '@clayui/slider'
+packageUse: "import Slider from '@clayui/slider';"
+packageTypes: ['clay-slider/src/index.tsx']
 ---
-
-import {DecadeSlider, Slider} from '$packages/clay-slider/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Range and Step](#range-and-step)
-
-</div>
-</div>
 
 Slider is a controlled component and needs just 2 props for its basic use, `value` and `onChange`.
 
-<Slider />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Slider from '@clayui/slider';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="form-group">
+					<label htmlFor="slider">With Tooltip</label>
+					<Slider defaultValue={10} id="slider" />
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Range and Step
 
 For a more specific use case you can specify other props, like `min` and `max` to determine the range, and `step` to specify how much the value changes.
 
-<DecadeSlider />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Slider from '@clayui/slider';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="form-group">
+					<label htmlFor="slider">Decades</label>
+					<Slider
+						defaultValue={10}
+						id="slider"
+						max={2020}
+						step={10}
+					/>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```

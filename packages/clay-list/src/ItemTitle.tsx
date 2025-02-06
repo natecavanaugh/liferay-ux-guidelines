@@ -7,7 +7,7 @@ import ClayLink from '@clayui/link';
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayListItemTitle = React.forwardRef<
+const ItemTitle = React.forwardRef<
 	HTMLDivElement,
 	React.BaseHTMLAttributes<HTMLAnchorElement>
 >(({children, className, href, ...otherProps}, ref) => {
@@ -31,6 +31,6 @@ const ClayListItemTitle = React.forwardRef<
 	);
 });
 
-ClayListItemTitle.displayName = 'ClayListItemTitle';
+ItemTitle.displayName = 'ClayListItemTitle';
 
-export default ClayListItemTitle;
+export default ItemTitle;

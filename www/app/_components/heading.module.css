@@ -1,0 +1,40 @@
+.heading_container {
+  margin-bottom: 35px;
+}
+
+.heading_title {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.table {
+  color: #6b6c7e;
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.table th,
+.table td {
+  height: 40px;
+}
+
+.table th {
+  vertical-align: middle;
+  border-color: transparent;
+  padding: 0.55rem;
+  padding-left: 0 !important;
+}
+
+.table td {
+  border-color: transparent;
+}
+
+.nav > div {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nav a::after {
+  background-color: #B3472D !important;
+}

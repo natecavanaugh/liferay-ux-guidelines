@@ -8,7 +8,7 @@ import React from 'react';
 
 import Context from './Context';
 
-const ClayCardCaption = ({
+const Caption = ({
 	children,
 	className,
 	...otherProps
@@ -27,4 +27,4 @@ const ClayCardCaption = ({
 	);
 };
 
-export default ClayCardCaption;
+export default Caption;

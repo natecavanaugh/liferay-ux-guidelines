@@ -1,0 +1,56 @@
+---
+title: 'Clay v3: Clay CSS Cadmin'
+author: [patrickyeo]
+---
+
+## Introduction
+
+Site Creators and Developers want to be able to write styles that only apply to content they have created. This has been a long standing problem with Liferay Portal mainly because of the global nature of CSS and the mingling of admin only UI with user facing UI. We also make the mistake of using the same CSS components to create everything (e.g., `btn-primary`, `card`, `sidebar`).
+
+Clay Admin is a completely separate CSS framework, independent from Clay CSS. It contains all the CSS components we have become familiar with and is essentially a duplicate of Clay CSS. The markup and CSS class names are almost the same. The only differences are Sass variables are prefixed with `$cadmin-` and specificity is increased. This creates a separation that allows us to style components like `btn-primary` directly without it bleeding into admin only interfaces.
+
+## How It Works(#how-it-works)
+
+We are using CSS specificity to prevent styles from affecting admin only components. We accomplish this by abusing the `:not()` pseudo-class. We use the feature where it increases the specificity of a rule by whatever id, class, or element you want to negate. The default rule we are using is:
+
+```html
+html:not(#__):not(#___) .cadmin {}
+```
+
+The specificity of this rule-set is 2 id's, 1 class, 1 element, and your component classes. This makes it difficult to overwrite styles with commonly used rule-sets. Just a note: It's not impenetrable; `!important`, 2 id's with 2 or more classes, or inline styles will beat it.
+
+The class cadmin is a marker to indicate where isolation should start. It mimics an iframe and a body element. It sets a value for all inherited properties preventing parent element styles from bleeding through and sets the base styles (e.g., box-sizing, color, font-family, font-size). The markup will look something like:
+
+```html
+<div class="cadmin">
+	<div class="dropdown-menu"></div>
+</div>
+```
+
+It also redeclares CSS properties on all child elements to prevent styles like:
+
+```css
+h1 {
+	font-size: 50px;
+}
+```
+
+from applying to `h1` elements inside a cadmin container. This frees up element selectors and Bootstrap classes so developers can style them directly. Clay CSS variables and Style Book Custom Properties will also be free to use without worrying about affecting admin control styles.
+
+For admin controls mixed with user created content (Page Editor), you shouldn't isolate it with an element containing the cadmin class. It will block user created styles from applying. Instead, you should scope your component directly.
+
+```scss
+html#{$cadmin-selector} {
+	.page-editor__topper__content {
+		// page-editor__topper__content CSS properties
+	}
+}
+```
+
+## Other Details
+
+Clay Admin is included with the Clay CSS package, but it isn't imported in any of the Clay CSS files. You must manually link it for it to apply on your site. For Liferay Portal users, we load cadmin on the page through `modules/apps/frontend-css/frontend-css-cadmin-web`. The file is called `clay-admin.css`. It will only be available for users that have logged in.
+
+Clay CSS contains a lot of components that were designed specifically for our admin interface. Some of these components are of no use to Site Creators. Cadmin will allow us to disable many of the admin only components in Clay CSS, reducing time to First Contentful Paint.
+
+We will not be disabling components out of the box. We don't want to break sites that may currently depend on any Clay CSS components. You will be free to pick and choose components to disable without worrying about breaking Liferay Admin interfaces.

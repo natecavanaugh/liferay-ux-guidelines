@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Element or component to render for container
 	 */
@@ -43,7 +43,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	view?: boolean;
 }
 
-const ClayContainer = React.forwardRef<HTMLElement, IProps>(
+const Container = React.forwardRef<HTMLElement, IProps>(
 	(
 		{
 			children,
@@ -75,6 +75,6 @@ const ClayContainer = React.forwardRef<HTMLElement, IProps>(
 	}
 );
 
-ClayContainer.displayName = 'ClayContainer';
+Container.displayName = 'ClayContainer';
 
-export default ClayContainer;
+export default Container;

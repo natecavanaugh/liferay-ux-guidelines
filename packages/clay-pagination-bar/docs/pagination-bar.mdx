@@ -3,32 +3,136 @@ title: 'Pagination Bar'
 description: 'Pagination bar provides navigation through datasets'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/pagination/'
 packageNpm: '@clayui/pagination-bar'
+packageUse: "import PaginationBar, {ClayPaginationBarWithBasicItems} from '@clayui/pagination-bar';"
+packageTypes:
+    [
+        'clay-pagination-bar/src/PaginationBar.tsx',
+        'clay-pagination-bar/src/PaginationBarWithBasicItems.tsx',
+    ]
 ---
 
-import {
-	PaginationBar,
-	PaginationBarWithBasicItems,
-	PaginationBarWithBasicItemsWithoutDropDown,
-} from '$packages/clay-pagination-bar/docs/index';
+## PaginationBar Composition
 
-<div class="nav-toc-absolute">
-<div class="nav-toc">
+```jsx preview
+import {Provider} from '@clayui/core';
+import PaginationBar from '@clayui/pagination-bar';
+import {ClayPaginationWithBasicItems} from '@clayui/pagination';
+import Button from '@clayui/button';
+import Icon from '@clayui/icon';
+import React from 'react';
 
--   [ClayPaginationBar Composition](#claypaginationbar-composition)
--   [ClayPaginationBarWithBasicItems](#claypaginationbarwithbasicitems)
--   [ClayPaginationBarWithBasicItemsWithoutDropDown](#claypaginationbarwithbasicitems-without-dropdown)
+import '@clayui/css/lib/css/atlas.css';
 
-</div>
-</div>
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<PaginationBar>
+					<PaginationBar.DropDown
+						items={[
+							{
+								label: '10',
+								onClick: () => {},
+							},
+						]}
+						trigger={
+							<Button displayType="unstyled">
+								{'10 items per page'}
 
-## ClayPaginationBar Composition
+								<Icon symbol="caret-double-l" />
+							</Button>
+						}
+					/>
 
-<PaginationBar />
+					<PaginationBar.Results>
+						Showing a handful of items...
+					</PaginationBar.Results>
 
-## ClayPaginationBarWithBasicItems
+					<ClayPaginationWithBasicItems
+						defaultActive={1}
+						ellipsisProps={{'aria-label': 'More', title: 'More'}}
+						totalPages={10}
+					/>
+				</PaginationBar>
+			</div>
+		</Provider>
+	);
+}
+```
 
-<PaginationBarWithBasicItems />
+## PaginationBarWithBasicItems
 
-## ClayPaginationBarWithBasicItems Without DropDown
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayPaginationBarWithBasicItems} from '@clayui/pagination-bar';
+import React, {useState} from 'react';
 
-<PaginationBarWithBasicItemsWithoutDropDown />
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [delta, setDelta] = useState(4);
+
+	const deltas = [
+		{
+			href: '#1',
+			label: 1,
+		},
+		{
+			label: 2,
+		},
+		{
+			href: '#3',
+			label: 3,
+		},
+		{
+			label: 4,
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayPaginationBarWithBasicItems
+					defaultActive={1}
+					activeDelta={delta}
+					deltas={deltas}
+					ellipsisBuffer={3}
+					ellipsisProps={{'aria-label': 'More', title: 'More'}}
+					onDeltaChange={setDelta}
+					totalItems={21}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## PaginationBarWithBasicItems Without DropDown
+
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayPaginationBarWithBasicItems} from '@clayui/pagination-bar';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [delta, setDelta] = useState(5);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayPaginationBarWithBasicItems
+					activeDelta={delta}
+					defaultActive={1}
+					ellipsisBuffer={3}
+					ellipsisProps={{'aria-label': 'More', title: 'More'}}
+					onDeltaChange={setDelta}
+					showDeltasDropDown={false}
+					totalItems={21}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

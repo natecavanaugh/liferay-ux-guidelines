@@ -8,7 +8,7 @@ import ClayLink from '@clayui/link';
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IItemProps
+interface IItemProps
 	extends React.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
 	/**
 	 * Value of path the item should link to.
@@ -26,7 +26,7 @@ export interface IItemProps
 	symbol: string;
 }
 
-const ClayListQuickActionMenuItem = React.forwardRef<
+const QuickActionMenuItem = React.forwardRef<
 	HTMLAnchorElement & HTMLButtonElement,
 	IItemProps
 >(({className, href, spritemap, symbol, ...otherProps}: IItemProps, ref) => {
@@ -48,6 +48,6 @@ const ClayListQuickActionMenuItem = React.forwardRef<
 	);
 });
 
-ClayListQuickActionMenuItem.displayName = 'ClayListQuickActionMenuItem';
+QuickActionMenuItem.displayName = 'ClayListQuickActionMenuItem';
 
-export default ClayListQuickActionMenuItem;
+export default QuickActionMenuItem;

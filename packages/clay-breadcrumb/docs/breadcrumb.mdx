@@ -3,10 +3,52 @@ title: 'Breadcrumb'
 description: 'Breadcrumb is a secondary navigation pattern that identifies the page position inside a hierarchy.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/navigation/breadcrumb/'
 packageNpm: '@clayui/breadcrumb'
+packageUse: "import Breadcrumb from '@clayui/breadcrumb';"
+packageTypes: ['clay-breadcrumb/src/index.tsx', 'clay-breadcrumb/src/Item.tsx']
 ---
 
-import {Breadcrumb} from '$packages/clay-breadcrumb/docs/index';
+## Example
 
 Breadcrumbs are a navigation aid for your site, use them when you need to provide a quick way to jump back to previously viewed pages or sections.
 
-<Breadcrumb />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Breadcrumb from '@clayui/breadcrumb';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Breadcrumb
+					items={[
+						{
+							href: '#1',
+							label: 'Home',
+						},
+						{
+							href: '#2',
+							label: 'About',
+						},
+						{
+							href: '#3',
+							label: 'Contact',
+						},
+						{
+							href: '#4',
+							label: 'Projects',
+						},
+						{
+							active: true,
+							href: '#5',
+							label: 'Five',
+						},
+					]}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

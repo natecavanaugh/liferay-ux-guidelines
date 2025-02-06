@@ -3,26 +3,45 @@ title: 'OverlayMask'
 description: 'OverlayMask create a highlight area on some DOM element with overlay.'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {OverlayMask} from '@clayui/core';"
 storybookPath: 'design-system-components-overlaymask'
+packageTypes: ['clay-core/src/overlay-mask/OverlayMask.tsx']
 ---
-
-import {OverlayMaskExample} from '$packages/clay-core/docs/overlay-mask';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Area highlight](#area-highlight)
-    -   [React component](#react-component)
-    -   [Non-React component](#non-react-component)
-
-</div>
-</div>
 
 ## Example
 
-<OverlayMaskExample />
+```jsx preview
+import {Provider, Button, OverlayMask} from '@clayui/core';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [visible, setVisible] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Button.Group spaced>
+					<Button
+						displayType="secondary"
+						borderless
+						onClick={() => setVisible(!visible)}
+					>
+						Open overlay
+					</Button>
+					<OverlayMask
+						onClick={() => setVisible(false)}
+						visible={visible}
+					>
+						<Button>Button</Button>
+					</OverlayMask>
+				</Button.Group>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Introduction
 
@@ -62,14 +81,14 @@ const logo = document.body.querySelector('.logo');
 const {height, width, x, y} = logo.getBoundingClientRect();
 
 <OverlayMask
-  defaultBounds={{
-    height,
-    width,
-    x,
-    y,
-  }}
-  visible
-/>
+	defaultBounds={{
+		height,
+		width,
+		x,
+		y,
+	}}
+	visible
+/>;
 
 // or
 
@@ -80,11 +99,7 @@ const [bounds, setBounds] = useState({
 	y: 0,
 });
 
-useEffect(() => {...}, []);
+useEffect(() => {}, []);
 
-<OverlayMask
-  bounds={bounds}
-  onBoundsChange={setBounds}
-  visible
-/>
+<OverlayMask bounds={bounds} onBoundsChange={setBounds} visible />;
 ```

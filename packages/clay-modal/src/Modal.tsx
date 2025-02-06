@@ -38,7 +38,7 @@ interface IProps
 	containerElementRef?: React.RefObject<Element>;
 
 	/**
-	 * Props to add to the <ClayPortal/>.
+	 * Props to add to the ClayPortal.
 	 */
 	containerProps?: IPortalBaseProps;
 
@@ -79,7 +79,7 @@ const warningMessage = `You need to pass the 'observer' prop to ClayModal for ev
 
 let counter = 0;
 
-const ClayModal = ({
+const Modal = ({
 	center,
 	children,
 	className,
@@ -213,15 +213,15 @@ const ClayModal = ({
 	);
 };
 
-export default Object.assign(ClayModal, {
-	Body,
-	Footer,
-	Header,
-	Item,
-	ItemGroup,
-	Subtitle,
-	SubtitleSection,
-	Title,
-	TitleIndicator,
-	TitleSection,
-});
+Modal.Body = Body;
+Modal.Footer = Footer;
+Modal.Header = Header;
+Modal.Item = Item;
+Modal.ItemGroup = ItemGroup;
+Modal.Subtitle = Subtitle;
+Modal.SubtitleSection = SubtitleSection;
+Modal.Title = Title;
+Modal.TitleIndicator = TitleIndicator;
+Modal.TitleSection = TitleSection;
+
+export default Modal;

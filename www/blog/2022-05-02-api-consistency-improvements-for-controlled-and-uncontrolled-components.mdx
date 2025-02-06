@@ -1,0 +1,81 @@
+---
+title: 'API consistency improvements for controlled and uncontrolled components'
+author: [matuzalemsteles]
+---
+
+In the last few months, we have been working on identifying points for improvement in Clay components with the mindset of decreasing the learning curve and improving the DX (developer experience) of the components. This requires a lot of research about our components and using existing patterns within the community so we don't reinvent new patterns that can increase the learning curve for the developers but we also want to abstract certain complexities for the component to avoid the developer not having to worry about implementing it on its own.
+
+There are many areas of work that we want to tackle and improve in Clay and we will be making improvements on top of the v3 with compatibility so that current applications continue to work but many APIs are being deprecated which will be removed in v4. In overview, we hope to improve Clay in different arias:
+
+-   [API Consistency](https://github.com/liferay/clay/milestone/47)
+    -   [Standardizing collection components](https://github.com/liferay/clay/issues/4112)
+    -   [Standardizing form-related components](https://github.com/liferay/clay/issues/4741)
+    -   [Improves consistency of controlled and uncontrolled component APIs](https://github.com/liferay/clay/issues/4766) (Current work)
+-   [Solid components foundation](https://github.com/liferay/clay/milestone/50)
+-   [Develop a new structure for documentation](https://github.com/liferay/clay/milestone/48)
+-   Accessibility
+
+These improvements will be progressively implemented in v3 and some may only come in v4 if we are unable to implement compatibility. Now we want to present significant improvements for the consistency of the APIs of the components to the behavior of controlled and uncontrolled.
+
+> The term [controlled](https://reactjs.org/docs/forms.html#controlled-components) and [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) components are not new and was [introduced by React.js](https://reactjs.org/docs/glossary.html#controlled-vs-uncontrolled-components), they are essentially used for form-related elements such as `<input />`. Elements like input have user interactions when typing in the input, this value can be managed without a state or with, but both cannot be changed during the component's lifecycle, this allows it to have a single source of truth that can be controlled without losing data on what the user is typing and what the component is changing.
+>
+> -- <cite>Excerpt from proposal [RFC 0002 Controlled and uncontrolled components](https://github.com/liferay/clay/blob/fef377e64b473090470a0f2446f184e81a957260/docs/proposals/0002-controlled-and-uncontrolled.md)</cite>
+
+These changes decrease the learning curve, meaning what you learned to do in a component like `<ColorPicker />` will do the same in `<DatePicker />`. This does not affect all components but only those components that fall into the category of Forms based and Presentation based if have a state.
+
+We separate them into two categories because the controlling and [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) components are when the user is interacting with the component that the action triggers some state change, this for the form there is a common pattern and for presentation components like `<DropDown />` or ` <TreeView />` can be different, we'll delve deeper into that below. This change does not affect all components but they are standards that we will follow for existing components that meet these criteria and for future components.
+
+> We recommend reading the [Changelog](https://github.com/liferay/clay/releases/tag/v3.55.0) which describes all components that have had these changes.
+
+## Form based
+
+Form based components such as `<ColorPicker />`, `<DatePicker />`, `<MultiSelect />`... follow the same pattern to control the value state of the component which is what the user is typing. Setting the `value` and `onChange` properties makes the component [controlled](https://reactjs.org/docs/forms.html#controlled-components), if no properties are defined the component goes into an [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) state. Setting just `value` will throw an error in the console because the component will not have any source of truth to trigger changes when the user is typing, in this scenario you can set the initial state of the value using the `defaultValue` property for this purpose.
+
+```tsx allowErrors
+const [value, setValue] = useState<string>('');
+
+<ColorPicker onChange={setValue} value={value} />;
+```
+
+Not all components had changed like `Checkbox`, `Toggle`, and `Select` because we would not be able to maintain backward compatibility and would cause a breaking change in v3, but we will be enforcing this pattern in v4.
+
+## Presentation based
+
+Presentation based components are a little different because depending on their context and properties like `value` doesn't make sense, for example for `<Modal />` or `<Pagination />`, but they follow the same concept, both can change the state of a component being triggered by user interaction and in some components, this can come from various user actions in different places in the component.
+
+We keep the same behavior of the [controlled](https://reactjs.org/docs/forms.html#controlled-components) and [uncontrolled](https://reactjs.org/docs/uncontrolled-components.html) state, the only difference is the names of the properties that can change according to the context of the component, for example:
+
+```jsx allowErrors
+// Controlled
+<TreeView
+  items={...}
+  onItemsChange={...}
+/>
+
+<Panel
+  expanded={...}
+  onExpandedChange={...}
+/>
+
+<DropDown
+  active={...}
+  onActiveChange={...}
+/>
+
+// Uncontrolled
+<TreeView
+  defaultItems={...}
+/>
+
+<Panel
+  defaultExpanded={...}
+/>
+
+<DropDown
+  defaultActive={...}
+/>
+```
+
+## What's next
+
+We will continue to improve and research ways to improve the consistency of component APIs and improve compositing with great DX. Keep an eye out for the respective milestones as we're working on them, we'll also be publishing more blog posts about changes that have a lot of impact on the components.

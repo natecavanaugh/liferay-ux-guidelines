@@ -4,8 +4,8 @@
  */
 
 import ClayMultiStepNav from './MultiStepNav';
-import {ClayMultiStepNavWithBasicItems} from './MultiStepNavWithBasicItems';
+import {MultiStepNavWithBasicItems} from './MultiStepNavWithBasicItems';
 
-export {ClayMultiStepNavWithBasicItems};
+export {MultiStepNavWithBasicItems as ClayMultiStepNavWithBasicItems};
 
 export default ClayMultiStepNav;

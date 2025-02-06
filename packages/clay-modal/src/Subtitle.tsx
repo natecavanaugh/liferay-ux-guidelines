@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayModalItemGroup = ({
+const ItemGroup = ({
 	children,
 	className,
 	...otherProps
@@ -16,4 +16,4 @@ const ClayModalItemGroup = ({
 	</div>
 );
 
-export default ClayModalItemGroup;
+export default ItemGroup;

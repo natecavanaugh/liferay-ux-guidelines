@@ -3,19 +3,10 @@ title: 'Select Box'
 description: 'Select Box allows users to select multiple options and if needed the ability to reorder selected options.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/dual-listbox/'
 packageNpm: '@clayui/form'
-navigationParent: 'docs/components/form.html'
+packageUse: "import {ClaySelectBox} from '@clayui/form';"
 storybookPath: 'design-system-components-selectbox'
+packageTypes: ['clay-form/src/SelectBox.tsx']
 ---
-
-import {SelectBox} from '$packages/clay-form/docs/selectbox';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
-
-</div>
-</div>
 
 ## Introduction
 
@@ -23,4 +14,43 @@ Select Box is exported from the `@clayui/form` package, consisting of some low-l
 
 > Note: The actual select functionality will not work here due to a pending issue at [FormidableLabs/react-live#196](https://github.com/FormidableLabs/react-live/issues/196). To see it in action, check out the [storybook demo](https://storybook.clayui.com/?path=/story/design-system-components-selectbox--default).
 
-<SelectBox />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClaySelectBox} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [items, setItems] = useState([
+		{
+			label: 'Reddit',
+			value: 'reddit',
+		},
+		{
+			label: 'Slack',
+			value: 'slack',
+		},
+		{
+			label: 'Twitter',
+			value: 'twitter',
+		},
+	]);
+	const [value, setValue] = useState([]);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClaySelectBox
+					items={items}
+					label="In Use"
+					multiple
+					onItemsChange={setItems}
+					onSelectChange={setValue}
+					value={value}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

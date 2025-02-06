@@ -13,7 +13,7 @@ import {
 import React, {useCallback, useEffect, useReducer, useRef} from 'react';
 import warning from 'warning';
 
-import ClayTooltip from './Tooltip';
+import {Tooltip} from './Tooltip';
 import {Align, useAlign} from './useAlign';
 import {useClosestTitle} from './useClosestTitle';
 import {useTooltipState} from './useTooltipState';
@@ -71,14 +71,14 @@ type TContentRenderer = (props: {
 	title: string;
 }) => React.ReactElement | React.ReactNode;
 
-interface IPropsBase {
+type Props = {
 	/**
 	 * Flag to indicate if tooltip should automatically align based on the window
 	 */
 	autoAlign?: boolean;
 
 	/**
-	 * Props to add to the <ClayPortal/>.
+	 * Props to add to the `<ClayPortal/>`.
 	 */
 	containerProps?: IPortalBaseProps;
 
@@ -91,32 +91,25 @@ interface IPropsBase {
 	 * Delay in miliseconds before showing tooltip
 	 */
 	delay?: number;
-}
 
-interface IPropsWithChildren extends IPropsBase {
-	children: React.ReactElement;
-	scope?: never;
-}
-
-interface IPropsWithScope extends IPropsBase {
-	children?: never;
+	children?: React.ReactElement;
 
 	/**
 	 * CSS selector to scope provider to. All titles within this scope will be
 	 * rendered in the tooltip. Titles outside of this scope will be styled
 	 * as with the default browser.
 	 */
-	scope: string;
-}
+	scope?: string;
+};
 
-const TooltipProvider = ({
+export const ClayTooltipProvider = ({
 	autoAlign = true,
 	children,
 	containerProps = {},
 	contentRenderer = (props) => props.title,
 	delay = 600,
 	scope,
-}: IPropsWithChildren | IPropsWithScope) => {
+}: Props) => {
 	const [{align, floating, setAsHTML, title = ''}, dispatch] = useReducer(
 		reducer,
 		initialState
@@ -291,7 +284,7 @@ const TooltipProvider = ({
 
 	const tooltip = isOpen && (
 		<ClayPortal {...containerProps}>
-			<ClayTooltip alignPosition={align} ref={tooltipRef} show>
+			<Tooltip alignPosition={align} ref={tooltipRef} show>
 				{setAsHTML && typeof titleContent === 'string' ? (
 					<span
 						dangerouslySetInnerHTML={{
@@ -301,7 +294,7 @@ const TooltipProvider = ({
 				) : (
 					titleContent
 				)}
-			</ClayTooltip>
+			</Tooltip>
 		</ClayPortal>
 	);
 
@@ -331,5 +324,3 @@ const TooltipProvider = ({
 		</>
 	);
 };
-
-export default TooltipProvider;

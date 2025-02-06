@@ -1,45 +1,105 @@
 ---
-title: 'Buttons'
+title: 'Button'
 description: 'Buttons communicate an action to happen on user interaction.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/buttons/'
 packageNpm: '@clayui/button'
+packageUse: "import Button from '@clayui/button';"
+packageTypes:
+    [
+        'clay-button/src/Button.tsx',
+        'clay-button/src/ButtonWithIcon.tsx',
+        'clay-button/src/Group.tsx',
+    ]
 ---
-
-import {
-	ButtonClayDark,
-	ButtonDisplayTypes,
-	ButtonGroup,
-	ButtonIcon,
-} from '$packages/clay-button/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Display Types](#display-types)
--   [Group](#group)
--   [Icon](#icon)
-
-</div>
-</div>
 
 ## Display Types
 
-You can determine how your button can be displayed using the [`displayType`](#api-displayType) property:
+You can determine how your button can be displayed using the `displayType` property:
 
 If you want use the button as a link set `displayType` to `link`.
 
-<ButtonDisplayTypes />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Button from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Button.Group spaced>
+					<Button displayType="primary">Button Primary</Button>
+					<Button displayType="secondary">Button Secondary</Button>
+					<Button displayType="link">Button Link</Button>
+					<Button borderless>Button Borderless</Button>
+				</Button.Group>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Group
 
-You can use the variant `ClayButton.Group` for creating button groups:
+You can use the variant `Button.Group` for creating button groups:
 
-Use the [`spaced`](#api-spaced) property to create spacing between buttons.
+Use the `spaced` property to create spacing between buttons.
 
-<ButtonGroup />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Button from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Button.Group>
+					<Button>This</Button>
+					<Button displayType="secondary">is</Button>
+					<Button>a</Button>
+					<Button displayType="secondary">button</Button>
+					<Button>group.</Button>
+				</Button.Group>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Icon
 
 You can use the high-level component `ClayButtonWithIcon` to create a button with only an icon. If you need an icon and text, you need to compose with `ClayIcon`
 
-<ButtonIcon />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Button, {ClayButtonWithIcon} from '@clayui/button';
+import Icon from '@clayui/icon';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayButtonWithIcon
+					aria-label="Close"
+					symbol="times"
+					title="Close"
+				/>
+				<Button>
+					<span className="inline-item inline-item-before">
+						<Icon symbol="times" />
+					</span>
+					Close w/ text
+				</Button>
+			</div>
+		</Provider>
+	);
+}
+```

@@ -1,0 +1,614 @@
+---
+title: 'Sticker'
+description: 'Stickers are a visual way to quickly identify content in a different way than badges and labels.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/stickers/'
+packageNpm: '@clayui/sticker'
+packageUse: "import Sticker from '@clayui/sticker';"
+---
+
+## Colors
+
+Lexicon adopts in its design system the following colors below:
+
+<div className="sheet-example">
+	<span className="sticker sticker-primary">133</span>
+	<span className="sticker sticker-secondary">133</span>
+	<span className="sticker sticker-success">133</span>
+	<span className="sticker sticker-info">133</span>
+	<span className="sticker sticker-warning">133</span>
+	<span className="sticker sticker-danger">133</span>
+</div>
+
+```html
+<span className="sticker sticker-primary">133</span>
+<span className="sticker sticker-secondary">133</span>
+<span className="sticker sticker-success">133</span>
+<span className="sticker sticker-info">133</span>
+<span className="sticker sticker-warning">133</span>
+<span className="sticker sticker-danger">133</span>
+```
+
+### Sticker Variant Sass API
+
+The map `$sticker-palette` allows generating any number of sticker variants. If a key starts with `.`, `#`, or `%` Clay will output it as is, otherwise we will prepend `.sticker-` to the key (e.g., `.sticker-my-primary`). It will also generate a Sass placeholder prefixed by `%sticker-` (e.g., `%sticker-my-primary`).
+
+```css
+$sticker-palette: (
+	my-primary: (
+		background-color: blue,
+		color: #fff
+	),
+	'.sticker-primary': (
+		extend: '%sticker-my-primary'
+	),
+	'%sticker-tertiary': (
+		background-color: green,
+		color: #fff
+	),
+	'.sticker-tertiary': (
+		extend: '%sticker-tertiary'
+	),
+	'.sticker-quaternary': (
+		extend: '%sticker-tertiary'
+	)
+);
+```
+
+Outputs:
+
+```css
+.sticker-my-primary,
+.sticker-primary {
+	background-color: blue;
+	color: #fff;
+}
+
+.sticker-tertiary,
+.sticker-quaternary {
+	background-color: green;
+	color: #fff;
+}
+```
+
+## Position
+
+Place them anywhere relative to your container using positional sticker classes `sticker-top-left`, `sticker-bottom-left`, `sticker-top-right`, and `sticker-bottom-right`.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-md-3 col-6">
+			<div className="clay-site-positional-sticker">
+				<div className="aspect-ratio">
+					<img
+						alt="thumbnail"
+						className="aspect-ratio-item aspect-ratio-item-fluid"
+						src="/images/thumbnail_hot_air_ballon.jpg"
+					/>
+					<span className="sticker sticker-danger sticker-top-left">
+						PDF
+					</span>
+				</div>
+			</div>
+		</div>
+		<div className="col-md-3 col-6">
+			<div className="clay-site-positional-sticker">
+				<div className="aspect-ratio">
+					<img
+						alt="thumbnail"
+						className="aspect-ratio-item aspect-ratio-item-fluid"
+						src="/images/thumbnail_hot_air_ballon.jpg"
+					/>
+					<span className="sticker sticker-bottom-left sticker-danger">
+						PDF
+					</span>
+				</div>
+			</div>
+		</div>
+		<div className="col-md-3 col-6">
+			<div className="clay-site-positional-sticker">
+				<div className="aspect-ratio">
+					<img
+						alt="thumbnail"
+						className="aspect-ratio-item aspect-ratio-item-fluid"
+						src="/images/thumbnail_hot_air_ballon.jpg"
+					/>
+					<span className="sticker sticker-danger sticker-top-right">
+						PDF
+					</span>
+				</div>
+			</div>
+		</div>
+		<div className="col-md-3 col-6">
+			<div className="clay-site-positional-sticker">
+				<div className="aspect-ratio">
+					<img
+						alt="thumbnail"
+						className="aspect-ratio-item aspect-ratio-item-fluid"
+						src="/images/thumbnail_hot_air_ballon.jpg"
+					/>
+					<span className="sticker sticker-bottom-right sticker-danger">
+						PDF
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="clay-site-positional-sticker">
+	<div className="aspect-ratio">
+		<img
+			alt="thumbnail"
+			className="aspect-ratio-item aspect-ratio-item-fluid"
+			src="/images/thumbnail_hot_air_ballon.jpg"
+		/>
+		<span className="sticker sticker-danger sticker-top-left">PDF</span>
+	</div>
+</div>
+<div className="clay-site-positional-sticker">
+	<div className="aspect-ratio">
+		<img
+			alt="thumbnail"
+			className="aspect-ratio-item aspect-ratio-item-fluid"
+			src="/images/thumbnail_hot_air_ballon.jpg"
+		/>
+		<span className="sticker sticker-bottom-left sticker-danger">PDF</span>
+	</div>
+</div>
+<div className="clay-site-positional-sticker">
+	<div className="aspect-ratio">
+		<img
+			alt="thumbnail"
+			className="aspect-ratio-item aspect-ratio-item-fluid"
+			src="/images/thumbnail_hot_air_ballon.jpg"
+		/>
+		<span className="sticker sticker-danger sticker-top-right">PDF</span>
+	</div>
+</div>
+<div className="clay-site-positional-sticker">
+	<div className="aspect-ratio">
+		<img
+			alt="thumbnail"
+			className="aspect-ratio-item aspect-ratio-item-fluid"
+			src="/images/thumbnail_hot_air_ballon.jpg"
+		/>
+		<span className="sticker sticker-bottom-right sticker-danger">PDF</span>
+	</div>
+</div>
+```
+
+## Sizes
+
+Stickers come in 4 sizes `sm`, default, `lg`, and `xl`. Create your own custom size with the `sticker-size` mixin.
+
+<div className="sheet-example">
+	<span className="sticker sticker-primary sticker-sm">133</span>
+	<span className="sticker sticker-secondary">133</span>
+	<span className="sticker sticker-lg sticker-success">133</span>
+	<span className="sticker sticker-danger sticker-xl">133</span>
+	<span className="sticker sticker-primary sticker-xl">
+		<span className="inline-item">
+			<svg
+				className="lexicon-icon lexicon-icon-format"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#format"></use>
+			</svg>
+		</span>
+	</span>
+	<span className="sticker sticker-lg sticker-secondary">
+		<span className="inline-item">
+			<svg
+				className="lexicon-icon lexicon-icon-format"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#format"></use>
+			</svg>
+		</span>
+	</span>
+	<span className="sticker sticker-success">
+		<span className="inline-item">
+			<svg
+				className="lexicon-icon lexicon-icon-format"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#format"></use>
+			</svg>
+		</span>
+	</span>
+	<span className="sticker sticker-danger sticker-sm">
+		<span className="inline-item">
+			<svg
+				className="lexicon-icon lexicon-icon-format"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#format"></use>
+			</svg>
+		</span>
+	</span>
+</div>
+
+```html
+<span className="sticker sticker-primary sticker-sm">133</span>
+<span className="sticker sticker-secondary">133</span>
+<span className="sticker sticker-lg sticker-success">133</span>
+<span className="sticker sticker-danger sticker-xl">133</span>
+<span className="sticker sticker-primary sticker-xl">
+	<span className="inline-item">
+		<svg
+			className="lexicon-icon lexicon-icon-format"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#format"></use>
+		</svg>
+	</span>
+</span>
+<span className="sticker sticker-lg sticker-secondary">
+	<span className="inline-item">
+		<svg
+			className="lexicon-icon lexicon-icon-format"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#format"></use>
+		</svg>
+	</span>
+</span>
+<span className="sticker sticker-success">
+	<span className="inline-item">
+		<svg
+			className="lexicon-icon lexicon-icon-format"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#format"></use>
+		</svg>
+	</span>
+</span>
+<span className="sticker sticker-danger sticker-sm">
+	<span className="inline-item">
+		<svg
+			className="lexicon-icon lexicon-icon-format"
+			focusable="false"
+			role="presentation"
+		>
+			<use href="/images/icons/icons.svg#format"></use>
+		</svg>
+	</span>
+</span>
+```
+
+### Sticker Size Sass API
+
+The map `$sticker-sizes` allows generating any number of sticker size variants. If a key starts with `.`, `#`, or `%` Clay will output it as is, otherwise it will prepend `.` to the key (e.g., `.my-sticker-lg`). It will also generate a Sass placeholder prefixed by `%` (e.g., `%my-sticker-lg`).
+
+```css
+$sticker-sizes: (
+	my-sticker-lg: (
+		font-size: 32px,
+		height: 64px,
+		width: 64px
+	),
+	sticker-lg: (
+		enabled: false
+	),
+	'.sticker-lg': (
+		extend: '%my-sticker-lg'
+	)
+);
+```
+
+Outputs:
+
+```css
+.my-sticker-lg,
+.sticker-lg {
+	font-size: 32px;
+	height: 64px;
+	width: 64px;
+}
+```
+
+## Variations
+
+### Overlay
+
+Overlay content over stickers by nesting `sticker-overlay` inside `sticker`.
+
+<div className="sheet-example">
+	<div className="col-md-12">
+		<span className="sticker sticker-dark sticker-sm">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/thumbnail_coffee.jpg"
+				/>
+			</span>
+			<span className="sticker-overlay">JB</span>
+		</span>
+		<span className="sticker sticker-dark">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</span>
+			<span className="sticker-overlay">TT</span>
+		</span>
+		<span className="sticker sticker-dark sticker-lg">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/tv-at-beach.png"
+				/>
+			</span>
+			<span className="sticker-overlay">SP</span>
+		</span>
+		<span className="sticker sticker-dark sticker-xl">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/long_user_image.png"
+				/>
+			</span>
+			<span className="sticker-overlay">BC</span>
+		</span>
+	</div>
+</div>
+
+```html
+<span className="sticker sticker-dark sticker-sm">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/thumbnail_coffee.jpg"
+		/>
+	</span>
+	<span className="sticker-overlay">JB</span>
+</span>
+<span className="sticker sticker-dark">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/thumbnail_hot_air_ballon.jpg"
+		/>
+	</span>
+	<span className="sticker-overlay">TT</span>
+</span>
+<span className="sticker sticker-dark sticker-lg">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/tv-at-beach.png"
+		/>
+	</span>
+	<span className="sticker-overlay">SP</span>
+</span>
+<span className="sticker sticker-dark sticker-xl">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/long_user_image.png"
+		/>
+	</span>
+	<span className="sticker-overlay">BC</span>
+</span>
+```
+
+### Outside
+
+Add class `sticker-outside` in conjunction with sticker positions to position the sticker on the outside corners.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-md-3 col-6">
+			<button className="btn btn-primary" style={{position: 'relative'}}>
+				Email
+				<span className="sticker sticker-circle sticker-danger sticker-outside sticker-top-left">
+					133
+				</span>
+			</button>
+		</div>
+		<div className="col-md-3 col-6">
+			<button className="btn btn-primary" style={{position: 'relative'}}>
+				Email
+				<span className="sticker sticker-circle sticker-bottom-left sticker-danger sticker-outside">
+					133
+				</span>
+			</button>
+		</div>
+		<div className="col-md-3 col-6">
+			<button className="btn btn-primary" style={{position: 'relative'}}>
+				Email
+				<span className="sticker sticker-circle sticker-danger sticker-outside sticker-top-right">
+					133
+				</span>
+			</button>
+		</div>
+		<div className="col-md-3 col-6">
+			<button className="btn btn-primary" style={{position: 'relative'}}>
+				Email
+				<span className="sticker sticker-circle sticker-bottom-right sticker-danger sticker-outside">
+					133
+				</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+```html
+<button className="btn btn-primary" style={{position: 'relative'}}>
+	Email
+	<span
+		className="sticker sticker-circle sticker-danger sticker-outside sticker-top-left"
+		>133</span
+	>
+</button>
+<button className="btn btn-primary" style={{position: 'relative'}}>
+	Email
+	<span
+		className="sticker sticker-circle sticker-bottom-left sticker-danger sticker-outside"
+		>133</span
+	>
+</button>
+<button className="btn btn-primary" style={{position: 'relative'}}>
+	Email
+	<span
+		className="sticker sticker-circle sticker-danger sticker-outside sticker-top-right"
+		>133</span
+	>
+</button>
+<button className="btn btn-primary" style={{position: 'relative'}}>
+	Email
+	<span
+		className="sticker sticker-circle sticker-bottom-right sticker-danger sticker-outside"
+		>133</span
+	>
+</button>
+```
+
+### User Icon
+
+<div className="sheet-example">
+	<div className="col-md-12">
+		<span className="sticker sticker-sm sticker-user-icon">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/thumbnail_dock.jpg"
+				/>
+			</span>
+		</span>
+		<span className="sticker sticker-user-icon">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/thumbnail_coffee.jpg"
+				/>
+			</span>
+		</span>
+		<span className="sticker sticker-lg sticker-user-icon">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</span>
+		</span>
+		<span className="sticker sticker-user-icon sticker-xl">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/thumbnail_coffee.jpg"
+				/>
+			</span>
+		</span>
+		<span className="sticker sticker-user-icon sticker-xl">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/long_user_image.png"
+				/>
+			</span>
+		</span>
+		<span className="sticker sticker-primary sticker-user-icon sticker-xl">
+			<span className="sticker-overlay">
+				<img
+					alt="thumbnail"
+					className="sticker-img"
+					src="/images/tv-at-beach.png"
+				/>
+			</span>
+		</span>
+		<span className="sticker sticker-danger sticker-user-icon sticker-xl">
+			JB
+		</span>
+		<span className="sticker sticker-lg sticker-success sticker-user-icon">
+			TT
+		</span>
+		<span className="sticker sticker-secondary sticker-user-icon">SP</span>
+		<span className="sticker sticker-primary sticker-sm sticker-user-icon">
+			BC
+		</span>
+	</div>
+</div>
+
+```html
+<span className="sticker sticker-sm sticker-user-icon">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/thumbnail_dock.jpg"
+		/>
+	</span>
+</span>
+<span className="sticker sticker-user-icon">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/thumbnail_coffee.jpg"
+		/>
+	</span>
+</span>
+<span className="sticker sticker-lg sticker-user-icon">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/thumbnail_hot_air_ballon.jpg"
+		/>
+	</span>
+</span>
+<span className="sticker sticker-user-icon sticker-xl">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/thumbnail_coffee.jpg"
+		/>
+	</span>
+</span>
+<span className="sticker sticker-user-icon sticker-xl">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/long_user_image.png"
+		/>
+	</span>
+</span>
+<span className="sticker sticker-primary sticker-user-icon sticker-xl">
+	<span className="sticker-overlay">
+		<img
+			alt="thumbnail"
+			className="sticker-img"
+			src="/images/tv-at-beach.png"
+		/>
+	</span>
+</span>
+<span className="sticker sticker-danger sticker-user-icon sticker-xl">JB</span>
+<span className="sticker sticker-lg sticker-success sticker-user-icon">TT</span>
+<span className="sticker sticker-secondary sticker-user-icon">SP</span>
+<span className="sticker sticker-primary sticker-sm sticker-user-icon">BC</span>
+```

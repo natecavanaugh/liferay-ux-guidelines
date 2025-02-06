@@ -3,36 +3,63 @@ title: 'Empty State'
 description: 'Empty states provide users with feedback on the reasons behind the empty state and what they can do to move out of the empty state.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/empty-states/'
 packageNpm: '@clayui/empty-state'
+packageUse: "import EmptyState from '@clayui/empty-state';"
+packageTypes: ['clay-empty-state/src/index.tsx']
 ---
-
-import {
-	EmptyState,
-	EmptyStateWithImage,
-	EmptyStateReducedMotionWithImage,
-} from '$packages/clay-empty-state/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Without Animation](#without-animation)
--   [With Animation](#with-animation)
--   [Reduced Motion](#reduced-motion)
-
-</div>
-</div>
 
 ## Without Animation
 
 By ommiting the `imgSrc` prop you will render a default Empty State component.
 Even without an animation you can still pass in `children` to the component as seen with the `ClayButton` component in this example.
 
-<EmptyState />
+```jsx preview
+import {Provider} from '@clayui/core';
+import EmptyState from '@clayui/empty-state';
+import Button from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<EmptyState>
+					<Button displayType="primary">Button</Button>
+				</EmptyState>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## With Animation
 
 Adding an image to the component is easy, just point the `imgSrc` to the image you want to use
 
-<EmptyStateWithImage />
+```jsx preview
+import {Provider} from '@clayui/core';
+import EmptyState from '@clayui/empty-state';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<EmptyState
+					description="You don't have more notifications to review"
+					imgProps={{alt: 'Alternative Text', title: 'Hello World!'}}
+					imgSrc="/images/success_state.svg"
+					imgSrcReducedMotion="/images/success_state_reduced_motion.svg"
+					title="Hurray"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Reduced Motion
 
@@ -42,9 +69,31 @@ The property `imgSrcReducedMotion` is used to provide an alternate image if a us
 
 There is an accompanying property, `imgPropsReducedMotion`, where specific properties can be passed to the reduced motion `img` tag. If it is not defined, it uses the properties defined in `imgProps`.
 
-<div class="clay-site-alert alert alert-info">
+<div className="clay-site-alert alert alert-info">
 	To see the system's reduce motion setting in action, refer to the example in
 	the <a href="#with-animation">With Animation</a> section.
 </div>
 
-<EmptyStateReducedMotionWithImage />
+```jsx preview
+import {Provider} from '@clayui/core';
+import EmptyState from '@clayui/empty-state';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<EmptyState
+					description="You don't have more notifications to review"
+					imgProps={{alt: 'Alternative Text', title: 'Hello World!'}}
+					imgSrc="/images/success_state.svg"
+					imgSrcReducedMotion="/images/success_state_reduced_motion.svg"
+					title="Hurray"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

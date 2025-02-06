@@ -10,7 +10,7 @@ import React from 'react';
 /**
  * @deprecated since v3.84.0 - use `Picker` component instead.
  */
-const ClayPaginationBarDropDown = ({
+export const DropDown = ({
 	className,
 	messages = 'Items Per Page',
 	trigger,
@@ -26,5 +26,3 @@ const ClayPaginationBarDropDown = ({
 		/>
 	);
 };
-
-export default ClayPaginationBarDropDown;

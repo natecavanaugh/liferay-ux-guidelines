@@ -1,0 +1,154 @@
+---
+title: 'Accessibility'
+description: ''
+---
+
+## Sr Only
+
+The `sr-only` utility only shows an element to screen readers. It is hidden on all other devices.
+
+<div className="sheet-example">
+	<div className="table-responsive">
+		<table className="table table-autofit table-nowrap">
+			<thead>
+				<tr>
+					<th>Utility</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>sr-only</td>
+					<td>
+						border:0;
+						<br />
+						clip:rect(0, 0, 0, 0);
+						<br />
+						height:1px;
+						<br />
+						margin:-1px;
+						<br />
+						overflow:hidden;
+						<br />
+						padding:0;
+						<br />
+						position:absolute;
+						<br />
+						white-space:nowrap;
+						<br />
+						width:1px;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+## Sr Only Focusable
+
+The `sr-only-focusable` utility should be used with `sr-only`. It only displays an element when focused by a keyboard.
+
+<div className="sheet-example">
+	<a
+		className="btn btn-link sr-only sr-only-focusable"
+		href="#skip-to-content"
+	>
+		Skip to Content
+	</a>
+</div>
+
+```html
+<a className="btn btn-link sr-only sr-only-focusable" href="#skip-to-content"
+	>Skip to Content</a
+>
+```
+
+## C Prefers Reduced Motion
+
+The class `c-prefers-reduced-motion` should be added to the `body` tag to remove all CSS animations and transitions even if the user's system setting does prefer motion.
+
+<div className="sheet-example">
+	<button
+		className="btn btn-primary"
+		data-toggle="c-prefers-reduced-motion"
+		type="button"
+	>
+		Toggle Reduced Motion
+	</button>
+</div>
+
+## C Prefers Link Underline
+
+The class `c-prefers-link-underline` should be added to the `body` tag to force all hyperlinks to be underlined. It does not apply underline to links with `role="button"` or the `disabled` class.
+
+<div className="sheet-example">
+	<button
+		className="btn btn-primary"
+		data-toggle="c-prefers-link-underline"
+		type="button"
+	>
+		Toggle Underline Links
+	</button>
+</div>
+
+## C Prefers Letter Spacing 1
+
+The class `c-prefers-letter-spacing-1` provides more space between characters to make it easier to read. It adds `letter-spacing: 1px` to the document.
+
+<div className="sheet-example">
+	<button
+		className="btn btn-primary"
+		data-toggle="c-prefers-letter-spacing-1"
+		type="button"
+	>
+		Toggle Letter Spacing
+	</button>
+</div>
+
+## C Prefers Expanded Text
+
+The class `c-prefers-expanded-text` expands all truncated text to be visible.
+
+<div className="sheet-example">
+	<button
+		className="btn btn-primary"
+		data-toggle="c-prefers-expanded-text"
+		type="button"
+	>
+		Toggle Expanded Text
+	</button>
+	<div className="mt-2">
+		<span className="text-truncate-inline">
+			<span className="text-truncate">
+				ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+			</span>
+		</span>
+	</div>
+</div>
+
+## C Prefers Focus
+
+The class `c-prefers-focus` should be added to the `body` element to show the focus outline on mouse click. This is an accessibility feature for users who prefer this style of navigation.
+
+Focus Visible is now <a href="https://caniuse.com/?search=focus-visible" rel="noopener noreferrer" target="_blank">supported in all major browsers</a>. We have enabled it by default in Clay CSS. Using the mouse to click on links, buttons, checkboxes, and other elements no longer show the focus outline. The focus outline will be shown when interacting with elements via keyboard.
+
+<div className="clay-site-alert alert alert-warning">
+	The focus ring will always show in Text and Select elements that use the
+	`input` tag. [It is assumed the user will be interacting with the input via
+	the keyboard](https://www.w3.org/TR/selectors-4/#the-focus-visible-pseudo).
+</div>
+
+<div className="clay-site-alert alert alert-info">
+	To disable `:focus-visible`, set the Sass variable `$enable-focus-visible:
+	false;`.
+</div>
+
+<div className="sheet-example">
+	<button
+		className="btn btn-primary"
+		data-toggle="c-prefers-focus"
+		type="button"
+	>
+		Toggle Focus
+	</button>
+</div>

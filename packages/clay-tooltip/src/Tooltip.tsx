@@ -29,7 +29,7 @@ interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	show?: boolean;
 }
 
-const ClayTooltip = React.forwardRef<HTMLElement, IProps>(
+export const Tooltip = React.forwardRef<HTMLElement, IProps>(
 	(
 		{
 			alignPosition = 'bottom',
@@ -60,6 +60,4 @@ const ClayTooltip = React.forwardRef<HTMLElement, IProps>(
 	}
 );
 
-ClayTooltip.displayName = 'ClayTooltip';
-
-export default ClayTooltip;
+Tooltip.displayName = 'ClayTooltip';

@@ -3,52 +3,95 @@ title: 'Badge'
 description: 'Badges help highlight important information, such as notifications or new and unread messages.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/badges/'
 packageNpm: '@clayui/badge'
+packageUse: "import Badge from '@clayui/badge';"
+packageTypes: ['clay-badge/src/index.tsx']
 ---
 
-import {
-	Badge,
-	BadgeBeta,
-	BadgeBetaDark,
-	BadgeDark,
-	BadgeTranslucent,
-} from '$packages/clay-badge/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Display Types](#display-types)
--   [Translucent](#badge-translucent)
--   [Clay Dark](#badge-clay-dark)
--   [Beta (Deprecated)](#badge-beta)
-    -   [Dark (Deprecated)](#badge-beta-dark)
-
-</div>
-</div>
-
-## Display Types(#display-types)
+## Display Types
 
 Badges are not used for non-numeric values. If you have a non-numeric value, use labels instead. Badges work for exact numbers up to 999.
 For numbers greater than 999, use K to indicate Thousands (5K for 5.231) and M to indicate Millions (2M for 2.100.523).
 
-<Badge />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Badge from '@clayui/badge';
+import React from 'react';
 
-We recommend that you review the use cases in the <a href="https://storybook.clayui.com/?path=/story/design-system-components-badge--default">Storybook</a>.
+import '@clayui/css/lib/css/atlas.css';
 
-## Translucent(#badge-translucent)
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Badge displayType="success" label="100" />
+				<Badge displayType="primary" label="100" />
+				<Badge displayType="secondary" label="100" />
+				<Badge displayType="info" label="100" />
+				<Badge displayType="warning" label="100" />
+				<Badge displayType="danger" label="100" />
+			</div>
+		</Provider>
+	);
+}
+```
+
+We recommend that you review the use cases in the [Storybook](https://storybook.clayui.com/?path=/story/design-system-components-badge--default).
+
+## Translucent
 
 The boolean attribute `translucent` renders a badge with an opaque background color optimized for light backgrounds.
 
-<BadgeTranslucent />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Badge from '@clayui/badge';
+import React from 'react';
 
-## Dark(#badge-clay-dark)
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Badge displayType="primary" label="Primary" translucent />
+				<Badge displayType="info" label="Info" translucent />
+				<Badge displayType="success" label="Success" translucent />
+				<Badge displayType="warning" label="Warning" translucent />
+				<Badge displayType="danger" label="Danger" translucent />
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Dark
 
 The boolean attribute `dark` renders a badge with an opaque background color optimized for dark backgrounds. It adds the class `clay-dark` to the badge. The class `clay-dark` can be added to the parent element to make badges contained inside render the dark variant. When adding `clay-dark` to the parent element, the `dark` attribute on the badge should be omitted.
 
-<BadgeDark />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Badge from '@clayui/badge';
+import React from 'react';
 
-## Beta (Deprecated)(#badge-beta)
+import '@clayui/css/lib/css/atlas.css';
 
-<div class="clay-site-alert alert alert-warning">
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="clay-dark bg-dark p-4">
+				<Badge displayType="primary" label="Primary" translucent />
+				<Badge displayType="info" label="Info" translucent />
+				<Badge displayType="success" label="Success" translucent />
+				<Badge displayType="warning" label="Warning" translucent />
+				<Badge displayType="danger" label="Danger" translucent />
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Beta (Deprecated)
+
+<div className="clay-site-alert alert alert-warning">
 	The property <code>displayType="beta"</code> has been deprecated in favor of
 	semantic attributes <code>displayType="info"</code> and{' '}
 	<code>translucent</code>.
@@ -56,11 +99,27 @@ The boolean attribute `dark` renders a badge with an opaque background color opt
 
 A component to indicate beta features in DXP. The `badge-beta` variant doesn’t have any interaction. It just informs the user. It uses a Badge component with custom visual states.
 
-<BadgeBeta />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Badge from '@clayui/badge';
+import React from 'react';
 
-## Beta Dark (Deprecated)(#badge-beta-dark)
+import '@clayui/css/lib/css/atlas.css';
 
-<div class="clay-site-alert alert alert-warning">
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Badge displayType="info" label="Beta" translucent />
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Beta Dark (Deprecated)
+
+<div className="clay-site-alert alert alert-warning">
 	The property <code>displayType="beta-dark"</code> has been deprecated in
 	favor of semantic attributes <code>dark</code>,{' '}
 	<code>displayType="info"</code> and <code>translucent</code>.
@@ -68,4 +127,20 @@ A component to indicate beta features in DXP. The `badge-beta` variant doesn’t
 
 `badge-beta-dark` is a dark variant of `badge-beta` to be used with dark backgrounds.
 
-<BadgeBetaDark />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Badge from '@clayui/badge';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="bg-dark p-4">
+				<Badge displayType="info" label="Beta" translucent />
+			</div>
+		</Provider>
+	);
+}
+```

@@ -1,0 +1,2576 @@
+---
+title: 'Forms Hierarchy'
+description: 'The definition of the content hierarchy inside a form structure and the components used to identify the different content blocks. This page contemplates the visual definition of the hierarchy and the measurements and the definition of the components that establish that hierarchy.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/'
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check
+	[WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#accordion)
+	accessibility pratices for Forms Hierarchy when writting your markup.
+</div>
+
+## Example
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-header">
+			<h2 className="sheet-title">Sheet Title</h2>
+			<div className="sheet-text">
+				Sheet text should be used for any kind of explanatory text. The
+				Sheet Title and Sheet Text are contained inside a sheet-header.
+			</div>
+		</div>
+		<div className="sheet-section">
+			<h3 className="sheet-subtitle">Sheet Subtitle</h3>
+			<h3 className="autofit-row sheet-subtitle">
+				<span className="autofit-col autofit-col-expand">
+					<span className="heading-text">
+						Sheet Subtitle with Button
+					</span>
+				</span>
+				<span className="autofit-col">
+					<span className="heading-end">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Add
+						</button>
+					</span>
+				</span>
+			</h3>
+			<h4 className="sheet-tertiary-title">Sheet Tertiary Title</h4>
+			<div className="sheet-text">
+				Sheet Subtitle and Sheet Tertiary Title are contained inside a
+				sheet-section.
+			</div>
+		</div>
+		<div
+			aria-orientation="vertical"
+			className="panel-group panel-group-flush"
+			role="tablist"
+		>
+			<div className="panel">
+				<a
+					aria-controls="accordion03CollapseTwo"
+					aria-expanded="true"
+					className="collapse-icon sheet-subtitle"
+					data-toggle="collapse"
+					href="#accordion03CollapseTwo"
+					id="accordion03HeadingTwo"
+					role="tab"
+				>
+					<span>First Level Collapse 1</span>
+					<span className="collapse-icon-closed">
+						<svg
+							className="lexicon-icon lexicon-icon-angle-right"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#angle-right"></use>
+						</svg>
+					</span>
+					<span className="collapse-icon-open">
+						<svg
+							className="lexicon-icon lexicon-icon-angle-down"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#angle-down"></use>
+						</svg>
+					</span>
+				</a>
+				<div
+					aria-labelledby="accordion03HeadingTwo"
+					className="panel-collapse collapse show"
+					id="accordion03CollapseTwo"
+					role="tabpanel"
+				>
+					<div className="panel-body">
+						<div className="sheet-text">
+							This is an example of explanatory text.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="sheet-footer">
+			<div className="btn-group-item">
+				<div className="btn-group-item">
+					<button className="btn btn-primary" type="button">
+						Primary
+					</button>
+				</div>
+				<div className="btn-group-item">
+					<button className="btn btn-secondary" type="button">
+						Secondary
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sheet sheet-lg">
+	<div className="sheet-header">
+		<h2 className="sheet-title">Sheet Title</h2>
+		<div className="sheet-text">
+			Sheet text should be used for any kind of explanatory text. The
+			Sheet Title and Sheet Text are contained inside a sheet-header.
+		</div>
+	</div>
+	<div className="sheet-section">
+		<h3 className="sheet-subtitle">Sheet Subtitle</h3>
+		<h3 className="autofit-row sheet-subtitle">
+			<span className="autofit-col autofit-col-expand">
+				<span className="heading-text">Sheet Subtitle with Button</span>
+			</span>
+			<span className="autofit-col">
+				<span className="heading-end">
+					<button className="btn btn-secondary btn-sm" type="button">
+						Add
+					</button>
+				</span>
+			</span>
+		</h3>
+		<h4 className="sheet-tertiary-title">Sheet Tertiary Title</h4>
+		<div className="sheet-text">
+			Sheet Subtitle and Sheet Tertiary Title are contained inside a
+			sheet-section.
+		</div>
+	</div>
+	<div
+		aria-orientation="vertical"
+		className="panel-group panel-group-flush"
+		role="tablist"
+	>
+		<div className="panel">
+			<a
+				aria-controls="accordion03CollapseTwo"
+				aria-expanded="true"
+				className="collapse-icon sheet-subtitle"
+				data-toggle="collapse"
+				href="#accordion03CollapseTwo"
+				id="accordion03HeadingTwo"
+				role="tab"
+			>
+				<span>First Level Collapse 1</span>
+				<span className="collapse-icon-closed">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-right"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-right"></use>
+					</svg>
+				</span>
+				<span className="collapse-icon-open">
+					<svg
+						className="lexicon-icon lexicon-icon-angle-down"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#angle-down"></use>
+					</svg>
+				</span>
+			</a>
+			<div
+				aria-labelledby="accordion03HeadingTwo"
+				className="panel-collapse collapse show"
+				id="accordion03CollapseTwo"
+				role="tabpanel"
+			>
+				<div className="panel-body">
+					<div className="sheet-text">
+						This is an example of explanatory text.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="sheet-footer">
+		<div className="btn-group-item">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="button">
+					Primary
+				</button>
+			</div>
+			<div className="btn-group-item">
+				<button className="btn btn-secondary" type="button">
+					Secondary
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## One Column
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-header">
+			<h2 className="sheet-title">Sheet Title</h2>
+			<div className="sheet-text">
+				Sheet text should be used for any kind of explanatory text. The
+				Sheet Title and Sheet Text are contained inside a sheet-header.
+			</div>
+		</div>
+		<div className="sheet-section">
+			<div className="form-group">
+				<label htmlFor="_yepzzftzb">
+					Screen Name
+					<span className="reference-mark">
+						<svg
+							className="lexicon-icon lexicon-icon-asterisk"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#asterisk"></use>
+						</svg>
+					</span>
+				</label>
+				<input
+					className="form-control"
+					id="_yepzzftzb"
+					placeholder="Placeholder"
+					type="text"
+				/>
+			</div>
+			<div className="form-group">
+				<label htmlFor="basicInputTypeEmail">Email</label>
+				<input
+					className="form-control"
+					id="basicInputTypeEmail"
+					type="email"
+				/>
+			</div>
+			<div className="form-group">
+				<label htmlFor="_3yzci7nce">Name</label>
+				<input
+					className="form-control"
+					id="_3yzci7nce"
+					placeholder="Name"
+					type="text"
+				/>
+			</div>
+		</div>
+		<div className="sheet-footer sheet-footer-btn-block-sm-down">
+			<div className="btn-group">
+				<div className="btn-group-item">
+					<button className="btn btn-primary" type="button">
+						Primary
+					</button>
+				</div>
+				<div className="btn-group-item">
+					<button className="btn btn-secondary" type="button">
+						Secondary
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sheet sheet-lg">
+	<div className="sheet-header">
+		<h2 className="sheet-title">Sheet Title</h2>
+		<div className="sheet-text">
+			Sheet text should be used for any kind of explanatory text. The
+			Sheet Title and Sheet Text are contained inside a sheet-header.
+		</div>
+	</div>
+	<div className="sheet-section">
+		<div className="form-group">
+			<label htmlFor="_0rmtn466h">
+				Screen Name
+				<span className="reference-mark">
+					<svg
+						className="lexicon-icon lexicon-icon-asterisk"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#asterisk"></use>
+					</svg>
+				</span>
+			</label>
+			<input
+				className="form-control"
+				id="_0rmtn466h"
+				placeholder="Placeholder"
+				type="text"
+			/>
+		</div>
+		<div className="form-group">
+			<label htmlFor="_9hslbpuas">Email</label>
+			<input className="form-control" id="_9hslbpuas" type="email" />
+		</div>
+		<div className="form-group">
+			<label htmlFor="_javf9wj9l">Name</label>
+			<input
+				className="form-control"
+				id="_javf9wj9l"
+				placeholder="Name"
+				type="text"
+			/>
+		</div>
+	</div>
+	<div className="sheet-footer sheet-footer-btn-block-sm-down">
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="button">
+					Primary
+				</button>
+			</div>
+			<div className="btn-group-item">
+				<button className="btn btn-secondary" type="button">
+					Secondary
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Two Columns
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-header">
+			<h2 className="sheet-title">Sheet Title</h2>
+			<div className="sheet-text">
+				Sheet text should be used for any kind of explanatory text. The
+				Sheet Title and Sheet Text are contained inside a sheet-header.
+			</div>
+		</div>
+		<div className="sheet-section">
+			<div className="form-group-autofit">
+				<div className="form-group-item">
+					<label htmlFor="_c0phn4u3q">
+						Screen Name
+						<span className="reference-mark">
+							<svg
+								className="lexicon-icon lexicon-icon-asterisk"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#asterisk"></use>
+							</svg>
+						</span>
+					</label>
+					<input
+						className="form-control"
+						id="_c0phn4u3q"
+						placeholder="Placeholder"
+						type="text"
+					/>
+				</div>
+				<div className="form-group-item">
+					<label htmlFor="_2nwkgln2x">Birthday</label>
+					<input
+						className="form-control"
+						id="_2nwkgln2x"
+						placeholder="Placeholder"
+						type="text"
+						value="01/01/1970"
+					/>
+				</div>
+			</div>
+			<div className="form-group-autofit">
+				<div className="form-group-item">
+					<label htmlFor="_iyygmg1c5">Email</label>
+					<input
+						className="form-control"
+						id="_iyygmg1c5"
+						type="email"
+					/>
+				</div>
+				<div className="form-group-item">
+					<label htmlFor="_xyx7wo9lq">Gender</label>
+					<input
+						className="form-control"
+						id="_xyx7wo9lq"
+						placeholder="Gender"
+						type="text"
+					/>
+				</div>
+			</div>
+			<div className="form-group-autofit">
+				<div className="form-group-item">
+					<label htmlFor="_hizl88js7">Name</label>
+					<input
+						className="form-control"
+						id="_hizl88js7"
+						placeholder="Name"
+						type="text"
+					/>
+				</div>
+				<div className="form-group-item">
+					<label htmlFor="_3ud138ywq">Job Title</label>
+					<input
+						className="form-control"
+						id="_3ud138ywq"
+						placeholder="Job Title"
+						type="text"
+					/>
+				</div>
+			</div>
+		</div>
+		<div className="sheet-footer sheet-footer-btn-block-sm-down">
+			<div className="btn-group">
+				<div className="btn-group-item">
+					<button className="btn btn-primary" type="button">
+						Primary
+					</button>
+				</div>
+				<div className="btn-group-item">
+					<button className="btn btn-secondary" type="button">
+						Secondary
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sheet sheet-lg">
+	<div className="sheet-header">
+		<h2 className="sheet-title">Sheet Title</h2>
+		<div className="sheet-text">
+			Sheet text should be used for any kind of explanatory text. The
+			Sheet Title and Sheet Text are contained inside a sheet-header.
+		</div>
+	</div>
+	<div className="sheet-section">
+		<div className="form-group-autofit">
+			<div className="form-group-item">
+				<label htmlFor="_cab0u4dgi">
+					Screen Name
+					<span className="reference-mark">
+						<svg
+							className="lexicon-icon lexicon-icon-asterisk"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#asterisk"></use>
+						</svg>
+					</span>
+				</label>
+				<input
+					className="form-control"
+					id="_cab0u4dgi"
+					placeholder="Placeholder"
+					type="text"
+				/>
+			</div>
+			<div className="form-group-item">
+				<label htmlFor="_y1mdflpv9">Birthday</label>
+				<input
+					className="form-control"
+					id="_y1mdflpv9"
+					placeholder="Placeholder"
+					type="text"
+					value="01/01/1970"
+				/>
+			</div>
+		</div>
+		<div className="form-group-autofit">
+			<div className="form-group-item">
+				<label htmlFor="_jcrc07o9v">Email</label>
+				<input className="form-control" id="_jcrc07o9v" type="email" />
+			</div>
+			<div className="form-group-item">
+				<label htmlFor="_17obpdwz0">Gender</label>
+				<input
+					className="form-control"
+					id="_17obpdwz0"
+					placeholder="Gender"
+					type="text"
+				/>
+			</div>
+		</div>
+		<div className="form-group-autofit">
+			<div className="form-group-item">
+				<label htmlFor="_kcnx64qkv">Name</label>
+				<input
+					className="form-control"
+					id="_kcnx64qkv"
+					placeholder="Name"
+					type="text"
+				/>
+			</div>
+			<div className="form-group-item">
+				<label htmlFor="_8awy2608y">Job Title</label>
+				<input
+					className="form-control"
+					id="_8awy2608y"
+					placeholder="Job Title"
+					type="text"
+				/>
+			</div>
+		</div>
+	</div>
+	<div className="sheet-footer sheet-footer-btn-block-sm-down">
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="button">
+					Primary
+				</button>
+			</div>
+			<div className="btn-group-item">
+				<button className="btn btn-secondary" type="button">
+					Secondary
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Sheet Row
+
+The `sheet-row` aligns content flush with the sheet borders using negative margins.
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-header">
+			<h4 className="sheet-title">Sheet Title</h4>
+		</div>
+		<div className="sheet-row">
+			<ul className="nav nav-tabs nav-tabs-light" role="tablist">
+				<li className="nav-item">
+					<a
+						aria-controls="fields"
+						aria-selected="true"
+						className="active nav-link"
+						data-toggle="tab"
+						href="#fields"
+						id="fieldsTab"
+						role="tab"
+					>
+						Fields
+					</a>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-controls="settings"
+						aria-selected="false"
+						className="nav-link"
+						data-toggle="tab"
+						href="#settings"
+						id="settingsTab"
+						role="tab"
+					>
+						Settings
+					</a>
+				</li>
+				<li className="nav-item">
+					<a
+						aria-controls="documents"
+						aria-selected="false"
+						className="disabled nav-link"
+						data-toggle="tab"
+						href="#documents"
+						id="documentsTab"
+						role="tab"
+						tabIndex="-1"
+					>
+						Documents
+					</a>
+				</li>
+				<li className="dropdown nav-item">
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="dropdown-toggle nav-link"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						Configuration
+						<svg
+							className="lexicon-icon lexicon-icon-caret-bottom"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#caret-bottom" />
+						</svg>
+					</a>
+					<div className="dropdown-menu dropdown-menu-indicator-end">
+						<a
+							aria-controls="setup"
+							aria-selected="false"
+							className="dropdown-item"
+							data-toggle="tab"
+							href="#setup"
+							id="setupTab"
+							role="tab"
+						>
+							Setup
+							<span
+								aria-hidden="true"
+								className="dropdown-item-indicator"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-check"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#check" />
+								</svg>
+							</span>
+						</a>
+						<a
+							aria-controls="supportedClients"
+							aria-selected="false"
+							className="dropdown-item"
+							data-toggle="tab"
+							href="#supportedClients"
+							id="supportedClientsTab"
+							role="tab"
+						>
+							Supported Clients
+							<span
+								aria-hidden="true"
+								className="dropdown-item-indicator"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-check"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#check" />
+								</svg>
+							</span>
+						</a>
+					</div>
+				</li>
+			</ul>
+			<div className="tab-content">
+				<div
+					aria-labelledby="fieldsTab"
+					className="active fade show tab-pane"
+					id="fields"
+					role="tabpanel"
+				>
+					Single origin, extra id beans, eu to go, skinny americano ut
+					aftertaste sugar. At americano, viennese variety iced
+					grounds, grinder froth and pumpkin spice aromatic. Cultivar
+					aged lungo, grounds café au lait, skinny, blue mountain, in
+					variety sugar shop roast. Wings, blue mountain affogato
+					organic cappuccino java plunger pot. Single shot variety
+					pumpkin spice seasonal skinny barista carajillo robust
+					cream.
+				</div>
+				<div
+					aria-labelledby="settingsTab"
+					className="fade tab-pane"
+					id="settings"
+					role="tabpanel"
+				>
+					Iced, crema, coffee id kopi-luwak coffee variety. Skinny
+					extraction, id trifecta qui trifecta grinder. Barista
+					robusta arabica breve ut skinny milk beans macchiato
+					carajillo espresso. Cultivar single shot brewed, coffee
+					steamed to go wings to go cortado. Grinder, siphon coffee
+					acerbic espresso cinnamon crema breve.
+				</div>
+				<div
+					aria-labelledby="documentsTab"
+					className="fade tab-pane"
+					id="documents"
+					role="tabpanel"
+				>
+					Cultivar single shot brewed, coffee steamed to go wings to
+					go cortado. Grinder, siphon coffee acerbic espresso cinnamon
+					crema breve.
+				</div>
+				<div
+					aria-labelledby="setupTab"
+					className="fade tab-pane"
+					id="setup"
+					role="tabpanel"
+				>
+					Skinny extraction, id trifecta qui trifecta grinder. Barista
+					robusta arabica breve ut skinny milk beans macchiato
+					carajillo espresso. Cultivar single shot brewed, coffee
+					steamed to go wings to go cortado. Grinder, siphon coffee
+					acerbic espresso cinnamon crema breve.
+				</div>
+				<div
+					aria-labelledby="supportedClientsTab"
+					className="fade tab-pane"
+					id="supportedClients"
+					role="tabpanel"
+				>
+					At americano, viennese variety iced grounds, grinder froth
+					and pumpkin spice aromatic. Cultivar aged lungo, grounds
+					café au lait, skinny, blue mountain, in variety sugar shop
+					roast. Wings, blue mountain affogato organic cappuccino java
+					plunger pot. Single shot variety pumpkin spice seasonal
+					skinny barista carajillo robust cream.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sheet sheet-lg">
+	<div className="sheet-header">
+		<h4 className="sheet-title">Sheet Title</h4>
+	</div>
+	<div className="sheet-row">
+		<ul className="nav nav-tabs nav-tabs-light" role="tablist">
+			<li className="nav-item">
+				<a
+					aria-controls="fields"
+					aria-selected="true"
+					className="active nav-link"
+					data-toggle="tab"
+					href="#fields"
+					id="fieldsTab"
+					role="tab"
+					>Fields</a
+				>
+			</li>
+			<li className="nav-item">
+				<a
+					aria-controls="settings"
+					aria-selected="false"
+					className="nav-link"
+					data-toggle="tab"
+					href="#settings"
+					id="settingsTab"
+					role="tab"
+					>Settings</a
+				>
+			</li>
+			<li className="nav-item">
+				<a
+					aria-controls="documents"
+					aria-selected="false"
+					className="disabled nav-link"
+					data-toggle="tab"
+					href="#documents"
+					id="documentsTab"
+					role="tab"
+					tabindex="-1"
+					>Documents</a
+				>
+			</li>
+			<li className="dropdown nav-item">
+				<a
+					aria-expanded="false"
+					aria-haspopup="true"
+					className="dropdown-toggle nav-link"
+					data-toggle="dropdown"
+					href="#1"
+					role="button"
+				>
+					Configuration
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom" />
+					</svg>
+				</a>
+				<div className="dropdown-menu dropdown-menu-indicator-end">
+					<a
+						aria-controls="setup"
+						aria-selected="false"
+						className="dropdown-item"
+						data-toggle="tab"
+						href="#setup"
+						id="setupTab"
+						role="tab"
+					>
+						Setup
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check" />
+							</svg>
+						</span>
+					</a>
+					<a
+						aria-controls="supportedClients"
+						aria-selected="false"
+						className="dropdown-item"
+						data-toggle="tab"
+						href="#supportedClients"
+						id="supportedClientsTab"
+						role="tab"
+					>
+						Supported Clients
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check" />
+							</svg>
+						</span>
+					</a>
+				</div>
+			</li>
+		</ul>
+		<div className="tab-content">
+			<div
+				aria-labelledby="fieldsTab"
+				className="active fade show tab-pane"
+				id="fields"
+				role="tabpanel"
+			>
+				Single origin, extra id beans, eu to go, skinny americano ut
+				aftertaste sugar. At americano, viennese variety iced grounds,
+				grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+				grounds café au lait, skinny, blue mountain, in variety sugar
+				shop roast. Wings, blue mountain affogato organic cappuccino
+				java plunger pot. Single shot variety pumpkin spice seasonal
+				skinny barista carajillo robust cream.
+			</div>
+			<div
+				aria-labelledby="settingsTab"
+				className="fade tab-pane"
+				id="settings"
+				role="tabpanel"
+			>
+				Iced, crema, coffee id kopi-luwak coffee variety. Skinny
+				extraction, id trifecta qui trifecta grinder. Barista robusta
+				arabica breve ut skinny milk beans macchiato carajillo espresso.
+				Cultivar single shot brewed, coffee steamed to go wings to go
+				cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+				breve.
+			</div>
+			<div
+				aria-labelledby="documentsTab"
+				className="fade tab-pane"
+				id="documents"
+				role="tabpanel"
+			>
+				Cultivar single shot brewed, coffee steamed to go wings to go
+				cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+				breve.
+			</div>
+			<div
+				aria-labelledby="setupTab"
+				className="fade tab-pane"
+				id="setup"
+				role="tabpanel"
+			>
+				Skinny extraction, id trifecta qui trifecta grinder. Barista
+				robusta arabica breve ut skinny milk beans macchiato carajillo
+				espresso. Cultivar single shot brewed, coffee steamed to go
+				wings to go cortado. Grinder, siphon coffee acerbic espresso
+				cinnamon crema breve.
+			</div>
+			<div
+				aria-labelledby="supportedClientsTab"
+				className="fade tab-pane"
+				id="supportedClients"
+				role="tabpanel"
+			>
+				At americano, viennese variety iced grounds, grinder froth and
+				pumpkin spice aromatic. Cultivar aged lungo, grounds café au
+				lait, skinny, blue mountain, in variety sugar shop roast. Wings,
+				blue mountain affogato organic cappuccino java plunger pot.
+				Single shot variety pumpkin spice seasonal skinny barista
+				carajillo robust cream.
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Sheet Title
+
+Use `autofit` utilities with `component-title` in `sheet-title` to vertically align the text with small sized buttons (32px tall). This pattern allows long text to break to new line while keeping the button(s) text centered on the first line of text.
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-header">
+			<h4 className="sheet-title">Sheet Title</h4>
+			<h4 className="sheet-title">
+				<span className="autofit-float-sm-down autofit-padded-no-gutters autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<span className="component-title">One Line Title</span>
+					</span>
+					<span className="autofit-col">
+						<a
+							className="btn btn-secondary btn-sm"
+							href="#1"
+							role="button"
+						>
+							Add
+						</a>
+					</span>
+					<span className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Remove
+						</button>
+					</span>
+				</span>
+			</h4>
+			<h4 className="sheet-title">
+				<span className="autofit-padded-no-gutters autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<span className="component-title">
+							ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+						</span>
+					</span>
+					<span className="autofit-col">
+						<a
+							className="btn btn-secondary btn-sm"
+							href="#1"
+							role="button"
+						>
+							Add
+						</a>
+					</span>
+					<span className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Remove
+						</button>
+					</span>
+				</span>
+			</h4>
+		</div>
+	</div>
+</div>
+
+```html
+<h4 className="sheet-title">Sheet Title</h4>
+
+<h4 className="sheet-title">
+	<span
+		className="autofit-float-sm-down autofit-padded-no-gutters autofit-row"
+	>
+		<span className="autofit-col autofit-col-expand">
+			<span className="component-title">One Line Title</span>
+		</span>
+		<span className="autofit-col">
+			<a className="btn btn-secondary btn-sm" href="#1" role="button"
+				>Add</a
+			>
+		</span>
+		<span className="autofit-col">
+			<button className="btn btn-secondary btn-sm" type="button">
+				Remove
+			</button>
+		</span>
+	</span>
+</h4>
+
+<h4 className="sheet-title">
+	<span className="autofit-padded-no-gutters autofit-row">
+		<span className="autofit-col autofit-col-expand">
+			<span className="component-title"
+				>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</span
+			>
+		</span>
+		<span className="autofit-col">
+			<a className="btn btn-secondary btn-sm" href="#1" role="button"
+				>Add</a
+			>
+		</span>
+		<span className="autofit-col">
+			<button className="btn btn-secondary btn-sm" type="button">
+				Remove
+			</button>
+		</span>
+	</span>
+</h4>
+```
+
+## Sheet Subtitle
+
+Nest `autofit` utilities with `component-title` in `sheet-subtitle` to vertically align the text with small sized buttons (32px tall). This pattern, from the <a href="https://liferay.design/lexicon/core-components/forms/forms-sheet/" rel="noopener noreferrer" target="_blank">Lexicon specs</a>, aligns the text to the bottom of the button(s) when there is only one line of text. Multiple lines of text aligns the text to the top of the button(s).
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-section">
+			<h4 className="sheet-subtitle">Sheet Subtitle</h4>
+			<h4 className="sheet-subtitle">
+				<span className="autofit-float-sm-down autofit-padded-no-gutters autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<span className="component-title">
+							One Line Subtitle
+						</span>
+					</span>
+					<span className="autofit-col">
+						<a
+							className="btn btn-secondary btn-sm"
+							href="#1"
+							role="button"
+						>
+							Add
+						</a>
+					</span>
+					<span className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Remove
+						</button>
+					</span>
+				</span>
+			</h4>
+			<h4 className="sheet-subtitle">
+				<span className="autofit-float-sm-down autofit-padded-no-gutters autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<span className="component-title">
+							ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+						</span>
+					</span>
+					<span className="autofit-col">
+						<a
+							className="btn btn-secondary btn-sm"
+							href="#1"
+							role="button"
+						>
+							Add
+						</a>
+					</span>
+					<span className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Remove
+						</button>
+					</span>
+				</span>
+			</h4>
+		</div>
+	</div>
+</div>
+
+```html
+<h4 clss="sheet-subtitle">Sheet Subtitle</h4>
+
+<h4 className="sheet-subtitle">
+	<span
+		className="autofit-float-sm-down autofit-padded-no-gutters autofit-row"
+	>
+		<span className="autofit-col autofit-col-expand">
+			<span className="component-title">One Line Subtitle</span>
+		</span>
+		<span className="autofit-col">
+			<a className="btn btn-secondary btn-sm" href="#1" role="button"
+				>Add</a
+			>
+		</span>
+		<span className="autofit-col">
+			<button className="btn btn-secondary btn-sm" type="button">
+				Remove
+			</button>
+		</span>
+	</span>
+</h4>
+
+<h4 className="sheet-subtitle">
+	<span
+		className="autofit-float-sm-down autofit-padded-no-gutters autofit-row"
+	>
+		<span className="autofit-col autofit-col-expand">
+			<span className="component-title"
+				>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</span
+			>
+		</span>
+		<span className="autofit-col">
+			<a className="btn btn-secondary btn-sm" href="#1" role="button"
+				>Add</a
+			>
+		</span>
+		<span className="autofit-col">
+			<button className="btn btn-secondary btn-sm" type="button">
+				Remove
+			</button>
+		</span>
+	</span>
+</h4>
+```
+
+## Sheet Tertiary Title
+
+<div className="sheet-example">
+	<div className="sheet sheet-lg">
+		<div className="sheet-section">
+			<h4 className="sheet-tertiary-title">Sheet Tertiary Title</h4>
+			<h4 className="sheet-tertiary-title">
+				<span className="autofit-float-sm-down autofit-padded-no-gutters autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<span className="component-title">
+							One Line Tertiary Title
+						</span>
+					</span>
+					<span className="autofit-col">
+						<a
+							className="btn btn-secondary btn-sm"
+							href="#1"
+							role="button"
+						>
+							Add
+						</a>
+					</span>
+					<span className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Remove
+						</button>
+					</span>
+				</span>
+			</h4>
+			<h4 className="sheet-tertiary-title">
+				<span className="autofit-float-sm-down autofit-padded-no-gutters autofit-row">
+					<span className="autofit-col autofit-col-expand">
+						<span className="component-title">
+							ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+						</span>
+					</span>
+					<span className="autofit-col">
+						<a
+							className="btn btn-secondary btn-sm"
+							href="#1"
+							role="button"
+						>
+							Add
+						</a>
+					</span>
+					<span className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							Remove
+						</button>
+					</span>
+				</span>
+			</h4>
+		</div>
+	</div>
+</div>
+
+```html
+<h4 className="sheet-tertiary-title">Sheet Tertiary Title</h4>
+
+<h4 className="sheet-tertiary-title">
+	<span
+		className="autofit-float-sm-down autofit-padded-no-gutters autofit-row"
+	>
+		<span className="autofit-col autofit-col-expand">
+			<span className="component-title">One Line Tertiary Title</span>
+		</span>
+		<span className="autofit-col">
+			<a className="btn btn-secondary btn-sm" href="#1" role="button"
+				>Add</a
+			>
+		</span>
+		<span className="autofit-col">
+			<button className="btn btn-secondary btn-sm" type="button">
+				Remove
+			</button>
+		</span>
+	</span>
+</h4>
+
+<h4 className="sheet-tertiary-title">
+	<span
+		className="autofit-float-sm-down autofit-padded-no-gutters autofit-row"
+	>
+		<span className="autofit-col autofit-col-expand">
+			<span className="component-title"
+				>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</span
+			>
+		</span>
+		<span className="autofit-col">
+			<a className="btn btn-secondary btn-sm" href="#1" role="button"
+				>Add</a
+			>
+		</span>
+		<span className="autofit-col">
+			<button className="btn btn-secondary btn-sm" type="button">
+				Remove
+			</button>
+		</span>
+	</span>
+</h4>
+```
+
+## Variants
+
+## Sheet Multiple Form
+
+The modifier class `sheet-multiple-form` on `sheet` provides alternative sizing and spacing to `sheet-header` to be used in specific situations explained below.
+
+This pattern is used in form scenarios, usually to display a form, multiple forms or a combination of single/multiple forms and one or several sheets to display information. See <a href="https://liferay.design/lexicon/core-components/forms/forms-sheet/#multiple-form" rel="noopener noreferrer" target="_blank">Lexicon</a>.
+
+<div className="sheet-example">
+	<div className="sheet sheet-multiple-form">
+		<div className="sheet-header">
+			<div className="autofit-row autofit-padded-no-gutters">
+				<div className="autofit-col autofit-col-shrink">
+					<h4 className="sheet-title">
+						<span className="component-title">Sheet Header</span>
+					</h4>
+				</div>
+				<div className="autofit-col">
+					<div className="dropdown dropdown-action">
+						<button
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="component-action dropdown-toggle"
+							data-toggle="dropdown"
+							id="dropdownSites5"
+							type="button"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-ellipsis-v"
+								focusable="false"
+								role="presentation"
+							>
+								<use xlinkHref="/images/icons/icons.svg#ellipsis-v" />
+							</svg>
+						</button>
+						<ul
+							aria-labelledby="dropdownSites5"
+							className="dropdown-menu"
+						>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Download
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Edit
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Move
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Checkout
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Permissions
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Move to Recycle Bin
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="sheet-section">
+			<h5 className="sheet-title">Sheet Title</h5>
+			<p className="sheet-text">
+				Sheet text should be used for any kind of explanatory text. The
+				Sheet Title and Sheet Text are contained inside a sheet-section.
+			</p>
+		</div>
+		<div className="sheet-section">
+			<h6 className="sheet-subtitle">Sheet Subtitle 01</h6>
+			<div className="form-group">
+				<label htmlFor="basicInputTypeTextarea">Textarea</label>
+				<textarea
+					className="form-control"
+					id="basicInputTypeTextarea"
+					name="basicInputTypeTextarea"
+					placeholder="Placeholder"
+				></textarea>
+			</div>
+		</div>
+		<div className="sheet-section">
+			<h6 className="sheet-subtitle">Sheet Subtitle 02</h6>
+		</div>
+		<div className="sheet-footer sheet-footer-btn-block-sm-down">
+			<div className="btn-group">
+				<div className="btn-group-item">
+					<button className="btn btn-primary" type="button">
+						Primary
+					</button>
+				</div>
+				<div className="btn-group-item">
+					<button className="btn btn-secondary" type="button">
+						Secondary
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sheet sheet-multiple-form">
+	<div className="sheet-header">
+		<div className="autofit-row autofit-padded-no-gutters">
+			<div className="autofit-col autofit-col-shrink">
+				<h4 className="sheet-title">
+					<span className="component-title">Sheet Header</span>
+				</h4>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<button
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						id="dropdownSites5"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use
+								xlinkHref="/images/icons/icons.svg#ellipsis-v"
+							/>
+						</svg>
+					</button>
+					<ul
+						aria-labelledby="dropdownSites5"
+						className="dropdown-menu"
+					>
+						<li>
+							<a className="dropdown-item" href="#1">Download</a>
+						</li>
+						<li><a className="dropdown-item" href="#1">Edit</a></li>
+						<li><a className="dropdown-item" href="#1">Move</a></li>
+						<li>
+							<a className="dropdown-item" href="#1">Checkout</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1"
+								>Permissions</a
+							>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1"
+								>Move to Recycle Bin</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="sheet-section">
+		<h5 className="sheet-title">Sheet Title</h5>
+		<p className="sheet-text">
+			Sheet text should be used for any kind of explanatory text. The
+			Sheet Title and Sheet Text are contained inside a sheet-section.
+		</p>
+	</div>
+	<div className="sheet-section">
+		<h6 className="sheet-subtitle">Sheet Subtitle 01</h6>
+		<div className="form-group">
+			<label htmlFor="basicInputTypeTextarea">Textarea</label>
+			<textarea
+				className="form-control"
+				id="basicInputTypeTextarea"
+				name="basicInputTypeTextarea"
+				placeholder="Placeholder"
+			></textarea>
+		</div>
+	</div>
+	<div className="sheet-section">
+		<h6 className="sheet-subtitle">Sheet Subtitle 02</h6>
+	</div>
+	<div className="sheet-footer sheet-footer-btn-block-sm-down">
+		<div className="btn-group">
+			<div className="btn-group-item">
+				<button className="btn btn-primary" type="button">
+					Primary
+				</button>
+			</div>
+			<div className="btn-group-item">
+				<button className="btn btn-secondary" type="button">
+					Secondary
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Commerce Product Screen
+
+This is an example of the `sheet-multiple-form` modifier with `card-page card-page-equal-height` used to layout the Commerce Product Screen.
+
+<div className="sheet-example">
+	<div className="container-fluid container-fluid-max-xl">
+		<div className="card-page card-page-equal-height">
+			<div className="card-page-item col-lg-4 col-sm-6">
+				<div className="sheet">
+					<div className="autofit-padded-no-gutters autofit-row autofit-row-center">
+						<div className="autofit-col">
+							<div className="sticker sticker-success sticker-xl">
+								<svg
+									className="lexicon-icon lexicon-icon-document-pending"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#document-pending" />
+								</svg>
+							</div>
+						</div>
+						<div className="autofit-col autofit-col-expand">
+							<div>Units Sold</div>
+							<div>
+								<span>128</span>
+								<span> / Sales </span>
+								<strong>$459k</strong>
+							</div>
+							<div>27% last 30 days</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="card-page-item col-lg-4 col-sm-6">
+				<div className="sheet">
+					<div className="autofit-padded-no-gutters autofit-row autofit-row-center">
+						<div className="autofit-col">
+							<div className="sticker sticker-success sticker-xl">
+								<svg
+									className="lexicon-icon lexicon-icon-document-pending"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#document-pending" />
+								</svg>
+							</div>
+						</div>
+						<div className="autofit-col autofit-col-expand">
+							<div>Units Sold</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="card-page-item col-lg-4 col-sm-6">
+				<div className="sheet">
+					<div className="autofit-padded-no-gutters autofit-row autofit-row-center">
+						<div className="autofit-col">
+							<div className="sticker sticker-success sticker-xl">
+								<svg
+									className="lexicon-icon lexicon-icon-document-pending"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#document-pending" />
+								</svg>
+							</div>
+						</div>
+						<div className="autofit-col autofit-col-expand">
+							<div>Units Sold</div>
+							<div>
+								<span>128</span>
+								<span> / Sales </span>
+								<strong>$459k</strong>
+							</div>
+							<div>27% last 30 days</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="card-page card-page-equal-height">
+			<div className="card-page-item col-12">
+				<div className="sheet sheet-multiple-form">
+					<div className="sheet-header">
+						<h4 className="sheet-title">SEO</h4>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<div className="form-group">
+								<label htmlFor="commerceFriendlyURL">
+									Friendly URL
+								</label>
+								<div className="form-text">
+									https://www.your-domain.com
+								</div>
+								<div className="input-group">
+									<div className="input-group-item input-group-item-shrink input-group-prepend">
+										<span className="input-group-text">
+											/p/
+										</span>
+									</div>
+									<div className="input-group-append input-group-item">
+										<input
+											className="form-control"
+											id="commerceFriendlyURL"
+											placeholder="design/lexicon"
+											type="text"
+											value="design/lexicon"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="col-md-6">
+							<div className="form-group">
+								<div className="form-group-item form-group-item-label-spacer">
+									<label htmlFor="HTMLTitle">
+										HTML Title
+									</label>
+									<div className="input-group">
+										<div className="input-group-item">
+											<input
+												aria-label="Amount"
+												className="form-control"
+												id="HTMLTitle"
+												placeholder="Some placeholder text..."
+												type="text"
+												value="This is an example of a very long title..."
+											/>
+											<div className="form-feedback-group">
+												<div className="autofit-row">
+													<div className="autofit-col autofit-col-expand">
+														<div className="form-text">
+															Title length should
+															be under 60
+															characters
+														</div>
+													</div>
+													<div className="autofit-col">
+														<div className="form-text">
+															56/60
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="input-group-item input-group-item-shrink">
+											<button
+												aria-expanded="false"
+												aria-haspopup="true"
+												className="btn btn-monospaced btn-secondary dropdown-toggle"
+												data-toggle="dropdown"
+												type="button"
+											>
+												<span className="inline-item">
+													<svg
+														className="lexicon-icon lexicon-icon-es-es"
+														focusable="false"
+														role="presentation"
+													>
+														<use xlinkHref="/images/icons/icons.svg#es-es"></use>
+													</svg>
+												</span>
+												<span className="btn-section">
+													es-ES
+												</span>
+											</button>
+											<ul className="dropdown-menu dropdown-menu-right">
+												<li>
+													<a
+														className="autofit-row dropdown-item"
+														href="#1"
+													>
+														<span className="autofit-col autofit-col-expand">
+															<span className="autofit-section">
+																<span className="inline-item inline-item-before">
+																	<svg
+																		className="lexicon-icon lexicon-icon-en-us"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#en-us"></use>
+																	</svg>
+																</span>
+																en-US
+															</span>
+														</span>
+														<span className="autofit-col">
+															<span className="label label-info">
+																<span className="label-item label-item-expand">
+																	Default
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a
+														className="autofit-row dropdown-item"
+														href="#1"
+													>
+														<span className="autofit-col autofit-col-expand">
+															<span className="autofit-section">
+																<span className="inline-item inline-item-before">
+																	<svg
+																		className="lexicon-icon lexicon-icon-en-gb"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#en-gb"></use>
+																	</svg>
+																</span>
+																en-GB
+															</span>
+														</span>
+														<span className="autofit-col">
+															<span className="label label-success">
+																<span className="label-item label-item-expand">
+																	Translated
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a
+														className="active autofit-row dropdown-item"
+														href="#1"
+													>
+														<span className="autofit-col autofit-col-expand">
+															<span className="autofit-section">
+																<span className="inline-item inline-item-before">
+																	<svg
+																		className="lexicon-icon lexicon-icon-es-es"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#es-es"></use>
+																	</svg>
+																</span>
+																es-ES
+															</span>
+														</span>
+														<span className="autofit-col">
+															<span className="label label-success">
+																<span className="label-item label-item-expand">
+																	Translated
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a
+														className="autofit-row dropdown-item"
+														href="#1"
+													>
+														<span className="autofit-col autofit-col-expand">
+															<span className="autofit-section">
+																<span className="inline-item inline-item-before">
+																	<svg
+																		className="lexicon-icon lexicon-icon-fr-fr"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#fr-fr"></use>
+																	</svg>
+																</span>
+																fr-FR
+															</span>
+														</span>
+														<span className="autofit-col">
+															<span className="label label-warning">
+																<span className="label-item label-item-expand">
+																	Not
+																	Translated
+																</span>
+															</span>
+														</span>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<div className="form-group">
+								<label htmlFor="productDescription">
+									Description
+								</label>
+								<div className="input-group">
+									<div className="input-group-item">
+										<textarea
+											aria-label="Amount"
+											className="form-control"
+											id="productDescription"
+											placeholder="Some placeholder text..."
+										>
+											El ratón inalámbrico Liferay es el
+											ratón estelar de Liferay, diseñado
+											para ofrecer a los usuarios
+											avanzados comodidad, control y
+											precisión superiores
+										</textarea>
+										<div className="form-feedback-group">
+											<div className="autofit-row">
+												<div className="autofit-col autofit-col-expand">
+													<div className="form-text">
+														Description should be
+														under 155 characters
+													</div>
+												</div>
+												<div className="autofit-col">
+													<div className="form-text">
+														114/160
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div className="input-group-item input-group-item-shrink">
+										<button
+											aria-expanded="false"
+											aria-haspopup="true"
+											className="btn btn-monospaced btn-secondary dropdown-toggle"
+											data-toggle="dropdown"
+											type="button"
+										>
+											<span className="inline-item">
+												<svg
+													className="lexicon-icon lexicon-icon-es-es"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#es-es"></use>
+												</svg>
+											</span>
+											<span className="btn-section">
+												es-ES
+											</span>
+										</button>
+										<ul className="dropdown-menu dropdown-menu-right">
+											<li>
+												<a
+													className="autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-en-us"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#en-us"></use>
+																</svg>
+															</span>
+															en-US
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-info">
+															<span className="label-item label-item-expand">
+																Default
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a
+													className="autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-en-gb"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#en-gb"></use>
+																</svg>
+															</span>
+															en-GB
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-success">
+															<span className="label-item label-item-expand">
+																Translated
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a
+													className="active autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-es-es"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#es-es"></use>
+																</svg>
+															</span>
+															es-ES
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-success">
+															<span className="label-item label-item-expand">
+																Translated
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a
+													className="autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-fr-fr"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#fr-fr"></use>
+																</svg>
+															</span>
+															fr-FR
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-warning">
+															<span className="label-item label-item-expand">
+																Not Translated
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="col-md-6">
+							<div className="form-group">
+								<label htmlFor="commerceKeywords">
+									Keywords
+								</label>
+								<div className="input-group">
+									<div className="input-group-item">
+										<textarea
+											aria-label="Amount"
+											className="form-control"
+											id="commerceKeywords"
+											placeholder="Keywords"
+										></textarea>
+									</div>
+									<div className="input-group-item input-group-item-shrink">
+										<button
+											aria-expanded="false"
+											aria-haspopup="true"
+											className="btn btn-monospaced btn-secondary dropdown-toggle"
+											data-toggle="dropdown"
+											type="button"
+										>
+											<span className="inline-item">
+												<svg
+													className="lexicon-icon lexicon-icon-es-es"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#es-es"></use>
+												</svg>
+											</span>
+											<span className="btn-section">
+												es-ES
+											</span>
+										</button>
+										<ul className="dropdown-menu dropdown-menu-right">
+											<li>
+												<a
+													className="autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-en-us"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#en-us"></use>
+																</svg>
+															</span>
+															en-US
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-info">
+															<span className="label-item label-item-expand">
+																Default
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a
+													className="autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-en-gb"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#en-gb"></use>
+																</svg>
+															</span>
+															en-GB
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-success">
+															<span className="label-item label-item-expand">
+																Translated
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a
+													className="active autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-es-es"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#es-es"></use>
+																</svg>
+															</span>
+															es-ES
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-success">
+															<span className="label-item label-item-expand">
+																Translated
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+											<li>
+												<a
+													className="autofit-row dropdown-item"
+													href="#1"
+												>
+													<span className="autofit-col autofit-col-expand">
+														<span className="autofit-section">
+															<span className="inline-item inline-item-before">
+																<svg
+																	className="lexicon-icon lexicon-icon-fr-fr"
+																	focusable="false"
+																	role="presentation"
+																>
+																	<use xlinkHref="/images/icons/icons.svg#fr-fr"></use>
+																</svg>
+															</span>
+															fr-FR
+														</span>
+													</span>
+													<span className="autofit-col">
+														<span className="label label-warning">
+															<span className="label-item label-item-expand">
+																Not Translated
+															</span>
+														</span>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-md-6">
+							<div className="form-group">
+								<label>Preview</label>
+								<div className="card card-type-template">
+									<div className="card-body">
+										<a href="#1">
+											<strong>
+												This is an example of a very
+												long title
+											</strong>
+										</a>
+										<div className="text-success">
+											https://liferay.com
+										</div>
+										<div>
+											Optimal title length Google
+											typically displays the first 50-60
+											characters of a title tag. If you
+											keep your titles under 60
+											characters, our research suggest...
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="container-fluid container-fluid-max-xl">
+	<div className="card-page card-page-equal-height">
+		<div className="card-page-item col-lg-4 col-sm-6">
+			<div className="sheet">
+				<div
+					className="autofit-padded-no-gutters autofit-row autofit-row-center"
+				>
+					<div className="autofit-col"></div>
+					<div className="autofit-col autofit-col-expand"></div>
+				</div>
+			</div>
+		</div>
+		<div className="card-page-item col-lg-4 col-sm-6">
+			<div className="sheet">
+				<div
+					className="autofit-padded-no-gutters autofit-row autofit-row-center"
+				>
+					<div className="autofit-col"></div>
+					<div className="autofit-col autofit-col-expand"></div>
+				</div>
+			</div>
+		</div>
+		<div className="card-page-item col-lg-4 col-sm-6">
+			<div className="sheet">
+				<div
+					className="autofit-padded-no-gutters autofit-row autofit-row-center"
+				>
+					<div className="autofit-col"></div>
+					<div className="autofit-col autofit-col-expand"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="card-page card-page-equal-height">
+		<div className="card-page-item col-12">
+			<div className="sheet sheet-multiple-form">
+				<div className="sheet-header">
+					<h4 className="sheet-title">SEO</h4>
+				</div>
+				<div className="row">
+					<div className="col-md-6"></div>
+					<div className="col-md-6"></div>
+				</div>
+				<div className="row">
+					<div className="col-md-6"></div>
+					<div className="col-md-6"></div>
+				</div>
+				<div className="row">
+					<div className="col-md-6"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Sheet Dataset Content
+
+The modifier `sheet-dataset-content` should be added to `sheet` for sheets containing datasets.
+
+A common usage of the `sheet` is to present a dataset display inside. This case benefits of the `sheet-title` and the content free space to place elements such as the dataset display. See <a href="https://liferay.design/lexicon/core-components/forms/forms-sheet/#dataset-content" rel="noopener noreferrer" target="_blank">Lexicon</a>.
+
+<div className="sheet-example">
+	<div className="container-fluid container-fluid-max-xl">
+		<div className="sheet sheet-dataset-content">
+			<div className="sheet-header">
+				<h4 className="sheet-title">
+					<span className="autofit-row autofit-padded-no-gutters">
+						<span className="autofit-col autofit-col-shrink">
+							<span className="component-title">col1</span>
+						</span>
+						<span className="autofit-col">
+							<button className="component-action" type="button">
+								<svg
+									className="lexicon-icon lexicon-icon-ellipsis-v"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#ellipsis-v" />
+								</svg>
+							</button>
+						</span>
+					</span>
+				</h4>
+			</div>
+			<nav className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-light">
+				<div className="container-fluid container-fluid-max-xl">
+					<a
+						aria-controls="navigationBarCollapse00"
+						aria-expanded="false"
+						aria-label="Toggle Navigation"
+						className="collapsed navbar-toggler navbar-toggler-link"
+						data-toggle="collapse"
+						href="#navigationBarCollapse00"
+						role="button"
+					>
+						<span className="navbar-text-truncate">Fragments</span>
+						<svg
+							className="lexicon-icon lexicon-icon-caret-bottom"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#caret-bottom" />
+						</svg>
+					</a>
+					<div
+						className="collapse navbar-collapse"
+						id="navigationBarCollapse00"
+						style={{zIndex: 505}}
+					>
+						<div className="container-fluid container-fluid-max-xl">
+							<ul className="navbar-nav">
+								<li
+									aria-label="Current Page"
+									className="nav-item"
+								>
+									<a className="active nav-link" href="#1">
+										<span className="navbar-text-truncate">
+											Fragments
+										</span>
+									</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="#1">
+										<span className="navbar-text-truncate">
+											Resources
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<nav className="management-bar management-bar-light navbar navbar-expand-md">
+				<div className="container-fluid container-fluid-max-xl">
+					<ul className="navbar-nav">
+						<li className="nav-item">
+							<div className="custom-control custom-checkbox">
+								<label>
+									<input
+										className="custom-control-input"
+										type="checkbox"
+									/>
+									<span className="custom-control-label"></span>
+								</label>
+							</div>
+						</li>
+						<li className="dropdown nav-item">
+							<a
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="dropdown-toggle nav-link navbar-breakpoint-down-d-none"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<span className="navbar-text-truncate">
+									Filter and Order
+								</span>
+								<svg
+									className="lexicon-icon lexicon-icon-caret-bottom"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#caret-bottom" />
+								</svg>
+							</a>
+							<a
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="nav-link nav-link-monospaced dropdown-toggle navbar-breakpoint-d-none"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-filter"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#filter" />
+								</svg>
+							</a>
+							<ul className="dropdown-menu">
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Filter Action 1
+									</a>
+								</li>
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Filter Action 2
+									</a>
+								</li>
+								<li>
+									<a
+										className="dropdown-item"
+										href="#1"
+										role="button"
+									>
+										Filter Action 3
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li className="nav-item">
+							<a
+								className="nav-link nav-link-monospaced order-arrow-down-active"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-order-arrow"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#order-arrow" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+					<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+						<div className="container-fluid container-fluid-max-xl">
+							<form role="search">
+								<div className="input-group">
+									<div className="input-group-item">
+										<input
+											className="form-control input-group-inset input-group-inset-after"
+											placeholder="Search for..."
+											type="text"
+										/>
+										<span className="input-group-inset-item input-group-inset-item-after">
+											<button
+												className="btn btn-unstyled"
+												type="submit"
+											>
+												<svg
+													className="lexicon-icon lexicon-icon-search"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#search" />
+												</svg>
+											</button>
+											<button
+												className="btn btn-unstyled d-none"
+												type="button"
+											>
+												<svg
+													className="lexicon-icon lexicon-icon-times"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#times" />
+												</svg>
+											</button>
+										</span>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<ul className="navbar-nav">
+						<li className="nav-item navbar-breakpoint-d-none">
+							<a
+								className="nav-link nav-link-monospaced"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-search"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#search" />
+								</svg>
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								className="nav-link nav-link-monospaced"
+								href="#uniqueSidenavCollapseId2"
+								id="uniqueSidenavToggler2"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-info-circle-open"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#info-circle-open" />
+								</svg>
+							</a>
+						</li>
+						<li className="dropdown nav-item">
+							<a
+								aria-expanded="false"
+								aria-haspopup="true"
+								className="dropdown-toggle nav-link nav-link-monospaced"
+								data-toggle="dropdown"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-list"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#list" />
+								</svg>
+							</a>
+							<ul className="dropdown-menu dropdown-menu-right dropdown-menu-indicator-start">
+								<li>
+									<a
+										className="active dropdown-item"
+										href="#1"
+									>
+										<span className="dropdown-item-indicator-start">
+											<svg
+												className="lexicon-icon lexicon-icon-list"
+												focusable="false"
+												role="presentation"
+											>
+												<use xlinkHref="/images/icons/icons.svg#list" />
+											</svg>
+										</span>
+										List View
+									</a>
+								</li>
+								<li>
+									<a className="dropdown-item" href="#1">
+										<span className="dropdown-item-indicator-start">
+											<svg
+												className="lexicon-icon lexicon-icon-table"
+												focusable="false"
+												role="presentation"
+											>
+												<use xlinkHref="/images/icons/icons.svg#table" />
+											</svg>
+										</span>
+										Table View
+									</a>
+								</li>
+								<li>
+									<a className="dropdown-item" href="#1">
+										<span className="dropdown-item-indicator-start">
+											<svg
+												className="lexicon-icon lexicon-icon-cards2"
+												focusable="false"
+												role="presentation"
+											>
+												<use xlinkHref="/images/icons/icons.svg#cards2" />
+											</svg>
+										</span>
+										Card View
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li className="nav-item">
+							<a
+								className="btn btn-primary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+								href="#1"
+								role="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-plus"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#plus" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div className="container-view">
+				<div className="sheet">
+					<div className="c-empty-state c-empty-state-animation">
+						<div className="c-empty-state-image">
+							<div className="c-empty-state-aspect-ratio">
+								<img
+									alt="Image of a satellite in space"
+									className="aspect-ratio-item aspect-ratio-item-fluid"
+									src="/images/empty_state.gif"
+								/>
+							</div>
+						</div>
+						<div className="c-empty-state-title">
+							<span className="text-truncate-inline">
+								<span className="text-truncate">
+									No page templates yet
+								</span>
+							</span>
+						</div>
+						<div className="c-empty-state-text">
+							Page Templates allow you to create pages faster with
+							reusable elements.
+						</div>
+						<div className="c-empty-state-footer">
+							<button
+								className="btn btn-secondary btn-sm"
+								type="button"
+							>
+								New Document
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="container-fluid container-fluid-max-xl">
+	<div className="sheet sheet-dataset-content">
+		<div className="sheet-header">
+			<h4 className="sheet-title">
+				<span className="autofit-row autofit-padded-no-gutters">
+					<span className="autofit-col autofit-col-shrink">
+						<span className="component-title">col1</span>
+					</span>
+					<span className="autofit-col">
+						<button className="component-action" type="button">
+							<svg
+								className="lexicon-icon lexicon-icon-ellipsis-v"
+								focusable="false"
+								role="presentation"
+							>
+								<use
+									xlinkHref="/images/icons/icons.svg#ellipsis-v"
+								/>
+							</svg>
+						</button>
+					</span>
+				</span>
+			</h4>
+		</div>
+		<nav
+			className="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-light"
+		></nav>
+		<nav
+			className="management-bar management-bar-light navbar navbar-expand-md"
+		></nav>
+		<div className="container-view">
+			<div className="sheet">
+				<div className="c-empty-state c-empty-state-animation">
+					<div className="c-empty-state-image">
+						<div className="c-empty-state-aspect-ratio">
+							<img
+								alt="Image of a satellite in space"
+								className="aspect-ratio-item aspect-ratio-item-fluid"
+								src="/images/empty_state.gif"
+							/>
+						</div>
+					</div>
+					<div className="c-empty-state-title">
+						<span className="text-truncate-inline">
+							<span className="text-truncate"
+								>No page templates yet</span
+							>
+						</span>
+					</div>
+					<div className="c-empty-state-text">
+						Page Templates allow you to create pages faster with
+						reusable elements.
+					</div>
+					<div className="c-empty-state-footer">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							New Document
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```

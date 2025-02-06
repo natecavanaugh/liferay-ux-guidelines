@@ -3,22 +3,9 @@ title: 'Sticker'
 description: 'Stickers are a visual way to quickly identify content in a different way than badges and labels.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/stickers/'
 packageNpm: '@clayui/sticker'
+packageUse: "import Sticker from '@clayui/sticker';"
+packageTypes: ['clay-sticker/src/Sticker.tsx']
 ---
-
-import {
-	StickerColorsAndSizes,
-	StickerUserIcon,
-} from '$packages/clay-sticker/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Display Type](#display-type)
--   [User Icon](#user-icon)
--   [Positioning](#positioning)
-
-</div>
-</div>
 
 ## Display Type
 
@@ -26,16 +13,105 @@ Stickers can be any color. Set sticker's color using [`displayType`](#api-displa
 
 Also, you can use the following sizes on your Sticker just setting up [`size`](#api-size):
 
-<StickerColorsAndSizes />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Sticker from '@clayui/sticker';
+import Icon from '@clayui/icon';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Sticker displayType="danger" size="sm">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="dark" size="md">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="info" size="lg">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="light" size="xl">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="secondary" size="xl">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="success" size="lg">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="unstyled" size="md">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<Sticker displayType="warning" size="sm">
+						<Icon symbol="user" />
+					</Sticker>
+
+					<div className="mt-3">
+						<Sticker displayType="outline-0">S</Sticker>
+						<Sticker displayType="outline-1">M</Sticker>
+						<Sticker displayType="outline-2">C</Sticker>
+						<Sticker displayType="outline-3">M</Sticker>
+						<Sticker displayType="outline-4">S</Sticker>
+						<Sticker displayType="outline-5">S</Sticker>
+						<Sticker displayType="outline-6">E</Sticker>
+						<Sticker displayType="outline-7">Q</Sticker>
+						<Sticker displayType="outline-8">D</Sticker>
+						<Sticker displayType="outline-9">P</Sticker>
+					</div>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## User Icon
 
-Use a ClaySticker as User Icon just adding `sticker-user-icon` on className of the `ClaySticker` component like the example below:
+Use a Sticker as User Icon just adding `sticker-user-icon` on className of the `Sticker` component like the example below:
 
-<StickerUserIcon />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Sticker from '@clayui/sticker';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<Sticker userIcon size="xl">
+						<Sticker.Image
+							alt="placeholder"
+							src="https://clayui.com/images/long_user_image.png"
+						/>
+					</Sticker>
+
+					<Sticker userIcon size="xl">
+						BS
+					</Sticker>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Positioning
 
 You can set a desired alignment of sticker according to a parent element, just setting up the [`position`](#api-position) property. If you want to set the position of the sticker on the outside corners, use [`outside`](#api-outside) property in conjunction with [`position`](#api-position) property.
 
-Overlay content over stickers by nesting `sticker-overlay` elements as children of ClaySticker. Check our example on [Storybook](https://storybook.clayui.com/?path=/story/design-system-components-sticker--overlay)
+Overlay content over stickers by nesting `sticker-overlay` elements as children of Sticker. Check our example on [Storybook](https://storybook.clayui.com/?path=/story/design-system-components-sticker--overlay)

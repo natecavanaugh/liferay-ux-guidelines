@@ -5,50 +5,100 @@ lexiconDefinition: 'https://liferay.design/lexicon/core-components/toolbars/tool
 packageNpm: '@clayui/upper-toolbar'
 packageStatus: 'Deprecated'
 storybookPath: 'design-system-components-toolbar--upper-toolbar'
+packageUse: "import UpperToolbar from '@clayui/upper-toolbar';"
+packageTypes: ['clay-upper-toolbar/src/index.tsx']
 ---
 
-import {UpperToolbarExample} from '$packages/clay-upper-toolbar/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [Example](#example)
--   [API](#api)
-
-</div>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	This component has been discontinued in favor of ClayToolbar, you can get the
+	[same result](https://storybook.clayui.com/?path=/story/design-system-components-toolbar--upper-toolbar).
 </div>
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	This component has been discontinued in favor of ClayToolbar, you can get the{' '}
-	<a href="https://storybook.clayui.com/?path=/story/design-system-components-toolbar--upper-toolbar">
-		same result
-	</a>.
-</div>
-
-### Introduction
+## Introduction
 
 The Upper Toolbar components can be composed together to make all sorts of toolbar variations. Combine Upper Toolbar with other Clay components to cover a variety of use cases.
 
-### Example
+## Example
 
-<UpperToolbarExample />
+```jsx preview
+import {Provider} from '@clayui/core';
+import UpperToolbar from '@clayui/upper-toolbar';
+import {ClayDropDownWithItems} from '@clayui/drop-down';
+import Button, {ClayButtonWithIcon} from '@clayui/button';
+import Icon from '@clayui/icon';
+import React, {useState} from 'react';
 
-### API
+import '@clayui/css/lib/css/atlas.css';
 
-#### UpperToolbar
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<UpperToolbar>
+					<UpperToolbar.Item className="text-left" expand>
+						<label className="component-title">{'Foo Bar'}</label>
 
-<code class="list-api-item-type">
-	Extends from {`React.HTMLAttributes<HTMLElement>`}
-</code>
+						<Icon symbol="lock" />
+					</UpperToolbar.Item>
 
-#### UpperToolbar.Item
+					<UpperToolbar.Input placeholder="Search..." />
 
-<div>[APITable "clay-upper-toolbar/src/index.tsx#ClayUpperToolbarItem"]</div>
+					<UpperToolbar.Item>
+						<Button.Group>
+							<ClayButtonWithIcon
+								displayType="secondary"
+								onClick={() => {}}
+								small
+								symbol="angle-left"
+							/>
 
-#### UpperToolbar.Input
+							<ClayButtonWithIcon
+								displayType="secondary"
+								onClick={() => {}}
+								small
+								symbol="angle-right"
+							/>
+						</Button.Group>
+					</UpperToolbar.Item>
 
-<code class="list-api-item-type">
-	Extends from {`React.ComponentProps<typeof ClayInput>`}
-</code>
+					<UpperToolbar.Item>
+						<Button displayType="secondary" onClick={() => {}}>
+							{'Delete'}
+						</Button>
+
+						<Button
+							className="inline-item-after"
+							onClick={() => {}}
+						>
+							{'Edit'}
+						</Button>
+					</UpperToolbar.Item>
+
+					<UpperToolbar.Item>
+						<ClayDropDownWithItems
+							items={[
+								{href: '#one', label: 'one'},
+								{href: '#two', label: 'two'},
+								{
+									disabled: true,
+									href: '#three',
+									label: 'three',
+								},
+								{href: '#four', label: 'four'},
+							]}
+							trigger={
+								<ClayButtonWithIcon
+									displayType="unstyled"
+									small
+									symbol="ellipsis-v"
+								/>
+							}
+						/>
+					</UpperToolbar.Item>
+				</UpperToolbar>
+			</div>
+		</Provider>
+	);
+}
+```

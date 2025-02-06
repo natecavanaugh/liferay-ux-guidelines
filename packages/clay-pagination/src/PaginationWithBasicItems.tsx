@@ -5,6 +5,7 @@
 
 import ClayIcon from '@clayui/icon';
 import {
+	AlignPoints,
 	InternalDispatch,
 	getEllipsisItems,
 	sub,
@@ -12,9 +13,7 @@ import {
 } from '@clayui/shared';
 import React from 'react';
 
-import Pagination from './Pagination';
-
-import type {IPaginationEllipsisProps} from './Ellipsis';
+import {Pagination} from './Pagination';
 
 const ELLIPSIS_BUFFER = 2;
 
@@ -34,7 +33,7 @@ interface IProps extends React.ComponentProps<typeof Pagination> {
 	 * Sets the default DropDown position of the component. The component
 	 * receives the Align constant values from the `@clayui/drop-down` package.
 	 */
-	alignmentPosition?: IPaginationEllipsisProps['alignmentPosition'];
+	alignmentPosition?: number | AlignPoints;
 
 	/**
 	 * Labels for the aria attributes
@@ -100,8 +99,8 @@ interface IProps extends React.ComponentProps<typeof Pagination> {
 	spritemap?: string;
 }
 
-const ClayPaginationWithBasicItems = React.forwardRef<HTMLUListElement, IProps>(
-	(
+export const ClayPaginationWithBasicItems = React.forwardRef(
+	function ClayPaginationWithBasicItems(
 		{
 			active,
 			activePage,
@@ -126,8 +125,8 @@ const ClayPaginationWithBasicItems = React.forwardRef<HTMLUListElement, IProps>(
 			totalPages,
 			...otherProps
 		}: IProps,
-		ref
-	) => {
+		ref: React.Ref<HTMLUListElement>
+	) {
 		if (totalPages === 0) {
 			totalPages = 1;
 		}
@@ -236,5 +235,3 @@ const ClayPaginationWithBasicItems = React.forwardRef<HTMLUListElement, IProps>(
 );
 
 ClayPaginationWithBasicItems.displayName = 'ClayPaginationWithBasicItems';
-
-export {ClayPaginationWithBasicItems};

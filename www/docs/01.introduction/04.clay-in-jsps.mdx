@@ -1,0 +1,48 @@
+---
+title: 'Using Clay in JSPs'
+description: ''
+---
+
+## Using taglibs
+
+Add the following snippet into either the JSP file you're using the component in, or in the module's `init.jsp` file:
+
+```
+<%@ taglib prefix="clay" uri="http://liferay.com/tld/clay" %>
+```
+
+The syntax for using Clay taglibs follows this principle:
+
+```
+<clay:componentName backendProperty="<%= Value %>" property="Property Value" />
+```
+
+This is how it's supposed to look like with a ClayButton:
+
+```
+<clay:button label="<%= Button Label %>" style="primary" />
+```
+
+## Clay taglibs available
+
+Clay taglibs provide the following UI components for your apps:
+
+-   Alert
+-   Badge
+-   Button
+-   Card
+-   Checkbox
+-   Dropdown
+-   Form Elements
+-   Icon
+-   Label
+-   Layout Elements
+-   Link
+-   Management Toolbar
+-   Multi Select
+-   Navigation Bar
+-   Progress Bar
+-   Radio
+-   Select
+-   Sticker
+-   Table

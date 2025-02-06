@@ -10,7 +10,7 @@ import Context from './Context';
 
 type ContainerAspectRatioType = '1/1' | '3/2' | '4/3' | '8/5' | '16/9';
 
-export type Props = {
+type Props = {
 	/**
 	 * AspectRatio content.
 	 */
@@ -27,11 +27,7 @@ export type Props = {
 	containerAspectRatio?: ContainerAspectRatioType;
 };
 
-const ClayCardAspectRatio = ({
-	children,
-	className,
-	containerAspectRatio,
-}: Props) => {
+const AspectRatio = ({children, className, containerAspectRatio}: Props) => {
 	const {interactive} = React.useContext(Context);
 
 	const TagName = interactive ? 'span' : 'div';
@@ -51,4 +47,4 @@ const ClayCardAspectRatio = ({
 	);
 };
 
-export default ClayCardAspectRatio;
+export default AspectRatio;

@@ -1,0 +1,2054 @@
+---
+title: 'Sidebar'
+description: 'A vertical panel that appears from the right or the left side of the screen, triggered by a button.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/sidebar/'
+---
+
+## Structure
+
+Sidebar is an opinionated container to display related content.
+
+Is composed by:
+
+```html
+<div className="sidebar-header">Sidebar Header</div>
+```
+
+```html
+<div className="sidebar-body">Sidebar Body</div>
+```
+
+```html
+<div className="sidebar-footer">Sidebar Footer</div>
+```
+
+## Size
+
+<div className="sheet-example">
+	<div
+		className="sidebar sidebar-light sidebar-sm"
+		style={{maxWidth: '320px'}}
+	>
+		<div className="sidebar-header">
+			<div className="autofit-row sidebar-section">
+				<div className="autofit-col autofit-col-expand">
+					<div className="component-title">
+						<span className="text-truncate-inline">
+							<a className="text-truncate" href="#1">
+								Builder
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="sidebar-body">
+			<div className="form-group">
+				<div className="input-group">
+					<div className="input-group-item-focusable input-group-item">
+						<input
+							aria-label="Search for"
+							className="form-control input-group-inset input-group-inset-after"
+							placeholder="Search..."
+							type="text"
+						/>
+						<div className="input-group-inset-item input-group-inset-item-after">
+							<button
+								className="btn btn-unstyled d-md-none"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#times"></use>
+								</svg>
+							</button>
+							<button
+								className="btn btn-unstyled d-none d-md-inline-block"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-search"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#search"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<nav className="component-navigation-bar navbar navigation-bar navbar-collapse-absolute navbar-expand-md navbar-underline">
+				<a
+					aria-controls="sidebarLightCollapse00"
+					aria-expanded="false"
+					aria-label="Toggle Navigation"
+					className="collapsed navbar-toggler navbar-toggler-link"
+					data-toggle="collapse"
+					href="#sidebarLightCollapse00"
+					role="button"
+				>
+					<span className="navbar-text-truncate">Fields</span>
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlinkHref="/images/icons/icons.svg#caret-bottom" />
+					</svg>
+				</a>
+				<div
+					className="collapse navbar-collapse"
+					id="sidebarLightCollapse00"
+				>
+					<ul className="nav navbar-nav" role="tablist">
+						<li className="nav-item">
+							<a
+								aria-controls="_0s8m4jws3"
+								aria-selected="true"
+								className="active nav-link"
+								data-toggle="tab"
+								href="#_0s8m4jws3"
+								id="_ox1e8zux2"
+								role="tab"
+							>
+								<span className="navbar-text-truncate">
+									Fields
+								</span>
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								aria-controls="_4wdljab4m"
+								aria-selected="false"
+								className="nav-link"
+								data-toggle="tab"
+								href="#_4wdljab4m"
+								id="_2jths9m33"
+								role="tab"
+							>
+								<span className="navbar-text-truncate">
+									Interface
+								</span>
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								aria-controls="_v6guc3g9e"
+								aria-selected="false"
+								className="nav-link"
+								data-toggle="tab"
+								href="#_v6guc3g9e"
+								id="_msfbj8ppk"
+								role="tab"
+							>
+								<span className="navbar-text-truncate">
+									Fieldsets
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div className="tab-content">
+				<div
+					aria-labelledby="_ox1e8zux2"
+					className="active fade show tab-pane"
+					id="_0s8m4jws3"
+					role="tabpanel"
+				>
+					<ul className="list-group sidebar-list-group">
+						<li className="list-group-item list-group-item-flex">
+							<div className="autofit-col">
+								<button
+									className="component-action"
+									type="button"
+								>
+									<span className="inline-item">
+										<svg
+											className="lexicon-icon lexicon-icon-drag"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlinkHref="/images/icons/icons.svg#drag" />
+										</svg>
+									</span>
+								</button>
+							</div>
+							<div className="autofit-col">
+								<div className="sticker">
+									<span className="inline-item">
+										<svg
+											className="lexicon-icon lexicon-icon-text"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlinkHref="/images/icons/icons.svg#text" />
+										</svg>
+									</span>
+								</div>
+							</div>
+							<div className="autofit-col autofit-col-expand">
+								<div className="list-group-title">Text</div>
+								<div className="list-group-subtitle">
+									Single line or multiline text area
+								</div>
+							</div>
+						</li>
+						<li className="list-group-item list-group-item-flex">
+							<div className="autofit-col">
+								<button
+									className="component-action"
+									type="button"
+								>
+									<span className="inline-item">
+										<svg
+											className="lexicon-icon lexicon-icon-drag"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlinkHref="/images/icons/icons.svg#drag" />
+										</svg>
+									</span>
+								</button>
+							</div>
+							<div className="autofit-col">
+								<div className="sticker">
+									<span className="inline-item">
+										<svg
+											className="lexicon-icon lexicon-icon-list"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlinkHref="/images/icons/icons.svg#list" />
+										</svg>
+									</span>
+								</div>
+							</div>
+							<div className="autofit-col autofit-col-expand">
+								<div className="list-group-title">
+									Select from List
+								</div>
+								<div className="list-group-subtitle">
+									Select options from a list
+								</div>
+							</div>
+						</li>
+						<li className="list-group-item list-group-item-flex">
+							<div className="autofit-col">
+								<button
+									className="component-action"
+									type="button"
+								>
+									<span className="inline-item">
+										<svg
+											className="lexicon-icon lexicon-icon-drag"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlinkHref="/images/icons/icons.svg#drag" />
+										</svg>
+									</span>
+								</button>
+							</div>
+							<div className="autofit-col">
+								<div className="sticker">
+									<span className="inline-item">
+										<svg
+											className="lexicon-icon lexicon-icon-radio-button"
+											focusable="false"
+											role="presentation"
+										>
+											<use xlinkHref="/images/icons/icons.svg#radio-button" />
+										</svg>
+									</span>
+								</div>
+							</div>
+							<div className="autofit-col autofit-col-expand">
+								<div className="list-group-title">
+									Single Selection
+								</div>
+								<div className="list-group-subtitle">
+									Select only one option
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div
+					aria-labelledby="_2jths9m33"
+					className="fade tab-pane"
+					id="_4wdljab4m"
+					role="tabpanel"
+				>
+					<nav className="management-bar management-bar-light navbar navbar-expand-md">
+						<div className="navbar-form navbar-form-autofit navbar-overlay navbar-overlay-sm-down">
+							<div className="container-fluid container-fluid-max-xl">
+								<form role="search">
+									<div className="input-group">
+										<div className="input-group-item-focusable input-group-item">
+											<input
+												className="form-control input-group-inset input-group-inset-after"
+												placeholder="Search for..."
+												type="text"
+											/>
+											<span className="input-group-inset-item input-group-inset-item-after">
+												<button
+													className="btn btn-monospaced btn-unstyled"
+													type="submit"
+												>
+													<svg
+														className="lexicon-icon lexicon-icon-search"
+														focusable="false"
+														role="presentation"
+													>
+														<use xlinkHref="/images/icons/icons.svg#search" />
+													</svg>
+												</button>
+												<button
+													className="btn btn-monospaced btn-unstyled d-none"
+													type="button"
+												>
+													<svg
+														className="lexicon-icon lexicon-icon-times"
+														focusable="false"
+														role="presentation"
+													>
+														<use xlinkHref="/images/icons/icons.svg#times" />
+													</svg>
+												</button>
+											</span>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<ul className="navbar-nav">
+							<li className="nav-item navbar-breakpoint-d-none">
+								<a
+									className="nav-link nav-link-monospaced"
+									href="#1"
+									role="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-search"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#search" />
+									</svg>
+								</a>
+							</li>
+							<li className="nav-item">
+								<a
+									className="nav-link nav-link-monospaced"
+									href="#uniqueSidenavCollapseId2"
+									id="uniqueSidenavToggler2"
+									role="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-info-circle-open"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#info-circle-open" />
+									</svg>
+								</a>
+							</li>
+							<li className="nav-item">
+								<a
+									className="btn btn-primary nav-btn nav-btn-monospaced navbar-breakpoint-down-d-none"
+									href="#1"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-plus"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#plus" />
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<div
+						aria-orientation="vertical"
+						className="panel-group panel-group-flush"
+						role="tablist"
+					>
+						<div className="panel panel-unstyled">
+							<a
+								aria-controls="accordion04CollapseTwo"
+								aria-expanded="true"
+								className="collapse-icon panel-header panel-header-link"
+								data-toggle="collapse"
+								href="#accordion04CollapseTwo"
+								id="accordion04HeadingTwo"
+								role="tab"
+							>
+								<span className="panel-title">Password</span>
+								<span className="collapse-icon-closed">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-right" />
+									</svg>
+								</span>
+								<span className="collapse-icon-open">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-down" />
+									</svg>
+								</span>
+							</a>
+							<div
+								aria-labelledby="accordion04HeadingTwo"
+								className="panel-collapse collapse show"
+								id="accordion04CollapseTwo"
+								role="tabpanel"
+							>
+								<div className="panel-body">
+									<div className="form-group">
+										<label>
+											Current Password
+											<span className="reference-mark">
+												<svg
+													className="lexicon-icon lexicon-icon-asterisk"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#asterisk" />
+												</svg>
+											</span>
+										</label>
+										<input
+											className="form-control"
+											placeholder="Current Password"
+											type="password"
+											defaultValue="my-secret"
+										/>
+									</div>
+									<div className="form-group">
+										<label>
+											New Password
+											<span className="reference-mark">
+												<svg
+													className="lexicon-icon lexicon-icon-asterisk"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#asterisk" />
+												</svg>
+											</span>
+										</label>
+										<input
+											className="form-control"
+											placeholder="New Password"
+											type="password"
+											defaultValue="my-new-secret"
+										/>
+									</div>
+									<div className="form-group">
+										<label>
+											Confirm New Password
+											<span className="reference-mark">
+												<svg
+													className="lexicon-icon lexicon-icon-asterisk"
+													focusable="false"
+													role="presentation"
+												>
+													<use xlinkHref="/images/icons/icons.svg#asterisk" />
+												</svg>
+											</span>
+										</label>
+										<input
+											className="form-control"
+											placeholder="Confirm New Password"
+											type="password"
+											defaultValue="my-new-secret"
+										/>
+									</div>
+									<div className="form-group">
+										<label htmlFor="regularSelectElement">
+											Regular Select Element
+										</label>
+										<select
+											className="form-control"
+											id="regularSelectElement"
+										>
+											<option>Sample 1</option>
+											<option>Sample 2</option>
+											<option>Sample 3</option>
+											<option>Sample 4</option>
+											<option>
+												ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+											</option>
+										</select>
+									</div>
+									<div className="form-group">
+										<label>
+											A Button Styled Like a Select
+											Element
+										</label>
+										<button
+											className="form-control form-control-select"
+											type="button"
+										>
+											ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+										</button>
+									</div>
+									<div className="form-group">
+										<div className="input-group">
+											<div className="input-group-item input-group-item-shrink input-group-prepend">
+												<button
+													className="btn btn-secondary"
+													type="button"
+												>
+													Search
+												</button>
+											</div>
+											<div className="input-group-append input-group-item">
+												<input
+													aria-label="Search for"
+													className="form-control"
+													placeholder="Search for..."
+													type="text"
+												/>
+											</div>
+										</div>
+									</div>
+									<div className="form-group">
+										<label htmlFor="tagsField2">Tags</label>
+										<div className="input-group input-group-stacked-sm-down">
+											<div className="input-group-item">
+												<div className="form-control form-control-tag-group input-group">
+													<div className="input-group-item">
+														<span
+															className="label label-dismissible label-secondary"
+															tabIndex="0"
+														>
+															<span className="label-item label-item-before">
+																<span className="sticker">
+																	<span className="sticker-overlay">
+																		<img
+																			alt="thumbnail"
+																			className="sticker-img"
+																			src="/content/site-images/thumbnail_dock.jpg"
+																		/>
+																	</span>
+																</span>
+															</span>
+															<span className="label-item label-item-expand">
+																wall
+															</span>
+															<span className="label-item label-item-after">
+																<button
+																	aria-label="Close"
+																	className="close"
+																	tabIndex="-1"
+																	type="button"
+																>
+																	<svg
+																		className="lexicon-icon lexicon-icon-times-small"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#times-small"></use>
+																	</svg>
+																</button>
+															</span>
+														</span>
+														<span
+															className="label label-dismissible label-secondary"
+															tabIndex="0"
+														>
+															<span className="label-item label-item-before">
+																<span className="sticker">
+																	<span className="sticker-overlay">
+																		<img
+																			alt="thumbnail"
+																			className="sticker-img"
+																			src="/content/site-images/thumbnail_dock.jpg"
+																		/>
+																	</span>
+																</span>
+															</span>
+															<span className="label-item label-item-expand">
+																wallpaper
+															</span>
+															<span className="label-item label-item-after">
+																<button
+																	aria-label="Close"
+																	className="close"
+																	tabIndex="-1"
+																	type="button"
+																>
+																	<svg
+																		className="lexicon-icon lexicon-icon-times-small"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#times-small"></use>
+																	</svg>
+																</button>
+															</span>
+														</span>
+														<span
+															className="label label-dismissible label-secondary"
+															tabIndex="0"
+														>
+															<span className="label-item label-item-before">
+																<span className="sticker">
+																	<span className="sticker-overlay">
+																		<img
+																			alt="thumbnail"
+																			className="sticker-img"
+																			src="/content/site-images/thumbnail_dock.jpg"
+																		/>
+																	</span>
+																</span>
+															</span>
+															<span className="label-item label-item-expand">
+																wonderwall
+															</span>
+															<span className="label-item label-item-after">
+																<button
+																	aria-label="Close"
+																	className="close"
+																	tabIndex="-1"
+																	type="button"
+																>
+																	<svg
+																		className="lexicon-icon lexicon-icon-times-small"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#times-small"></use>
+																	</svg>
+																</button>
+															</span>
+														</span>
+														<span
+															className="label label-dismissible label-secondary"
+															tabIndex="0"
+														>
+															<span className="label-item label-item-expand">
+																winterfell
+															</span>
+															<span className="label-item label-item-after">
+																<button
+																	aria-label="Close"
+																	className="close"
+																	tabIndex="-1"
+																	type="button"
+																>
+																	<svg
+																		className="lexicon-icon lexicon-icon-times"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#times"></use>
+																	</svg>
+																</button>
+															</span>
+														</span>
+														<span
+															className="label label-dismissible label-secondary"
+															tabIndex="0"
+														>
+															<span className="label-item label-item-expand">
+																ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAre
+															</span>
+															<span className="label-item label-item-after">
+																<button
+																	aria-label="Close"
+																	className="close"
+																	tabIndex="-1"
+																	type="button"
+																>
+																	<svg
+																		className="lexicon-icon lexicon-icon-times-small"
+																		focusable="false"
+																		role="presentation"
+																	>
+																		<use xlinkHref="/images/icons/icons.svg#times-small"></use>
+																	</svg>
+																</button>
+															</span>
+														</span>
+														<input
+															className="form-control-inset"
+															id="tagsField2"
+															type="text"
+															defaultValue="some value"
+														/>
+													</div>
+												</div>
+												<div className="form-feedback-group">
+													<div className="form-text">
+														You can use a comma to
+														enter tags.
+														ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.
+													</div>
+												</div>
+											</div>
+											<div className="input-group-item input-group-item-shrink">
+												<button
+													className="btn btn-secondary"
+													type="button"
+												>
+													Select All the Things
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="panel panel-unstyled">
+							<a
+								aria-controls="accordion04CollapseOne"
+								aria-expanded="false"
+								className="collapse-icon collapsed panel-header panel-header-link"
+								data-toggle="collapse"
+								href="#accordion04CollapseOne"
+								id="accordion04HeadingOne"
+								role="tab"
+							>
+								<span className="panel-title">
+									Organizations
+								</span>
+								<span className="collapse-icon-closed">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-right" />
+									</svg>
+								</span>
+								<span className="collapse-icon-open">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-down" />
+									</svg>
+								</span>
+							</a>
+							<div
+								aria-labelledby="accordion04HeadingOne"
+								className="panel-collapse collapse"
+								id="accordion04CollapseOne"
+								role="tabpanel"
+							>
+								<div className="panel-body">
+									In organic dripper so, body, robust medium
+									pumpkin spice cup, in aged dripper latte
+									extra cup white. And viennese redeye
+									carajillo, beans, mug viennese, carajillo id
+									breve decaffeinated americano crema chicory
+									whipped arabica variety aged robusta.
+									Affogato lungo eu, cultivar at, aged breve
+									and blue mountain roast breve americano
+									aged. Sugar acerbic sweet variety aged café
+									au lait chicory, java, single shot
+									percolator aromatic brewed wings, a, sugar,
+									body, aftertaste organic barista espresso
+									dripper to go. Flavour to go strong steamed
+									mazagran trifecta decaffeinated percolator
+									crema, aged americano rich chicory
+									frappuccino foam white.
+								</div>
+							</div>
+						</div>
+						<div className="panel panel-unstyled">
+							<a
+								aria-controls="accordion04CollapseThree"
+								aria-expanded="false"
+								className="collapse-icon collapsed panel-header panel-header-link"
+								data-toggle="collapse"
+								href="#accordion04CollapseThree"
+								id="accordion04HeadingThree"
+								role="tab"
+							>
+								<span className="panel-title">
+									ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+									User Groups
+								</span>
+								<span className="collapse-icon-closed">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-right" />
+									</svg>
+								</span>
+								<span className="collapse-icon-open">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-down" />
+									</svg>
+								</span>
+							</a>
+							<div
+								aria-labelledby="accordion04HeadingThree"
+								className="panel-collapse collapse"
+								id="accordion04CollapseThree"
+								role="tabpanel"
+							>
+								<div className="panel-body">
+									Flavour filter fair trade kopi-luwak robusta
+									viennese, trifecta grinder, grounds lungo
+									beans, half and half cup steamed cappuccino
+									cinnamon. Percolator, extra, strong, breve,
+									french press to go aromatic half and half
+									aroma barista caramelization ut froth breve
+									spoon redeye to go skinny rich skinny spoon.
+									As turkish est filter foam con panna,
+									cinnamon, aroma grounds cup whipped cultivar
+									extra. Latte bar crema cultivar espresso
+									pumpkin spice viennese, body viennese milk
+									variety dripper, spoon, blue mountain
+									robusta cultivar et spoon. Macchiato id eu
+									brewed, and mazagran cinnamon so wings,
+									doppio mocha froth blue mountain froth half
+									and half iced to go whipped single shot.
+								</div>
+							</div>
+						</div>
+						<div className="panel panel-unstyled">
+							<a
+								aria-controls="accordion04CollapseFour"
+								aria-expanded="false"
+								className="collapse-icon collapsed panel-header panel-header-link"
+								data-toggle="collapse"
+								href="#accordion04CollapseFour"
+								id="accordion04HeadingFour"
+								role="tab"
+							>
+								<span className="panel-title">Roles</span>
+								<span className="collapse-icon-closed">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-right"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-right" />
+									</svg>
+								</span>
+								<span className="collapse-icon-open">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use xlinkHref="/images/icons/icons.svg#angle-down" />
+									</svg>
+								</span>
+							</a>
+							<div
+								aria-labelledby="accordion04HeadingFour"
+								className="panel-collapse collapse"
+								id="accordion04CollapseFour"
+								role="tabpanel"
+							>
+								<div className="panel-body">
+									Eu ristretto ut sugar rich saucer milk
+									aftertaste, froth dark, cultivar blue
+									mountain as coffee cappuccino. Saucer
+									grounds mocha, aroma, half and half coffee
+									eu robusta roast, doppio skinny galão,
+									extraction, frappuccino aromatic breve crema
+									frappuccino aroma. Froth half and half so
+									java, grounds half and half, macchiato at
+									est sugar mug redeye, strong, cream seasonal
+									qui doppio robusta. Wings, at, cup dark, a,
+									breve french press decaffeinated acerbic,
+									black extra, and, saucer barista rich
+									seasonal barista blue mountain. Roast
+									mazagran a and id mug in est trifecta
+									pumpkin spice coffee and mug trifecta, ut
+									breve, mug frappuccino mug, breve mocha qui
+									aged aftertaste.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					aria-labelledby="_msfbj8ppk"
+					className="fade tab-pane"
+					id="_v6guc3g9e"
+					role="tabpanel"
+				>
+					Fieldsets
+					<div>
+						<button className="btn btn-primary" type="button">
+							Primary
+						</button>
+						<button className="btn btn-secondary" type="button">
+							Secondary
+						</button>
+						<button className="btn btn-info" type="button">
+							Info
+						</button>
+						<button className="btn btn-success" type="button">
+							Success
+						</button>
+						<button className="btn btn-warning" type="button">
+							Warning
+						</button>
+						<button className="btn btn-danger" type="button">
+							Danger
+						</button>
+						<div className="clay-site-light-container">
+							<button className="btn btn-light" type="button">
+								Light
+							</button>
+						</div>
+						<button className="btn btn-dark" type="button">
+							Dark
+						</button>
+						<button className="btn btn-link" type="button">
+							Link
+						</button>
+						<button
+							className="btn btn-beta btn-xs rounded-circle"
+							type="button"
+						>
+							<span className="inline-item">Beta</span>
+							<span className="inline-item inline-item-after">
+								<svg
+									className="lexicon-icon lexicon-icon-info-panel-open"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#info-panel-open" />
+								</svg>
+							</span>
+						</button>
+					</div>
+					<div>
+						<button
+							className="btn btn-monospaced btn-primary"
+							type="button"
+						>
+							A
+						</button>
+						<button
+							className="btn btn-monospaced btn-secondary"
+							type="button"
+						>
+							B
+						</button>
+						<button
+							className="btn btn-monospaced btn-info"
+							type="button"
+						>
+							C
+						</button>
+						<button
+							className="btn btn-monospaced btn-success"
+							type="button"
+						>
+							D
+						</button>
+						<button
+							className="btn btn-monospaced btn-warning"
+							type="button"
+						>
+							E
+						</button>
+						<button
+							className="btn btn-monospaced btn-danger"
+							type="button"
+						>
+							F
+						</button>
+						<div className="clay-site-light-container">
+							<button
+								className="btn btn-monospaced btn-light"
+								type="button"
+							>
+								G
+							</button>
+						</div>
+						<button
+							className="btn btn-monospaced btn-dark"
+							type="button"
+						>
+							H
+						</button>
+						<button
+							className="btn btn-monospaced btn-link"
+							type="button"
+						>
+							I
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="sidebar-footer"></div>
+	</div>
+</div>
+
+## Variations
+
+### Sidebar Light
+
+Just add `sidebar-light` class on the same element that you are using `sidebar`.
+
+<div className="sheet-example">
+	<div className="sidebar sidebar-light">
+		<nav className="component-tbar tbar">
+			<div className="container-fluid">
+				<ul className="tbar-nav">
+					<li className="tbar-item">
+						<a
+							className="component-action disabled"
+							href="#1"
+							role="button"
+							tabIndex="-1"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-angle-left"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#angle-left"></use>
+							</svg>
+						</a>
+					</li>
+					<li className="tbar-item tbar-item-expand">
+						<div className="tbar-section">
+							<span className="text-truncate-inline">
+								<span className="text-truncate">
+									Item 1 of
+									3,138,732,873,467,182,321,341,231,234,342,559,827,334,424
+								</span>
+							</span>
+						</div>
+					</li>
+					<li className="tbar-item">
+						<a className="component-action" href="#1" role="button">
+							<svg
+								className="lexicon-icon lexicon-icon-angle-right"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#angle-right"></use>
+							</svg>
+						</a>
+					</li>
+					<li className="tbar-item">
+						<a className="component-action" href="#1" role="button">
+							<svg
+								className="lexicon-icon lexicon-icon-times"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#times"></use>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div className="sidebar-header">
+			<div className="autofit-row sidebar-section">
+				<div className="autofit-col autofit-col-expand">
+					<h4 className="component-title">
+						<span className="text-truncate-inline">
+							<a className="text-truncate" href="#1">
+								Image1.jpg
+							</a>
+						</span>
+					</h4>
+					<p className="component-subtitle">Basic Document</p>
+				</div>
+				<div className="autofit-col">
+					<div className="dropdown dropdown-action">
+						<a
+							aria-expanded="false"
+							aria-haspopup="true"
+							className="component-action dropdown-toggle"
+							data-toggle="dropdown"
+							href="#1"
+							role="button"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-ellipsis-v"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#ellipsis-v"></use>
+							</svg>
+						</a>
+						<ul
+							className="dropdown-menu"
+							x-placement="bottom-start"
+							style={{
+								position: 'absolute',
+								transform: 'translate3d(-197px, 32px, 0px)',
+								top: '0px',
+								left: '0px',
+								willChange: 'transform',
+							}}
+						>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Download
+								</a>
+							</li>
+							<li>
+								<a
+									className="dropdown-item"
+									href="#1"
+									role="button"
+								>
+									Move to Recycle Bin
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="sidebar-body">
+			<nav className="component-navigation-bar navbar navigation-bar navbar-collapse-absolute navbar-expand-md navbar-underline">
+				<a
+					aria-controls="sidebarLightCollapse00"
+					aria-expanded="false"
+					aria-label="Toggle Navigation"
+					className="collapsed navbar-toggler navbar-toggler-link"
+					data-toggle="collapse"
+					href="#sidebarLightCollapse00"
+					role="button"
+				>
+					<span className="navbar-text-truncate">Details</span>
+					<svg
+						className="lexicon-icon lexicon-icon-caret-bottom"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#caret-bottom"></use>
+					</svg>
+				</a>
+				<div
+					className="collapse navbar-collapse"
+					id="sidebarLightCollapse00"
+				>
+					<ul className="nav navbar-nav" role="tablist">
+						<li className="nav-item">
+							<a
+								aria-controls="sidebarLightDetails"
+								className="nav-link active"
+								data-toggle="tab"
+								href="#sidebarLightDetails"
+								id="sidebarLightDetailsTab"
+								role="tab"
+								aria-selected="true"
+							>
+								<span className="navbar-text-truncate">
+									Details
+								</span>
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								aria-controls="sidebarLightVersions"
+								className="nav-link"
+								data-toggle="tab"
+								href="#sidebarLightVersions"
+								id="sidebarLightVersionsTab"
+								role="tab"
+								aria-selected="false"
+							>
+								<span className="navbar-text-truncate">
+									Versions
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<div className="tab-content">
+				<div
+					aria-labelledby="sidebarLightDetailsTab"
+					className="fade tab-pane active show"
+					id="sidebarLightDetails"
+					role="tabpanel"
+				>
+					<div
+						className="aspect-ratio aspect-ratio-16-to-9 sidebar-panel"
+						style={{marginTop: '1.5rem'}}
+					>
+						<img
+							alt="thumbnail"
+							className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid"
+							src="/images/DeathtoStock_Desk4.jpg"
+						/>
+						<div className="sticker sticker-bottom-left sticker-danger">
+							JPG
+						</div>
+					</div>
+					<dl className="sidebar-dl sidebar-section">
+						<dt className="sidebar-dt">Url</dt>
+						<dd className="sidebar-dd">
+							<a href="#1">
+								http://localhost:8080/documents/20140/
+							</a>
+						</dd>
+						<dt className="sidebar-dt">Created</dt>
+						<dd className="sidebar-dd">
+							<a href="#1">Helen Smith</a>
+						</dd>
+						<dt className="sidebar-dt">Description</dt>
+						<dd className="sidebar-dd">
+							A picture of a person using a ruler and exacto knife
+							to cut construction paper.
+						</dd>
+						<dt className="sidebar-dt">Size</dt>
+						<dd className="sidebar-dd">745KB</dd>
+						<dt className="sidebar-dt">Tags</dt>
+						<dd className="sidebar-dd">
+							<span className="label label-lg label-secondary">
+								<span className="label-item label-item-expand">
+									Tag One
+								</span>
+							</span>
+							<span className="label label-lg label-secondary">
+								<span className="label-item label-item-expand">
+									Tag Two
+								</span>
+							</span>
+						</dd>
+						<dt className="sidebar-dt">Related Assets</dt>
+						<dd className="sidebar-dd">
+							<ul className="list-group sidebar-list-group">
+								<li className="list-group-item list-group-item-flex">
+									<div className="autofit-col">
+										<div className="sticker sticker-secondary">
+											<span className="inline-item">
+												<svg
+													className="lexicon-icon lexicon-icon-blogs"
+													focusable="false"
+													role="presentation"
+												>
+													<use href="/images/icons/icons.svg#blogs"></use>
+												</svg>
+											</span>
+										</div>
+									</div>
+									<div className="autofit-col autofit-col-expand">
+										<section className="autofit-section">
+											<div className="list-group-title text-truncate-inline">
+												<a
+													className="text-truncate"
+													href="#1"
+												>
+													ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+												</a>
+											</div>
+										</section>
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+					<div
+						aria-orientation="vertical"
+						className="panel-group panel-group-flush panel-group-sm"
+						role="tablist"
+					>
+						<div className="panel panel-unstyled">
+							<a
+								aria-controls="collapseOne"
+								aria-expanded="false"
+								className="collapse-icon panel-header panel-header-link collapsed"
+								data-toggle="collapse"
+								href="#collapseOne"
+								id="headingOne"
+								role="tab"
+							>
+								<span className="panel-title">
+									Collapsible Group Item #1
+								</span>
+								<span className="collapse-icon-closed">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-left"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#angle-left"></use>
+									</svg>
+								</span>
+								<span className="collapse-icon-open">
+									<svg
+										className="lexicon-icon lexicon-icon-angle-down"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#angle-down"></use>
+									</svg>
+								</span>
+							</a>
+							<div
+								aria-labelledby="headingOne"
+								className="panel-collapse collapse"
+								id="collapseOne"
+								role="tabpanel"
+							>
+								<div className="panel-body">
+									In organic dripper so, body, robust medium
+									pumpkin spice cup, in aged dripper latte
+									extra cup white.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					aria-labelledby="sidebarLightVersionsTab"
+					className="fade tab-pane"
+					id="sidebarLightVersions"
+					role="tabpanel"
+				>
+					<ul className="list-group sidebar-list-group">
+						<li className="list-group-item list-group-item-flex">
+							<div className="autofit-col autofit-col-expand">
+								<div className="list-group-title">
+									Version 1.2
+								</div>
+								<div className="list-group-subtitle">
+									By Helen, on 8/31/17 9:15am
+								</div>
+								<div className="list-group-subtext">
+									No Change Log
+								</div>
+							</div>
+							<div className="autofit-col">
+								<div className="dropdown dropdown-action">
+									<a
+										aria-expanded="false"
+										aria-haspopup="true"
+										className="component-action dropdown-toggle"
+										data-toggle="dropdown"
+										href="#1"
+										id="sidebarLightListDropdownId01"
+										role="button"
+									>
+										<svg
+											className="lexicon-icon lexicon-icon-ellipsis-v"
+											focusable="false"
+											role="presentation"
+										>
+											<use href="/images/icons/icons.svg#ellipsis-v"></use>
+										</svg>
+									</a>
+									<ul
+										aria-labelledby="sidebarLightListDropdownId01"
+										className="dropdown-menu"
+										x-placement="bottom-start"
+										style={{
+											position: 'absolute',
+											willChange: 'transform',
+											top: '0px',
+											left: '0px',
+											transform:
+												'translate3d(0px, 811px, 0px)',
+										}}
+										x-out-of-boundaries=""
+									>
+										<li>
+											<a
+												className="dropdown-item"
+												href="#1"
+												role="button"
+											>
+												Download
+											</a>
+										</li>
+										<li>
+											<a
+												className="dropdown-item"
+												href="#1"
+											>
+												Edit
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sidebar sidebar-light">
+	<nav className="component-tbar tbar">
+		<div className="container-fluid">
+			<ul className="tbar-nav">
+				<li className="tbar-item">
+					<a
+						className="component-action disabled"
+						href="#1"
+						role="button"
+						tabIndex="-1"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-angle-left"
+							focusable="false"
+							role="presentation"
+						>
+							<use
+								href="/images/icons/icons.svg#angle-left"
+							></use>
+						</svg>
+					</a>
+				</li>
+				<li className="tbar-item tbar-item-expand">
+					<div className="tbar-section">
+						<span className="text-truncate-inline">
+							<span className="text-truncate"
+								>Item 1 of
+								3,138,732,873,467,182,321,341,231,234,342,559,827,334,424</span
+							>
+						</span>
+					</div>
+				</li>
+				<li className="tbar-item">
+					<a className="component-action" href="#1" role="button">
+						<svg
+							className="lexicon-icon lexicon-icon-angle-right"
+							focusable="false"
+							role="presentation"
+						>
+							<use
+								href="/images/icons/icons.svg#angle-right"
+							></use>
+						</svg>
+					</a>
+				</li>
+				<li className="tbar-item">
+					<a className="component-action" href="#1" role="button">
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times"></use>
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div className="sidebar-header">
+		<div className="autofit-row sidebar-section">
+			<div className="autofit-col autofit-col-expand">
+				<h4 className="component-title">
+					<span className="text-truncate-inline">
+						<a className="text-truncate" href="#1">Image1.jpg</a>
+					</span>
+				</h4>
+				<p className="component-subtitle">Basic Document</p>
+			</div>
+			<div className="autofit-col">
+				<div className="dropdown dropdown-action">
+					<a
+						aria-expanded="false"
+						aria-haspopup="true"
+						className="component-action dropdown-toggle"
+						data-toggle="dropdown"
+						href="#1"
+						role="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-ellipsis-v"
+							focusable="false"
+							role="presentation"
+						>
+							<use
+								href="/images/icons/icons.svg#ellipsis-v"
+							></use>
+						</svg>
+					</a>
+					<ul
+						className="dropdown-menu"
+						x-placement="bottom-start"
+						style={{position: 'absolute', transform: 'translate3d(-197px, 32px, 0px)', top: '0px', left: '0px', willChange: 'transform'}}
+					>
+						<li>
+							<a className="dropdown-item" href="#1" role="button"
+								>Download</a
+							>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1" role="button"
+								>Move to Recycle Bin</a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="sidebar-body">
+		<nav
+			className="component-navigation-bar navbar navigation-bar navbar-collapse-absolute navbar-expand-md navbar-underline"
+		>
+			<a
+				aria-controls="sidebarLightCollapse00"
+				aria-expanded="false"
+				aria-label="Toggle Navigation"
+				className="collapsed navbar-toggler navbar-toggler-link"
+				data-toggle="collapse"
+				href="#sidebarLightCollapse00"
+				role="button"
+			>
+				<span className="navbar-text-truncate">Details</span>
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom"></use>
+				</svg>
+			</a>
+			<div
+				className="collapse navbar-collapse"
+				id="sidebarLightCollapse00"
+			>
+				<ul className="nav navbar-nav" role="tablist">
+					<li className="nav-item">
+						<a
+							aria-controls="sidebarLightDetails"
+							className="nav-link active"
+							data-toggle="tab"
+							href="#sidebarLightDetails"
+							id="sidebarLightDetailsTab"
+							role="tab"
+							aria-selected="true"
+						>
+							<span className="navbar-text-truncate"
+								>Details</span
+							>
+						</a>
+					</li>
+					<li className="nav-item">
+						<a
+							aria-controls="sidebarLightVersions"
+							className="nav-link"
+							data-toggle="tab"
+							href="#sidebarLightVersions"
+							id="sidebarLightVersionsTab"
+							role="tab"
+							aria-selected="false"
+						>
+							<span className="navbar-text-truncate"
+								>Versions</span
+							>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div className="tab-content">
+			<div
+				aria-labelledby="sidebarLightDetailsTab"
+				className="fade tab-pane active show"
+				id="sidebarLightDetails"
+				role="tabpanel"
+			>
+				<div
+					className="aspect-ratio aspect-ratio-16-to-9 sidebar-panel"
+					style={{marginTop: '1.5rem'}}
+				>
+					<img
+						alt="thumbnail"
+						className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid"
+						src="/images/DeathtoStock_Desk4.jpg"
+					/>
+					<div className="sticker sticker-bottom-left sticker-danger">
+						JPG
+					</div>
+				</div>
+				<dl className="sidebar-dl sidebar-section">
+					<dt className="sidebar-dt">Url</dt>
+					<dd className="sidebar-dd">
+						<a href="#1">http://localhost:8080/documents/20140/</a>
+					</dd>
+					<dt className="sidebar-dt">Created</dt>
+					<dd className="sidebar-dd">
+						<a href="#1">Helen Smith</a>
+					</dd>
+					<dt className="sidebar-dt">Description</dt>
+					<dd className="sidebar-dd">
+						A picture of a person using a ruler and exacto knife to
+						cut construction paper.
+					</dd>
+					<dt className="sidebar-dt">Size</dt>
+					<dd className="sidebar-dd">745KB</dd>
+					<dt className="sidebar-dt">Tags</dt>
+					<dd className="sidebar-dd">
+						<span className="label label-lg label-secondary">
+							<span className="label-item label-item-expand"
+								>Tag One</span
+							>
+						</span>
+						<span className="label label-lg label-secondary">
+							<span className="label-item label-item-expand"
+								>Tag Two</span
+							>
+						</span>
+					</dd>
+					<dt className="sidebar-dt">Related Assets</dt>
+					<dd className="sidebar-dd">
+						<ul className="list-group sidebar-list-group">
+							<li
+								className="list-group-item list-group-item-flex"
+							>
+								<div className="autofit-col">
+									<div className="sticker sticker-secondary">
+										<span className="inline-item">
+											<svg
+												className="lexicon-icon lexicon-icon-blogs"
+												focusable="false"
+												role="presentation"
+											>
+												<use
+													href="/images/icons/icons.svg#blogs"
+												></use>
+											</svg>
+										</span>
+									</div>
+								</div>
+								<div className="autofit-col autofit-col-expand">
+									<section className="autofit-section">
+										<div
+											className="list-group-title text-truncate-inline"
+										>
+											<a
+												className="text-truncate"
+												href="#1"
+												>ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual</a
+											>
+										</div>
+									</section>
+								</div>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+				<div
+					aria-orientation="vertical"
+					className="panel-group panel-group-flush panel-group-sm"
+					role="tablist"
+				>
+					<div className="panel panel-unstyled">
+						<a
+							aria-controls="collapseOne"
+							aria-expanded="false"
+							className="collapse-icon panel-header panel-header-link collapsed"
+							data-toggle="collapse"
+							href="#collapseOne"
+							id="headingOne"
+							role="tab"
+						>
+							<span className="panel-title"
+								>Collapsible Group Item #1</span
+							>
+							<span className="collapse-icon-closed">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-left"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#angle-left"
+									></use>
+								</svg>
+							</span>
+							<span className="collapse-icon-open">
+								<svg
+									className="lexicon-icon lexicon-icon-angle-down"
+									focusable="false"
+									role="presentation"
+								>
+									<use
+										href="/images/icons/icons.svg#angle-down"
+									></use>
+								</svg>
+							</span>
+						</a>
+						<div
+							aria-labelledby="headingOne"
+							className="panel-collapse collapse"
+							id="collapseOne"
+							role="tabpanel"
+						>
+							<div className="panel-body">
+								In organic dripper so, body, robust medium
+								pumpkin spice cup, in aged dripper latte extra
+								cup white.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div
+				aria-labelledby="sidebarLightVersionsTab"
+				className="fade tab-pane"
+				id="sidebarLightVersions"
+				role="tabpanel"
+			>
+				<ul className="list-group sidebar-list-group">
+					<li className="list-group-item list-group-item-flex">
+						<div className="autofit-col autofit-col-expand">
+							<div className="list-group-title">Version 1.2</div>
+							<div className="list-group-subtitle">
+								By Helen, on 8/31/17 9:15am
+							</div>
+							<div className="list-group-subtext">
+								No Change Log
+							</div>
+						</div>
+						<div className="autofit-col">
+							<div className="dropdown dropdown-action">
+								<a
+									aria-expanded="false"
+									aria-haspopup="true"
+									className="component-action dropdown-toggle"
+									data-toggle="dropdown"
+									href="#1"
+									id="sidebarLightListDropdownId01"
+									role="button"
+								>
+									<svg
+										className="lexicon-icon lexicon-icon-ellipsis-v"
+										focusable="false"
+										role="presentation"
+									>
+										<use
+											href="/images/icons/icons.svg#ellipsis-v"
+										></use>
+									</svg>
+								</a>
+								<ul
+									aria-labelledby="sidebarLightListDropdownId01"
+									className="dropdown-menu"
+									x-placement="bottom-start"
+									style={{position: 'absolute', willChange: transform; top: '0px', left: '0px', transform: 'translate3d(0px, 811px, 0px)'}}
+									x-out-of-boundaries=""
+								>
+									<li>
+										<a
+											className="dropdown-item"
+											href="#1"
+											role="button"
+											>Download</a
+										>
+									</li>
+									<li>
+										<a className="dropdown-item" href="#1"
+											>Edit</a
+										>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+### Sidebar Dark
+
+Just add `sidebar-dark` class on the same element that you are using `sidebar`.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-md-6">
+			<div className="sidebar sidebar-dark">
+				<div className="sidebar-header">
+					<div className="autofit-row sidebar-section">
+						<div className="autofit-col autofit-col-expand">
+							<div className="component-title">
+								<span className="text-truncate-inline">
+									<a className="text-truncate" href="#1">
+										Site Configuration
+									</a>
+								</span>
+							</div>
+						</div>
+						<div className="autofit-col">
+							<button
+								aria-label="Close"
+								className="close"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#times"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="sidebar-body">
+					<ul className="nav nav-nested">
+						<li className="nav-item">
+							<a className="active nav-link" href="#1">
+								Details
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Categorization
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								className="disabled nav-link"
+								href="#1"
+								tabIndex="-1"
+							>
+								Documents and Media
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Site Template
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Configuration
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Identification
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sidebar sidebar-dark">
+	<div className="sidebar-header">
+		<div className="autofit-row sidebar-section">
+			<div className="autofit-col autofit-col-expand">
+				<div className="component-title">
+					<span className="text-truncate-inline">
+						<a className="text-truncate" href="#1"
+							>Site Configuration</a
+						>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<button aria-label="Close" className="close" type="button">
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlinkHref="/images/icons/icons.svg#times"></use>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div className="sidebar-body">
+		<ul className="nav nav-nested">
+			<li className="nav-item">
+				<a className="active nav-link" href="#1">Details</a>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Categorization</a>
+			</li>
+			<li className="nav-item">
+				<a className="disabled nav-link" href="#1" tabindex="-1"
+					>Documents and Media</a
+				>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Site Template</a>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Configuration</a>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Identification</a>
+			</li>
+		</ul>
+	</div>
+</div>
+```
+
+### Sidebar Dark L2
+
+Just add `sidebar-dark-l2` class on the same element that you are using `sidebar`.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-md-6">
+			<div className="sidebar sidebar-dark-l2">
+				<div className="sidebar-header">
+					<div className="autofit-row sidebar-section">
+						<div className="autofit-col autofit-col-expand">
+							<div className="component-title">
+								<span className="text-truncate-inline">
+									<a className="text-truncate" href="#1">
+										Site Configuration
+									</a>
+								</span>
+							</div>
+						</div>
+						<div className="autofit-col">
+							<button
+								aria-label="Close"
+								className="close"
+								type="button"
+							>
+								<svg
+									className="lexicon-icon lexicon-icon-times"
+									focusable="false"
+									role="presentation"
+								>
+									<use xlinkHref="/images/icons/icons.svg#times"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div className="sidebar-body">
+					<ul className="nav nav-nested">
+						<li className="nav-item">
+							<a className="active nav-link" href="#1">
+								Details
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Categorization
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								className="disabled nav-link"
+								href="#1"
+								tabIndex="-1"
+							>
+								Documents and Media
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Site Template
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Configuration
+							</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link" href="#1">
+								Identification
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sidebar sidebar-dark-l2">
+	<div className="sidebar-header">
+		<div className="autofit-row sidebar-section">
+			<div className="autofit-col autofit-col-expand">
+				<div className="component-title">
+					<span className="text-truncate-inline">
+						<a className="text-truncate" href="#1"
+							>Site Configuration</a
+						>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<button aria-label="Close" className="close" type="button">
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use xlinkHref="/images/icons/icons.svg#times"></use>
+					</svg>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div className="sidebar-body">
+		<ul className="nav nav-nested">
+			<li className="nav-item">
+				<a className="active nav-link" href="#1">Details</a>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Categorization</a>
+			</li>
+			<li className="nav-item">
+				<a className="disabled nav-link" href="#1" tabindex="-1"
+					>Documents and Media</a
+				>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Site Template</a>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Configuration</a>
+			</li>
+			<li className="nav-item">
+				<a className="nav-link" href="#1">Identification</a>
+			</li>
+		</ul>
+	</div>
+</div>
+```

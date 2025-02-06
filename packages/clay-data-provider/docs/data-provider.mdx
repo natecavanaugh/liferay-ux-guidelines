@@ -3,43 +3,13 @@ title: 'Data Provider'
 description: 'Simple but very powerful client, it was designed to help you consume data easily.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/dropdowns/'
 packageNpm: '@clayui/data-provider'
+packageUse: "import DataProvider, {useResource} from '@clayui/data-provider';"
+packageTypes:
+    [
+        'clay-data-provider/src/DataProvider.tsx',
+        'clay-data-provider/src/useResource.tsx',
+    ]
 ---
-
-import {
-	DataProvider,
-	DataProviderWithCacheRootLevel,
-	DataProviderWithNetworkStatus,
-	UseResource,
-	UseResourceWithJitter,
-	UseResourceWithNetworkStatus,
-	UseResourceWithVariablesChange,
-} from '$packages/clay-data-provider/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Introduction](#introduction)
--   [Getting started](#getting-started)
-    -   [useResource hook](#useresource-hook)
--   [Features](#features)
-    -   [Retry](#retry)
-    -   [Network Status](#network-status)
-    -   [Variables change](#variables-change)
-    -   [Caching data](#caching-data)
-    -   [Infinite loading](#infinite-loading)
-    -   [Suspense and ErrorBoundary](#suspense-and-errorboundary)
-    -   [Data Fetching](#data-fetching)
-        -   [Fetch](#fetch)
-    -   [Sortable](#sortable)
--   [Advanced](#advanced)
-    -   [Avoiding thundering herd problem](#avoiding-thundering-herd-problem)
-    -   [Caching data at root level](#caching-data-at-root-level)
--   [API](#api)
-    -   [useResource](#useresource)
-    -   [DataProvider](#dataprovider)
-
-</div>
-</div>
 
 ## Introduction
 
@@ -55,13 +25,25 @@ ClayDataProvider gives functionality of data caching, attempts, polling, network
 
 To consume data, you can work with two different ways in React, using the `<ClayDataProvider />` component or `useResource` hook. We recommend that you use `useResource` for cases where your component has more logic to handle data, so it decreases the complexity and eliminates logic within JSX, use `<ClayDataProvider />` for simpler cases that do not have so much logic involved in the data or when you are not familiar with hooks.
 
-<DataProvider />
+```jsx
+<ClayDataProvider link="https://rickandmortyapi.com/api/character">
+	{({data, error, loading, refetch}) => {}}
+</ClayDataProvider>
+```
 
 ### useResource hook
 
 The vast majority of APIs are the same between `useResource` and `<ClayDataProvider />`, the difference is that there is no `notifyOnNetworkStatusChange` API in `useResource`, you control them via the `OnNetworkStatusChange` parameter when you need it.
 
-<UseResource />
+```jsx
+const App = () => {
+	const {resource} = useResource({
+		link: 'https://rickandmortyapi.com/api/character/',
+	});
+
+	return null;
+};
+```
 
 ## Features
 
@@ -71,31 +53,85 @@ Make attempts on a request several times when a network or server error occurs.
 
 `fetchRetry` is easy to set up and is enabled by default with the `jitter` setting for delays between attempts by default.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	The values ​​contained in the code below are the default value.
 </div>
 
-<UseResourceWithJitter />
+```jsx
+const App = () => {
+	const {resource} = useResource({
+		link: 'https://rickandmortyapi.com/api/character/',
+		fetchRetry: {
+			attempts: 5,
+			delay: {
+				initial: 300,
+				jitter: true,
+			},
+		},
+	});
+
+	return null;
+};
+```
 
 ### Network Status
 
 The DataProvider provides network status information for you if you want to create customizations in those statuses. If you are using `<ClayDataProvider />` you can enable this information by activating the `notifyOnNetworkStatusChangeAPI` prop, once activated it will cause new renderings each time the network status changes.
 
-<DataProviderWithNetworkStatus />
+```jsx
+const App = () => (
+	<ClayDataProvider
+		link="https://rickandmortyapi.com/api/character"
+		notifyOnNetworkStatusChange
+	>
+		{({data, error, loading, refetch, networkStatus}) => {}}
+	</ClayDataProvider>
+);
+```
 
 Using network status with hooks is another option, it does not provide an abstraction for `loading`, `error` and `networkStatus` and all information is collected through the `onNetworkStatusChange` callback.
 
 -   `loading` is equivalent to `networkStatus < 4`
 -   `error` is equivalent to `status === 5`
 
-<UseResourceWithNetworkStatus />
+```jsx
+const App = () => {
+	const [state, setState] = useState(() => ({
+		error: false,
+		loading: false,
+		networkStatus: 4,
+	}));
+	const {resource} = useResource({
+		link: 'https://rickandmortyapi.com/api/character/',
+		onNetworkStatusChange: (status) =>
+			setState({
+				error: status === 5,
+				loading: status < 4,
+				networkStatus: status,
+			}),
+	});
+
+	return null;
+};
+```
 
 ### Variables change
 
 `variables` is an API for `GET` requests that help satisfy whether your cache will be retrieved from storage or not, this can be useful for cases where your data is formed by user interactions such as `Autocomplete`, you can still set a delay on the `fetchDelay` prop to ensure that your requests are not called every time a change of input value occurs, for example.
 
-<UseResourceWithVariablesChange />
+```jsx
+const App = () => {
+	const [value, setValue] = useState('Rick');
+	const {resource} = useResource({
+		link: 'https://rickandmortyapi.com/api/character/',
+		fetchDelay: 300,
+		variables: {name: value},
+	});
+
+	return null;
+};
+```
 
 ### Caching data
 
@@ -103,21 +139,21 @@ You can cache your requests so that in new user interactions a new request is no
 
 The cache is guided by a policy, use the `fetchPolicy` prop to enable and configure the cache according to your use case.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	The cache is governed by the algorithm <b>least recently used</b> (<a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)">
 		LRU
-	</a>), you can set the amount of data that will be stored using the <code class="language-text">
+	</a>), you can set the amount of data that will be stored using the <code className="language-text">
 		storageMaxSize
 	</code> API. <b>Each new query is equivalent to 1 size</b>.
 </div>
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	When <code class="language-text">suspense</code> is enabled the hook automatically
-	changes the <code class="language-text">fetchPolicy</code> to <code class="language-text">
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	When <code className="language-text">suspense</code> is enabled the hook automatically
+	changes the <code className="language-text">fetchPolicy</code> to <code className="language-text">
 		FetchPolicy.CacheAndNetwork
-	</code> if it is set to <code class="language-text">
+	</code> if it is set to <code className="language-text">
 		FetchPolicy.NoCache
 	</code> so it works properly.
 </div>
@@ -128,9 +164,9 @@ Using the `useResource` hook also supports paginated data, which is common in AP
 
 Data is automatically aggregated as new requests are being made when the `loadMore` callback is called.
 
-<div class="clay-site-alert alert alert-info">
-	<strong class="lead">Info</strong>
-	Calling the <code class="language-text">refetch</code> callback as an attempt
+<div className="clay-site-alert alert alert-info">
+	<strong className="lead">Info</strong>
+	Calling the <code className="language-text">refetch</code> callback as an attempt
 	to refresh the data will not work since the data is already aggregated.
 </div>
 
@@ -235,9 +271,9 @@ With the `jitter` option enabled, delays are randomized anywhere between 0ms (in
 
 These two features combined help alleviate [the thundering herd problem](https://en.wikipedia.org/wiki/Thundering_herd_problem), by distributing load during major outages. Without these strategies, when your server comes back up it will be hit by all of your clients at once, possibly causing it to go down again.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	The implementation of this was based on the <code class="language-text">
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	The implementation of this was based on the <code className="language-text">
 		apollo-link-retry
 	</code> plugin for React Apollo.
 </div>
@@ -246,23 +282,27 @@ These two features combined help alleviate [the thundering herd problem](https:/
 
 The DataProvider can be used on small components that need some data and if it is very reused by the application in other pages, it does not make sense to consult this data every time the user interacts with it in other parts of your application, you can take advantage of the root level cache, ensuring that the next user interactions in the component are with data in the cache, even if it is on other pages.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
-	The use of the <code class="language-text">storage</code> property has been deprecated
-	since v3.67.0 in favor of declaring the <code class="language-text">
-		<ClayProvider storageMaxSize={100} />
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	The use of the <code className="language-text">storage</code> property has been
+	deprecated since v3.67.0 in favor of declaring the <code className="language-text">
+		storageMaxSize={100}
 	</code> component in the application root to control cache state and other internal
 	details.
 </div>
 
-<DataProviderWithCacheRootLevel />
+```jsx
+const App = () => {
+	const storageContext = useContext(Store);
 
-## API
-
-### useResource
-
-<div>[APITable "clay-data-provider/src/useResource.tsx"]</div>
-
-### DataProvider
-
-<div>[APITable "clay-data-provider/src/index.tsx"]</div>
+	return (
+		<ClayDataProvider
+			link="https://rickandmortyapi.com/api/character"
+			fetchPolicy="cache-first"
+			storage={storageContext}
+		>
+			{({data, error, loading, refetch}) => {}}
+		</ClayDataProvider>
+	);
+};
+```

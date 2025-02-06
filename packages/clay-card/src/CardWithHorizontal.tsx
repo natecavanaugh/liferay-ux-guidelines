@@ -16,7 +16,7 @@ import {ClayCardHorizontal} from './CardHorizontal';
 
 import type {ButtonWithIconProps} from '@clayui/button';
 
-export interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
+interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
 	actions?: React.ComponentProps<typeof ClayDropDownWithItems>['items'];
 
 	/**
@@ -45,7 +45,6 @@ export interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
 	/**
 	 * Props to add to the radio element
 	 */
-
 	radioProps?: React.HTMLAttributes<HTMLInputElement> & {
 		name: string;
 		value: string;
@@ -75,24 +74,17 @@ export interface IProps extends React.BaseHTMLAttributes<HTMLDivElement> {
 	 * Flag to indicate if the card text is truncated
 	 */
 	truncate?: boolean;
+
+	/**
+	 * Callback for when item is selected.
+	 */
+	onSelectChange?: (value: boolean | string) => void;
+
+	/**
+	 * Determines what type of selectable it is.
+	 */
+	selectableType?: 'checkbox' | 'radio';
 }
-
-/**
- * Different types of props depending on selectableType.
- *
- * onSelectChange: callback for when item is selected
- * selectableType: determines what type of selectable it is
- */
-
-type CheckboxProps = {
-	onSelectChange?: (value: boolean) => void;
-	selectableType?: 'checkbox';
-};
-
-type RadioProps = {
-	onSelectChange?: (value: string) => void;
-	selectableType: 'radio';
-};
 
 export const ClayCardWithHorizontal = ({
 	'aria-label': ariaLabel,
@@ -112,7 +104,7 @@ export const ClayCardWithHorizontal = ({
 	title,
 	truncate = true,
 	...otherProps
-}: IProps & (RadioProps | CheckboxProps)) => {
+}: IProps) => {
 	const content = (
 		<ClayCard.Body>
 			<ClayCard.Row>

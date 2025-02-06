@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import ClayDropDown, {Align} from './DropDown';
+import DropDown from './DropDown';
 import {ClayDropDownWithDrilldown} from './DropDownWithDrilldown';
 import {ClayDropDownWithItems} from './DropDownWithItems';
+import {Align} from './Menu';
 
-export {Align, ClayDropDownWithItems, ClayDropDownWithDrilldown};
-
-export default ClayDropDown;
+export {Align, DropDown, ClayDropDownWithItems, ClayDropDownWithDrilldown};
+export default DropDown;

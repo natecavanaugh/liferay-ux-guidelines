@@ -1,0 +1,761 @@
+---
+title: 'Aspect Ratio'
+description: ''
+---
+
+## Aspect Ratio
+
+Sometimes you can't control the size of an image, you can constrain your images with aspect-ratios. The base class `aspect-ratio` maintains a 1 to 1 ratio relative to its container's width.
+
+Use `aspect-ratio-3-to-2`, `aspect-ratio-4-to-3`, `aspect-ratio-8-to-3`, `aspect-ratio-8-to-5`, or `aspect-ratio-16-to-9` to maintain the specific ratio relative to its container or create your own by setting `padding-bottom` to the ratio you want e.g. 2 to 1 `.aspect-ratio-2-to-1 { padding-bottom: 50% }`.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<h6>1:1</h6>
+			<div className="aspect-ratio bg-light"></div>
+		</div>
+		<div className="col-3">
+			<h6>3:2</h6>
+			<div className="aspect-ratio aspect-ratio-3-to-2 bg-light"></div>
+		</div>
+		<div className="col-3">
+			<h6>4:3</h6>
+			<div className="aspect-ratio aspect-ratio-4-to-3 bg-light"></div>
+		</div>
+		<div className="col-3">
+			<h6>8:3</h6>
+			<div className="aspect-ratio aspect-ratio-8-to-3 bg-light"></div>
+		</div>
+		<div className="col-3">
+			<h6>8:5</h6>
+			<div className="aspect-ratio aspect-ratio-8-to-5 bg-light"></div>
+		</div>
+		<div className="col-3">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light"></div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio"></div>
+<div className="aspect-ratio aspect-ratio-3-to-2"></div>
+<div className="aspect-ratio aspect-ratio-4-to-3"></div>
+<div className="aspect-ratio aspect-ratio-8-to-3"></div>
+<div className="aspect-ratio aspect-ratio-8-to-5"></div>
+<div className="aspect-ratio aspect-ratio-16-to-9"></div>
+```
+
+### Aspect Ratio Sass API
+
+The map `$aspect-ratio-sizes` allows generating any number of aspect ratio variants. If a key starts with `.`, `#`, or '%' Clay will output it as is, otherwise we will prepend `.` to the key (e.g., `.aspect-ratio-16-to-9`). It will also generate a Sass placeholder prefixed by `%` (e.g., `%aspect-ratio-16-to-9`).
+
+```scss
+$aspect-ratio-sizes: (
+	aspect-ratio-16-to-9: (
+		height: 9,
+		width: 16,
+	),
+	'.card .aspect-ratio': (
+		extend: '%aspect-ratio-16-to-9',
+	),
+	'%aspect-ratio-4-to-1': (
+		height: 1,
+		width: 4,
+	),
+	'.aspect-ratio-4-to-1': (
+		extend: '%aspect-ratio-4-to-1',
+	),
+);
+```
+
+Outputs:
+
+```css
+.aspect-ratio-16-to-9,
+.card .aspect-ratio {
+	padding-bottom: calc(9 / 16 * 100%);
+}
+
+.aspect-ratio-4-to-1 {
+	padding-bottom: calc(1 / 4 * 100%);
+}
+```
+
+### Aspect Ratio Bg Contain
+
+The class `aspect-ratio-bg-contain` on `aspect-ratio` centers the `background-image` and scales the image as large as possible without cropping or stretching the image.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-12">
+			<div
+				className="aspect-ratio aspect-ratio-16-to-9 aspect-ratio-bg-contain bg-light"
+				style={{
+					backgroundImage:
+						"url('/images/thumbnail_hot_air_ballon.jpg')",
+				}}
+			></div>
+		</div>
+	</div>
+</div>
+
+```html
+<div
+	className="aspect-ratio aspect-ratio-16-to-9 aspect-ratio-bg-contain"
+	style={{ backgroundImage: "url('/images/thumbnail_hot_air_ballon.jpg')" }}
+></div>
+```
+
+### Aspect Ratio Bg Cover
+
+The class `aspect-ratio-bg-cover` on `aspect-ratio` centers the `background-image` and scales the image to fill the container. It will stretch and change the proportions of the image to achieve this.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-12">
+			<div
+				className="aspect-ratio aspect-ratio-16-to-9 aspect-ratio-bg-cover bg-light"
+				style={{
+					backgroundImage:
+						"url('/images/thumbnail_hot_air_ballon.jpg')",
+				}}
+			></div>
+		</div>
+	</div>
+</div>
+
+```html
+<div
+	className="aspect-ratio aspect-ratio-16-to-9 aspect-ratio-bg-cover bg-light"
+	style={{ backgroundImage: "url('/images/thumbnail_hot_air_ballon.jpg')" }}
+></div>
+```
+
+### Aspect Ratio Bg Center
+
+The class `aspect-ratio-bg-center` on `aspect-ratio` will center the `background-image`.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-12">
+			<div
+				className="aspect-ratio aspect-ratio-16-to-9 aspect-ratio-bg-center bg-light"
+				style={{
+					backgroundImage: "url('/images/liferay_logo_tagline.jpg')",
+				}}
+			></div>
+		</div>
+	</div>
+</div>
+
+```html
+<div
+	className="aspect-ratio aspect-ratio-16-to-9 aspect-ratio-bg-center"
+	style={{ backgroundImage: "url('/images/liferay_logo_tagline.jpg')" }}
+></div>
+```
+
+## Aspect Ratio Item
+
+Use `aspect-ratio-item` on the nested `img` if you want to keep the content's original size and crop the visible area.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-5">
+			<div className="aspect-ratio aspect-ratio-4-to-3 bg-light">
+				<img
+					alt="thumbnail"
+					className=" aspect-ratio-item"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-4-to-3">
+	<img
+		alt="thumbnail"
+		className=" aspect-ratio-item"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Fluid
+
+The class `aspect-ratio-item-fluid` should be used on `aspect-ratio-item` to keep wide images viewable inside the `aspect-ratio` container. It sets the max-width to be 100%, similar to `img-fluid`.
+
+<div className="sheet-example">
+	<h6>Original Image</h6>
+	<img
+		alt="thumbnail of a hot air balloon"
+		className="img-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+	<div className="row">
+		<div className="col-3">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>1:1</h6>
+			<div className="aspect-ratio bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>3:2</h6>
+			<div className="aspect-ratio aspect-ratio-3-to-2 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>4:3</h6>
+			<div className="aspect-ratio aspect-ratio-4-to-3 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>8:3</h6>
+			<div className="aspect-ratio aspect-ratio-8-to-3 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>8:5</h6>
+			<div className="aspect-ratio aspect-ratio-8-to-5 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-3-to-2">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-4-to-3">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-8-to-3">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-8-to-5">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Vertical Fluid
+
+The class `aspect-ratio-item-vertical-fluid` should be used on `aspect-ratio-item` to keep tall images viewable inside the `aspect-ratio` container. It sets the max-height to be 100%.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<h6>1:1</h6>
+			<div className="aspect-ratio bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+					src="/images/long_user_image.png"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>3:2</h6>
+			<div className="aspect-ratio aspect-ratio-3-to-2 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+					src="/images/long_user_image.png"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>4:3</h6>
+			<div className="aspect-ratio aspect-ratio-4-to-3 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+					src="/images/long_user_image.png"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>8:3</h6>
+			<div className="aspect-ratio aspect-ratio-8-to-3 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+					src="/images/long_user_image.png"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>8:5</h6>
+			<div className="aspect-ratio aspect-ratio-8-to-5 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+					src="/images/long_user_image.png"
+				/>
+			</div>
+		</div>
+		<div className="col-3">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+					src="/images/long_user_image.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+		src="/images/long_user_image.png"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-3-to-2">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+		src="/images/long_user_image.png"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-4-to-3">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+		src="/images/long_user_image.png"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-8-to-3">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+		src="/images/long_user_image.png"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-8-to-5">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+		src="/images/long_user_image.png"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-vertical-fluid"
+		src="/images/long_user_image.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Flush
+
+The class `aspect-ratio-item-flush` should be used for images that are too narrow and want it to fill the remaining space. It forces the width to be 100.6%.
+
+<div className="clay-site-alert alert alert-info">
+	The 100.6% width is to account for browser subpixel rendering issues.
+</div>
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-6">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-flush"
+					src="/images/thumbnail_hot_air_ballon.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-6">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-flush"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-flush"
+		src="/images/thumbnail_hot_air_ballon.jpg"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-flush"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Vertical Flush
+
+The class `aspect-ratio-item-vertical-flush` should be used for images that are too short and want it to fill the remaining vertical space. It forces the height to be 100.6%.
+
+<div className="clay-site-alert alert alert-info">
+	The 100.6% height is to account for browser subpixel rendering issues.
+</div>
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-6">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-vertical-flush"
+					src="/images/thumbnail_dock.jpg"
+				/>
+			</div>
+		</div>
+		<div className="col-6">
+			<h6>16:9</h6>
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-vertical-flush"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-vertical-flush"
+		src="/images/thumbnail_graph2.png"
+	/>
+</div>
+<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-vertical-flush"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Center Middle
+
+The class `aspect-ratio-item-center-middle` centers an item horizontally and vertically.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-center-middle aspect-ratio-item-fluid"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Top Center
+
+The class `aspect-ratio-item-top-center` vertically aligns the item at the top and centers it horizontally.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-top-center aspect-ratio-item-fluid"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-top-center aspect-ratio-item-fluid"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Top Right
+
+The class `aspect-ratio-item-top-right` aligns the item at the top right corner.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid aspect-ratio-item-top-right"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid aspect-ratio-item-top-right"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Right Middle
+
+The class `aspect-ratio-item-right-middle` aligns an item in the middle vertically and right side horizontally.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-fluid aspect-ratio-item-right-middle"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-fluid aspect-ratio-item-right-middle"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Bottom Right
+
+The class `aspect-ratio-item-bottom-right` aligns an item at the bottom right corner.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-bottom-right aspect-ratio-item-fluid"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-bottom-right aspect-ratio-item-fluid"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Bottom Center
+
+The class `aspect-ratio-item-bottom-center` aligns an item at the bottom vertically and centers it horizontally.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-bottom-center aspect-ratio-item-fluid"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-bottom-center aspect-ratio-item-fluid"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Bottom Left
+
+The class `aspect-ratio-item-bottom-left` aligns an item at the bottom left corner.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-bottom-left aspect-ratio-item-fluid"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-bottom-left aspect-ratio-item-fluid"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```
+
+### Aspect Ratio Item Left Middle
+
+The class `aspect-ratio-item-left-middle` aligns an item on the left horizontally and in the middle vertically.
+
+<div className="sheet-example">
+	<div className="row">
+		<div className="col-3">
+			<div className="aspect-ratio aspect-ratio-16-to-9 bg-light">
+				<img
+					alt="thumbnail"
+					className="aspect-ratio-item aspect-ratio-item-left-middle aspect-ratio-item-fluid"
+					src="/images/liferay_logo_tagline.png"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="aspect-ratio aspect-ratio-16-to-9">
+	<img
+		alt="thumbnail"
+		className="aspect-ratio-item aspect-ratio-item-left-middle aspect-ratio-item-fluid"
+		src="/images/liferay_logo_tagline.png"
+	/>
+</div>
+```

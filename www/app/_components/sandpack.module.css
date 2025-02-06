@@ -1,0 +1,9 @@
+.code_preview {
+  border: 1px solid #F3F3F3;
+  border-radius: 4px;
+  height: 300px;
+}
+
+.code_preview > div {
+  height: 300px;
+}

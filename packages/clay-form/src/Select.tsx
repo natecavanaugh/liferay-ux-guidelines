@@ -6,14 +6,14 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const OptGroup = ({
+export const OptGroup = ({
 	children,
 	...otherProps
 }: React.OptgroupHTMLAttributes<HTMLOptGroupElement>) => (
 	<optgroup {...otherProps}>{children}</optgroup>
 );
 
-const Option = ({
+export const Option = ({
 	label,
 	...otherProps
 }: React.OptionHTMLAttributes<HTMLOptionElement>) => (
@@ -27,12 +27,7 @@ interface IProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
 	sizing?: 'lg' | 'sm';
 }
 
-function ClaySelect(props: IProps): JSX.Element & {
-	OptGroup: typeof OptGroup;
-	Option: typeof Option;
-};
-
-function ClaySelect({children, className, sizing, ...otherProps}: IProps) {
+function Select({children, className, sizing, ...otherProps}: IProps) {
 	return (
 		<select
 			{...otherProps}
@@ -45,7 +40,7 @@ function ClaySelect({children, className, sizing, ...otherProps}: IProps) {
 	);
 }
 
-ClaySelect.OptGroup = OptGroup;
-ClaySelect.Option = Option;
+Select.OptGroup = OptGroup;
+Select.Option = Option;
 
-export default ClaySelect;
+export default Select;

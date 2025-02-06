@@ -1,0 +1,1404 @@
+---
+title: 'Color Picker'
+description: 'Color picker lets users select a color from a predefined palette, specify a color via its hexadecimal value, sample a color, and explore color values to create a custom color variation.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/picker-color/'
+packageNpm: '@clayui/color-picker'
+packageUse: "import ColorPicker from '@clayui/color-picker';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	This requires custom javascript.
+</div>
+
+## Example
+
+<div className="sheet-example">
+	<label for="clayColor1DropdownToggle">Background Color</label>
+	<div className="clay-color input-group">
+		<div className="input-group-item input-group-item-shrink input-group-prepend">
+			<div className="input-group-text">
+				<button
+					aria-expanded="false"
+					aria-haspopup="true"
+					aria-label="Select a color"
+					className="btn clay-color-btn dropdown-toggle"
+					data-toggle="dropdown"
+					id="clayColor1DropdownToggle"
+					title="#B2EDFF"
+					type="button"
+					style={{backgroundColor: '#B2EDFF'}}
+				></button>
+				<div
+					aria-labelledby="clayColor1DropdownToggle"
+					className="clay-color-dropdown-menu dropdown-menu"
+					x-placement="bottom-start"
+					style={{
+						position: 'absolute',
+						willChange: 'transform',
+						top: '0px',
+						left: '0px',
+						transform: 'translate3d(8px, 32px, 0px)',
+					}}
+				>
+					<div className="clay-color-swatch">
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#000000"
+								style={{backgroundColor: '#000000'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#5F5F5F"
+								style={{backgroundColor: '#5F5F5F'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#9A9A9A"
+								style={{backgroundColor: '#9A9A9A'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#CBCBCB"
+								style={{backgroundColor: '#CBCBCB'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#E1E1E1"
+								style={{backgroundColor: '#E1E1E1'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FF0D0D"
+								style={{backgroundColor: '#FF0D0D'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FF8A1C"
+								style={{backgroundColor: '#FF8A1C'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#2BA676"
+								style={{backgroundColor: '#2BA676'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#006EF8"
+								style={{backgroundColor: '#006EF8'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#7F26FF"
+								style={{backgroundColor: '#7F26FF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FF21A0"
+								style={{backgroundColor: '#FF21A0'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FF5F5F"
+								style={{backgroundColor: '#FF5F5F'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFB46E"
+								style={{backgroundColor: '#FFB46E'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#50D2A0"
+								style={{backgroundColor: '#50D2A0'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#4B9BFF"
+								style={{backgroundColor: '#4B9BFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#AF78FF"
+								style={{backgroundColor: '#AF78FF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FF73C3"
+								style={{backgroundColor: '#FF73C3'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFB1B1"
+								style={{backgroundColor: '#FFB1B1'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFDEC0"
+								style={{backgroundColor: '#FFDEC0'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#91E3C3"
+								style={{backgroundColor: '#91E3C3'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#9DC8FF"
+								style={{backgroundColor: '#9DC8FF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#DFCAFF"
+								style={{backgroundColor: '#DFCAFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFC5E6"
+								style={{backgroundColor: '#FFC5E6'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFD9D9"
+								style={{backgroundColor: '#FFD9D9'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFF3E8"
+								style={{backgroundColor: '#FFF3E8'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#B1EBD5"
+								style={{backgroundColor: '#B1EBD5'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#C5DFFF"
+								style={{backgroundColor: '#C5DFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#F8F2FF"
+								style={{backgroundColor: '#F8F2FF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#FFEDF7"
+								style={{backgroundColor: '#FFEDF7'}}
+							></button>
+						</div>
+					</div>
+					<div className="clay-color-header">
+						<span className="component-title">Custom Colors</span>
+						<button
+							className="component-action"
+							id="claySiteShowView2"
+							type="button"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-drop"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#drop" />
+							</svg>
+						</button>
+					</div>
+					<div className="clay-color-swatch">
+						<div className="clay-color-swatch-item">
+							<button
+								className="active btn clay-color-btn"
+								title="#B2EDFF"
+								style={{backgroundColor: '#B2EDFF'}}
+								tabindex="-1"
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#45EDC5"
+								style={{backgroundColor: '#45EDC5'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#BEDA70"
+								style={{backgroundColor: '#BEDA70'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#DB5959"
+								style={{backgroundColor: '#DB5959'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#36466D"
+								style={{backgroundColor: '#36466D'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn"
+								title="#55ADFF"
+								style={{backgroundColor: '#55ADFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+						<div className="clay-color-swatch-item">
+							<button
+								className="btn clay-color-btn clay-color-btn-bordered"
+								title="#FFFFFF"
+								style={{backgroundColor: '#FFFFFF'}}
+							></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className="input-group-append input-group-item">
+			<input
+				aria-label="Color selection is #B2EDFF"
+				className="form-control"
+				id="clayColor1"
+				type="text"
+				value="#B2EDFF"
+			/>
+		</div>
+	</div>
+</div>
+
+```html
+<label for="clayColor1DropdownToggle">Background Color</label>
+<div className="clay-color input-group">
+	<div className="input-group-item input-group-item-shrink input-group-prepend">
+		<div className="input-group-text">
+			<button
+				aria-expanded="false"
+				aria-haspopup="true"
+				aria-label="Select a color"
+				className="btn clay-color-btn dropdown-toggle"
+				data-toggle="dropdown"
+				id="clayColor1DropdownToggle"
+				title="#B2EDFF"
+				type="button"
+				style={{backgroundColor: '#B2EDFF'}}
+			></button>
+			<div
+				aria-labelledby="clayColor1DropdownToggle"
+				className="clay-color-dropdown-menu dropdown-menu"
+				x-placement="bottom-start"
+				style={{position: 'absolute', willChange: 'transform', top: '0px', left: '0px', transform: 'translate3d(8px, 32px, 0px)'}}
+			>
+				<div className="clay-color-swatch">
+					<div className="clay-color-swatch-item">
+						<button
+							className="btn clay-color-btn"
+							title="#000000"
+							style={{backgroundColor: '#000000'}}
+						></button>
+					</div>
+				</div>
+				<div className="clay-color-header">
+					<span className="component-title">Custom Colors</span>
+					<button
+						className="component-action"
+						id="claySiteShowView2"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-drop"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#drop" />
+						</svg>
+					</button>
+				</div>
+				<div className="clay-color-swatch">
+					<div className="clay-color-swatch-item">
+						<button
+							className="active btn clay-color-btn"
+							title="#B2EDFF"
+							style={{backgroundColor: '#B2EDFF'}}
+							tabindex="-1"
+						></button>
+					</div>
+					<div className="clay-color-swatch-item">
+						<button
+							className="btn clay-color-btn clay-color-btn-bordered"
+							title="#FFFFFF"
+							style={{backgroundColor: '#FFFFFF'}}
+						></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="input-group-append input-group-item">
+		<input
+			aria-label="Color selection is #B2EDFF"
+			className="form-control"
+			id="clayColor1"
+			type="text"
+			value="#B2EDFF"
+		/>
+	</div>
+</div>
+```
+
+## Variations
+
+<div className="sheet-example" style={{height: '200px'}}>
+	<div className="clay-site-dropdown-menu-container">
+		<div
+			className="clay-color-dropdown-menu dropdown-menu show"
+			style={{top: '16px', left: '16px'}}
+		>
+			<div className="clay-color-swatch">
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFB1B1"
+						style={{backgroundColor: '#FFB1B1'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#50D2A0"
+						style={{backgroundColor: '#50D2A0'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF5F5F"
+						style={{backgroundColor: '#FF5F5F'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#55ADFF"
+						style={{backgroundColor: '#55ADFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#AF78FF"
+						style={{backgroundColor: '#AF78FF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF73C3"
+						style={{backgroundColor: '#FF73C3'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#4B9BFF"
+						style={{backgroundColor: '#4B9BFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF73C3"
+						style={{backgroundColor: '#FF73C3'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#91E3C3"
+						style={{backgroundColor: '#91E3C3'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="clay-color-dropdown-menu dropdown-menu show">
+	<div className="clay-color-swatch">
+		<div className="clay-color-swatch-item">
+			<button
+				className="btn clay-color-btn"
+				title="#FFB1B1"
+				style={{backgroundColor: '#FFB1B1'}}
+			></button>
+		</div>
+		...
+	</div>
+</div>
+```
+
+<div className="sheet-example" style={{height: '500px'}}>
+	<div className="clay-site-dropdown-menu-container">
+		<div
+			className="clay-color-dropdown-menu dropdown-menu show"
+			style={{top: '16px', left: '16px'}}
+		>
+			<div className="clay-color-swatch">
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#000000"
+						style={{backgroundColor: '#000000'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#5F5F5F"
+						style={{backgroundColor: '#5F5F5F'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#9A9A9A"
+						style={{backgroundColor: '#9A9A9A'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#CBCBCB"
+						style={{backgroundColor: '#CBCBCB'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#E1E1E1"
+						style={{backgroundColor: '#E1E1E1'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF0D0D"
+						style={{backgroundColor: '#FF0D0D'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF8A1C"
+						style={{backgroundColor: '#FF8A1C'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#2BA676"
+						style={{backgroundColor: '#2BA676'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#006EF8"
+						style={{backgroundColor: '#006EF8'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#7F26FF"
+						style={{backgroundColor: '#7F26FF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF21A0"
+						style={{backgroundColor: '#FF21A0'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF5F5F"
+						style={{backgroundColor: '#FF5F5F'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFB46E"
+						style={{backgroundColor: '#FFB46E'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#50D2A0"
+						style={{backgroundColor: '#50D2A0'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#4B9BFF"
+						style={{backgroundColor: '#4B9BFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#AF78FF"
+						style={{backgroundColor: '#AF78FF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FF73C3"
+						style={{backgroundColor: '#FF73C3'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFB1B1"
+						style={{backgroundColor: '#FFB1B1'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFDEC0"
+						style={{backgroundColor: '#FFDEC0'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#91E3C3"
+						style={{backgroundColor: '#91E3C3'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#9DC8FF"
+						style={{backgroundColor: '#9DC8FF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#DFCAFF"
+						style={{backgroundColor: '#DFCAFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFC5E6"
+						style={{backgroundColor: '#FFC5E6'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFD9D9"
+						style={{backgroundColor: '#FFD9D9'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFF3E8"
+						style={{backgroundColor: '#FFF3E8'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#B1EBD5"
+						style={{backgroundColor: '#B1EBD5'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#C5DFFF"
+						style={{backgroundColor: '#C5DFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#F8F2FF"
+						style={{backgroundColor: '#F8F2FF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#FFEDF7"
+						style={{backgroundColor: '#FFEDF7'}}
+					></button>
+				</div>
+			</div>
+			<div className="clay-color-header">
+				<span className="component-title">Custom Colors</span>
+				<button className="component-action" type="button">
+					<svg
+						className="lexicon-icon lexicon-icon-drop"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#drop" />
+					</svg>
+				</button>
+			</div>
+			<div className="clay-color-swatch">
+				<div className="clay-color-swatch-item">
+					<button
+						className="active btn clay-color-btn"
+						title="#B2EDFF"
+						style={{backgroundColor: '#B2EDFF'}}
+						tabindex="-1"
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#45EDC5"
+						style={{backgroundColor: '#45EDC5'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#BEDA70"
+						style={{backgroundColor: '#BEDA70'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#DB5959"
+						style={{backgroundColor: '#DB5959'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#36466D"
+						style={{backgroundColor: '#36466D'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#55ADFF"
+						style={{backgroundColor: '#55ADFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="clay-color-dropdown-menu dropdown-menu show">
+	<div className="clay-color-swatch">
+		<div className="clay-color-swatch-item">
+			<button
+				className="btn clay-color-btn"
+				title="#000000"
+				style={{backgroundColor: '#000000'}}
+			></button>
+		</div>
+	</div>
+	<div className="clay-color-header">
+		<span className="component-title">Custom Colors</span>
+		<button className="component-action" type="button">
+			<svg
+				className="lexicon-icon lexicon-icon-drop"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#drop" />
+			</svg>
+		</button>
+	</div>
+	<div className="clay-color-swatch">
+		<div className="clay-color-swatch-item">
+			<button
+				className="active btn clay-color-btn"
+				title="#B2EDFF"
+				style={{backgroundColor: '#B2EDFF'}}
+				tabindex="-1"
+			></button>
+		</div>
+		<div className="clay-color-swatch-item">
+			<button
+				className="btn clay-color-btn clay-color-btn-bordered"
+				title="#FFFFFF"
+				style={{backgroundColor: '#FFFFFF'}}
+			></button>
+		</div>
+	</div>
+</div>
+```
+
+<div className="sheet-example" style={{height: '500px'}}>
+	<div className="clay-site-dropdown-menu-container">
+		<div
+			className="clay-color-dropdown-menu dropdown-menu show"
+			style={{top: '16px', left: '16px'}}
+		>
+			<div className="clay-color-header">
+				<span className="component-title">Custom Colors</span>
+				<button className="close" type="button">
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#times" />
+					</svg>
+				</button>
+			</div>
+			<div className="clay-color-swatch">
+				<div className="clay-color-swatch-item">
+					<button
+						className="active btn clay-color-btn"
+						title="#B2EDFF"
+						style={{backgroundColor: '#B2EDFF'}}
+						tabindex="-1"
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#45EDC5"
+						style={{backgroundColor: '#45EDC5'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#BEDA70"
+						style={{backgroundColor: '#BEDA70'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#DB5959"
+						style={{backgroundColor: '#DB5959'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#36466D"
+						style={{backgroundColor: '#36466D'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn"
+						title="#55ADFF"
+						style={{backgroundColor: '#55ADFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+				<div className="clay-color-swatch-item">
+					<button
+						className="btn clay-color-btn clay-color-btn-bordered"
+						title="#FFFFFF"
+						style={{backgroundColor: '#FFFFFF'}}
+					></button>
+				</div>
+			</div>
+			<div className="clay-color-map-group">
+				<div
+					className="clay-color-map-hsb clay-color-map"
+					style={{backgroundColor: 'rgb(180,237,254)'}}
+				>
+					<button
+						className="clay-color-pointer clay-color-map-pointer"
+						style={{
+							top: '0px',
+							left: '130px',
+							backgroundColor: 'rgb(180, 237, 254)',
+						}}
+						type="button"
+					></button>
+				</div>
+				<div className="clay-color-map-values">
+					<div className="form-group">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-before"
+									id="clayColor3Red"
+									type="text"
+									value="180"
+								/>
+								<label
+									className="input-group-inset-item input-group-inset-item-before"
+									for="clayColor3Red"
+								>
+									R
+								</label>
+							</div>
+						</div>
+					</div>
+					<div className="form-group">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-before"
+									id="clayColor3Green"
+									type="text"
+									value="237"
+								/>
+								<label
+									className="input-group-inset-item input-group-inset-item-before"
+									for="clayColor3Green"
+								>
+									G
+								</label>
+							</div>
+						</div>
+					</div>
+					<div className="form-group">
+						<div className="input-group">
+							<div className="input-group-item">
+								<input
+									className="form-control input-group-inset input-group-inset-before"
+									id="clayColor3Blue"
+									type="text"
+									value="254"
+								/>
+								<label
+									className="input-group-inset-item input-group-inset-item-before"
+									for="clayColor3Blue"
+								>
+									B
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="clay-color-range clay-color-range-hue">
+				<button
+					className="clay-color-pointer clay-color-range-pointer"
+					type="button"
+					style={{left: '98px', backgroundColor: 'rgb(180,237,254)'}}
+				></button>
+			</div>
+			<div className="clay-color-footer">
+				<div className="form-group">
+					<input
+						className="form-control"
+						type="text"
+						value="#B2EDFF"
+					/>
+				</div>
+				<div className="form-group">
+					<div className="input-group">
+						<div className="input-group-item">
+							<input
+								className="form-control input-group-inset input-group-inset-before"
+								id="hexInput"
+								type="text"
+								value="B2EDFF"
+							/>
+							<label
+								className="input-group-inset-item input-group-inset-item-before"
+								for="hexInput"
+							>
+								#
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="clay-color-dropdown-menu dropdown-menu show">
+	<div className="clay-color-header">
+		<span className="component-title">Custom Colors</span>
+		<button className="close" type="button">
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<div className="clay-color-swatch">
+		<div className="clay-color-swatch-item">
+			<button
+				className="active btn clay-color-btn"
+				title="#B2EDFF"
+				style={{backgroundColor: '#B2EDFF'}}
+				tabindex="-1"
+			></button>
+		</div>
+		<div className="clay-color-swatch-item">
+			<button
+				className="btn clay-color-btn"
+				title="#45EDC5"
+				style={{backgroundColor: '#45EDC5'}}
+			></button>
+		</div>
+	</div>
+	<div className="clay-color-map-group">
+		<div
+			className="clay-color-map-hsb clay-color-map"
+			style={{backgroundColor: 'rgb(180,237,254)'}}
+		>
+			<button
+				className="clay-color-pointer clay-color-map-pointer"
+				style={{top: '0px', left: '130px', backgroundColor: 'rgb(180, 237, 254)'}}
+				type="button"
+			></button>
+		</div>
+		<div className="clay-color-map-values">
+			<div className="form-group">
+				<div className="input-group">
+					<div className="input-group-item">
+						<input
+							className="form-control input-group-inset input-group-inset-before"
+							id="clayColor3Red"
+							type="text"
+							value="180"
+						/>
+						<label
+							className="input-group-inset-item input-group-inset-item-before"
+							for="clayColor3Red"
+						>
+							R
+						</label>
+					</div>
+				</div>
+			</div>
+			<div className="form-group">
+				<div className="input-group">
+					<div className="input-group-item">
+						<input
+							className="form-control input-group-inset input-group-inset-before"
+							id="clayColor3Green"
+							type="text"
+							value="237"
+						/>
+						<label
+							className="input-group-inset-item input-group-inset-item-before"
+							for="clayColor3Green"
+						>
+							G
+						</label>
+					</div>
+				</div>
+			</div>
+			<div className="form-group">
+				<div className="input-group">
+					<div className="input-group-item">
+						<input
+							className="form-control input-group-inset input-group-inset-before"
+							id="clayColor3Blue"
+							type="text"
+							value="254"
+						/>
+						<label
+							className="input-group-inset-item input-group-inset-item-before"
+							for="clayColor3Blue"
+						>
+							B
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="clay-color-range clay-color-range-hue">
+		<button
+			className="clay-color-pointer clay-color-range-pointer"
+			type="button"
+			style={{left: '98px', backgroundColor: 'rgb(180,237,254)'}}
+		></button>
+	</div>
+	<div className="clay-color-footer">
+		<div className="form-group">
+			<input className="form-control" type="text" value="#B2EDFF" />
+		</div>
+		<div className="form-group">
+			<div className="input-group">
+				<div className="input-group-item">
+					<input
+						className="form-control input-group-inset input-group-inset-before"
+						id="hexInput"
+						type="text"
+						value="B2EDFF"
+					/>
+					<label
+						className="input-group-inset-item input-group-inset-item-before"
+						for="hexInput"
+					>
+						#
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Sizes
+
+<div className="sheet-example">
+	<div className="form-group form-group-sm">
+		<label for="_xc5ufh2gj">Form Group Sm</label>
+		<div className="clay-color input-group">
+			<div className="input-group-item input-group-item-shrink input-group-prepend">
+				<div className="input-group-text">
+					<button
+						aria-expanded="false"
+						aria-haspopup="true"
+						aria-label="Select a color"
+						className="btn clay-color-btn dropdown-toggle"
+						data-toggle="dropdown"
+						id="_xc5ufh2gj"
+						title="#B2EDFF"
+						type="button"
+						style={{backgroundColor: '#B2EDFF'}}
+					></button>
+					<div
+						aria-labelledby="_xc5ufh2gj"
+						className="clay-color-dropdown-menu dropdown-menu"
+					></div>
+				</div>
+			</div>
+			<div className="input-group-append input-group-item">
+				<input
+					aria-label="Color selection is B2EDFF"
+					className="form-control input-group-inset input-group-inset-before"
+					id="clayColor3"
+					type="text"
+					value="B2EDFF"
+				/>
+				<label
+					className="input-group-inset-item input-group-inset-item-before"
+					for="clayColor3"
+				>
+					#
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group form-group-sm">
+	<label for="_xc5ufh2gj">Form Group Sm</label>
+	<div className="clay-color input-group">
+		<div
+			className="input-group-item input-group-item-shrink input-group-prepend"
+		>
+			<div className="input-group-text">
+				<button
+					aria-expanded="false"
+					aria-haspopup="true"
+					aria-label="Select a color"
+					className="btn clay-color-btn dropdown-toggle"
+					data-toggle="dropdown"
+					id="_xc5ufh2gj"
+					title="#B2EDFF"
+					type="button"
+					style={{backgroundColor: '#B2EDFF'}}
+				></button>
+				<div
+					aria-labelledby="_xc5ufh2gj"
+					className="clay-color-dropdown-menu dropdown-menu"
+				></div>
+			</div>
+		</div>
+		<div className="input-group-append input-group-item">
+			<input
+				aria-label="Color selection is B2EDFF"
+				className="form-control input-group-inset input-group-inset-before"
+				id="clayColor3"
+				type="text"
+				value="B2EDFF"
+			/>
+			<label
+				className="input-group-inset-item input-group-inset-item-before"
+				for="clayColor3"
+			>
+				#
+			</label>
+		</div>
+	</div>
+</div>
+```
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="_a37tcs84w">Input Group Sm</label>
+		<div className="clay-color input-group input-group-sm">
+			<div className="input-group-item input-group-item-shrink input-group-prepend">
+				<div className="input-group-text">
+					<button
+						aria-expanded="false"
+						aria-haspopup="true"
+						aria-label="Select a color"
+						className="btn clay-color-btn dropdown-toggle"
+						data-toggle="dropdown"
+						id="_a37tcs84w"
+						title="#B2EDFF"
+						type="button"
+						style={{backgroundColor: '#B2EDFF'}}
+					></button>
+					<div
+						aria-labelledby="_a37tcs84w"
+						className="clay-color-dropdown-menu dropdown-menu"
+					></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="_a37tcs84w">Input Group Sm</label>
+	<div className="clay-color input-group input-group-sm">
+		<div
+			className="input-group-item input-group-item-shrink input-group-prepend"
+		>
+			<div className="input-group-text">
+				<button
+					aria-expanded="false"
+					aria-haspopup="true"
+					aria-label="Select a color"
+					className="btn clay-color-btn dropdown-toggle"
+					data-toggle="dropdown"
+					id="_a37tcs84w"
+					title="#B2EDFF"
+					type="button"
+					style={{backgroundColor: '#B2EDFF'}}
+				></button>
+				<div
+					aria-labelledby="_a37tcs84w"
+					className="clay-color-dropdown-menu dropdown-menu"
+				></div>
+			</div>
+		</div>
+	</div>
+</div>
+```

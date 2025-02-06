@@ -1,0 +1,2772 @@
+---
+title: 'Alerts'
+description: 'Alerts are used to capture the attention of the user in an intrusive way.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/alerts/'
+packageNpm: '@clayui/alert'
+packageUse: "import Alert from '@clayui/alert';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/#alert">WAI-ARIA</a>{' '}
+	accessibility pratices for alerts when writting your markup.
+</div>
+
+## Colors
+
+Lexicon adopts in its design system the following colors below:
+
+<div className="row">
+	<div className="col-md-3">
+		<div className="alert alert-success">
+			<strong>.alert.alert-success</strong>
+		</div>
+	</div>
+	<div className="col-md-3">
+		<div className="alert alert-info">
+			<strong>.alert.alert-info</strong>
+		</div>
+	</div>
+	<div className="col-md-3">
+		<div className="alert alert-warning">
+			<strong>.alert.alert-warning</strong>
+		</div>
+	</div>
+	<div className="col-md-3">
+		<div className="alert alert-danger">
+			<strong>.alert.alert-danger</strong>
+		</div>
+	</div>
+</div>
+
+### Non-standard Colors
+
+The colors below do not follow Lexicon standards but follow the idea of [​​satellite components](https://liferay.design/lexicon), Clay provides non-standard colors to give you more flexibility to build UI that belong to the product.
+
+<div className="row">
+	<div className="col-md-3">
+		<div className="alert alert-primary">
+			<strong>.alert.alert-primary</strong>
+		</div>
+	</div>
+	<div className="col-md-3">
+		<div className="alert alert-secondary">
+			<strong>.alert.alert-secondary</strong>
+		</div>
+	</div>
+	<div className="col-md-3">
+		<div className="alert alert-dark">
+			<strong>.alert.alert-dark</strong>
+		</div>
+	</div>
+	<div className="col-md-3">
+		<div className="alert alert-light">
+			<strong>.alert.alert-light</strong>
+		</div>
+	</div>
+</div>
+
+### Variant Sass API
+
+The map `$alert-palette` allows generating any number of alert variants. If a key starts with `.`, `#` or `%`, Clay will output it as is, otherwise we will prepend `.alert-` to the key (e.g., `.alert-primary`). It will also generate a Sass placeholder prefixed by `%calert-` (e.g., `%alert-primary`).
+
+```css
+$alert-palette: (
+	primary: (
+		background-color: $primary
+	),
+	'%alert-tertiary': (
+		background-color: green
+	),
+	'.alert-tertiary': (
+		extend: '%alert-tertiary'
+	),
+	'.alert-quaternary': (
+		extend: '%alert-tertiary'
+	)
+);
+```
+
+Outputs:
+
+```css
+.alert-primary {
+	background-color: #0b5fff;
+}
+
+.alert-tertiary,
+.alert-quaternary {
+	background-color: green;
+}
+```
+
+## Examples
+
+### Toast
+
+This type of alert is specific for toast messages. These type of messages appear on the top right corner of the screen. The maximum width of a toast message is 360px, and the height can vary depending on the number of rows. It always has a close action.
+
+<div className="sheet-example">
+	<div id="claySiteAlertsNotificationsSpacer">
+		<div className="row">
+			<div className="col-md-6">
+				<div className="alert alert-dismissible alert-danger">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#exclamation-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Error:</strong> This is an error message
+					<button
+						aria-label="Close"
+						className="close"
+						data-dismiss="alert"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div className="col-md-6">
+				<div className="alert alert-dismissible alert-info">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#info-circle"></use>
+						</svg>
+					</span>
+					<strong className="lead">Info:</strong> This is an info message.
+					<button
+						aria-label="Close"
+						className="close"
+						data-dismiss="alert"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div className="row">
+			<div className="col-md-6">
+				<div className="alert alert-dismissible alert-success">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Success:</strong> This is a success
+					message
+					<button
+						aria-label="Close"
+						className="close"
+						data-dismiss="alert"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times" />
+						</svg>
+					</button>
+				</div>
+			</div>
+			<div className="col-md-6">
+				<div className="alert alert-dismissible alert-warning">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-warning-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#warning-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Warning:</strong> This is a warning
+					message.
+					<button
+						aria-label="Close"
+						className="close"
+						data-dismiss="alert"
+						type="button"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="alert alert-dismissible alert-danger">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Error:</strong> This is an error message
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		...
+	</button>
+</div>
+
+<div className="alert alert-dismissible alert-info">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Info:</strong> This is an info message.
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		...
+	</button>
+</div>
+
+<div className="alert alert-dismissible alert-success">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Success:</strong> This is a success message
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		...
+	</button>
+</div>
+
+<div className="alert alert-dismissible alert-warning">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Warning:</strong> This is a warning message.
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		...
+	</button>
+</div>
+```
+
+### Embedded
+
+Embedded alerts are meant for use in forms. Usually you will only need to use the information once. Its width depends on the width of the container it is placed in, always respecting the container margins to the content. The close action is not required for embedded alerts.
+
+<div className="sheet-example">
+	<div className="alert alert-danger">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-exclamation-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#exclamation-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Error:</strong> This is an error message
+	</div>
+	<div className="alert alert-success">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-check-circle-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#check-circle-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Error:</strong> This is a success message
+	</div>
+	<div className="alert alert-info">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-info-circle"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#info-circle"></use>
+			</svg>
+		</span>
+		<strong className="lead">Error:</strong> This is an info message
+	</div>
+	<div className="alert alert-warning">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-warning-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#warning-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Error:</strong> This is a warning message
+	</div>
+</div>
+
+```html
+<div className="alert alert-danger">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Error:</strong>This is an error message
+</div>
+
+<div className="alert alert-success">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Error:</strong>This is a success message
+</div>
+
+<div className="alert alert-info">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Error:</strong>This is an info message
+</div>
+
+<div className="alert alert-warning">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Error:</strong>This is a warning message
+</div>
+```
+
+### Stripe
+
+Stripe alerts are always placed below the last navigation element, either the header or the navigation bar. This alert usually appears on "Save" action, communicating the status of the action once received from the server. The close action is mandatory in this alert type. Its width is always full container width and pushes all the content below it.
+
+<div className="sheet-example">
+	<div className="alert alert-danger alert-dismissible alert-fluid">
+		<div className="container">
+			<span className="alert-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-exclamation-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#exclamation-full"></use>
+				</svg>
+			</span>
+			<strong className="lead">Danger</strong> This is an error message
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-times"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#times" />
+				</svg>
+			</button>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-fluid alert-success">
+		<div className="container">
+			<span className="alert-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-check-circle-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#check-circle-full"></use>
+				</svg>
+			</span>
+			<strong className="lead">Success</strong> This is a success message
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-times"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#times" />
+				</svg>
+			</button>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-fluid alert-info">
+		<div className="container">
+			<span className="alert-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-info-circle"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#info-circle"></use>
+				</svg>
+			</span>
+			<strong className="lead">Info</strong> This is an info message
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-times"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#times" />
+				</svg>
+			</button>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-fluid alert-warning">
+		<div className="container">
+			<span className="alert-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-warning-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#warning-full"></use>
+				</svg>
+			</span>
+			<strong className="lead">Warning</strong> This is a warning message
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-times"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#times" />
+				</svg>
+			</button>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="alert alert-danger alert-dismissible alert-fluid">
+	<div className="container">
+		<span className="alert-indicator"> ... </span>
+		<strong className="lead">Danger</strong> This is an error message
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			...
+		</button>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-fluid alert-success">
+	<div className="container">
+		<span className="alert-indicator"> ... </span>
+		<strong className="lead">Success</strong> This is a success message
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			...
+		</button>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-fluid alert-info">
+	<div className="container">
+		<span className="alert-indicator"> ... </span>
+		<strong className="lead">Info</strong> This is an info message
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			...
+		</button>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-fluid alert-warning">
+	<div className="container">
+		<span className="alert-indicator"> ... </span>
+		<strong className="lead">Warning</strong> This is a warning message
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			...
+		</button>
+	</div>
+</div>
+```
+
+### Feedback
+
+Add the modifier `alert-feedback` on the `alert` element to remove the `background`, `border`, and `padding`.
+
+<div className="sheet-example">
+	<div className="alert alert-feedback alert-primary">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Primary Indicator:</strong>
+					<span className="component-text">
+						with some additional text and a{' '}
+						<a className="alert-link" href="#1">
+							link
+						</a>
+						.
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-feedback alert-primary">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Autofit Primary Indicator</strong>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<div className="alert alert-feedback alert-secondary">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Secondary Indicator:</strong>
+					<span className="component-text">
+						with some additional text and a{' '}
+						<a className="alert-link" href="#1">
+							link
+						</a>
+						.
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-feedback alert-secondary">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-info-circle"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+			</svg>
+		</span>
+		<strong className="lead">Secondary Indicator</strong>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<div className="alert alert-feedback alert-success">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Success Indicator:</strong>
+					<span className="component-text">
+						with some additional text and a{' '}
+						<a className="alert-link" href="#1">
+							link
+						</a>
+						.
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-feedback alert-success">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-check-circle-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Success Indicator</strong>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<div className="alert alert-feedback alert-info">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Info Indicator:</strong>
+					<span className="component-text">
+						with some additional text and a{' '}
+						<a className="alert-link" href="#1">
+							link
+						</a>
+						.
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-feedback alert-info">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-info-circle"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+			</svg>
+		</span>
+		<strong className="lead">Info Indicator</strong>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<div className="alert alert-feedback alert-warning">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-warning-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#warning-full"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Warning Indicator:</strong>
+					<span className="component-text">
+						with some additional text and a{' '}
+						<a className="alert-link" href="#1">
+							link
+						</a>
+						.
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-feedback alert-warning">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-warning-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#warning-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Warning Indicator</strong>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<div className="alert alert-feedback alert-danger">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-info-circle"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<strong className="lead">Danger Indicator:</strong>
+					<span className="component-text">
+						with some additional text and a{' '}
+						<a className="alert-link" href="#1">
+							link
+						</a>
+						.
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div className="alert alert-dismissible alert-feedback alert-danger">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-exclamation-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#exclamation-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Danger Indicator</strong>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div className="alert alert-feedback alert-primary">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-info-circle"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#info-circle"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Primary Indicator:</strong>
+				<span className="component-text"
+					>with some additional text and a
+					<a className="alert-link" href="#1">link</a>.</span
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-feedback alert-primary">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-info-circle"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#info-circle"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Autofit Primary Indicator</strong>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div className="alert alert-feedback alert-secondary">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-info-circle"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#info-circle"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Secondary Indicator:</strong>
+				<span className="component-text"
+					>with some additional text and a
+					<a className="alert-link" href="#1">link</a>.</span
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-feedback alert-secondary">
+	<span className="alert-indicator">
+		<svg
+			className="lexicon-icon lexicon-icon-info-circle"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+		</svg>
+	</span>
+	<strong className="lead">Secondary Indicator</strong>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div className="alert alert-feedback alert-success">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#check-circle-full"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Success Indicator:</strong>
+				<span className="component-text"
+					>with some additional text and a
+					<a className="alert-link" href="#1">link</a>.</span
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-feedback alert-success">
+	<span className="alert-indicator">
+		<svg
+			className="lexicon-icon lexicon-icon-check-circle-full"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+		</svg>
+	</span>
+	<strong className="lead">Success Indicator</strong>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div className="alert alert-feedback alert-info">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-info-circle"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#info-circle"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Info Indicator:</strong>
+				<span className="component-text"
+					>with some additional text and a
+					<a className="alert-link" href="#1">link</a>.</span
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-feedback alert-info">
+	<span className="alert-indicator">
+		<svg
+			className="lexicon-icon lexicon-icon-info-circle"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#info-circle"></use>
+		</svg>
+	</span>
+	<strong className="lead">Info Indicator</strong>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div className="alert alert-feedback alert-warning">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-warning-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#warning-full"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Warning Indicator:</strong>
+				<span className="component-text"
+					>with some additional text and a
+					<a className="alert-link" href="#1">link</a>.</span
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-feedback alert-warning">
+	<span className="alert-indicator">
+		<svg
+			className="lexicon-icon lexicon-icon-warning-full"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#warning-full"></use>
+		</svg>
+	</span>
+	<strong className="lead">Warning Indicator</strong>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div className="alert alert-feedback alert-danger">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-info-circle"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#info-circle"
+						></use>
+					</svg>
+				</span>
+			</div>
+		</div>
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<strong className="lead">Danger Indicator:</strong>
+				<span className="component-text"
+					>with some additional text and a
+					<a className="alert-link" href="#1">link</a>.</span
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div className="alert alert-dismissible alert-feedback alert-danger">
+	<span className="alert-indicator">
+		<svg
+			className="lexicon-icon lexicon-icon-exclamation-full"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#exclamation-full"></use>
+		</svg>
+	</span>
+	<strong className="lead">Danger Indicator</strong>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+```
+
+### Indicator Start
+
+An alternative to using autofit utilities, this keeps the text after the indicator icon from flowing under the icon when it breaks to a new line.
+
+<div className="sheet-example">
+	<h4 className="h6">alert-dismissible</h4>
+	<div className="alert alert-dismissible alert-indicator-start alert-success">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Success:</strong>
+					<span>
+						Strong kopi-luwak half and half single origin single
+						shot, half and half instant latte brewed latte. At,
+						decaffeinated, blue mountain viennese barista, spoon
+						carajillo shop viennese dark. And ristretto caffeine,
+						plunger pot black, café au lait galão flavour foam
+						strong. Macchiato roast, breve fair trade seasonal et
+						cultivar.
+					</span>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<h4 className="h6">alert-fluid</h4>
+	<div className="alert alert-fluid alert-indicator-start alert-warning">
+		<div className="container-fluid container-fluid-max-xl">
+			<span className="alert-indicator">
+				<svg
+					className="lexicon-icon lexicon-icon-warning-full"
+					focusable="false"
+					role="presentation"
+				>
+					<use xlinkHref="/images/icons/icons.svg#warning-full"></use>
+				</svg>
+			</span>
+			<strong className="lead">Primary:</strong>
+			<span>
+				Strong kopi-luwak half and half single origin single shot, half
+				and half instant latte brewed latte. At, decaffeinated, blue
+				mountain viennese barista, spoon carajillo shop viennese dark.
+				And ristretto caffeine, plunger pot black, café au lait galão
+				flavour foam strong. Macchiato roast, breve fair trade seasonal
+				et cultivar.
+			</span>
+		</div>
+	</div>
+	<h4 className="h6 mt-3">alert-feedback</h4>
+	<div className="alert alert-danger alert-dismissible alert-feedback alert-indicator-start">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-exclamation-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#exclamation-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Danger:</strong>
+		<span className="component-text">
+			Strong kopi-luwak half and half single origin single shot, half and
+			half instant latte brewed latte. At, decaffeinated, blue mountain
+			viennese barista, spoon carajillo shop viennese dark. And ristretto
+			caffeine, plunger pot black, café au lait galão flavour foam strong.
+			Macchiato roast, breve fair trade seasonal et cultivar.
+		</span>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div className="alert alert-dismissible alert-indicator-start alert-success">
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#check-circle-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Success:</strong>
+				<span
+					>Strong kopi-luwak half and half single origin single shot,
+					half and half instant latte brewed latte. At, decaffeinated,
+					blue mountain viennese barista, spoon carajillo shop
+					viennese dark. And ristretto caffeine, plunger pot black,
+					café au lait galão flavour foam strong. Macchiato roast,
+					breve fair trade seasonal et cultivar.</span
+				>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div className="alert alert-fluid alert-indicator-start alert-warning">
+	<div className="container-fluid container-fluid-max-xl">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-warning-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#warning-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Primary:</strong>
+		<span
+			>Strong kopi-luwak half and half single origin single shot, half and
+			half instant latte brewed latte. At, decaffeinated, blue mountain
+			viennese barista, spoon carajillo shop viennese dark. And ristretto
+			caffeine, plunger pot black, café au lait galão flavour foam strong.
+			Macchiato roast, breve fair trade seasonal et cultivar.</span
+		>
+	</div>
+</div>
+
+<div
+	className="alert alert-danger alert-dismissible alert-feedback alert-indicator-start"
+>
+	<span className="alert-indicator">
+		<svg
+			className="lexicon-icon lexicon-icon-exclamation-full"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#exclamation-full"></use>
+		</svg>
+	</span>
+	<strong className="lead">Danger:</strong>
+	<span className="component-text"
+		>Strong kopi-luwak half and half single origin single shot, half and
+		half instant latte brewed latte. At, decaffeinated, blue mountain
+		viennese barista, spoon carajillo shop viennese dark. And ristretto
+		caffeine, plunger pot black, café au lait galão flavour foam strong.
+		Macchiato roast, breve fair trade seasonal et cultivar.</span
+	>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+```
+
+### Inline
+
+This changes an alert to use `display: inline-block`. It will only expand to be as wide as its content and max out at the parent container's width.
+
+<div className="sheet-example">
+	<div className="alert alert-dismissible alert-indicator-start alert-inline alert-success">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Success:</strong>
+					<span>
+						File uploaded. Would you like to add categories
+						automatically?
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-success btn-sm"
+								type="button"
+							>
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<br />
+	<div className="alert alert-dismissible alert-indicator-start alert-inline alert-warning">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-warning-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#warning-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Alert:</strong>
+					<span>A file with this name already exists.</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-warning btn-sm"
+								type="button"
+							>
+								Replace
+							</button>
+						</div>
+						<div className="btn-group-item">
+							<button className="btn alert-btn" type="button">
+								Keep Both
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<br />
+	<div className="alert alert-dismissible alert-indicator-start alert-inline alert-info alert-notification">
+		<div className="autofit-row alert-autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#exclamation-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Info:</strong>
+					<span>Would you like to add categories automatically?</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-info btn-sm"
+								type="button"
+							>
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+	<br />
+	<div className="alert alert-dismissible alert-fluid alert-indicator-start alert-inline alert-info alert-notification">
+		<div className="container-fluid container-fluid-max-xl">
+			<div className="autofit-row alert-autofit-row">
+				<div className="autofit-col autofit-col-expand">
+					<div className="autofit-section">
+						<span className="alert-indicator">
+							<svg
+								className="lexicon-icon lexicon-icon-exclamation-full"
+								focusable="false"
+								role="presentation"
+							>
+								<use xlinkHref="/images/icons/icons.svg#exclamation-full"></use>
+							</svg>
+						</span>
+						<strong className="lead">Info:</strong>
+						<span>
+							Would you like to add categories automatically?
+						</span>
+					</div>
+				</div>
+				<div className="autofit-col">
+					<div className="autofit-section">
+						<div className="btn-group">
+							<div className="btn-group-item">
+								<button
+									className="btn btn-info btn-sm"
+									type="button"
+								>
+									Add Categories
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				<svg
+					className="lexicon-icon lexicon-icon-times"
+					focusable="false"
+					role="presentation"
+				>
+					<use xlinkHref="/images/icons/icons.svg#times" />
+				</svg>
+			</button>
+		</div>
+	</div>
+	<div className="mb-3"></div>
+	<div className="alert alert-dismissible alert-inline alert-notification alert-danger">
+		<div className="autofit-row alert-autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-times-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#times-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Error:</strong>
+					<span>The file wasn't uploaded.</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-danger btn-sm"
+								type="button"
+							>
+								Retry
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div
+	className="alert alert-dismissible alert-indicator-start alert-inline alert-success"
+>
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#check-circle-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Success:</strong>
+				<span
+					>File uploaded. Would you like to add categories
+					automatically?</span
+				>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button
+							className="btn btn-success btn-sm"
+							type="button"
+						>
+							Add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div
+	className="alert alert-dismissible alert-indicator-start alert-inline alert-warning"
+>
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-warning-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#warning-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Alert:</strong>
+				<span>A file with this name already exists.</span>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button
+							className="btn btn-warning btn-sm"
+							type="button"
+						>
+							Replace
+						</button>
+					</div>
+					<div className="btn-group-item">
+						<button className="btn alert-btn" type="button">
+							Keep Both
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div
+	className="alert alert-dismissible alert-indicator-start alert-inline alert-info alert-notification"
+>
+	<div className="autofit-row alert-autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-exclamation-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#exclamation-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Info:</strong>
+				<span>Would you like to add categories automatically?</span>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button className="btn btn-info btn-sm" type="button">
+							Add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+
+<div
+	className="alert alert-dismissible alert-fluid alert-indicator-start alert-inline alert-info alert-notification"
+>
+	<div className="container-fluid container-fluid-max-xl">
+		<div className="autofit-row alert-autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-exclamation-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use
+								xlinkHref="/images/icons/icons.svg#exclamation-full"
+							></use>
+						</svg>
+					</span>
+					<strong className="lead">Info:</strong>
+					<span>Would you like to add categories automatically?</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-info btn-sm"
+								type="button"
+							>
+								Add Categories
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+<div
+	className="alert alert-dismissible alert-inline alert-notification alert-danger"
+>
+	<div className="autofit-row alert-autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-times-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#times-circle-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Error:</strong>
+				<span>The file wasn't uploaded.</span>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button className="btn btn-danger btn-sm" type="button">
+							Retry
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+```
+
+### Autofit Stacked
+
+The class `alert-autofit-stacked` forces each `autofit-col` to stack on top of each other, apply it on the `alert` element.
+
+<div className="sheet-example">
+	<div className="alert alert-autofit-stacked alert-dismissible alert-indicator-start alert-inline alert-success">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Success:</strong>
+					<span>
+						File uploaded. Would you like to add categories
+						automatically?
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-success btn-sm"
+								type="button"
+							>
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div
+	className="alert alert-autofit-stacked alert-dismissible alert-indicator-start alert-inline alert-success"
+>
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#check-circle-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Success:</strong>
+				<span
+					>File uploaded. Would you like to add categories
+					automatically?</span
+				>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button
+							className="btn btn-success btn-sm"
+							type="button"
+						>
+							Add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+```
+
+### Autofit Stacked Sm Down
+
+The class `alert-autofit-stacked-sm-down` forces each `autofit-col` to stack on top of each other at screen sizes 767px and below, apply it on the `alert` element.
+
+<div className="sheet-example">
+	<div className="alert alert-autofit-stacked-sm-down alert-dismissible alert-indicator-start alert-inline alert-success">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Success:</strong>
+					<span>
+						File uploaded. Would you like to add categories
+						automatically?
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-success btn-sm"
+								type="button"
+							>
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div
+	className="alert alert-autofit-stacked-sm-down alert-dismissible alert-indicator-start alert-inline alert-success"
+>
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#check-circle-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Success:</strong>
+				<span
+					>File uploaded. Would you like to add categories
+					automatically?</span
+				>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button
+							className="btn btn-success btn-sm"
+							type="button"
+						>
+							Add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+```
+
+### Autofit Stacked Xs Down
+
+The class `alert-autofit-stacked-xs-down` forces each `autofit-col` to stack on top of each other at screen sizes 575px and below, apply it on the `alert` element.
+
+<div className="sheet-example">
+	<div className="alert alert-autofit-stacked-xs-down alert-dismissible alert-indicator-start alert-inline alert-success">
+		<div className="alert-autofit-row autofit-row">
+			<div className="autofit-col autofit-col-expand">
+				<div className="autofit-section">
+					<span className="alert-indicator">
+						<svg
+							className="lexicon-icon lexicon-icon-check-circle-full"
+							focusable="false"
+							role="presentation"
+						>
+							<use xlinkHref="/images/icons/icons.svg#check-circle-full"></use>
+						</svg>
+					</span>
+					<strong className="lead">Success:</strong>
+					<span>
+						File uploaded. Would you like to add categories
+						automatically?
+					</span>
+				</div>
+			</div>
+			<div className="autofit-col">
+				<div className="autofit-section">
+					<div className="btn-group">
+						<div className="btn-group-item">
+							<button
+								className="btn btn-success btn-sm"
+								type="button"
+							>
+								Add
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use xlinkHref="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div
+	className="alert alert-autofit-stacked-xs-down alert-dismissible alert-indicator-start alert-inline alert-success"
+>
+	<div className="alert-autofit-row autofit-row">
+		<div className="autofit-col autofit-col-expand">
+			<div className="autofit-section">
+				<span className="alert-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check-circle-full"
+						focusable="false"
+						role="presentation"
+					>
+						<use
+							xlinkHref="/images/icons/icons.svg#check-circle-full"
+						></use>
+					</svg>
+				</span>
+				<strong className="lead">Success:</strong>
+				<span
+					>File uploaded. Would you like to add categories
+					automatically?</span
+				>
+			</div>
+		</div>
+		<div className="autofit-col">
+			<div className="autofit-section">
+				<div className="btn-group">
+					<div className="btn-group-item">
+						<button
+							className="btn btn-success btn-sm"
+							type="button"
+						>
+							Add
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		<svg
+			className="lexicon-icon lexicon-icon-times"
+			focusable="false"
+			role="presentation"
+		>
+			<use xlinkHref="/images/icons/icons.svg#times" />
+		</svg>
+	</button>
+</div>
+```
+
+## Non-standard Examples
+
+These examples are not included in the Lexicon design system but they are built using foundations and Lexicon core components, these components may belong to the product or application.
+
+### Alert Lists
+
+<div className="sheet-example">
+	<ul className="alert-list">
+		<li className="alert alert-danger alert-dismissible alert-fluid">
+			<div className="container-fluid">
+				<div className="autofit-float autofit-padded autofit-row autofit-row-center">
+					<div className="autofit-col">
+						<div className="autofit-section">
+							<span className="alert-indicator">
+								<svg
+									className="lexicon-icon lexicon-icon-exclamation-full"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#exclamation-full" />
+								</svg>
+							</span>
+							<strong className="lead">1 Files</strong> couldn't upload.
+						</div>
+					</div>
+					<div className="autofit-col autofit-col-expand">
+						<div className="autofit-section">
+							<button
+								className="btn btn-secondary btn-sm"
+								type="button"
+							>
+								<span className="inline-item inline-item-before">
+									<svg
+										className="lexicon-icon lexicon-icon-reload"
+										focusable="false"
+										role="presentation"
+									>
+										<use href="/images/icons/icons.svg#reload" />
+									</svg>
+								</span>
+								Retry all
+							</button>
+						</div>
+					</div>
+				</div>
+				<button
+					aria-label="Close"
+					className="close"
+					data-dismiss="alert"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#times" />
+					</svg>
+				</button>
+			</div>
+		</li>
+		<li className="alert alert-danger alert-dismissible alert-fluid">
+			<div className="container-fluid">
+				<div className="autofit-float autofit-padded autofit-row autofit-row-center">
+					<div className="autofit-col">
+						<span className="sticker sticker-secondary">RTF</span>
+					</div>
+					<div className="autofit-col autofit-col-expand">
+						<div className="autofit-section">
+							<h4 className="component-title">file-upload.RTF</h4>
+							<span className="alert-indicator">
+								<svg
+									className="lexicon-icon lexicon-icon-exclamation-full"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#exclamation-full" />
+								</svg>
+							</span>
+							<strong className="lead">Error:</strong> couldn't
+							upload.
+						</div>
+					</div>
+					<div className="autofit-col">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							<span className="inline-item inline-item-before">
+								<svg
+									className="lexicon-icon lexicon-icon-reload"
+									focusable="false"
+									role="presentation"
+								>
+									<use href="/images/icons/icons.svg#reload" />
+								</svg>
+							</span>
+							Retry
+						</button>
+					</div>
+				</div>
+				<button
+					aria-label="Close"
+					className="close"
+					data-dismiss="alert"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#times" />
+					</svg>
+				</button>
+			</div>
+		</li>
+		<li className="alert alert-light alert-dismissible alert-fluid">
+			<div className="container-fluid">
+				<div className="autofit-float autofit-padded autofit-row autofit-row-center">
+					<div className="autofit-col">
+						<span className="sticker sticker-secondary">JPG</span>
+					</div>
+					<div className="autofit-col autofit-col-expand">
+						<div className="autofit-section">
+							<h4 className="component-title">file-name.JPG</h4>
+							<div className="component-subtitle">
+								Uploaded - 142.1KB
+							</div>
+						</div>
+					</div>
+				</div>
+				<button
+					aria-label="Close"
+					className="close"
+					data-dismiss="alert"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#times" />
+					</svg>
+				</button>
+			</div>
+		</li>
+		<li className="alert alert-light alert-dismissible alert-fluid">
+			<div className="container-fluid">
+				<div className="autofit-float autofit-padded autofit-row autofit-row-center">
+					<div className="autofit-col">
+						<span className="sticker sticker-secondary">RTF</span>
+					</div>
+					<div className="autofit-col autofit-col-expand">
+						<div className="autofit-section">
+							<h4 className="component-title">ABC-file.RTF</h4>
+							<div className="progress-group progress-group-stacked">
+								<div className="progress">
+									<div
+										aria-valuenow="34"
+										aria-valuemin="0"
+										aria-valuemax="100"
+										className="progress-bar"
+										role="progressbar"
+										style={{width: '34%'}}
+									></div>
+								</div>
+								<div className="autofit-row">
+									<div className="autofit-col autofit-col-expand">
+										<div className="component-subtitle">
+											Size: 156.6 MB
+										</div>
+									</div>
+									<div className="autofit-col">
+										<div className="component-subtitle">
+											34%
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button
+					aria-label="Close"
+					className="close"
+					data-dismiss="alert"
+					type="button"
+				>
+					<svg
+						className="lexicon-icon lexicon-icon-times"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#times" />
+					</svg>
+				</button>
+			</div>
+		</li>
+	</ul>
+</div>
+
+```html
+<ul className="alert-list">
+	<li className="alert alert-danger alert-dismissible alert-fluid">
+		<div className="container-fluid">
+			<div
+				className="autofit-float autofit-padded autofit-row autofit-row-center"
+			>
+				<div className="autofit-col">
+					<div className="autofit-section">
+						<span className="alert-indicator"> ... </span>
+						<strong className="lead">1 Files</strong> couldn't
+						upload.
+					</div>
+				</div>
+				<div className="autofit-col autofit-col-expand">
+					<div className="autofit-section">
+						<button
+							className="btn btn-secondary btn-sm"
+							type="button"
+						>
+							<span className="inline-item inline-item-before">
+								...
+							</span>
+							Retry all
+						</button>
+					</div>
+				</div>
+			</div>
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				...
+			</button>
+		</div>
+	</li>
+	<li className="alert alert-danger alert-dismissible alert-fluid">
+		<div className="container-fluid">
+			<div
+				className="autofit-float autofit-padded autofit-row autofit-row-center"
+			>
+				<div className="autofit-col">
+					<span className="sticker sticker-secondary">RTF</span>
+				</div>
+				<div className="autofit-col autofit-col-expand">
+					<div className="autofit-section">
+						<h4 className="component-title">file-upload.RTF</h4>
+						<span className="alert-indicator"> ... </span>
+						<strong className="lead">Error:</strong> couldn't
+						upload.
+					</div>
+				</div>
+				<div className="autofit-col">
+					<button className="btn btn-secondary btn-sm" type="button">
+						<span className="inline-item inline-item-before">
+							...
+						</span>
+						Retry
+					</button>
+				</div>
+			</div>
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				...
+			</button>
+		</div>
+	</li>
+	<li className="alert alert-light alert-dismissible alert-fluid">
+		<div className="container-fluid">
+			<div
+				className="autofit-float autofit-padded autofit-row autofit-row-center"
+			>
+				<div className="autofit-col">
+					<span className="sticker sticker-secondary">JPG</span>
+				</div>
+				<div className="autofit-col autofit-col-expand">
+					<div className="autofit-section">
+						<h4 className="component-title">file-name.JPG</h4>
+						<div className="component-subtitle">
+							Uploaded - 142.1KB
+						</div>
+					</div>
+				</div>
+			</div>
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				...
+			</button>
+		</div>
+	</li>
+	<li className="alert alert-light alert-dismissible alert-fluid">
+		<div className="container-fluid">
+			<div
+				className="autofit-float autofit-padded autofit-row autofit-row-center"
+			>
+				<div className="autofit-col">
+					<span className="sticker sticker-secondary">RTF</span>
+				</div>
+				<div className="autofit-col autofit-col-expand">
+					<div className="autofit-section">
+						<h4 className="component-title">ABC-file.RTF</h4>
+						<div className="progress-group progress-group-stacked">
+							<div className="progress">
+								<div
+									aria-valuenow="34"
+									aria-valuemin="0"
+									aria-valuemax="100"
+									className="progress-bar"
+									role="progressbar"
+									style="width: 34%;"
+								></div>
+							</div>
+							<div className="autofit-row">
+								<div className="autofit-col autofit-col-expand">
+									<div className="component-subtitle">
+										Size: 156.6 MB
+									</div>
+								</div>
+								<div className="autofit-col">
+									<div className="component-subtitle">
+										34%
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button
+				aria-label="Close"
+				className="close"
+				data-dismiss="alert"
+				type="button"
+			>
+				...
+			</button>
+		</div>
+	</li>
+</ul>
+```
+
+## Additional Options
+
+### Mixed HTML Content
+
+All alerts accept HTML as their content. You can use the following modifiers:
+
+-   `.lead` inside of an alert to make the beginning of your message stand out
+-   `.alert-link` to style a link inside your alert
+
+<div className="sheet-example">
+	<div className="alert alert-warning">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-warning-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#warning-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Warning:</strong> <span>This alert is a</span>
+		<a href="#1" className="alert-link">
+			warning message
+		</a>
+		.
+	</div>
+</div>
+
+```html
+<div className="alert alert-warning">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Warning:</strong> This alert is a
+	<a href="#1" className="alert-link">warning message</a>.
+</div>
+```
+
+### Dismissible Alerts
+
+<div className="sheet-example">
+	<div className="alert alert-dismissible alert-success">
+		<span className="alert-indicator">
+			<svg
+				className="lexicon-icon lexicon-icon-check-circle-full"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#check-circle-full"></use>
+			</svg>
+		</span>
+		<strong className="lead">Success:</strong> This is a success closeable alert
+		<button
+			aria-label="Close"
+			className="close"
+			data-dismiss="alert"
+			type="button"
+		>
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#times" />
+			</svg>
+		</button>
+	</div>
+</div>
+
+```html
+<div className="alert alert-dismissible alert-success">
+	<span className="alert-indicator"> ... </span>
+	<strong className="lead">Success:</strong> This is a success closeable alert
+	<button
+		aria-label="Close"
+		className="close"
+		data-dismiss="alert"
+		type="button"
+	>
+		...
+	</button>
+</div>
+```
+
+### Alert Notifications Absolute
+
+An absolute positioned container for placing alerts on the top right corner relative to `.alert-container`. Use this to create sticky positioned alerts with javascript, modifying the CSS property `transform: translateY();` or `margin-top` when `scrollY` reaches a specific threshold. This component should generally be placed at the top of the page for sticky alerts aligned at the top.
+
+```html
+<div className="alert-container container">
+	<div className="alert-notifications alert-notifications-absolute">...</div>
+</div>
+```
+
+### Fixed Notifications
+
+A fixed positioned container for placing alerts on the top right corner of the page. This component can generally be placed anywhere on the page.
+
+```html
+<div className="alert-notifications alert-notifications-fixed">
+	<div className="alert alert-dismissible alert-info alert-notification">
+		...
+	</div>
+</div>
+```

@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayPanelFooter = ({
+export const Footer = ({
 	children,
 	className,
 	...otherProps
@@ -17,5 +17,3 @@ const ClayPanelFooter = ({
 		</div>
 	);
 };
-
-export default ClayPanelFooter;

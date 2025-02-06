@@ -30,7 +30,7 @@ import {PickerContext} from './context';
 import type {ICollectionProps} from '../collection';
 import type {AnnouncerAPI} from '../live-announcer';
 
-export type Props<T> = {
+type Props<T> = {
 	/**
 	 * Flag to indicate if the DropDown menu is active or not (controlled).
 	 */
@@ -137,7 +137,6 @@ export type Props<T> = {
 	UNSAFE_menuClassName?: string;
 
 	/**
-	 * Property intended for internal use only.
 	 * @ignore
 	 */
 	UNSAFE_behavior?: 'secondary';

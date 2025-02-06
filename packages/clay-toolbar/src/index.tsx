@@ -6,13 +6,13 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import Action from './Action';
-import Input from './Input';
-import Item from './Item';
-import Label from './Label';
-import Link from './Link';
-import Nav from './Nav';
-import Section from './Section';
+import {Action} from './Action';
+import {Input} from './Input';
+import {Item} from './Item';
+import {Label} from './Label';
+import {Link} from './Link';
+import {Nav} from './Nav';
+import {Section} from './Section';
 
 interface IProps extends React.HTMLAttributes<HTMLElement> {
 	/**
@@ -36,17 +36,7 @@ interface IProps extends React.HTMLAttributes<HTMLElement> {
 		  };
 }
 
-function ClayToolbar(props: IProps): JSX.Element & {
-	Action: typeof Action;
-	Item: typeof Item;
-	Input: typeof Input;
-	Label: typeof Label;
-	Link: typeof Link;
-	Nav: typeof Nav;
-	Section: typeof Section;
-};
-
-function ClayToolbar({
+function Toolbar({
 	children,
 	className,
 	inlineBreakpoint,
@@ -78,12 +68,12 @@ function ClayToolbar({
 	);
 }
 
-ClayToolbar.Action = Action;
-ClayToolbar.Item = Item;
-ClayToolbar.Input = Input;
-ClayToolbar.Label = Label;
-ClayToolbar.Link = Link;
-ClayToolbar.Nav = Nav;
-ClayToolbar.Section = Section;
+Toolbar.Action = Action;
+Toolbar.Item = Item;
+Toolbar.Input = Input;
+Toolbar.Label = Label;
+Toolbar.Link = Link;
+Toolbar.Nav = Nav;
+Toolbar.Section = Section;
 
-export default ClayToolbar;
+export default Toolbar;

@@ -189,7 +189,7 @@ interface IProps
 	value?: string;
 }
 
-const ClayColorPicker = ({
+const ColorPicker = ({
 	active,
 	ariaLabels = DEFAULT_ARIA_LABELS,
 	colors,
@@ -580,4 +580,4 @@ function normalizeValueHex(value: string) {
 	return value;
 }
 
-export default ClayColorPicker;
+export default ColorPicker;

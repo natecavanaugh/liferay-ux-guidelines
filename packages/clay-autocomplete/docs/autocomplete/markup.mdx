@@ -1,0 +1,306 @@
+---
+title: 'Autocomplete'
+description: 'An autocomplete text field is an input that offers the user text suggestions while they type.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/text-input-variations/'
+packageNpm: '@clayui/autocomplete'
+packageUse: "import Autocomplete from '@clayui/autocomplete';"
+---
+
+## Example
+
+Add the class `.autocomplete-dropdown-menu` to `dropdown-menu` to size the Dropdown Menu according to Lexicon Design specifications.
+
+<div className="clay-site-alert alert alert-warning">
+	This requires external javascript to populate and show/hide the{' '}
+	<code className="gatsby-code-text">.dropdown-menu</code>.
+</div>
+
+<div className="sheet-example" style={{height: '18rem'}}>
+	<div className="form-group">
+		<div className="clay-autocomplete">
+			<label for="autocompleteName1">Name</label>
+			<div className="input-group">
+				<div className="input-group-item">
+					<div className="dropdown">
+						<input
+							className="form-control"
+							id="autocompleteName1"
+							type="text"
+							value="Rob"
+						/>
+						<ul className="autocomplete-dropdown-menu dropdown-menu show">
+							<li>
+								<a className="dropdown-item" href="#1">
+									Rob<strong>ert Downey Jr.</strong>
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Rob<strong>ert Plant</strong>
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Rob<strong>ert Baratheon</strong>
+								</a>
+							</li>
+							<li>
+								<a className="dropdown-item" href="#1">
+									Rob<strong>ert De Niro</strong>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div className="form-feedback-group">
+						<div className="form-text">
+							You can use a comma to enter tags.
+							ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="autocompleteName1">Name</label>
+	<div className="input-group">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<input
+					className="form-control"
+					id="autocompleteName1"
+					type="text"
+					value="Rob"
+				/>
+				<ul className="autocomplete-dropdown-menu dropdown-menu show">
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Rob<strong>ert Downey Jr.</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Rob<strong>ert Plant</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Rob<strong>ert Baratheon</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>Rob<strong>ert De Niro</strong></a
+						>
+					</li>
+				</ul>
+			</div>
+			<div className="form-feedback-group">
+				<div className="form-text">
+					You can use a comma to enter tags.
+					ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Search Field
+
+<div className="sheet-example" style={{height: '18rem'}}>
+	<div className="form-group">
+		<label for="autocompleteMarketplace1">Marketplace</label>
+		<div className="input-group">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<input
+						className="form-control input-group-inset input-group-inset-after"
+						id="autocompleteMarketplace1"
+						placeholder="Search for..."
+						type="text"
+						value="ele"
+					/>
+					<span className="input-group-inset-item input-group-inset-item-after">
+						<button className="btn btn-unstyled" type="submit">
+							<svg
+								className="lexicon-icon lexicon-icon-search"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#search" />
+							</svg>
+						</button>
+						<button className="btn btn-unstyled" type="button">
+							<svg
+								className="lexicon-icon lexicon-icon-times"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#times" />
+							</svg>
+						</button>
+					</span>
+					<ul className="autocomplete-dropdown-menu dropdown-menu show">
+						<li>
+							<a className="dropdown-item" href="#1">
+								ele<strong>ctric toothbrush</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								ele<strong>ctric kettle</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								ele<strong>ctric razor</strong>
+							</a>
+						</li>
+						<li>
+							<a className="dropdown-item" href="#1">
+								ele<strong>ctrodes for tents</strong>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="autocompleteMarketplace1">Marketplace</label>
+	<div className="input-group">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<input
+					className="form-control input-group-inset input-group-inset-after"
+					id="autocompleteMarketplace1"
+					placeholder="Search for..."
+					type="text"
+					value="ele"
+				/>
+				<span
+					className="input-group-inset-item input-group-inset-item-after"
+				>
+					<button className="btn btn-unstyled" type="submit">
+						<svg
+							className="lexicon-icon lexicon-icon-search"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#search" />
+						</svg>
+					</button>
+					<button className="btn btn-unstyled" type="button">
+						<svg
+							className="lexicon-icon lexicon-icon-times"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#times" />
+						</svg>
+					</button>
+				</span>
+				<ul className="autocomplete-dropdown-menu dropdown-menu show">
+					<li>
+						<a className="dropdown-item" href="#1"
+							>ele<strong>ctric toothbrush</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>ele<strong>ctric kettle</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>ele<strong>ctric razor</strong></a
+						>
+					</li>
+					<li>
+						<a className="dropdown-item" href="#1"
+							>ele<strong>ctrodes for tents</strong></a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+```
+
+## Loading
+
+<div className="sheet-example" style={{height: '11rem'}}>
+	<div className="form-group">
+		<label for="autocompleteMarketplace2">Marketplace</label>
+		<div className="input-group">
+			<div className="input-group-item">
+				<div className="dropdown">
+					<input
+						className="form-control input-group-inset input-group-inset-after"
+						id="autocompleteMarketplace2"
+						type="text"
+						value="H"
+					/>
+					<span className="input-group-inset-item input-group-inset-item-after">
+						<span className="inline-item inline-item-middle">
+							<span
+								className="loading-animation"
+								role="presentation"
+							></span>
+						</span>
+					</span>
+					<ul className="autocomplete-dropdown-menu dropdown-menu show">
+						<li>
+							<span className="disabled dropdown-item">
+								Loading...
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="autocompleteMarketplace2">Marketplace</label>
+	<div className="input-group">
+		<div className="input-group-item">
+			<div className="dropdown">
+				<input
+					className="form-control input-group-inset input-group-inset-after"
+					id="autocompleteMarketplace2"
+					type="text"
+					value="H"
+				/>
+				<span
+					className="input-group-inset-item input-group-inset-item-after"
+				>
+					<span className="inline-item inline-item-middle">
+						<span
+							className="loading-animation"
+							role="presentation"
+						></span>
+					</span>
+				</span>
+				<ul className="autocomplete-dropdown-menu dropdown-menu show">
+					<li>
+						<span className="disabled dropdown-item"
+							>Loading...</span
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+```

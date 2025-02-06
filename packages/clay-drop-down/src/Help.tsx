@@ -6,7 +6,7 @@
 import classnames from 'classnames';
 import React from 'react';
 
-const ClayDropDownHelp = ({
+const Help = ({
 	children,
 	className,
 	...otherProps
@@ -22,4 +22,4 @@ const ClayDropDownHelp = ({
 	);
 };
 
-export default ClayDropDownHelp;
+export default Help;

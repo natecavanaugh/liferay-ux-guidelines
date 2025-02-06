@@ -16,3 +16,4 @@ package-lock.json
 /packages/clay-css/src/scss/bootstrap/**/*.scss
 /packages/generator-clay-component/app/templates
 yarn.lock
+.next

@@ -37,7 +37,6 @@ interface IProps<T> extends React.HTMLAttributes<HTMLLIElement> {
 	items?: Array<T>;
 
 	/**
-	 * Internal property.
 	 * @ignore
 	 */
 	keyValue?: React.Key;
@@ -51,19 +50,16 @@ interface IProps<T> extends React.HTMLAttributes<HTMLLIElement> {
 	};
 
 	/**
-	 * Internal property.
 	 * @ignore
 	 */
 	textValue?: string;
 
 	/**
-	 * Internal property.
 	 * @ignore
 	 */
 	index?: number;
 
 	/**
-	 * Internal property for compatibility with old version.
 	 * @ignore
 	 * @deprecated
 	 */

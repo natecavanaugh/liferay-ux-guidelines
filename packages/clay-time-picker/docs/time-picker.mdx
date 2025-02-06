@@ -2,8 +2,36 @@
 title: 'Time Picker'
 description: 'Time pickers let users select a time for a form.'
 packageNpm: '@clayui/time-picker'
+packageUse: "import TimePicker from '@clayui/time-picker';"
+packageTypes: ['clay-time-picker/src/index.tsx']
 ---
 
-import {TimePickerWithState} from '$packages/clay-time-picker/docs/index';
+## Example
 
-<TimePickerWithState />
+```jsx preview
+import {Provider} from '@clayui/core';
+import TimePicker from '@clayui/time-picker';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [state, setState] = useState({
+		hours: '--',
+		minutes: '--',
+	});
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<TimePicker
+					onChange={setState}
+					timezone="GMT+01:00"
+					use12Hours
+					value={state}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

@@ -13,10 +13,10 @@ import React, {useState} from 'react';
 import {CSSTransition} from 'react-transition-group';
 import warning from 'warning';
 
-import Item from './Item';
+import {Item} from './Item';
 import {NavigationBarContext} from './context';
 
-export interface IProps
+interface IProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'aria-current'> {
 	/**
 	 * Flag to define if the item represents the current page. Disable this
@@ -63,11 +63,7 @@ export interface IProps
 	triggerLabel: string;
 }
 
-function ClayNavigationBar(props: IProps): JSX.Element & {
-	Item: typeof Item;
-};
-
-function ClayNavigationBar({
+function NavigationBar({
 	children,
 	className,
 	fluidSize,
@@ -182,6 +178,6 @@ function ClayNavigationBar({
 	);
 }
 
-ClayNavigationBar.Item = Item;
+NavigationBar.Item = Item;
 
-export default ClayNavigationBar;
+export default NavigationBar;

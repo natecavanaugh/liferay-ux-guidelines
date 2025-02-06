@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayPanelBody = ({
+export const Body = ({
 	children,
 	className,
 	...otherProps
@@ -17,5 +17,3 @@ const ClayPanelBody = ({
 		</div>
 	);
 };
-
-export default ClayPanelBody;

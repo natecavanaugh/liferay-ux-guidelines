@@ -13,40 +13,39 @@ import type {ICollectionProps} from '@clayui/core';
 
 const {Collection} = __NOT_PUBLIC_COLLECTION;
 
-export interface IProps<T>
+interface IProps<T>
 	extends Omit<ICollectionProps<T, unknown>, 'virtualize'>,
 		Omit<React.HTMLAttributes<HTMLUListElement>, 'children'> {}
 
-const ClayDropDownItemList = React.forwardRef<
-	HTMLUListElement,
-	IProps<unknown>
->(({children, className, items, role = 'menu', ...otherProps}, ref) => {
-	const {search} = useContext(DropDownContext);
+const ItemList = React.forwardRef<HTMLUListElement, IProps<unknown>>(
+	({children, className, items, role = 'menu', ...otherProps}, ref) => {
+		const {search} = useContext(DropDownContext);
 
-	const filterFn = useCallback(
-		(value: string) => value.match(new RegExp(search, 'i')) !== null,
-		[search]
-	);
+		const filterFn = useCallback(
+			(value: string) => value.match(new RegExp(search, 'i')) !== null,
+			[search]
+		);
 
-	return (
-		<ul
-			{...otherProps}
-			className={classnames('list-unstyled', className)}
-			ref={ref}
-			role={role}
-		>
-			<Collection<any>
-				filter={filterFn}
-				filterKey="textValue"
-				items={items}
-				passthroughKey={false}
+		return (
+			<ul
+				{...otherProps}
+				className={classnames('list-unstyled', className)}
+				ref={ref}
+				role={role}
 			>
-				{children}
-			</Collection>
-		</ul>
-	);
-});
+				<Collection<any>
+					filter={filterFn}
+					filterKey="textValue"
+					items={items}
+					passthroughKey={false}
+				>
+					{children}
+				</Collection>
+			</ul>
+		);
+	}
+);
 
-ClayDropDownItemList.displayName = 'ClayDropDownItemList';
+ItemList.displayName = 'ClayDropDownItemList';
 
-export default ClayDropDownItemList;
+export default ItemList;

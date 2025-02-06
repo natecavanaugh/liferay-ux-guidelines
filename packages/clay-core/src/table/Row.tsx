@@ -13,7 +13,7 @@ import {useForwardRef} from '../hooks';
 import {Cell} from './Cell';
 import {RowContext, useBody, useTable} from './context';
 
-type Props<T> = {
+interface IProps<T> extends React.HTMLAttributes<HTMLTableRowElement> {
 	/**
 	 * Children content to render a dynamic or static content.
 	 */
@@ -36,7 +36,6 @@ type Props<T> = {
 	items?: Array<T>;
 
 	/**
-	 * Internal prop.
 	 * @ignore
 	 */
 	keyValue?: React.Key;
@@ -48,46 +47,37 @@ type Props<T> = {
 	lazy?: boolean;
 
 	/**
-	 * Internal prop.
 	 * @ignore
 	 */
 	_expandable?: boolean;
 
 	/**
-	 * Internal prop.
-	 * posinset
 	 * @ignore
 	 */
 	_index?: number;
 
 	/**
-	 * Internal prop.
-	 * level
 	 * @ignore
 	 */
 	_level?: number;
 
 	/**
-	 * Internal prop.
-	 * setsize
 	 * @ignore
 	 */
 	_size?: number;
 
 	/**
-	 * Internal prop.
 	 * @ignore
 	 */
 	_item?: T;
 
 	/**
-	 * Internal prop.
 	 * @ignore
 	 */
 	_loc?: Array<number>;
-} & React.HTMLAttributes<HTMLTableRowElement>;
+}
 
-function RowInner<T extends Record<string, any>>(
+export function Row<T extends Record<string, any>>(
 	{
 		_expandable,
 		_index,
@@ -103,7 +93,7 @@ function RowInner<T extends Record<string, any>>(
 		keyValue,
 		lazy = false,
 		...otherProps
-	}: Props<T>,
+	}: IProps<T>,
 	outRef: React.Ref<HTMLTableRowElement>
 ) {
 	const {
@@ -257,12 +247,12 @@ function RowInner<T extends Record<string, any>>(
 
 type ForwardRef = {
 	displayName: string;
-	<T>(props: Props<T> & {ref?: React.Ref<HTMLTableRowElement>}): JSX.Element;
+	<T>(props: IProps<T> & {ref?: React.Ref<HTMLTableRowElement>}): JSX.Element;
 };
 
-export const Row = React.forwardRef(RowInner) as ForwardRef;
+export const ForwardRow = React.forwardRef(Row) as ForwardRef;
 
-Row.displayName = 'TableRow';
+ForwardRow.displayName = 'TableRow';
 
 // @ts-ignore
-Row.passthroughKey = true;
+ForwardRow.passthroughKey = true;

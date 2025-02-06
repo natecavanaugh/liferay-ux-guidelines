@@ -1,0 +1,288 @@
+---
+title: 'Badge'
+description: 'Badges help highlight important information, such as notifications or new and unread messages.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/badges/'
+packageNpm: '@clayui/badge'
+packageUse: "import Badge from '@clayui/badge';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Badge Sizes have been removed. Use the{' '}
+	<a href="https://github.com/liferay/clay/blob/master/packages/clay-css/src/scss/mixins/_badges.scss#L19">
+		clay-badge-size($map) mixin
+	</a>
+	to create custom badge sizes for your app.
+</div>
+
+## Variations
+
+Add any of the below mentioned modifier classes to change the appearance of a badge.
+
+<div className="sheet-example">
+	<span className="badge badge-primary">
+		<span className="badge-item badge-item-expand">Primary</span>
+	</span>
+	<span className="badge badge-secondary">
+		<span className="badge-item badge-item-expand">Secondary</span>
+	</span>
+	<span className="badge badge-success">
+		<span className="badge-item badge-item-expand">Success</span>
+	</span>
+	<span className="badge badge-info">
+		<span className="badge-item badge-item-expand">Info</span>
+	</span>
+	<span className="badge badge-warning">
+		<span className="badge-item badge-item-expand">Warning</span>
+	</span>
+	<span className="badge badge-danger">
+		<span className="badge-item badge-item-expand">Danger</span>
+	</span>
+	<span className="badge badge-ligth">
+		<span className="badge-item badge-item-expand">Light</span>
+	</span>
+	<span className="badge badge-dark">
+		<span className="badge-item badge-item-expand">Dark</span>
+	</span>
+</div>
+
+```html
+<span className="badge badge-primary">
+	<span className="badge-item badge-item-expand">Primary</span>
+</span>
+
+<span className="badge badge-secondary">
+	<span className="badge-item badge-item-expand">Secondary</span>
+</span>
+
+<span className="badge badge-success">
+	<span className="badge-item badge-item-expand">Success</span>
+</span>
+
+<span className="badge badge-info">
+	<span className="badge-item badge-item-expand">Info</span>
+</span>
+
+<span className="badge badge-warning">
+	<span className="badge-item badge-item-expand">Warning</span>
+</span>
+
+<span className="badge badge-danger">
+	<span className="badge-item badge-item-expand">Danger</span>
+</span>
+
+<span className="badge badge-ligth">
+	<span className="badge-item badge-item-expand">Light</span>
+</span>
+
+<span className="badge badge-dark">
+	<span className="badge-item badge-item-expand">Dark</span>
+</span>
+```
+
+### Badge Sass API
+
+The map `$badge-palette` allows generating any number of badge variants. If a key starts with `.`, `#`, or '%' Clay will output it as is, otherwise we will prepend `.badge-` to the key (e.g., `.badge-primary`). It will also generate a Sass placeholder prefixed by `%badge-` (e.g., `%badge-primary`).
+
+```css
+$badge-palette: (
+	primary: (
+		background-color: $primary
+	),
+	'.badge-primary-2': (
+		extend: '%badge-primary'
+	),
+	'%badge-tertiary': (
+		background-color: green
+	),
+	'.badge-tertiary': (
+		extend: '%badge-tertiary'
+	),
+	'.badge-quaternary': (
+		extend: '%badge-tertiary'
+	)
+);
+```
+
+Outputs:
+
+```css
+.badge-primary,
+.badge-primary-2 {
+	background-color: #0b5fff;
+}
+
+.badge-tertiary,
+.badge-quaternary {
+	background-color: green;
+}
+```
+
+## Pill Badges
+
+Use the `.badge-pill` modifier class to make badges more rounded.
+
+<div className="sheet-example">
+	<span className="badge badge-primary badge-pill">
+		<span className="badge-item badge-item-expand">Primary</span>
+	</span>
+	<span className="badge badge-secondary badge-pill">
+		<span className="badge-item badge-item-expand">Secondary</span>
+	</span>
+	<span className="badge badge-success badge-pill">
+		<span className="badge-item badge-item-expand">Success</span>
+	</span>
+	<span className="badge badge-info badge-pill">
+		<span className="badge-item badge-item-expand">Info</span>
+	</span>
+	<span className="badge badge-warning badge-pill">
+		<span className="badge-item badge-item-expand">Warning</span>
+	</span>
+	<span className="badge badge-danger badge-pill">
+		<span className="badge-item badge-item-expand">Danger</span>
+	</span>
+	<span className="badge badge-ligth badge-pill">
+		<span className="badge-item badge-item-expand">Light</span>
+	</span>
+	<span className="badge badge-dark badge-pill">
+		<span className="badge-item badge-item-expand">Dark</span>
+	</span>
+</div>
+
+```html
+<span className="badge badge-primary badge-pill">
+	<span className="badge-item badge-item-expand">Primary</span>
+</span>
+
+<span className="badge badge-secondary badge-pill">
+	<span className="badge-item badge-item-expand">Secondary</span>
+</span>
+
+<span className="badge badge-success badge-pill">
+	<span className="badge-item badge-item-expand">Success</span>
+</span>
+
+<span className="badge badge-info badge-pill">
+	<span className="badge-item badge-item-expand">Info</span>
+</span>
+
+<span className="badge badge-warning badge-pill">
+	<span className="badge-item badge-item-expand">Warning</span>
+</span>
+
+<span className="badge badge-danger badge-pill">
+	<span className="badge-item badge-item-expand">Danger</span>
+</span>
+
+<span className="badge badge-ligth badge-pill">
+	<span className="badge-item badge-item-expand">Light</span>
+</span>
+
+<span className="badge badge-dark badge-pill">
+	<span className="badge-item badge-item-expand">Dark</span>
+</span>
+```
+
+## Anchor
+
+<div className="sheet-example">
+	<a className="badge badge-primary" href="#1">
+		<span className="badge-item badge-item-expand">Primary</span>
+	</a>
+</div>
+
+```html
+<a className="badge badge-primary" href="#1">
+	<span className="badge-item badge-item-expand">Primary</span>
+</a>
+```
+
+## Links Inside
+
+<div className="sheet-example">
+	<span className="badge badge-secondary badge-pill">
+		<span className="badge-item badge-item-before">
+			<a href="#1">
+				<svg
+					className="lexicon-icon lexicon-icon-times-circle"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#times-circle"></use>
+				</svg>
+			</a>
+		</span>
+		<span className="badge-item badge-item-expand">
+			<a href="#1">Secondary</a>
+		</span>
+		<span className="badge-item badge-item-after">
+			<button aria-label="Close" className="close" type="button">
+				<svg
+					className="lexicon-icon lexicon-icon-times"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#times"></use>
+				</svg>
+			</button>
+		</span>
+	</span>
+</div>
+
+```html
+<span className="badge badge-secondary badge-pill">
+	<span className="badge-item badge-item-before">
+		<a href="#1">
+			<svg
+				className="lexicon-icon lexicon-icon-times-circle"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#times-circle"></use>
+			</svg>
+		</a>
+	</span>
+	<span className="badge-item badge-item-expand">
+		<a href="#1">Primary</a>
+	</span>
+	<span className="badge-item badge-item-after">
+		<button aria-label="Close" className="close" type="button">
+			<svg
+				className="lexicon-icon lexicon-icon-times"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#times"></use>
+			</svg>
+		</button>
+	</span>
+</span>
+```
+
+## Text Truncate
+
+Wrap the text inside the `.text-truncate-inline` and `.text-truncate` modifier class.
+
+<div className="sheet-example">
+	<span className="badge badge-secondary">
+		<span className="badge-item badge-item-expand">
+			<span className="text-truncate-inline">
+				<span className="text-truncate">
+					ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAre
+				</span>
+			</span>
+		</span>
+	</span>
+</div>
+
+```html
+<span className="badge badge-secondary">
+	<span className="badge-item badge-item-expand">
+		<span className="text-truncate-inline">
+			<span className="text-truncate">
+				ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAre
+				ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAre
+			</span>
+		</span>
+	</span>
+</span>
+```

@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const Section = ({
+export const Section = ({
 	children,
 	className,
 	...otherProps
@@ -17,5 +17,3 @@ const Section = ({
 );
 
 Section.displayName = 'ClayToolbarSection';
-
-export default Section;

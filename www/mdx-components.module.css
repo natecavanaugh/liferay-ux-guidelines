@@ -1,0 +1,39 @@
+.code {
+  background-color: #ffebe6;
+  color: initial;
+}
+
+.p {
+  line-height: 27px;
+}
+
+.ul {
+  padding-left: 1em;
+}
+
+.blockquote {
+  border-left: 0.25em solid #dfe2e5;
+  color: #6a737d;
+  margin-bottom: 2em;
+  padding: 0 1em;
+}
+
+.sp {
+	--sp-layout-height: auto !important;
+}
+
+.code_preview {
+  border: 1px solid #F3F3F3;
+  border-radius: 4px;
+  height: 300px;
+}
+
+.code_preview > div {
+  height: 300px;
+}
+
+.code_editor {
+  padding: 7px !important;
+  tab-size: 2;
+  margin-bottom: 16px !important;
+}

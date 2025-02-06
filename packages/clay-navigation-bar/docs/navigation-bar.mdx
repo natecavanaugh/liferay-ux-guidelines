@@ -3,27 +3,122 @@ title: 'Navigation Bar'
 description: 'A navigation bar, navbar, is a horizontal bar that provides several access points to different parts of a system.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/navigation/horizontal-nav/'
 packageNpm: '@clayui/navigation-bar'
+packageUse: "import NavigationBar from '@clayui/navigation-bar';"
+packageTypes:
+    ['clay-navigation-bar/src/index.tsx', 'clay-navigation-bar/src/Item.tsx']
 ---
-
-import {
-	NavigationBar,
-	NavigationBarWithStyledItem,
-} from '$packages/clay-navigation-bar/docs/index';
 
 As described on Lexicon, a NavigationBar can be styled with an inverted theme. It displays navigation items in a dark background with light text. It is always placed right below the header. Use [`inverted`](#api-inverted) property for this.
 
-<NavigationBar />
+```jsx preview
+import {Provider} from '@clayui/core';
+import NavigationBar from '@clayui/navigation-bar';
+import Link from '@clayui/link';
+import Button from '@clayui/button';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [active, setActive] = useState('Item 1');
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<NavigationBar triggerLabel={active}>
+					<NavigationBar.Item active={active === 'Item 1'}>
+						<Link
+							href="#"
+							onClick={(event) => {
+								event.preventDefault();
+								setActive('Item 1');
+							}}
+						>
+							Item 1
+						</Link>
+					</NavigationBar.Item>
+					<NavigationBar.Item active={active === 'Item 2'}>
+						<Button onClick={() => setActive('Item 2')}>
+							Item 2
+						</Button>
+					</NavigationBar.Item>
+					<NavigationBar.Item active={active === 'Item 3'}>
+						<Link
+							href="#"
+							onClick={(event) => {
+								event.preventDefault();
+								setActive('Item 3');
+							}}
+						>
+							Item 3
+						</Link>
+					</NavigationBar.Item>
+				</NavigationBar>
+			</div>
+		</Provider>
+	);
+}
+```
 
 Use the property `active` to specify which element is currently active on the navigation.
 
-<div class="clay-site-alert alert alert-warning">
-	<code class="language-text">triggerLabel</code> property is mandatory
+<div className="clay-site-alert alert alert-warning">
+	<code className="language-text">triggerLabel</code> property is mandatory
 	because it specifies the name of the trigger of the dropdown that will be
 	placed when the screen when on small screens.
 </div>
 
 ## Item
 
-For enabling more personalization on NavigationBar items, you can pass `<ClayNavigationBar.Item>` component to specify the element that will be rendered as an item. Components like `<ClayButton />` and `<ClayLink />` when added as children of the component item are not required to add unique classes like `nav-link` or set the `displayType` to `unstyled` this is set OOTB.
+For enabling more personalization on NavigationBar items, you can pass `<NavigationBar.Item>` component to specify the element that will be rendered as an item. Components like `<ClayButton />` and `<Link />` when added as children of the component item are not required to add unique classes like `nav-link` or set the `displayType` to `unstyled` this is set OOTB.
 
-<NavigationBarWithStyledItem />
+```jsx preview
+import {Provider} from '@clayui/core';
+import NavigationBar from '@clayui/navigation-bar';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const btnStyle = {
+		padding: '5.5px 16px 5.5px 16px',
+		borderColor: 'var(--indigo)',
+	};
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<NavigationBar triggerLabel="Item 1" spritemap={spritemap}>
+					<NavigationBar.Item active>
+						<button
+							className="btn btn-unstyled"
+							style={btnStyle}
+							type="button"
+						>
+							Item 1
+						</button>
+					</NavigationBar.Item>
+					<NavigationBar.Item>
+						<button
+							className="btn btn-unstyled"
+							style={btnStyle}
+							type="button"
+						>
+							Item 2
+						</button>
+					</NavigationBar.Item>
+					<NavigationBar.Item>
+						<button
+							className="btn btn-unstyled"
+							style={btnStyle}
+							type="button"
+						>
+							Item 3
+						</button>
+					</NavigationBar.Item>
+				</NavigationBar>
+			</div>
+		</Provider>
+	);
+}
+```

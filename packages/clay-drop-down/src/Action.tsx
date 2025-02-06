@@ -7,7 +7,7 @@ import ClayButton from '@clayui/button';
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayDropDownAction = ({
+const Action = ({
 	children,
 	className,
 	...otherProps
@@ -21,4 +21,4 @@ const ClayDropDownAction = ({
 	);
 };
 
-export default ClayDropDownAction;
+export default Action;

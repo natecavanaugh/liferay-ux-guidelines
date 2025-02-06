@@ -1,0 +1,21 @@
+.content {
+	max-width: 869px;
+	padding-top: 38px;
+}
+
+.banner {
+	margin: 45px 0;
+	max-width: 100%;
+}
+
+.section {
+	display: grid;
+	gap: 35px;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 520px) {
+	.section {
+		grid-template-columns: 1fr 1fr;
+	}
+}

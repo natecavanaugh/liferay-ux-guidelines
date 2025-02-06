@@ -82,7 +82,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 	translations: ITranslations;
 }
 
-const ClayLocalizedInput = React.forwardRef<HTMLInputElement, IProps>(
+const LocalizedInput = React.forwardRef<HTMLInputElement, IProps>(
 	(
 		{
 			ariaLabels = {
@@ -234,6 +234,6 @@ const ClayLocalizedInput = React.forwardRef<HTMLInputElement, IProps>(
 	}
 );
 
-ClayLocalizedInput.displayName = 'ClayLocalizedInput';
+LocalizedInput.displayName = 'ClayLocalizedInput';
 
-export default ClayLocalizedInput;
+export default LocalizedInput;

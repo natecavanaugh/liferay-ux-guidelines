@@ -3,35 +3,145 @@ title: 'Toggle Switch'
 description: 'Toggle provide users with different selection and activation tools.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/radio-check-toggle/#toggle'
 packageNpm: '@clayui/form'
-navigationParent: 'docs/components/form.html'
+packageUse: "import {ClayToggle} from '@clayui/form';"
 storybookPath: 'design-system-components-toggle'
+packageTypes: ['clay-form/src/Toggle.tsx']
 ---
-
-import {RadioToggle, Toggle, ToggleSm} from '$packages/clay-form/docs/toggle';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Inside ClayRadioGroup](#inside-clayradiogroup)
--   [Sizing](#toggle-switch-sizing)
-
-</div>
-</div>
 
 In order to create a controlled `Toggle` you need to provide the `toggled` and `onToggle` props.
 
 You can also have custom icons that further signal the current state of the Toggle by providing a `symbol` prop.
 
-<Toggle />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayToggle} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [toggled1, setToggle1] = useState(false);
+	const [toggled2, setToggle2] = useState(false);
+	const [toggled3, setToggle3] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div
+				className="p-4"
+				style={{display: 'flex', justifyContent: 'space-around'}}
+			>
+				<ClayToggle
+					label="Checkbox"
+					onToggle={setToggle1}
+					toggled={toggled1}
+				/>
+
+				<ClayToggle
+					label="with symbol"
+					onToggle={setToggle2}
+					symbol={{
+						off: 'times',
+						on: 'check',
+					}}
+					toggled={toggled2}
+				/>
+
+				<ClayToggle
+					disabled
+					label="Disabled"
+					onToggle={setToggle3}
+					toggled={toggled3}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Inside ClayRadioGroup
 
-If you want the Toggle to behave like a radio element (toggling one on will toggle others off) wrap multiple `Toggles` with a [ClayRadioGroup](/docs/components/radio-group.html) component.
+If you want the Toggle to behave like a radio element (toggling one on will toggle others off) wrap multiple `Toggles` with a [ClayRadioGroup](/docs/components/radio-group) component.
 
-<RadioToggle />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayRadioGroup, ClayToggle} from '@clayui/form';
+import React, {useState} from 'react';
 
-## Sizing(#toggle-switch-sizing)
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState('foo');
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayRadioGroup
+					onSelectedValueChange={setValue}
+					selectedValue={value}
+					style={{display: 'flex', justifyContent: 'space-around'}}
+				>
+					<ClayToggle label="Foo" value="foo" />
+					<ClayToggle label="Bar" value="bar" />
+					<ClayToggle label="Baz" value="baz" />
+				</ClayRadioGroup>
+			</div>
+		</Provider>
+	);
+}
+```
+
+## Sizing
 
 The attribute `sizing="sm"` can be used to create a smaller toggle switch.
 
-<ToggleSm />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayToggle} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [toggled1, setToggle1] = useState(false);
+	const [toggled2, setToggle2] = useState(false);
+	const [toggled3, setToggle3] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div className="form-group">
+					<ClayToggle
+						label="Checkbox"
+						onToggle={setToggle1}
+						sizing="sm"
+						toggled={toggled1}
+					/>
+				</div>
+
+				<div className="form-group">
+					<ClayToggle
+						label="with symbol"
+						onToggle={setToggle2}
+						sizing="sm"
+						symbol={{
+							off: 'times',
+							on: 'check',
+						}}
+						toggled={toggled2}
+					/>
+				</div>
+
+				<div className="form-group">
+					<ClayToggle
+						disabled
+						label="Disabled"
+						onToggle={setToggle3}
+						sizing="sm"
+						toggled={toggled3}
+					/>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```

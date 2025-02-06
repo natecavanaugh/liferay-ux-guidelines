@@ -1,0 +1,304 @@
+---
+title: 'Select'
+description: 'A form control element used to select from several provided options and enter data.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/selector/'
+packageNpm: '@clayui/form'
+packageUse: "import {ClaySelect, ClaySelectWithOption} from '@clayui/form';"
+storybookPath: 'design-system-components-select'
+---
+
+## Select Menu
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="regularSelectElement">Select Element</label>
+		<select className="form-control" id="regularSelectElement">
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+		</select>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<select className="form-control" id="regularSelectElement">
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+	</select>
+</div>
+```
+
+## Disabled
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label className="disabled" for="regularSelectElementDisabled">
+			Select Element Disabled
+		</label>
+		<select
+			className="form-control"
+			disabled
+			id="regularSelectElementDisabled"
+		>
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+		</select>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label className="disabled" for="regularSelectElementDisabled"
+		>Select Element Disabled</label
+	>
+	<select className="form-control" disabled id="regularSelectElementDisabled">
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+	</select>
+</div>
+```
+
+## Size
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="selectElementWithSize5">Select Element with Size 5</label>
+		<select className="form-control" id="selectElementWithSize5" size="5">
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+			<option>Sample 5</option>
+			<option>Sample 6</option>
+			<option>Sample 7</option>
+			<option>Sample 8</option>
+		</select>
+	</div>
+	<div className="form-group">
+		<label for="selectElementWithSize10">Select Element with Size 10</label>
+		<select className="form-control" id="selectElementWithSize10" size="10">
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+			<option>Sample 5</option>
+			<option>Sample 6</option>
+			<option>Sample 7</option>
+			<option>Sample 8</option>
+		</select>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="selectElementWithSize5">Select Element with Size 5</label>
+	<select className="form-control" id="selectElementWithSize5" size="5">
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+		<option>Sample 5</option>
+		<option>Sample 6</option>
+		<option>Sample 7</option>
+		<option>Sample 8</option>
+	</select>
+</div>
+
+<div className="form-group">
+	<label for="selectElementWithSize10">Select Element with Size 10</label>
+	<select className="form-control" id="selectElementWithSize10" size="10">
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+		<option>Sample 5</option>
+		<option>Sample 6</option>
+		<option>Sample 7</option>
+		<option>Sample 8</option>
+	</select>
+</div>
+```
+
+## Multiple
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="multipleSelectOptionsSelectElement">
+			Select Element with Multiple Select Options
+		</label>
+		<select
+			className="form-control"
+			id="multipleSelectOptionsSelectElement"
+			multiple
+		>
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+			<option>Sample 5</option>
+			<option>Sample 6</option>
+			<option>Sample 7</option>
+			<option>Sample 8</option>
+		</select>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="multipleSelectOptionsSelectElement"
+		>Select Element with Multiple Select Options</label
+	>
+	<select
+		className="form-control"
+		id="multipleSelectOptionsSelectElement"
+		multiple
+	>
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+		<option>Sample 5</option>
+		<option>Sample 6</option>
+		<option>Sample 7</option>
+		<option>Sample 8</option>
+	</select>
+</div>
+```
+
+## Sm
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="regularSelectElementSm">Select Element Sm</label>
+		<select
+			className="form-control form-control-sm"
+			id="regularSelectElementSm"
+		>
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+		</select>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="regularSelectElementSm">Select Element Sm</label>
+	<select
+		className="form-control form-control-sm"
+		id="regularSelectElementSm"
+	>
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+	</select>
+</div>
+```
+
+## Lg
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label for="regularSelectElementLg">Select Element Lg</label>
+		<select
+			className="form-control form-control-lg"
+			id="regularSelectElementLg"
+		>
+			<option>Sample 1</option>
+			<option>Sample 2</option>
+			<option>Sample 3</option>
+			<option>Sample 4</option>
+		</select>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label for="regularSelectElementLg">Select Element Lg</label>
+	<select
+		className="form-control form-control-lg"
+		id="regularSelectElementLg"
+	>
+		<option>Sample 1</option>
+		<option>Sample 2</option>
+		<option>Sample 3</option>
+		<option>Sample 4</option>
+	</select>
+</div>
+```
+
+## Other Elements
+
+The classes `form-control form-control-select` can be used to style various HTML elements like a select element. An example for this use case is a dropdown menu that is trigged by a select element.
+
+<div className="sheet-example">
+	<div className="form-group">
+		<label>A Div Styled Like a Select Element</label>
+		<div
+			className="form-control form-control-select"
+			title="ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual"
+		>
+			ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+		</div>
+	</div>
+	<div className="form-group">
+		<label>An Anchor Styled Like a Select Element</label>
+		<a
+			className="form-control form-control-select"
+			href="#1"
+			role="button"
+			title="ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual"
+		>
+			ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+		</a>
+	</div>
+	<div className="form-group">
+		<label>A Button Styled Like a Select Element</label>
+		<button
+			className="form-control form-control-select"
+			title="ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual"
+			type="button"
+		>
+			ReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsualReallySuperInsanelyJustIncrediblyLongAndTotallyNotPossibleWordButWeAreReallyTryingToCoverAllOurBasesHereJustInCaseSomeoneIsNutsAsPerUsual
+		</button>
+	</div>
+</div>
+
+```html
+<div className="form-group">
+	<label>A Div Styled Like a Select Element</label>
+	<div className="form-control form-control-select" title="...">...</div>
+</div>
+
+<div className="form-group">
+	<label>An Anchor Styled Like a Select Element</label>
+	<a
+		className="form-control form-control-select"
+		href="#1"
+		role="button"
+		title="..."
+		>...</a
+	>
+</div>
+
+<div className="form-group">
+	<label>A Button Styled Like a Select Element</label>
+	<button
+		className="form-control form-control-select"
+		title="..."
+		type="button"
+	>
+		...
+	</button>
+</div>
+```

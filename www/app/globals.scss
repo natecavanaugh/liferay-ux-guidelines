@@ -1,0 +1,165 @@
+:root {
+	--max-width: 1056px;
+	--border-radius: 12px;
+	--font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+		'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+	--foreground-rgb: 0, 0, 0;
+	--background-rgb: 255, 255, 255;
+	--docsearch-muted-color: #6b6c7e !important;
+	--docsearch-text-color: #757575 !important;
+	--docsearch-searchbox-background: #ffffff !important;
+	--docsearch-searchbox-shadow: inset 0 0 0 2px #b3472d !important;
+	--docsearch-key-gradient: transparent !important;
+	--docsearch-key-shadow: transparent !important;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: rgb(var(--background-rgb));
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+@media (max-width: 520px) {
+	.DocSearch-Button {
+		width: 50% !important;
+	}
+}
+
+.DocSearch-Button {
+	border: 1px solid #e7e7ed !important;
+	margin: 0 !important;
+	padding: 0 14px !important;
+	width: 300px;
+}
+
+.DocSearch-Button-Key {
+	align-items: baseline !important;
+	border: 1px solid #e7e7ed !important;
+	padding: 0 !important;
+	top: 0 !important;
+}
+
+.sheet-example {
+	position: relative;
+	box-shadow: 0 0 0 1px #e1e4e8;
+	border-radius: 5px;
+	padding: 16px;
+	margin-bottom: 16px;
+}
+
+.clay-site-dropdown-menu-container {
+	display: inline-block;
+	margin-right: 15px;
+	vertical-align: top;
+
+	&.sheet-example {
+		display: block;
+		margin-right: 0;
+	}
+
+	.dropdown-menu {
+		display: block;
+		float: none;
+		position: static;
+	}
+
+	.dropdown-menu-horizontal {
+		display: flex;
+	}
+}
+
+.clay-site-popover-display {
+	.popover {
+		display: inline-block;
+		margin: 20px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.bs-popover-bottom,
+	.bs-popover-top {
+		.arrow {
+			left: 50%;
+		}
+	}
+
+	.bs-popover-left,
+	.bs-popover-right {
+		.arrow {
+			top: 50%;
+		}
+	}
+}
+
+.clay-site-tooltip-display {
+	.tooltip {
+		display: inline-block;
+		opacity: 1;
+		margin: 10px 20px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.bs-tooltip-bottom,
+	.bs-tooltip-top {
+		.arrow {
+			left: 50%;
+		}
+	}
+
+	.bs-tooltip-left,
+	.bs-tooltip-right {
+		.arrow {
+			top: 50%;
+		}
+	}
+}
+
+.clay-site-dropdown-display .dropdown-wide-container {
+	display: flex;
+
+	.dropdown-menu {
+		display: flex;
+		position: static;
+		top: auto;
+		z-index: 0;
+	}
+}
+
+.clay-docs-design h2,
+.clay-docs-design h1 {
+	margin-top: 3rem !important;
+	margin-bottom: 1.5rem !important;
+}
+
+.clay-docs-design h3 {
+	margin-top: 1.5rem !important;
+	margin-bottom: 1rem !important;
+}
+
+.clay-docs-design h4 {
+	margin-top: 1rem !important;
+	margin-bottom: 0.5rem !important;
+}
+
+.clay-docs-design img {
+	margin-bottom: 1rem;
+}

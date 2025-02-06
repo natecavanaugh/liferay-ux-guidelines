@@ -16,13 +16,13 @@ import classNames from 'classnames';
 import React from 'react';
 import {CSSTransition} from 'react-transition-group';
 
-import ClayPanelBody from './Body';
-import ClayPanelFooter from './Footer';
-import ClayPanelGroup from './Group';
-import ClayPanelHeader from './Header';
-import ClayPanelTitle from './Title';
+import {Body} from './Body';
+import {Footer} from './Footer';
+import {Group} from './Group';
+import {Header} from './Header';
+import {Title} from './Title';
 
-export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
+interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag to indicate that Panel is collapsable.
 	 */
@@ -79,15 +79,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	spritemap?: string;
 }
 
-function ClayPanel(props: IProps): JSX.Element & {
-	Body: typeof ClayPanelBody;
-	Footer: typeof ClayPanelFooter;
-	Group: typeof ClayPanelGroup;
-	Header: typeof ClayPanelHeader;
-	Title: typeof ClayPanelTitle;
-};
-
-function ClayPanel({
+function Panel({
 	children,
 	className,
 	collapsable,
@@ -130,11 +122,11 @@ function ClayPanel({
 						(React.isValidElement(displayTitle) ? (
 							displayTitle
 						) : (
-							<ClayPanelHeader>
+							<Header>
 								<span className="panel-title">
 									{displayTitle}
 								</span>
-							</ClayPanelHeader>
+							</Header>
 						))}
 
 					{children}
@@ -223,10 +215,10 @@ function ClayPanel({
 	);
 }
 
-ClayPanel.Body = ClayPanelBody;
-ClayPanel.Group = ClayPanelGroup;
-ClayPanel.Footer = ClayPanelFooter;
-ClayPanel.Header = ClayPanelHeader;
-ClayPanel.Title = ClayPanelTitle;
+Panel.Body = Body;
+Panel.Group = Group;
+Panel.Footer = Footer;
+Panel.Header = Header;
+Panel.Title = Title;
 
-export default ClayPanel;
+export default Panel;

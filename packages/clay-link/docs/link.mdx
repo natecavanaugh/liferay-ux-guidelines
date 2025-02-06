@@ -3,27 +3,61 @@ title: 'Link'
 description: 'Also known as a hyperlink, a link is a clickable (text or image) element used for navigation purposes.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/link/'
 packageNpm: '@clayui/link'
+packageUse: "import Link from '@clayui/link';"
+packageTypes: ['clay-link/src/Link.tsx']
 ---
-
-import {Link, LinkContext} from '$packages/clay-link/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Basic Usage](#basic-usage)
--   [With Context](#with-context)
-
-</div>
-</div>
 
 ## Basic Usage
 
 By default, when using ClayLink your component will be rendered as an anchor.
 
-<Link />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Link from '@clayui/link';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const colStyles = {
+		backgroundColor: '#E7E7ED',
+		border: '1px solid #CDCED9',
+		paddingBottom: '.75rem',
+		paddingTop: '.75rem',
+	};
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Link displayType="primary" href="#link-styles">
+					Primary
+				</Link>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## With Context
 
 Additionally, if you want to customize every Link component in your app, you are able to do so by using `<ClayLinkContext.Provider />`.
 
-<LinkContext />
+```jsx
+const ConfirmBeforeNavigate = ({children, href, ...otherProps}) => (
+	<a
+		{...otherProps}
+		href={href}
+		onClick={(e) =>
+			window.confirm('r u sure?') ? undefined : e.preventDefault()
+		}
+	>
+		{children}
+	</a>
+);
+
+<ClayLinkContext.Provider value={ConfirmBeforeNavigate}>
+	<div>
+		<ClayLink href="#">Click me</ClayLink>
+	</div>
+</ClayLinkContext.Provider>;
+```

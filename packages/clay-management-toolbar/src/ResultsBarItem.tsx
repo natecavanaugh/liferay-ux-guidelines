@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IProps extends React.HTMLAttributes<HTMLLIElement> {
+interface IProps extends React.HTMLAttributes<HTMLLIElement> {
 	/**
 	 * Flag to indicate the Management Toolbar Results Bar Item should fit the width of the parent container.
 	 */

@@ -12,7 +12,7 @@ import React, {useContext, useEffect} from 'react';
 
 import {DropDownContext} from './DropDownContext';
 
-export interface IProps
+interface IProps
 	extends Omit<React.HTMLAttributes<HTMLInputElement>, 'onChange'> {
 	/**
 	 * Initial value of the input (uncontrolled).
@@ -52,7 +52,7 @@ const defaultSubmitProps = {
 	type: 'button',
 };
 
-const ClayDropDownSearch = ({
+const Search = ({
 	className,
 	defaultValue = '',
 	formProps = {},
@@ -118,4 +118,4 @@ const ClayDropDownSearch = ({
 	);
 };
 
-export default ClayDropDownSearch;
+export default Search;

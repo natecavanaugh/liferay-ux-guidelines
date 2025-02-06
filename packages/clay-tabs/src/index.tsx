@@ -13,7 +13,7 @@ import TabPane from './TabPane';
 
 export type DisplayType = null | 'basic' | 'underline';
 
-export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
+interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * Flag to indicate the navigation behavior in the tab.
 	 *
@@ -37,7 +37,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	 * Determines how tab is displayed.
 	 * @deprecated since v3.89.0 with no replacement.
 	 */
-	displayType?: DisplayType;
+	displayType?: null | 'basic' | 'underline';
 
 	/**
 	 * Flag to indicate if `fade` classname that applies an fading animation
@@ -62,16 +62,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	onActiveChange?: InternalDispatch<number>;
 }
 
-function ClayTabs(props: IProps): JSX.Element & {
-	Content: typeof Content;
-	Item: typeof Item;
-	List: typeof List;
-	Panels: typeof Content;
-	TabPane: typeof TabPane;
-	TabPanel: typeof TabPane;
-};
-
-function ClayTabs({
+function Tabs({
 	activation = 'manual',
 	active: externalActive,
 	children,
@@ -141,12 +132,12 @@ function ClayTabs({
 /**
  * @deprecated since v3.78.2 - Use new composition with Tabs.List and Tabs.Panels.
  */
-ClayTabs.Content = Content;
+Tabs.Content = Content;
 
-ClayTabs.Panels = Content;
-ClayTabs.Item = Item;
-ClayTabs.List = List;
-ClayTabs.TabPane = TabPane;
-ClayTabs.TabPanel = TabPane;
+Tabs.Panels = Content;
+Tabs.Item = Item;
+Tabs.List = List;
+Tabs.TabPane = TabPane;
+Tabs.TabPanel = TabPane;
 
-export default ClayTabs;
+export default Tabs;

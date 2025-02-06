@@ -4,32 +4,100 @@ description: 'A table is a specific pattern for comparing datasets in a very dir
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/table/'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {Body, Cell, Head, Row, Table} from '@clayui/core';"
 storybookPath: 'design-system-components-table--dynamic'
+packageTypes:
+    [
+        'clay-core/src/table/Table.tsx',
+        'clay-core/src/table/Body.tsx',
+        'clay-core/src/table/Head.tsx',
+        'clay-core/src/table/Cell.tsx',
+        'clay-core/src/table/Row.tsx',
+    ]
 ---
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Content](#content)
-    -   [Static](#static)
-    -   [Dynamic](#dynamic)
--   [Icons](#icons)
--   [Sorting](#sorting)
-    -   [Asynchronous](#asynchronous)
--   [Nested row](#nested-row)
-    -   [Expandable](#expandable)
-    -   [Asynchronous Item](#asynchronous-item)
-
-</div>
-</div>
-
-import {TableExample, TableTreeExample} from '$packages/clay-core/docs/table';
 
 ## Example
 
-<TableExample />
+```jsx preview
+import React, {useCallback, useState} from 'react';
+import {Body, Cell, Text, Head, Row, Table, Provider} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [sort, setSort] = useState(null);
+	const [items, setItems] = useState([
+		{files: 22, id: 1, name: 'Games', type: 'File folder'},
+		{files: 7, id: 2, name: 'Program Files', type: 'File folder'},
+	]);
+
+	const onSortChange = useCallback((sort) => {
+		if (sort) {
+			setItems((items) =>
+				items.sort((a, b) => {
+					let cmp = new Intl.Collator('en', {numeric: true}).compare(
+						a[sort.column],
+						b[sort.column]
+					);
+
+					if (sort.direction === 'descending') {
+						cmp *= -1;
+					}
+
+					return cmp;
+				})
+			);
+		}
+
+		setSort(sort);
+	}, []);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Table onSortChange={onSortChange} sort={sort}>
+					<Head
+						items={[
+							{
+								id: 'name',
+								name: 'Name',
+							},
+							{
+								id: 'files',
+								name: 'Files',
+							},
+							{
+								id: 'type',
+								name: 'Type',
+							},
+						]}
+					>
+						{(column) => (
+							<Cell key={column.id} sortable>
+								{column.name}
+							</Cell>
+						)}
+					</Head>
+
+					<Body defaultItems={items}>
+						{(row) => (
+							<Row>
+								<Cell>
+									<Text size={3} weight="semi-bold">
+										{row['name']}
+									</Text>
+								</Cell>
+								<Cell>{row['files']}</Cell>
+								<Cell>{row['type']}</Cell>
+							</Row>
+						)}
+					</Body>
+				</Table>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Introduction
 
@@ -37,10 +105,10 @@ Table allows the rendering of static and dynamic content for data-oriented and d
 
 The component covers the [W3C accessibility](https://www.w3.org/WAI/ARIA) patterns for the [simplest table implementation](https://www.w3.org/WAI/tutorials/tables/) and also the [treegrid pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/) for when [nested row](#nested-row) is used without requiring the developer to have to configure something extremely complex.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	To use the new Table implementation it is necessary to consume the component
-	using the package <code class="language-text">@clayui/core</code>.
+	using the package <code className="language-text">@clayui/core</code>.
 </div>
 
 ## Content
@@ -73,7 +141,7 @@ Static content is when the `<Table />` options do not change during the lifecycl
 
 ### Dynamic
 
-Unlike static content, dynamic content is when the options can change during the lifecycle of the application or when the data comes from a service. Dynamic content rendering is data agnostic, this allows you to configure how to render the component options regardless of the chosen data structure. For more information about controlled and uncontrolled components, visit [this blog post](/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components.html).
+Unlike static content, dynamic content is when the options can change during the lifecycle of the application or when the data comes from a service. Dynamic content rendering is data agnostic, this allows you to configure how to render the component options regardless of the chosen data structure. For more information about controlled and uncontrolled components, visit [this blog post](/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components).
 
 ```jsx
 <Table>
@@ -113,19 +181,15 @@ Unlike static content, dynamic content is when the options can change during the
 
 ## Icons
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	When implementing ClayTable from a React application, the icons may not render.
-	The <a href="https://clayui.com/docs/components/provider.html#application-provider">
+	The <a href="https://clayui.com/docs/components/provider#application-provider">
 		Application Provider
 	</a> method will make the icons available for use.
 </div>
 
 ```jsx
-import {Provider} from '@clayui/core';
-
-const spritemap = 'icons.svg';
-
 <Provider spritemap={spritemap}>
 	<Table>
 		<Head
@@ -157,7 +221,7 @@ const spritemap = 'icons.svg';
 			)}
 		</Body>
 	</Table>
-</Provider>;
+</Provider>
 ```
 
 ## Sorting
@@ -166,94 +230,100 @@ Column sorting is implemented OOTB so the developer doesn't need to worry about 
 
 It is also possible to implement your own logic on the client side when your data is predictable, check out the pseudocode.
 
-<div class="clay-site-alert alert alert-info">
-	<strong class="lead">Info</strong>
-	Column sorting is only enabled for columns that contain the <code class="language-text">
+<div className="clay-site-alert alert alert-info">
+	<strong className="lead">Info</strong>
+	Column sorting is only enabled for columns that contain the <code className="language-text">
 		sortable
 	</code> API defined.
 </div>
 
 ```jsx
-const [sort, setSort] = useState<Sorting | null>(null);
-const [items, setItems] = useState([
-  {files: 22, id: 1, name: 'Games', type: 'File folder'},
-  {files: 7, id: 2, name: 'Program Files', type: 'File folder'},
-]);
+export function App() {
+	const [sort, setSort] = (useState < Sorting) | (null > null);
+	const [items, setItems] = useState([
+		{files: 22, id: 1, name: 'Games', type: 'File folder'},
+		{files: 7, id: 2, name: 'Program Files', type: 'File folder'},
+	]);
 
-const filteredItems = useMemo(() => {
-  if (!sort) {
-    return;
-  }
+	const filteredItems = useMemo(() => {
+		if (!sort) {
+			return;
+		}
 
-  return items.sort((a, b) => {
-    let cmp = new Intl.Collator('en', {numeric: true}).compare(
-      a[sort.column],
-      b[sort.column]
-    );
+		return items.sort((a, b) => {
+			let cmp = new Intl.Collator('en', {numeric: true}).compare(
+				a[sort.column],
+				b[sort.column]
+			);
 
-    if (sort.direction === 'descending') {
-      cmp *= -1;
-    }
+			if (sort.direction === 'descending') {
+				cmp *= -1;
+			}
 
-    return cmp;
-  });
-}, [sort, items])
+			return cmp;
+		});
+	}, [sort, items]);
 
-<Table onSortChange={setSort} sort={sort}>
-  <Head>
-    <Cell key="name" sortable>
-      Name
-    </Cell>
-    <Cell key="files" sortable>
-      Files
-    </Cell>
-    <Cell key="type" sortable>
-      Type
-    </Cell>
-  </Head>
+	return (
+		<Table onSortChange={setSort} sort={sort}>
+			<Head>
+				<Cell key="name" sortable>
+					Name
+				</Cell>
+				<Cell key="files" sortable>
+					Files
+				</Cell>
+				<Cell key="type" sortable>
+					Type
+				</Cell>
+			</Head>
 
-  <Body defaultItems={filteredItems}>
-    ...
-  </Body>
-</Table>
+			<Body defaultItems={filteredItems}>...</Body>
+		</Table>
+	);
+}
 ```
 
 ### Asynchronous
 
-Most tables with sorting can have a lot of data and are paged so the sorting must happen on the server side instead of implementing the logic on the client side. You can achieve this level of implementation by composing using the [`useResource` hook](/docs/components/data-provider.html).
+Most tables with sorting can have a lot of data and are paged so the sorting must happen on the server side instead of implementing the logic on the client side. You can achieve this level of implementation by composing using the [`useResource` hook](/docs/components/data-provider).
 
 ```jsx
-const {
-	resource: items,
-	sort,
-	sortChange,
-} = useResource({
-	fetch: (link, init, sort) => {
-		const url = new URL(link);
+function App() {
+	const {
+		resource: items,
+		sort,
+		sortChange,
+	} = useResource({
+		fetch: (link, init, sort) => {
+			const url = new URL(link);
 
-		if (sort) {
-			url.searchParams.append('column', String(sort.column));
-			url.searchParams.append('direction', sort.direction);
-		}
+			if (sort) {
+				url.searchParams.append('column', String(sort.column));
+				url.searchParams.append('direction', sort.direction);
+			}
 
-		return fetch(url, init);
-	},
-	link: 'https://example.com/api/items',
-});
+			return fetch(url, init);
+		},
+		link: 'https://example.com/api/items',
+	});
 
-<Table onSortChange={setSort} sort={sort}>
-	<Head>
-		<Cell key="name" sortable>
-			Name
-		</Cell>
-		<Cell key="files" sortable>
-			Files
-		</Cell>
-		<Cell key="type">Type</Cell>
-	</Head>
+	return (
+		<Table onSortChange={setSort} sort={sort}>
+			<Head>
+				<Cell key="name" sortable>
+					Name
+				</Cell>
+				<Cell key="files" sortable>
+					Files
+				</Cell>
+				<Cell key="type">Type</Cell>
+			</Head>
 
-	<Body defaultItems={items}>...</Body>
-</Table>;
+			<Body defaultItems={items}>...</Body>
+		</Table>
+	);
+}
 ```
 
 ## Nested row
@@ -262,17 +332,82 @@ Implementing nested row allows you to render a table as a tree view. It is not n
 
 When using the nested row pattern, Clay automatically changes the accessibility behavior to use the [treegrid](https://www.w3.org/WAI/ARIA/apg/patterns/treegrid/examples/treegrid-1/) recommendation instead of the default behavior.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Limitation</strong>
-	The unique id of a row does not work properly when configured via <code class="language-text">
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Limitation</strong>
+	The unique id of a row does not work properly when configured via <code className="language-text">
 		key
-	</code> in the <code class="language-text">Row</code> component property to deal
-	with the nodes expandability, it is necessary that the <code class="language-text">
+	</code> in the <code className="language-text">Row</code> component property
+	to deal with the nodes expandability, it is necessary that the <code className="language-text">
 		id
 	</code> key is defined in your row data to use as unique id.
 </div>
 
-<TableTreeExample />
+```jsx preview
+import React from 'react';
+import {Body, Cell, Head, Row, Table, Provider} from '@clayui/core';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const columns = [
+		{
+			id: 'name',
+			name: 'Name',
+		},
+		{
+			id: 'type',
+			name: 'Type',
+		},
+	];
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Table aria-label="Drive" nestedKey="children">
+					<Head items={columns}>
+						{(column) => (
+							<Cell
+								className="table-cell-minw-300"
+								key={column.id}
+							>
+								{column.name}
+							</Cell>
+						)}
+					</Head>
+
+					<Body
+						defaultItems={[
+							{
+								children: [
+									{id: 10, name: 'WoW', type: 'MMORPG'},
+								],
+								id: 1,
+								name: 'Games',
+								type: 'File folder',
+							},
+							{
+								id: 2,
+								name: 'Program Files',
+								type: 'File folder',
+							},
+						]}
+					>
+						{(row) => (
+							<Row items={columns}>
+								{(column) => (
+									<Cell key={row.id + ':' + column.id}>
+										{row[column.id]}
+									</Cell>
+								)}
+							</Row>
+						)}
+					</Body>
+				</Table>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Expandable
 
@@ -315,8 +450,8 @@ When the tree is very large with a lot of data on a single node, loading the dat
 -   When returning `void`, `null` or `undefined` the Table will do nothing.
 -   When returning the `items` will add to the tree.
 
-<div class="clay-site-alert alert alert-info">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-info">
+	<strong className="lead">Warning</strong>
 	If you have an error in the asynchronous call of the <code className="gatsby-code-text">
 		onLoadMore
 	</code> method, only the suppression is done and an error is thrown on the console.

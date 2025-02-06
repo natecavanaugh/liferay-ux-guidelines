@@ -6,6 +6,7 @@
 		"emitDeclarationOnly": true,
 		"noEmit": false,
 		"removeComments": false,
+		"skipLibCheck": true,
 		"paths": {}
 	},
 	"exclude": [

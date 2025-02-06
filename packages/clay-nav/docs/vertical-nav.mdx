@@ -4,32 +4,182 @@ description: 'An alternative patterns that displays navigation items in a vertic
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/navigation/vertical-nav/'
 packageNpm: '@clayui/nav'
 storybookPath: 'design-system-components-verticalnav--default'
+packageUse: "import {ClayVerticalNav} from '@clayui/nav';"
+packageTypes:
+    [
+        'clay-nav/src/Vertical.tsx',
+        'clay-core/src/vertical-nav/Item.tsx',
+        'clay-core/src/vertical-nav/Trigger.tsx',
+    ]
 ---
-
-import {
-	VerticalNavigation,
-	VerticalNavigationCustomItem,
-} from '$packages/clay-nav/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Custom Links](#custom-links)
--   [Custom Trigger](#custom-trigger)
-
-</div>
-</div>
 
 ## Example
 
-<VerticalNavigation />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayVerticalNav} from '@clayui/nav';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayVerticalNav
+					aria-label="vertical navbar"
+					active="6"
+					defaultExpandedKeys={new Set(['5'])}
+					items={[
+						{
+							id: '1',
+							items: [
+								{
+									id: '2',
+									href: '#nested1',
+									label: 'Nested1',
+								},
+							],
+							label: 'Home',
+						},
+						{
+							id: '3',
+							href: '#2',
+							label: 'About',
+						},
+						{
+							id: '4',
+							href: '#3',
+							label: 'Contact',
+						},
+						{
+							id: '5',
+							items: [
+								{
+									id: '6',
+									href: '#5',
+									label: 'Five',
+								},
+								{
+									id: '7',
+									href: '#6',
+									label: 'Six',
+								},
+							],
+							label: 'Projects',
+						},
+						{
+							id: '8',
+							href: '#7',
+							label: 'Seven',
+						},
+					]}
+					large={false}
+				>
+					{(item) => (
+						<ClayVerticalNav.Item
+							href={item.href}
+							items={item.items}
+							key={item.id}
+						>
+							{item.label}
+						</ClayVerticalNav.Item>
+					)}
+				</ClayVerticalNav>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Custom Links
 
 The markup between the `<ClayVerticalNav.Item>` tag will render inside the `nav-link`. In the example below, we are outputting the lock icon next to the label only for non collapsible items.
 
-<VerticalNavigationCustomItem />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayVerticalNav} from '@clayui/nav';
+import Icon from '@clayui/icon';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+const noIcons = ['1', '5'];
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayVerticalNav
+					aria-label="vertical navbar"
+					active="6"
+					defaultExpandedKeys={new Set(['5'])}
+					items={[
+						{
+							id: '1',
+							items: [
+								{
+									id: '2',
+									href: '#nested1',
+									label: 'Nested1',
+								},
+							],
+							label: 'Home',
+						},
+						{
+							id: '3',
+							href: '#2',
+							label: 'About',
+						},
+						{
+							id: '4',
+							href: '#3',
+							label: 'Contact',
+						},
+						{
+							id: '5',
+							items: [
+								{
+									id: '6',
+									href: '#5',
+									label: 'Five',
+								},
+								{
+									id: '7',
+									href: '#6',
+									label: 'Six',
+								},
+							],
+							label: 'Projects',
+						},
+						{
+							id: '8',
+							href: '#7',
+							label: 'Seven',
+						},
+					]}
+					large={false}
+				>
+					{(item) => (
+						<ClayVerticalNav.Item
+							href={item.href}
+							items={item.items}
+							key={item.id}
+						>
+							{item.label}
+							{!noIcons.includes(item.id) && (
+								<span class="inline-item inline-item-after">
+									<Icon spritemap={spritemap} symbol="lock" />
+								</span>
+							)}
+						</ClayVerticalNav.Item>
+					)}
+				</ClayVerticalNav>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Custom Trigger
 

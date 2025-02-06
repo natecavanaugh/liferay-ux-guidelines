@@ -39,7 +39,7 @@ interface IProps extends React.HTMLAttributes<HTMLOListElement> {
 	/**
 	 * Property to define Breadcrumb's items.
 	 */
-	items: TItems;
+	items: Array<React.ComponentProps<typeof Item>>;
 
 	/**
 	 * Path to the location of the spritemap resource.
@@ -53,7 +53,7 @@ const findActiveItems = (items: TItems) => {
 	});
 };
 
-const ClayBreadcrumb = ({
+const Breadcrumb = ({
 	ariaLabels = {
 		breadcrumb: 'Breadcrumb',
 		close: 'Partially nest breadcrumbs',
@@ -135,4 +135,4 @@ function Items({items}: ItemsProps) {
 	);
 }
 
-export default ClayBreadcrumb;
+export default Breadcrumb;

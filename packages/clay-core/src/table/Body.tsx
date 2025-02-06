@@ -11,7 +11,7 @@ import {createImmutableTree} from '../tree-view/useTree';
 import {Scope, ScopeContext} from './ScopeContext';
 import {BodyContext, useTable} from './context';
 
-type Props<T> = {
+interface IProps<T> extends React.TableHTMLAttributes<HTMLTableSectionElement> {
 	/**
 	 * Children content to render a dynamic or static content.
 	 */
@@ -31,7 +31,7 @@ type Props<T> = {
 	 * A callback which is called when the property of items is changed (controlled).
 	 */
 	onItemsChange?: (items: Array<T>) => void;
-} & React.TableHTMLAttributes<HTMLTableSectionElement>;
+}
 
 type ItemProps<T> = {
 	children: React.ReactElement;
@@ -86,14 +86,14 @@ function* flatten<T extends Record<string, any>>(
 	}
 }
 
-function BodyInner<T extends Record<string, any>>(
+export function Body<T extends Record<string, any>>(
 	{
 		children,
 		defaultItems,
 		items: outItems,
 		onItemsChange,
 		...otherProps
-	}: Props<T>,
+	}: IProps<T>,
 	ref: React.Ref<HTMLTableSectionElement>
 ) {
 	const {expandedKeys, itemIdKey, nestedKey} = useTable();
@@ -162,10 +162,10 @@ function BodyInner<T extends Record<string, any>>(
 type ForwardRef = {
 	displayName: string;
 	<T>(
-		props: Props<T> & {ref?: React.Ref<HTMLTableSectionElement>}
+		props: IProps<T> & {ref?: React.Ref<HTMLTableSectionElement>}
 	): JSX.Element;
 };
 
-export const Body = React.forwardRef(BodyInner) as ForwardRef;
+export const ForwardBody = React.forwardRef(Body) as ForwardRef;
 
-Body.displayName = 'TableBody';
+ForwardBody.displayName = 'TableBody';

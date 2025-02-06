@@ -3,32 +3,82 @@ title: 'VerticalBar'
 description: 'A vertical bar is a flexible container that organizes items vertically.'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {VerticalBar} from '@clayui/core';"
 storybookPath: 'design-system-components-verticalbar'
+packageTypes:
+    [
+        'clay-core/src/vertical-bar/VerticalBar.tsx',
+        'clay-core/src/vertical-bar/Bar.tsx',
+        'clay-core/src/vertical-bar/Item.tsx',
+        'clay-core/src/vertical-bar/Panel.tsx',
+        'clay-core/src/vertical-bar/Content.tsx',
+    ]
 ---
-
-import {
-	VerticalBarExample,
-	VerticalBarResize,
-} from '$packages/clay-core/docs/vertical-bar';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Content](#vertical-bar-content)
-    -   [Static](#static)
-    -   [Dynamic](#dynamic)
--   [Position](#position)
--   [Resize](#vertical-bar-resize)
--   [Load lazy panel](#load-lazy-panel)
-
-</div>
-</div>
 
 ## Example
 
-<VerticalBarExample />
+```jsx preview
+import {Button, Provider, VerticalBar} from '@clayui/core';
+import Icon from '@clayui/icon';
+
+import '@clayui/css/lib/css/atlas.css';
+
+const spritemap = '/public/icons.svg';
+
+export default function App() {
+	const items = [
+		{
+			icon: 'tag',
+			title: 'Tag',
+		},
+		{
+			divider: true,
+			icon: 'message',
+			title: 'Message',
+		},
+		{
+			icon: 'effects',
+			title: 'Effects',
+		},
+	];
+
+	return (
+		<div style={{height: '400px'}}>
+			<Provider spritemap={spritemap}>
+				<VerticalBar absolute defaultActive="Tag">
+					<VerticalBar.Content items={items}>
+						{(item) => (
+							<VerticalBar.Panel key={item.title}>
+								<div className="sidebar-header">
+									<div className="component-title">
+										{item.title}
+									</div>
+								</div>
+							</VerticalBar.Panel>
+						)}
+					</VerticalBar.Content>
+
+					<VerticalBar.Bar displayType="light" items={items}>
+						{(item) => (
+							<VerticalBar.Item
+								divider={item.divider}
+								key={item.title}
+							>
+								<Button
+									aria-label={'Open ' + item.title}
+									displayType={null}
+								>
+									<Icon symbol={item.icon} />
+								</Button>
+							</VerticalBar.Item>
+						)}
+					</VerticalBar.Bar>
+				</VerticalBar>
+			</Provider>
+		</div>
+	);
+}
+```
 
 ## Introduction
 
@@ -36,7 +86,7 @@ VerticalBar allows rendering a vertical navigation bar positioned fixedly on the
 
 Just like the TreeView component, the VerticalBar is considered a middle-level component instead of a low-level or high-level, it guarantees more flexibility and composition and delivers features that would only be available at high-level with the same synthetic form of an API low-level.
 
-## Content(#vertical-bar-content)
+## Content
 
 As VerticalBar is middle-level, it allows you to build static or dynamic content if you need to consume data from some service.
 
@@ -180,13 +230,13 @@ Positioning the VerticalBar on the right or left side is possible by setting the
 </VerticalBar>
 ```
 
-## Resize(#vertical-bar-resize)
+## Resize
 
 The property `resize` in `<VerticalBar.Bar />` enables the user to increase or decrease the panel width using the mouse or keyboard. The maximum width can be set using the property `panelWidthMax`. It defaults to 500px. The minimum width is set using the property `panelWidthMin` and defaults to 280px. The starting width is set using `panelWidth` with a default value of 320px.
 
 The property `onPanelWidthChange` accepts a callback function that executes when the `panelWidth` is updated. The callback function has the value of the panel width as the parameter. It can be used to make updates to other parts of your application, such as pushing body content over as the user resizes the Vertical Bar Panel.
 
-<div class="clay-site-alert alert alert-warning">
+<div className="clay-site-alert alert alert-warning">
 	When using the property `onPanelWidthChange`, you must also declare
 	`panelWidth`. Setting a fixed value for `panelWidth` will result in
 	`onPanelWidthChange` always returning that value, you must use
@@ -194,9 +244,7 @@ The property `onPanelWidthChange` accepts a callback function that executes when
 	Please see the code example below.
 </div>
 
-<div class="overflow-hidden">
-	<VerticalBarResize />
-</div>
+<div className="overflow-hidden"></div>
 
 ## Load lazy panel
 

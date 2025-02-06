@@ -3,29 +3,34 @@ title: 'Tooltip'
 description: 'Tooltips are brief pieces of information that appear on hover state over an element to clarify its meaning or use for the user.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/popovers-tooltips/'
 packageNpm: '@clayui/tooltip'
+packageUse: "import Tooltip from '@clayui/tooltip';"
+packageTypes:
+    ['clay-tooltip/src/Tooltip.tsx', 'clay-tooltip/src/TooltipProvider.tsx']
 ---
-
-import {
-	Tooltip,
-	TooltipProvider,
-	TooltipProviderRenderer,
-} from '$packages/clay-tooltip/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [TooltipProvider](#tooltipprovider)
-    -   [contentRenderer](#contentrenderer)
-    -   [Disabled elements with title](#disabled-elements-with-title)
-
-</div>
-</div>
 
 Simplest way of using Tooltip is by leveraging it's `show` prop and specifying `alignPosition` to determine it's position relative to the element it's aligned to.
 
 If you have multiple Tooltips on the page, [TooltipProvider](#tooltipprovider) allows you to only have to instantiate the component once and simply provide html attributes to the elements that need tooltips.
 
-<Tooltip />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Tooltip from '@clayui/tooltip';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4" style={{height: 50}}>
+				<Tooltip alignPosition="bottom" show>
+					Tooltip content
+				</Tooltip>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## TooltipProvider
 
@@ -38,26 +43,83 @@ Here's a list of html attributes that you can provide to children elements of th
 -   `data-tooltip-delay` is for the delay(ms) before showing the tooltip.
 -   `data-tooltip-floating` defines if the tooltip should be floating positioned where the mouse is over the element.
 
-<TooltipProvider />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayTooltipProvider} from '@clayui/tooltip';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayTooltipProvider>
+					<div>
+						<button
+							data-tooltip-align="top"
+							title="Tooltip Content"
+						>
+							{'Hover'}
+						</button>
+					</div>
+				</ClayTooltipProvider>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### contentRenderer
 
 `contentRenderer` prop gives you the ability to format the content passed to the Tooltip via the `title` attribute to meet your requirements.
 
-<TooltipProviderRenderer />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayTooltipProvider} from '@clayui/tooltip';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayTooltipProvider
+					contentRenderer={(props) =>
+						props.title.toLowerCase().split(' ').join('-')
+					}
+				>
+					<div>
+						<button title="Hello World">{'kebabCase'}</button>
+					</div>
+				</ClayTooltipProvider>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Disabled elements with title
 
 Elements or components that use the browser's native `disabled` property, have the problem of the provider not being able to track element events, natively elements with disabled do not trigger events, such as `click`, `mouseup`, `mousedown`, `keydown`... if the element has a `title` the tooltip will not work correctly, for this scenario we recommend using a different strategy to continue that the element emits events but still has the disabled state. For example, the Button component:
 
-```jsx
+```html
 // instead of
 <button className="btn btn-primary" disabled="" title="Open Menu">Click</button>
-<Button disabled title="Top">Top</Button>
+<button disabled title="Top">Top</button>
+```
 
+```html
 // use
-<button className="btn btn-primary disabled" aria-disabled="true" title="Open Menu">Click</button>
-<Button aria-disabled="true" className="disabled" title="Top">Top</Button>
+<button
+	className="btn btn-primary disabled"
+	aria-disabled="true"
+	title="Open Menu"
+>
+	Click
+</button>
+<button aria-disabled="true" className="disabled" title="Top">Top</button>
 ```
 
 Add the `disabled` CSS class that adds the visual state of disabled and the `aria-disabled` property to keep the element accessible, this same behavior can be repeated for other elements where you want the title even when the component is disabled.

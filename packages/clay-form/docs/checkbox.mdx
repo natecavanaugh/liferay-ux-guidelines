@@ -3,36 +3,37 @@ title: 'Checkbox'
 description: 'A checkbox is a component that lets the user select the value that is written in its corresponding text label. A user can select multiple checkboxes from a group at the same time.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/radio-check-toggle/'
 packageNpm: '@clayui/form'
-navigationParent: 'docs/components/form.html'
+packageUse: "import {ClayCheckbox} from '@clayui/form';"
 storybookPath: 'design-system-components-checkbox'
+packageTypes: ['clay-form/src/Checkbox.tsx']
 ---
-
-import {
-	CheckboxContainerProps,
-	CheckboxIndeterminate,
-	CheckboxesInline,
-	CheckboxLabel,
-	CheckboxWithCallback,
-} from '$packages/clay-form/docs/checkbox';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Container Props](#container-props)
--   [Label](#label)
--   [Inline](#inline)
--   [Indeterminate](#indeterminate)
-
-</div>
-</div>
 
 Use [`checked`](#api-checked) property to check or not the checkbox.
 
 To set a callback function when the value of the checkbox is changed, use [`onChange`](#api-onChange) property. See the following example:
 
-<CheckboxWithCallback />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCheckbox} from '@clayui/form';
+import React, {useState} from 'react';
 
-<br />
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayCheckbox
+					checked={value}
+					onChange={() => setValue((val) => !val)}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 Here you can see some options or ideas on how to extend our Checkbox component to fit your use:
 
@@ -40,22 +41,135 @@ Here you can see some options or ideas on how to extend our Checkbox component t
 
 If you want to modify the container that wraps the checkbox, use [`containerProps`](#api-containerProps):
 
-<CheckboxContainerProps />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCheckbox} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	const data = {
+		id: 'test',
+	};
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayCheckbox
+					aria-label="I'm checked indefinitely"
+					checked={true}
+					containerProps={data}
+					onChange={() => setValue((val) => !val)}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Label
 
 Use [`label`](#api-label) property to describe what the checkbox is for.
 
-<CheckboxLabel />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCheckbox} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayCheckbox
+					aria-label="Option 1"
+					checked={value}
+					onChange={() => setValue((val) => !val)}
+					label="Option 1"
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Inline
 
 Group checkboxes on the same horizontal row by using [`inline`](#api-inline) property.
 
-<CheckboxesInline />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCheckbox} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<ClayCheckbox
+						aria-label="Option 1"
+						checked={value}
+						onChange={() => setValue((val) => !val)}
+						label="Option 1"
+						inline
+					/>
+					<ClayCheckbox
+						aria-label="Option 2"
+						checked={value}
+						onChange={() => setValue((val) => !val)}
+						label="Option 2"
+						inline
+					/>
+					<ClayCheckbox
+						aria-label="Option 3"
+						checked={value}
+						onChange={() => setValue((val) => !val)}
+						label="Option 3"
+						inline
+					/>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Indeterminate
 
 Use [`indeterminate`](#api-indeterminate) property for making the checkbox indeterminate.
 
-<CheckboxIndeterminate />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayCheckbox} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const [value, setValue] = useState(false);
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayCheckbox
+					aria-label="I'm indeterminate"
+					checked={value}
+					onChange={() => setValue((val) => !val)}
+					indeterminate
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

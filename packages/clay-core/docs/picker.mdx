@@ -3,39 +3,56 @@ title: 'Picker'
 description: 'A select is very similar to a dropdown visually but it let users select options from the panel and then represent the selection in the button.'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {Option, Picker} from '@clayui/core';"
 storybookPath: 'design-system-components-picker'
+packageTypes:
+    ['clay-core/src/picker/Picker.tsx', 'clay-core/src/picker/Option.tsx']
 ---
-
-import {
-	PickerWidthExample,
-	PickerExample,
-	PickerGroupExample,
-	PickerTriggerExample,
-	PickerOptionsxample,
-} from '$packages/clay-core/docs/picker';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Content](#content)
-    -   [Static](#static)
-    -   [Dynamic](#dynamic)
--   [Controlled and Uncontrolled component](#controlled-and-uncontrolled-component)
--   [Composition](#composition)
-    -   [Custom Trigger](#custom-trigger)
-    -   [Custom Options](#custom-options)
-    -   [Group](#group)
--   [Flexible width](#flexible-width)
--   [Hybrid component](#hybrid-component)
-
-</div>
-</div>
 
 ## Example
 
-<PickerExample />
+```jsx preview
+import {Provider, Option, Picker} from '@clayui/core';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div style={{width: '100px'}}>
+					<Form.Group>
+						<label htmlFor="picker" id="picker-label">
+							Year
+						</label>
+						<Picker
+							width={85}
+							aria-labelledby="picker-label"
+							id="picker"
+							items={[
+								'2020',
+								'2021',
+								'2022',
+								'2023',
+								'2024',
+								'2025',
+								'2026',
+								'2027',
+								'2028',
+							]}
+							placeholder="Year"
+						>
+							{(item) => <Option key={item}>{item}</Option>}
+						</Picker>
+					</Form.Group>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Introduction
 
@@ -88,25 +105,24 @@ Unlike static content, dynamic content is when the options can change during the
 
 ## Controlled and Uncontrolled component
 
-As with any component in Clay, controlled and uncontrolled components are the ability to manage state in the parent or let Clay control the state of the component. You can [read more about this in our blog](/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components.html).
+As with any component in Clay, controlled and uncontrolled components are the ability to manage state in the parent or let Clay control the state of the component. You can [read more about this in our blog](/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components).
 
 For the `<Picker />` component you can control the `selectedKey` and `active` states by adding a state to your component, this is only advisable when you need this information otherwise don't use it.
 
 If you just need to set the initial state of the `selectedKey`, use the `defaultSelectedKey` property which is appropriate for that use case.
 
-<div class="clay-site-alert alert alert-info">
-	<strong class="lead">Info</strong>
-	The <code class="language-text">selectedKey</code> property is represented by
-	the <code class="language-text">key</code> property configured in the <code class="language-text">
-		Option
-	</code> component, so the component can identify which value is selected and
-	which should be shown in the trigger. <br />
+<div className="clay-site-alert alert alert-info">
+	<strong className="lead">Info</strong>
+	The <code className="language-text">selectedKey</code> property is represented
+	by the <code className="language-text">key</code> property configured in the{' '}
+	<code className="language-text">Option</code> component, so the component can
+	identify which value is selected and which should be shown in the trigger. <br />
 	<br />
-	When the content rendering is dynamic and the data has <code class="language-text">
+	When the content rendering is dynamic and the data has <code className="language-text">
 		id
-	</code> property defined, the component uses <code class="language-text">
+	</code> property defined, the component uses <code className="language-text">
 		id
-	</code> instead of <code class="language-text">key</code>.
+	</code> instead of <code className="language-text">key</code>.
 </div>
 
 ```jsx
@@ -145,28 +161,232 @@ The composition allows you to customize the component or add new features. See s
 
 ### Custom Trigger
 
-<PickerTriggerExample />
+```jsx preview
+import {Provider, Option, Picker, Icon} from '@clayui/core';
+import {useId} from '@clayui/shared';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+const Trigger = React.forwardRef(({children, ...otherProps}, ref) => (
+	<div ref={ref} {...otherProps} tabIndex={0}>
+		<Icon className="mr-2" symbol="user" />
+		{children}
+	</div>
+));
+
+export default function App() {
+	const pickerId = useId();
+	const labelId = useId();
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div style={{width: '150px'}}>
+					<Form.Group>
+						<label htmlFor={pickerId} id={labelId}>
+							Choose a user
+						</label>
+						<Picker
+							aria-labelledby={labelId}
+							as={Trigger}
+							id={pickerId}
+							items={['Liam', 'Noah', 'Oliver']}
+						>
+							{(item) => <Option key={item}>{item}</Option>}
+						</Picker>
+					</Form.Group>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Custom Options
 
-<PickerOptionsxample />
+```jsx preview
+import {Provider, Option, Picker, Text} from '@clayui/core';
+import {useId} from '@clayui/shared';
+import Layout from '@clayui/layout';
+import Label from '@clayui/label';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const pickerId = useId();
+	const labelId = useId();
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div style={{width: '150px'}}>
+					<Form.Group>
+						<label htmlFor={pickerId} id={labelId}>
+							Choose a user
+						</label>
+						<Picker
+							aria-labelledby={labelId}
+							id={pickerId}
+							items={['Liam', 'Noah', 'Oliver']}
+						>
+							{(item) => (
+								<Option key={item} textValue={item}>
+									<Layout.ContentRow>
+										<Layout.ContentCol expand>
+											<Text size={3} weight="semi-bold">
+												{item}
+											</Text>
+											<Text
+												aria-hidden
+												color="secondary"
+												size={2}
+											>
+												Description
+											</Text>
+										</Layout.ContentCol>
+										<Layout.ContentCol>
+											<Label
+												aria-hidden
+												displayType="success"
+											>
+												Active
+											</Label>
+										</Layout.ContentCol>
+									</Layout.ContentRow>
+								</Option>
+							)}
+						</Picker>
+					</Form.Group>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Group
 
-<PickerGroupExample />
+```jsx preview
+import {Provider, Option, Picker} from '@clayui/core';
+import {useId} from '@clayui/shared';
+import DropDown from '@clayui/drop-down';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const pickerId = useId();
+	const labelId = useId();
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div style={{width: '150px'}}>
+					<Form.Group>
+						<label htmlFor={pickerId} id={labelId}>
+							Select an option
+						</label>
+						<Picker
+							aria-labelledby={labelId}
+							id={pickerId}
+							items={[
+								{
+									items: [
+										{label: 'Apple', value: '1'},
+										{label: 'Banana', value: '2'},
+										{label: 'Mangos', value: '3'},
+									],
+									label: 'Fruit',
+								},
+								{
+									items: [
+										{label: 'Onions', value: '4'},
+										{label: 'abc', value: '5'},
+										{label: 'def', value: '6'},
+									],
+									label: 'Vegetable',
+								},
+							]}
+						>
+							{(group) => (
+								<DropDown.Group
+									header={group.label}
+									items={group.items}
+								>
+									{(item) => (
+										<Option key={item.value}>
+											{item.label}
+										</Option>
+									)}
+								</DropDown.Group>
+							)}
+						</Picker>
+					</Form.Group>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Flexible width
 
-<PickerWidthExample />
+```jsx preview
+import {Provider, Option, Picker} from '@clayui/core';
+import Form from '@clayui/form';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<div style={{width: '100px'}}>
+					<Form.Group>
+						<label htmlFor="picker" id="picker-label">
+							Year
+						</label>
+						<Picker
+							width={85}
+							aria-labelledby="picker-label"
+							id="picker"
+							items={[
+								'2020',
+								'2021',
+								'2022',
+								'2023',
+								'2024',
+								'2025',
+								'2026',
+								'2027',
+								'2028',
+							]}
+							placeholder="Year"
+						>
+							{(item) => <Option key={item}>{item}</Option>}
+						</Picker>
+					</Form.Group>
+				</div>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Hybrid component
 
 Native select for mobile devices offers a better experience compared to Picker in some cases. The Picker offers the possibility to render using the native selector of the browser of the device when it is detected that it is on a mobile device, by default this property is disabled but it can be enabled by setting the `native` property to `true`.
 
-<div class="clay-site-alert alert alert-warning">
-	<strong class="lead">Warning</strong>
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
 	If the content of the Option component is not simple text, for it to work correctly
-	set the property <code class="language-text">textValue</code> to ensure that
+	set the property <code className="language-text">textValue</code> to ensure that
 	the component knows what the option label is.
 </div>
 

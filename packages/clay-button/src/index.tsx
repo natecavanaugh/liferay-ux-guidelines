@@ -6,6 +6,9 @@
 import Button from './Button';
 import ClayButtonWithIcon from './ButtonWithIcon';
 
-export type {Props as ButtonWithIconProps} from './ButtonWithIcon';
+type ButtonProps = React.ComponentProps<typeof Button>;
+type ButtonWithIconProps = React.ComponentProps<typeof ClayButtonWithIcon>;
+
+export type {ButtonWithIconProps, ButtonProps};
 export {ClayButtonWithIcon};
 export default Button;

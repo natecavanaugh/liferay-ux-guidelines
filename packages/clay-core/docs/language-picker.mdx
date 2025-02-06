@@ -3,34 +3,80 @@ title: 'Language Picker'
 description: 'A language picker is very similar to a dropdown visually but it let users select languages from the panel and then represent the selection in the button.'
 packageNpm: '@clayui/core'
 packageStatus: 'Beta'
+packageUse: "import {LanguagePicker} from '@clayui/core';"
 storybookPath: 'design-system-components-language-picker'
+packageTypes: ['clay-core/src/language-picker/LanguagePicker.tsx']
 ---
-
-import {
-	LanguagePickerExample,
-	LanguagePickerLanguagesExample,
-	LanguagePickerOnlyIconExample,
-	LanguagePickerSmallExample,
-	LanguagePickerTranslationsExample,
-} from '$packages/clay-core/docs/language-picker';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Controlled and Uncontrolled component](#controlled-and-uncontrolled-component)
--   [Translations Variant](#translations-variant)
--   [Trigger Options](#trigger-options)
-    -   [Trigger without Language Label](#trigger-without-language-label)
-    -   [Small Trigger](#small-trigger)
-
-</div>
-</div>
 
 ## Example
 
-<LanguagePickerExample />
+```jsx preview
+import {Provider, LanguagePicker} from '@clayui/core';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4" style={{width: 'fit-content'}}>
+				<LanguagePicker
+					locales={[
+						{
+							id: 'en_US',
+							label: 'en-US',
+							name: 'English (United States)',
+							symbol: 'en-us',
+						},
+						{
+							id: 'ar_SA',
+							label: 'ar-SA',
+							name: 'Arabic (Saudi Arabia)',
+							symbol: 'ar-sa',
+						},
+						{
+							id: 'ca_ES',
+							label: 'ca-ES',
+							name: 'Catalan (Spain)',
+							symbol: 'ca-es',
+						},
+						{
+							id: 'nl_NL',
+							label: 'nl-NL',
+							name: 'Dutch (Netherlands)',
+							symbol: 'nl-nl',
+						},
+						{
+							id: 'fi_FI',
+							label: 'fi-FI',
+							name: 'Finnish (Finland)',
+							symbol: 'fi-fi',
+						},
+						{
+							id: 'fr_FR',
+							label: 'fr-FR',
+							name: 'French (France)',
+							symbol: 'fr-fr',
+						},
+						{
+							id: 'de_DE',
+							label: 'de-DE',
+							name: 'German (Germany)',
+							symbol: 'de-de',
+						},
+						{
+							id: 'hu_HU',
+							label: 'hu-HU',
+							name: 'Hungarian (Hungary)',
+							symbol: 'hu-hu',
+						},
+					]}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Introduction
 
@@ -40,7 +86,7 @@ The Language Picker is a component based on the Picker component that provides a
 
 ## Controlled and Uncontrolled component
 
-As with any component in Clay, controlled and uncontrolled components are the ability to manage state in the parent or let Clay control the state of the component. You can [read more about this in our blog](/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components.html).
+As with any component in Clay, controlled and uncontrolled components are the ability to manage state in the parent or let Clay control the state of the component. You can [read more about this in our blog](/blog/2022/05/02/api-consistency-improvements-for-controlled-and-uncontrolled-components).
 
 For the `<LanguagePicker />` component you can control the `selectedLocaleId` and `active` states by adding a state to your component, this is only advisable when you need this information otherwise don't use it.
 
@@ -105,7 +151,55 @@ function Example() {
 
 Unlike the default Language Picker, translations variant is used to select a translation from a list of translation languages that have been translated or not. An example of using this variant could be a form with one or more localizable fields, where we want to select and view the status of translations.
 
-<LanguagePickerTranslationsExample />
+```jsx preview
+import {Provider, LanguagePicker} from '@clayui/core';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	const translations = {
+		'ca-ES': {total: 4, translated: 2},
+		'nl-NL': {total: 4, translated: 4},
+	};
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4" style={{width: 'fit-content'}}>
+				<LanguagePicker
+					locales={[
+						{
+							id: 'en_US',
+							label: 'en-US',
+							name: 'English (United States)',
+							symbol: 'en-us',
+						},
+						{
+							id: 'ar_SA',
+							label: 'ar-SA',
+							name: 'Arabic (Saudi Arabia)',
+							symbol: 'ar-sa',
+						},
+						{
+							id: 'ca_ES',
+							label: 'ca-ES',
+							name: 'Catalan (Spain)',
+							symbol: 'ca-es',
+						},
+						{
+							id: 'nl_NL',
+							label: 'nl-NL',
+							name: 'Dutch (Netherlands)',
+							symbol: 'nl-nl',
+						},
+					]}
+					translations={translations}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 This variant shows translation status labels next to each translation language to indicate the translation status for the content. The states are described below:
 
@@ -120,10 +214,96 @@ This variant shows translation status labels next to each translation language t
 
 You can customize the Language Picker trigger to display only the icon by setting the `hideTriggerText` property to true. This removes the language label.
 
-<LanguagePickerOnlyIconExample />
+```jsx preview
+import {Provider, LanguagePicker} from '@clayui/core';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4" style={{width: 'fit-content'}}>
+				<LanguagePicker
+					hideTriggerText
+					locales={[
+						{
+							id: 'en_US',
+							label: 'en-US',
+							name: 'English (United States)',
+							symbol: 'en-us',
+						},
+						{
+							id: 'ar_SA',
+							label: 'ar-SA',
+							name: 'Arabic (Saudi Arabia)',
+							symbol: 'ar-sa',
+						},
+						{
+							id: 'ca_ES',
+							label: 'ca-ES',
+							name: 'Catalan (Spain)',
+							symbol: 'ca-es',
+						},
+						{
+							id: 'nl_NL',
+							label: 'nl-NL',
+							name: 'Dutch (Netherlands)',
+							symbol: 'nl-nl',
+						},
+					]}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ### Small Trigger
 
 You can reduce the size of the Language Picker trigger by setting the `small` property to `true`.
 
-<LanguagePickerSmallExample />
+```jsx preview
+import {Provider, LanguagePicker} from '@clayui/core';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4" style={{width: 'fit-content'}}>
+				<LanguagePicker
+					locales={[
+						{
+							id: 'en_US',
+							label: 'en-US',
+							name: 'English (United States)',
+							symbol: 'en-us',
+						},
+						{
+							id: 'ar_SA',
+							label: 'ar-SA',
+							name: 'Arabic (Saudi Arabia)',
+							symbol: 'ar-sa',
+						},
+						{
+							id: 'ca_ES',
+							label: 'ca-ES',
+							name: 'Catalan (Spain)',
+							symbol: 'ca-es',
+						},
+						{
+							id: 'nl_NL',
+							label: 'nl-NL',
+							name: 'Dutch (Netherlands)',
+							symbol: 'nl-nl',
+						},
+					]}
+					small
+				/>
+			</div>
+		</Provider>
+	);
+}
+```

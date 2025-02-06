@@ -6,8 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export interface IButtonGroupProps
-	extends React.HTMLAttributes<HTMLDivElement> {
+type Props = {
 	/**
 	 * Flag to indicate the spacing between the buttons.
 	 */
@@ -17,16 +16,16 @@ export interface IButtonGroupProps
 	 * Flag to indicate if buttons are stacked vertically.
 	 */
 	vertical?: boolean;
-}
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const ClayButtonGroup = ({
+const Group = ({
 	children,
 	className,
 	role = 'group',
 	spaced,
 	vertical,
 	...otherProps
-}: IButtonGroupProps) => (
+}: Props) => (
 	<div
 		{...otherProps}
 		className={classNames(className, {
@@ -40,4 +39,6 @@ const ClayButtonGroup = ({
 	</div>
 );
 
-export default ClayButtonGroup;
+Group.displayName = 'ClayButtonGroup';
+
+export default Group;

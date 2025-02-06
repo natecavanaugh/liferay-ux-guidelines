@@ -2,27 +2,84 @@
 title: 'Panel'
 description: 'Toggle content visibility using Panel.'
 packageNpm: '@clayui/panel'
+packageUse: "import Panel from '@clayui/panel';"
+packageTypes:
+    [
+        'clay-panel/src/index.tsx',
+        'clay-panel/src/Body.tsx',
+        'clay-panel/src/Group.tsx',
+        'clay-panel/src/Footer.tsx',
+        'clay-panel/src/Header.tsx',
+        'clay-panel/src/Title.tsx',
+    ]
 ---
-
-import {Panel, PanelWithCustomTitle} from '$packages/clay-panel/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Basic Usage](#basic-usage)
--   [Usage with a custom Title](#usage-with-a-custom-title)
-
-</div>
-</div>
 
 The Panel is a replacement for the old ClayCollapse in version 2.x, has the same effect but written in React using composition, try it. We recommend that you review the [use cases in the Storybook](https://storybook.clayui.com/?path=/story/design-system-components-panel--default).
 
 ## Basic Usage
 
-<Panel />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Panel from '@clayui/panel';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Panel
+					collapsable
+					displayTitle="Title"
+					displayType="secondary"
+					showCollapseIcon={true}
+				>
+					<Panel.Body>{'Body!'}</Panel.Body>
+				</Panel>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Usage with a custom Title
 
 `ClayPanel.Title` allows you to add custom content to the title of the panel as seen in this example using `ClayLabels`.
 
-<PanelWithCustomTitle />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Panel from '@clayui/panel';
+import Label from '@clayui/label';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Panel
+					collapsable
+					displayTitle={
+						<Panel.Title>
+							<h3>{'Title'}</h3>
+							<span>{'If field '}</span>
+							<Label displayType="success">{'Country'}</Label>
+							<Label>{'Is Equal To'}</Label>
+							<span>{'value '}</span>
+							<Label displayType="info">{'Brazil'}</Label>
+							<span>{'enable '}</span>
+							<Label displayType="success">{'State'}</Label>
+						</Panel.Title>
+					}
+					displayType="secondary"
+					showCollapseIcon={true}
+				>
+					<Panel.Body>{'Body!'}</Panel.Body>
+				</Panel>
+			</div>
+		</Provider>
+	);
+}
+```

@@ -1,0 +1,2025 @@
+---
+title: 'Tabs'
+description: 'Tabs organize similar content together into individual sections in the same page.'
+lexiconDefinition: 'https://liferay.design/lexicon/core-components/tabs/'
+packageNpm: '@clayui/tabs'
+packageUse: "import Tabs from '@clayui/tabs';"
+---
+
+<div className="clay-site-alert alert alert-warning">
+	Don't forget to check{' '}
+	<a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel">WAI-ARIA</a>{' '}
+	accessibility pratices for Tabs when writting your markup.
+</div>
+
+## Default
+
+<div className="sheet-example">
+	<ul className="nav nav-tabs" role="tablist">
+		<li className="nav-item">
+			<a
+				aria-controls="fields"
+				aria-selected="true"
+				className="active nav-link"
+				data-toggle="tab"
+				href="#fields"
+				id="fieldsTab"
+				role="tab"
+			>
+				Fields
+			</a>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="settings"
+				aria-selected="false"
+				className="nav-link"
+				data-toggle="tab"
+				href="#settings"
+				id="settingsTab"
+				role="tab"
+			>
+				Settings
+			</a>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="documents"
+				aria-selected="false"
+				className="disabled nav-link"
+				data-toggle="tab"
+				href="#documents"
+				id="documentsTab"
+				role="tab"
+				tabindex="-1"
+			>
+				Documents
+			</a>
+		</li>
+		<li className="dropdown nav-item">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle nav-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				Configuration
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom" />
+				</svg>
+			</a>
+			<div className="dropdown-menu dropdown-menu-indicator-end">
+				<a
+					aria-controls="setup"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#setup"
+					id="setupTab"
+					role="tab"
+				>
+					Setup
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+				<a
+					aria-controls="supportedClients"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#supportedClients"
+					id="supportedClientsTab"
+					role="tab"
+				>
+					Supported Clients
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+			</div>
+		</li>
+	</ul>
+	<div className="tab-content">
+		<div
+			aria-labelledby="fieldsTab"
+			className="active fade show tab-pane"
+			id="fields"
+			role="tabpanel"
+		>
+			Single origin, extra id beans, eu to go, skinny americano ut
+			aftertaste sugar. At americano, viennese variety iced grounds,
+			grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+			grounds café au lait, skinny, blue mountain, in variety sugar shop
+			roast. Wings, blue mountain affogato organic cappuccino java plunger
+			pot. Single shot variety pumpkin spice seasonal skinny barista
+			carajillo robust cream.
+		</div>
+		<div
+			aria-labelledby="settingsTab"
+			className="fade tab-pane"
+			id="settings"
+			role="tabpanel"
+		>
+			Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction,
+			id trifecta qui trifecta grinder. Barista robusta arabica breve ut
+			skinny milk beans macchiato carajillo espresso. Cultivar single shot
+			brewed, coffee steamed to go wings to go cortado. Grinder, siphon
+			coffee acerbic espresso cinnamon crema breve.
+		</div>
+		<div
+			aria-labelledby="documentsTab"
+			className="fade tab-pane"
+			id="documents"
+			role="tabpanel"
+		>
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="setupTab"
+			className="fade tab-pane"
+			id="setup"
+			role="tabpanel"
+		>
+			Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+			arabica breve ut skinny milk beans macchiato carajillo espresso.
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="supportedClientsTab"
+			className="fade tab-pane"
+			id="supportedClients"
+			role="tabpanel"
+		>
+			At americano, viennese variety iced grounds, grinder froth and
+			pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+			skinny, blue mountain, in variety sugar shop roast. Wings, blue
+			mountain affogato organic cappuccino java plunger pot. Single shot
+			variety pumpkin spice seasonal skinny barista carajillo robust
+			cream.
+		</div>
+	</div>
+</div>
+
+```html
+<ul className="nav nav-tabs" role="tablist">
+	<li className="nav-item">
+		<a
+			aria-controls="fields"
+			aria-selected="true"
+			className="active nav-link"
+			data-toggle="tab"
+			href="#fields"
+			id="fieldsTab"
+			role="tab"
+			>Fields</a
+		>
+	</li>
+	<li className="nav-item">
+		<a
+			aria-controls="settings"
+			aria-selected="false"
+			className="nav-link"
+			data-toggle="tab"
+			href="#settings"
+			id="settingsTab"
+			role="tab"
+			>Settings</a
+		>
+	</li>
+	<li className="nav-item">
+		<a
+			aria-controls="documents"
+			aria-selected="false"
+			className="disabled nav-link"
+			data-toggle="tab"
+			href="#documents"
+			id="documentsTab"
+			role="tab"
+			tabindex="-1"
+			>Documents</a
+		>
+	</li>
+	<li className="dropdown nav-item">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle nav-link"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			Configuration
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom" />
+			</svg>
+		</a>
+		<div className="dropdown-menu dropdown-menu-indicator-end">
+			<a
+				aria-controls="setup"
+				aria-selected="false"
+				className="dropdown-item"
+				data-toggle="tab"
+				href="#setup"
+				id="setupTab"
+				role="tab"
+			>
+				Setup
+				<span aria-hidden="true" className="dropdown-item-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#check" />
+					</svg>
+				</span>
+			</a>
+			<a
+				aria-controls="supportedClients"
+				aria-selected="false"
+				className="dropdown-item"
+				data-toggle="tab"
+				href="#supportedClients"
+				id="supportedClientsTab"
+				role="tab"
+			>
+				Supported Clients
+				<span aria-hidden="true" className="dropdown-item-indicator">
+					<svg
+						className="lexicon-icon lexicon-icon-check"
+						focusable="false"
+						role="presentation"
+					>
+						<use href="/images/icons/icons.svg#check" />
+					</svg>
+				</span>
+			</a>
+		</div>
+	</li>
+</ul>
+<div className="tab-content">
+	<div
+		aria-labelledby="fieldsTab"
+		className="active fade show tab-pane"
+		id="fields"
+		role="tabpanel"
+	>
+		Single origin, extra id beans, eu to go, skinny americano ut aftertaste
+		sugar. At americano, viennese variety iced grounds, grinder froth and
+		pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+		skinny, blue mountain, in variety sugar shop roast. Wings, blue mountain
+		affogato organic cappuccino java plunger pot. Single shot variety
+		pumpkin spice seasonal skinny barista carajillo robust cream.
+	</div>
+	<div
+		aria-labelledby="settingsTab"
+		className="fade tab-pane"
+		id="settings"
+		role="tabpanel"
+	>
+		Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction, id
+		trifecta qui trifecta grinder. Barista robusta arabica breve ut skinny
+		milk beans macchiato carajillo espresso. Cultivar single shot brewed,
+		coffee steamed to go wings to go cortado. Grinder, siphon coffee acerbic
+		espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="documentsTab"
+		className="fade tab-pane"
+		id="documents"
+		role="tabpanel"
+	>
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="setupTab"
+		className="fade tab-pane"
+		id="setup"
+		role="tabpanel"
+	>
+		Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+		arabica breve ut skinny milk beans macchiato carajillo espresso.
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="supportedClientsTab"
+		className="fade tab-pane"
+		id="supportedClients"
+		role="tabpanel"
+	>
+		At americano, viennese variety iced grounds, grinder froth and pumpkin
+		spice aromatic. Cultivar aged lungo, grounds café au lait, skinny, blue
+		mountain, in variety sugar shop roast. Wings, blue mountain affogato
+		organic cappuccino java plunger pot. Single shot variety pumpkin spice
+		seasonal skinny barista carajillo robust cream.
+	</div>
+</div>
+```
+
+## Modern (Deprecated)
+
+<div className="clay-site-alert alert alert-warning">
+	<strong className="lead">Warning</strong>
+	The styles for the `.nav-underline` class have been removed after 3.89.0. Please
+	see the <a href="#css-add-nav-underline">
+		adding nav-underline section
+	</a> to re-add this in your theme.
+</div>
+
+Use `.nav-underline` instead of `.nav-tabs`.
+
+<div className="sheet-example">
+	<ul className="nav nav-underline" role="tablist">
+		<li className="nav-item">
+			<a
+				aria-controls="navUnderlineFields"
+				aria-selected="true"
+				className="active nav-link"
+				data-toggle="tab"
+				href="#navUnderlineFields"
+				id="navUnderlineFieldsTab"
+				role="tab"
+			>
+				Fields
+			</a>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navUnderlineSettings"
+				aria-selected="false"
+				className="nav-link"
+				data-toggle="tab"
+				href="#navUnderlineSettings"
+				id="navUnderlineSettingsTab"
+				role="tab"
+			>
+				Settings
+			</a>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navUnderlineDocuments"
+				aria-selected="false"
+				className="disabled nav-link"
+				data-toggle="tab"
+				href="#navUnderlineDocuments"
+				id="navUnderlineDocumentsTab"
+				role="tab"
+				tabindex="-1"
+			>
+				Documents
+			</a>
+		</li>
+		<li className="dropdown nav-item">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle nav-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				Configuration
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom" />
+				</svg>
+			</a>
+			<div className="dropdown-menu dropdown-menu-indicator-end">
+				<a
+					aria-controls="navUnderlineSetup"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navUnderlineSetup"
+					id="navUnderlineSetupTab"
+					role="tab"
+				>
+					Setup
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+				<a
+					aria-controls="navUnderlineSupportedClients"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navUnderlineSupportedClients"
+					id="navUnderlineSupportedClientsTab"
+					role="tab"
+				>
+					Supported Clients
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+			</div>
+		</li>
+	</ul>
+	<div className="tab-content">
+		<div
+			aria-labelledby="navUnderlineFieldsTab"
+			className="active fade show tab-pane"
+			id="navUnderlineFields"
+			role="tabpanel"
+		>
+			Single origin, extra id beans, eu to go, skinny americano ut
+			aftertaste sugar. At americano, viennese variety iced grounds,
+			grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+			grounds café au lait, skinny, blue mountain, in variety sugar shop
+			roast. Wings, blue mountain affogato organic cappuccino java plunger
+			pot. Single shot variety pumpkin spice seasonal skinny barista
+			carajillo robust cream.
+		</div>
+		<div
+			aria-labelledby="navUnderlineSettingsTab"
+			className="fade tab-pane"
+			id="navUnderlineSettings"
+			role="tabpanel"
+		>
+			Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction,
+			id trifecta qui trifecta grinder. Barista robusta arabica breve ut
+			skinny milk beans macchiato carajillo espresso. Cultivar single shot
+			brewed, coffee steamed to go wings to go cortado. Grinder, siphon
+			coffee acerbic espresso cinnamon crema breve.
+		</div>
+		<div
+			aria-labelledby="navUnderlineDocumentsTab"
+			className="fade tab-pane"
+			id="navUnderlineDocuments"
+			role="tabpanel"
+		>
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navUnderlineSetupTab"
+			className="fade tab-pane"
+			id="navUnderlineSetup"
+			role="tabpanel"
+		>
+			Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+			arabica breve ut skinny milk beans macchiato carajillo espresso.
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navUnderlineSupportedClientsTab"
+			className="fade tab-pane"
+			id="navUnderlineSupportedClients"
+			role="tabpanel"
+		>
+			At americano, viennese variety iced grounds, grinder froth and
+			pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+			skinny, blue mountain, in variety sugar shop roast. Wings, blue
+			mountain affogato organic cappuccino java plunger pot. Single shot
+			variety pumpkin spice seasonal skinny barista carajillo robust
+			cream.
+		</div>
+	</div>
+</div>
+
+```html
+<div className="sheet-example">
+	<ul className="nav nav-underline" role="tablist">
+		<li className="nav-item">
+			<a
+				aria-controls="navUnderlineFields"
+				aria-selected="true"
+				className="active nav-link"
+				data-toggle="tab"
+				href="#navUnderlineFields"
+				id="navUnderlineFieldsTab"
+				role="tab"
+				>Fields</a
+			>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navUnderlineSettings"
+				aria-selected="false"
+				className="nav-link"
+				data-toggle="tab"
+				href="#navUnderlineSettings"
+				id="navUnderlineSettingsTab"
+				role="tab"
+				>Settings</a
+			>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navUnderlineDocuments"
+				aria-selected="false"
+				className="disabled nav-link"
+				data-toggle="tab"
+				href="#navUnderlineDocuments"
+				id="navUnderlineDocumentsTab"
+				role="tab"
+				tabindex="-1"
+				>Documents</a
+			>
+		</li>
+		<li className="dropdown nav-item">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle nav-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				Configuration
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom" />
+				</svg>
+			</a>
+			<div className="dropdown-menu dropdown-menu-indicator-end">
+				<a
+					aria-controls="navUnderlineSetup"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navUnderlineSetup"
+					id="navUnderlineSetupTab"
+					role="tab"
+				>
+					Setup
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+				<a
+					aria-controls="navUnderlineSupportedClients"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navUnderlineSupportedClients"
+					id="navUnderlineSupportedClientsTab"
+					role="tab"
+				>
+					Supported Clients
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+			</div>
+		</li>
+	</ul>
+	<div className="tab-content">
+		<div
+			aria-labelledby="navUnderlineFieldsTab"
+			className="active fade show tab-pane"
+			id="navUnderlineFields"
+			role="tabpanel"
+		>
+			Single origin, extra id beans, eu to go, skinny americano ut
+			aftertaste sugar. At americano, viennese variety iced grounds,
+			grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+			grounds café au lait, skinny, blue mountain, in variety sugar shop
+			roast. Wings, blue mountain affogato organic cappuccino java plunger
+			pot. Single shot variety pumpkin spice seasonal skinny barista
+			carajillo robust cream.
+		</div>
+		<div
+			aria-labelledby="navUnderlineSettingsTab"
+			className="fade tab-pane"
+			id="navUnderlineSettings"
+			role="tabpanel"
+		>
+			Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction,
+			id trifecta qui trifecta grinder. Barista robusta arabica breve ut
+			skinny milk beans macchiato carajillo espresso. Cultivar single shot
+			brewed, coffee steamed to go wings to go cortado. Grinder, siphon
+			coffee acerbic espresso cinnamon crema breve.
+		</div>
+		<div
+			aria-labelledby="navUnderlineDocumentsTab"
+			className="fade tab-pane"
+			id="navUnderlineDocuments"
+			role="tabpanel"
+		>
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navUnderlineSetupTab"
+			className="fade tab-pane"
+			id="navUnderlineSetup"
+			role="tabpanel"
+		>
+			Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+			arabica breve ut skinny milk beans macchiato carajillo espresso.
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navUnderlineSupportedClientsTab"
+			className="fade tab-pane"
+			id="navUnderlineSupportedClients"
+			role="tabpanel"
+		>
+			At americano, viennese variety iced grounds, grinder froth and
+			pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+			skinny, blue mountain, in variety sugar shop roast. Wings, blue
+			mountain affogato organic cappuccino java plunger pot. Single shot
+			variety pumpkin spice seasonal skinny barista carajillo robust
+			cream.
+		</div>
+	</div>
+</div>
+```
+
+## Variations
+
+### Buttons
+
+You can use buttons for tab items.
+
+<div className="sheet-example">
+	<ul className="nav nav-tabs" role="tablist">
+		<li className="nav-item">
+			<button
+				aria-controls="buttonFields"
+				aria-selected="true"
+				className="active btn btn-unstyled nav-link"
+				data-target="#buttonFields"
+				data-toggle="tab"
+				id="buttonFieldsTab"
+				role="tab"
+				type="button"
+			>
+				Fields
+			</button>
+		</li>
+		<li className="nav-item">
+			<button
+				aria-controls="buttonSettings"
+				aria-selected="false"
+				className="btn btn-unstyled nav-link"
+				data-target="#buttonSettings"
+				data-toggle="tab"
+				id="buttonSettingsTab"
+				role="tab"
+				type="button"
+			>
+				Settings
+			</button>
+		</li>
+		<li className="nav-item">
+			<button
+				aria-controls="buttonDocuments"
+				aria-selected="false"
+				className="disabled btn btn-unstyled nav-link"
+				data-target="#buttonDocuments"
+				data-toggle="tab"
+				id="buttonDocumentsTab"
+				role="tab"
+				tabindex="-1"
+				type="button"
+			>
+				Documents
+			</button>
+		</li>
+		<li className="dropdown nav-item">
+			<button
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle btn btn-unstyled nav-link"
+				data-toggle="dropdown"
+				type="button"
+			>
+				Configuration
+				<svg
+					className="lexicon-icon lexicon-icon-caret-button"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-button"></use>
+				</svg>
+			</button>
+			<ul className="dropdown-menu dropdown-menu-indicator-end">
+				<li>
+					<button
+						aria-controls="buttonSetup"
+						aria-selected="false"
+						className="dropdown-item"
+						data-target="#buttonSetup"
+						data-toggle="tab"
+						id="buttonSetupTab"
+						role="tab"
+						type="button"
+					>
+						Setup
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator-end"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check"></use>
+							</svg>
+						</span>
+					</button>
+				</li>
+				<li>
+					<button
+						aria-controls="buttonSupportedClients"
+						aria-selected="false"
+						className="dropdown-item"
+						data-target="#buttonSupportedClients"
+						data-toggle="tab"
+						id="supportedClientsTab"
+						role="tab"
+					>
+						Supported Clients
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator-end"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check"></use>
+							</svg>
+						</span>
+					</button>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<div className="tab-content">
+		<div
+			aria-labelledby="buttonFieldsTab"
+			className="active fade show tab-pane"
+			id="buttonFields"
+			role="tabpanel"
+		>
+			Single origin, extra id beans, eu to go, skinny americano ut
+			aftertaste sugar. At americano, viennese variety iced grounds,
+			grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+			grounds café au lait, skinny, blue mountain, in variety sugar shop
+			roast. Wings, blue mountain affogato organic cappuccino java plunger
+			pot. Single shot variety pumpkin spice seasonal skinny barista
+			carajillo robust cream.
+		</div>
+		<div
+			aria-labelledby="buttonSettingsTab"
+			className="fade tab-pane"
+			id="buttonSettings"
+			role="tabpanel"
+		>
+			Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction,
+			id trifecta qui trifecta grinder. Barista robusta arabica breve ut
+			skinny milk beans macchiato carajillo espresso. Cultivar single shot
+			brewed, coffee steamed to go wings to go cortado. Grinder, siphon
+			coffee acerbic espresso cinnamon crema breve.
+		</div>
+		<div
+			aria-labelledby="buttonDocumentsTab"
+			className="fade tab-pane"
+			id="buttonDocuments"
+			role="tabpanel"
+		>
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="buttonSetupTab"
+			className="fade tab-pane"
+			id="buttonSetup"
+			role="tabpanel"
+		>
+			Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+			arabica breve ut skinny milk beans macchiato carajillo espresso.
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="buttonSupportedClientsTab"
+			className="fade tab-pane"
+			id="buttonSupportedClients"
+			role="tabpanel"
+		>
+			At americano, viennese variety iced grounds, grinder froth and
+			pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+			skinny, blue mountain, in variety sugar shop roast. Wings, blue
+			mountain affogato organic cappuccino java plunger pot. Single shot
+			variety pumpkin spice seasonal skinny barista carajillo robust
+			cream.
+		</div>
+	</div>
+</div>
+
+```html
+<ul className="nav nav-tabs" role="tablist">
+	<li className="nav-item">
+		<button
+			aria-controls="buttonFields"
+			aria-selected="true"
+			className="active btn btn-unstyled nav-link"
+			data-target="#buttonFields"
+			data-toggle="tab"
+			id="buttonFieldsTab"
+			role="tab"
+			type="button"
+		>
+			Fields
+		</button>
+	</li>
+	<li className="nav-item">
+		<button
+			aria-controls="buttonSettings"
+			aria-selected="false"
+			className="btn btn-unstyled nav-link"
+			data-target="#buttonSettings"
+			data-toggle="tab"
+			id="buttonSettingsTab"
+			role="tab"
+			type="button"
+		>
+			Settings
+		</button>
+	</li>
+	<li className="nav-item">
+		<button
+			aria-controls="buttonDocuments"
+			aria-selected="false"
+			className="disabled btn btn-unstyled nav-link"
+			data-target="#buttonDocuments"
+			data-toggle="tab"
+			id="buttonDocumentsTab"
+			role="tab"
+			tabindex="-1"
+			type="button"
+		>
+			Documents
+		</button>
+	</li>
+	<li className="dropdown nav-item">
+		<button
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle btn btn-unstyled nav-link"
+			data-toggle="dropdown"
+			type="button"
+		>
+			Configuration
+			<svg
+				className="lexicon-icon lexicon-icon-caret-button"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-button"></use>
+			</svg>
+		</button>
+		<ul className="dropdown-menu dropdown-menu-indicator-end">
+			<li>
+				<button
+					aria-controls="buttonSetup"
+					aria-selected="false"
+					className="dropdown-item"
+					data-target="#buttonSetup"
+					data-toggle="tab"
+					id="buttonSetupTab"
+					role="tab"
+					type="button"
+				>
+					Setup
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator-end"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check"></use>
+						</svg>
+					</span>
+				</button>
+			</li>
+			<li>
+				<button
+					aria-controls="buttonSupportedClients"
+					aria-selected="false"
+					className="dropdown-item"
+					data-target="#buttonSupportedClients"
+					data-toggle="tab"
+					id="supportedClientsTab"
+					role="tab"
+				>
+					Supported Clients
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator-end"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check"></use>
+						</svg>
+					</span>
+				</button>
+			</li>
+		</ul>
+	</li>
+</ul>
+<div className="tab-content">
+	<div
+		aria-labelledby="buttonFieldsTab"
+		className="active fade show tab-pane"
+		id="buttonFields"
+		role="tabpanel"
+	>
+		Single origin, extra id beans, eu to go, skinny americano ut aftertaste
+		sugar. At americano, viennese variety iced grounds, grinder froth and
+		pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+		skinny, blue mountain, in variety sugar shop roast. Wings, blue mountain
+		affogato organic cappuccino java plunger pot. Single shot variety
+		pumpkin spice seasonal skinny barista carajillo robust cream.
+	</div>
+	<div
+		aria-labelledby="buttonSettingsTab"
+		className="fade tab-pane"
+		id="buttonSettings"
+		role="tabpanel"
+	>
+		Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction, id
+		trifecta qui trifecta grinder. Barista robusta arabica breve ut skinny
+		milk beans macchiato carajillo espresso. Cultivar single shot brewed,
+		coffee steamed to go wings to go cortado. Grinder, siphon coffee acerbic
+		espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="buttonDocumentsTab"
+		className="fade tab-pane"
+		id="buttonDocuments"
+		role="tabpanel"
+	>
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="buttonSetupTab"
+		className="fade tab-pane"
+		id="buttonSetup"
+		role="tabpanel"
+	>
+		Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+		arabica breve ut skinny milk beans macchiato carajillo espresso.
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="buttonSupportedClientsTab"
+		className="fade tab-pane"
+		id="buttonSupportedClients"
+		role="tabpanel"
+	>
+		At americano, viennese variety iced grounds, grinder froth and pumpkin
+		spice aromatic. Cultivar aged lungo, grounds café au lait, skinny, blue
+		mountain, in variety sugar shop roast. Wings, blue mountain affogato
+		organic cappuccino java plunger pot. Single shot variety pumpkin spice
+		seasonal skinny barista carajillo robust cream.
+	</div>
+</div>
+```
+
+### Justified
+
+You can justify the nav items according the tab content just adding `.nav-justified` class on the `.ul` element.
+
+<div className="sheet-example">
+	<ul className="nav nav-justified nav-tabs" role="tablist">
+		<li className="nav-item">
+			<a
+				aria-controls="navJustifiedFields"
+				aria-selected="true"
+				className="active nav-link"
+				data-toggle="tab"
+				href="#navJustifiedFields"
+				id="navJustifiedFieldsTab"
+				role="tab"
+			>
+				Fields
+			</a>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navJustifiedSettings"
+				aria-selected="false"
+				className="nav-link"
+				data-toggle="tab"
+				href="#navJustifiedSettings"
+				id="navJustifiedSettingsTab"
+				role="tab"
+			>
+				Settings
+			</a>
+		</li>
+		<li className="nav-item">
+			<a
+				aria-controls="navJustifiedDocuments"
+				aria-selected="false"
+				className="disabled nav-link"
+				data-toggle="tab"
+				href="#navJustifiedDocuments"
+				id="navJustifiedDocumentsTab"
+				role="tab"
+				tabindex="-1"
+			>
+				Documents
+			</a>
+		</li>
+		<li className="dropdown nav-item">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle nav-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				Configuration
+				<svg
+					className="lexicon-icon lexicon-icon-caret-button"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-button"></use>
+				</svg>
+			</a>
+			<ul className="dropdown-menu dropdown-menu-indicator-end">
+				<li>
+					<a
+						aria-controls="navJustifiedSetup"
+						aria-selected="false"
+						className="dropdown-item"
+						data-toggle="tab"
+						href="#navJustifiedSetup"
+						id="navJustifiedSetupTab"
+						role="tab"
+					>
+						Setup
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator-end"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check"></use>
+							</svg>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a
+						aria-controls="navJustifiedSupportedClients"
+						aria-selected="false"
+						className="dropdown-item"
+						data-toggle="tab"
+						href="#navJustifiedSupportedClients"
+						id="navJustifiedSupportedClientsTab"
+						role="tab"
+					>
+						Supported Clients
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator-end"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check"></use>
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<div className="tab-content">
+		<div
+			aria-labelledby="navJustifiedFieldsTab"
+			className="active fade show tab-pane"
+			id="navJustifiedFields"
+			role="tabpanel"
+		>
+			Single origin, extra id beans, eu to go, skinny americano ut
+			aftertaste sugar. At americano, viennese variety iced grounds,
+			grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+			grounds café au lait, skinny, blue mountain, in variety sugar shop
+			roast. Wings, blue mountain affogato organic cappuccino java plunger
+			pot. Single shot variety pumpkin spice seasonal skinny barista
+			carajillo robust cream.
+		</div>
+		<div
+			aria-labelledby="navJustifiedSettingsTab"
+			className="fade tab-pane"
+			id="navJustifiedSettings"
+			role="tabpanel"
+		>
+			Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction,
+			id trifecta qui trifecta grinder. Barista robusta arabica breve ut
+			skinny milk beans macchiato carajillo espresso. Cultivar single shot
+			brewed, coffee steamed to go wings to go cortado. Grinder, siphon
+			coffee acerbic espresso cinnamon crema breve.
+		</div>
+		<div
+			aria-labelledby="navJustifiedDocumentsTab"
+			className="fade tab-pane"
+			id="navJustifiedDocuments"
+			role="tabpanel"
+		>
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navJustifiedSetupTab"
+			className="fade tab-pane"
+			id="navJustifiedSetup"
+			role="tabpanel"
+		>
+			Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+			arabica breve ut skinny milk beans macchiato carajillo espresso.
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navJustifiedSupportedClientsTab"
+			className="fade tab-pane"
+			id="navJustifiedSupportedClients"
+			role="tabpanel"
+		>
+			At americano, viennese variety iced grounds, grinder froth and
+			pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+			skinny, blue mountain, in variety sugar shop roast. Wings, blue
+			mountain affogato organic cappuccino java plunger pot. Single shot
+			variety pumpkin spice seasonal skinny barista carajillo robust
+			cream.
+		</div>
+	</div>
+</div>
+
+```html
+<ul className="nav nav-justified nav-tabs" role="tablist">
+	<li className="nav-item">
+		<a
+			aria-controls="navJustifiedFields"
+			aria-selected="true"
+			className="active nav-link"
+			data-toggle="tab"
+			href="#navJustifiedFields"
+			id="navJustifiedFieldsTab"
+			role="tab"
+			>Fields</a
+		>
+	</li>
+	<li className="nav-item">
+		<a
+			aria-controls="navJustifiedSettings"
+			aria-selected="false"
+			className="nav-link"
+			data-toggle="tab"
+			href="#navJustifiedSettings"
+			id="navJustifiedSettingsTab"
+			role="tab"
+			>Settings</a
+		>
+	</li>
+	<li className="nav-item">
+		<a
+			aria-controls="navJustifiedDocuments"
+			aria-selected="false"
+			className="disabled nav-link"
+			data-toggle="tab"
+			href="#navJustifiedDocuments"
+			id="navJustifiedDocumentsTab"
+			role="tab"
+			tabindex="-1"
+			>Documents</a
+		>
+	</li>
+	<li className="dropdown nav-item">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle nav-link"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			Configuration
+			<svg
+				className="lexicon-icon lexicon-icon-caret-button"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-button"></use>
+			</svg>
+		</a>
+		<ul className="dropdown-menu dropdown-menu-indicator-end">
+			<li>
+				<a
+					aria-controls="navJustifiedSetup"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navJustifiedSetup"
+					id="navJustifiedSetupTab"
+					role="tab"
+				>
+					Setup
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator-end"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check"></use>
+						</svg>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a
+					aria-controls="navJustifiedSupportedClients"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navJustifiedSupportedClients"
+					id="navJustifiedSupportedClientsTab"
+					role="tab"
+				>
+					Supported Clients
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator-end"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check"></use>
+						</svg>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+<div className="tab-content">
+	<div
+		aria-labelledby="navJustifiedFieldsTab"
+		className="active fade show tab-pane"
+		id="navJustifiedFields"
+		role="tabpanel"
+	>
+		Single origin, extra id beans, eu to go, skinny americano ut aftertaste
+		sugar. At americano, viennese variety iced grounds, grinder froth and
+		pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+		skinny, blue mountain, in variety sugar shop roast. Wings, blue mountain
+		affogato organic cappuccino java plunger pot. Single shot variety
+		pumpkin spice seasonal skinny barista carajillo robust cream.
+	</div>
+	<div
+		aria-labelledby="navJustifiedSettingsTab"
+		className="fade tab-pane"
+		id="navJustifiedSettings"
+		role="tabpanel"
+	>
+		Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction, id
+		trifecta qui trifecta grinder. Barista robusta arabica breve ut skinny
+		milk beans macchiato carajillo espresso. Cultivar single shot brewed,
+		coffee steamed to go wings to go cortado. Grinder, siphon coffee acerbic
+		espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="navJustifiedDocumentsTab"
+		className="fade tab-pane"
+		id="navJustifiedDocuments"
+		role="tabpanel"
+	>
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="navJustifiedSetupTab"
+		className="fade tab-pane"
+		id="navJustifiedSetup"
+		role="tabpanel"
+	>
+		Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+		arabica breve ut skinny milk beans macchiato carajillo espresso.
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="navJustifiedSupportedClientsTab"
+		className="fade tab-pane"
+		id="navJustifiedSupportedClients"
+		role="tabpanel"
+	>
+		At americano, viennese variety iced grounds, grinder froth and pumpkin
+		spice aromatic. Cultivar aged lungo, grounds café au lait, skinny, blue
+		mountain, in variety sugar shop roast. Wings, blue mountain affogato
+		organic cappuccino java plunger pot. Single shot variety pumpkin spice
+		seasonal skinny barista carajillo robust cream.
+	</div>
+</div>
+```
+
+### Grid
+
+Use bootstrap's grid inside list items in `nav-tabs`.
+
+<div className="sheet-example">
+	<ul className="nav nav-tabs" role="tablist">
+		<li className="col-6 col-sm-3 nav-item">
+			<a
+				aria-controls="navTabsGridFields"
+				aria-selected="true"
+				className="active nav-link"
+				data-toggle="tab"
+				href="#navTabsGridFields"
+				id="navTabsGridFieldsTab"
+				role="tab"
+			>
+				Fields
+			</a>
+		</li>
+		<li className="col-6 col-sm-3 nav-item">
+			<a
+				aria-controls="navTabsGridSettings"
+				aria-selected="false"
+				className="nav-link"
+				data-toggle="tab"
+				href="#navTabsGridSettings"
+				id="navTabsGridSettingsTab"
+				role="tab"
+			>
+				Settings
+			</a>
+		</li>
+		<li className="col-6 col-sm-3 nav-item">
+			<a
+				aria-controls="navTabsGridDocuments"
+				aria-selected="false"
+				className="disabled nav-link"
+				data-toggle="tab"
+				href="#navTabsGridDocuments"
+				id="navTabsGridDocumentsTab"
+				role="tab"
+				tabindex="-1"
+			>
+				Documents
+			</a>
+		</li>
+		<li className="col-6 col-sm-3 dropdown nav-item">
+			<a
+				aria-expanded="false"
+				aria-haspopup="true"
+				className="dropdown-toggle nav-link"
+				data-toggle="dropdown"
+				href="#1"
+				role="button"
+			>
+				Configuration
+				<svg
+					className="lexicon-icon lexicon-icon-caret-bottom"
+					focusable="false"
+					role="presentation"
+				>
+					<use href="/images/icons/icons.svg#caret-bottom" />
+				</svg>
+			</a>
+			<ul className="dropdown-menu dropdown-menu-indicator-end">
+				<li>
+					<a
+						aria-controls="navTabsGridSetup"
+						aria-selected="false"
+						className="dropdown-item"
+						data-toggle="tab"
+						href="#navTabsGridSetup"
+						id="navTabsGridSetupTab"
+						role="tab"
+					>
+						Setup
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator-end"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check" />
+							</svg>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a
+						aria-controls="navTabsGridSupportedClients"
+						aria-selected="false"
+						className="dropdown-item"
+						data-toggle="tab"
+						href="#navTabsGridSupportedClients"
+						id="navTabsGridSupportedClientsTab"
+						role="tab"
+					>
+						Supported Clients
+						<span
+							aria-hidden="true"
+							className="dropdown-item-indicator-end"
+						>
+							<svg
+								className="lexicon-icon lexicon-icon-check"
+								focusable="false"
+								role="presentation"
+							>
+								<use href="/images/icons/icons.svg#check" />
+							</svg>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<div className="tab-content">
+		<div
+			aria-labelledby="navTabsGridFieldsTab"
+			className="active fade show tab-pane"
+			id="navTabsGridFields"
+			role="tabpanel"
+		>
+			Single origin, extra id beans, eu to go, skinny americano ut
+			aftertaste sugar. At americano, viennese variety iced grounds,
+			grinder froth and pumpkin spice aromatic. Cultivar aged lungo,
+			grounds café au lait, skinny, blue mountain, in variety sugar shop
+			roast. Wings, blue mountain affogato organic cappuccino java plunger
+			pot. Single shot variety pumpkin spice seasonal skinny barista
+			carajillo robust cream.
+		</div>
+		<div
+			aria-labelledby="navTabsGridSettingsTab"
+			className="fade tab-pane"
+			id="navTabsGridSettings"
+			role="tabpanel"
+		>
+			Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction,
+			id trifecta qui trifecta grinder. Barista robusta arabica breve ut
+			skinny milk beans macchiato carajillo espresso. Cultivar single shot
+			brewed, coffee steamed to go wings to go cortado. Grinder, siphon
+			coffee acerbic espresso cinnamon crema breve.
+		</div>
+		<div
+			aria-labelledby="navTabsGridDocumentsTab"
+			className="fade tab-pane"
+			id="navTabsGridDocuments"
+			role="tabpanel"
+		>
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navTabsGridSetupTab"
+			className="fade tab-pane"
+			id="navTabsGridSetup"
+			role="tabpanel"
+		>
+			Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+			arabica breve ut skinny milk beans macchiato carajillo espresso.
+			Cultivar single shot brewed, coffee steamed to go wings to go
+			cortado. Grinder, siphon coffee acerbic espresso cinnamon crema
+			breve.
+		</div>
+		<div
+			aria-labelledby="navTabsGridSupportedClientsTab"
+			className="fade tab-pane"
+			id="navTabsGridSupportedClients"
+			role="tabpanel"
+		>
+			At americano, viennese variety iced grounds, grinder froth and
+			pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+			skinny, blue mountain, in variety sugar shop roast. Wings, blue
+			mountain affogato organic cappuccino java plunger pot. Single shot
+			variety pumpkin spice seasonal skinny barista carajillo robust
+			cream.
+		</div>
+	</div>
+</div>
+
+```html
+<ul className="nav nav-tabs" role="tablist">
+	<li className="col-6 col-sm-3 nav-item">
+		<a
+			aria-controls="navTabsGridFields"
+			aria-selected="true"
+			className="active nav-link"
+			data-toggle="tab"
+			href="#navTabsGridFields"
+			id="navTabsGridFieldsTab"
+			role="tab"
+			>Fields</a
+		>
+	</li>
+	<li className="col-6 col-sm-3 nav-item">
+		<a
+			aria-controls="navTabsGridSettings"
+			aria-selected="false"
+			className="nav-link"
+			data-toggle="tab"
+			href="#navTabsGridSettings"
+			id="navTabsGridSettingsTab"
+			role="tab"
+			>Settings</a
+		>
+	</li>
+	<li className="col-6 col-sm-3 nav-item">
+		<a
+			aria-controls="navTabsGridDocuments"
+			aria-selected="false"
+			className="disabled nav-link"
+			data-toggle="tab"
+			href="#navTabsGridDocuments"
+			id="navTabsGridDocumentsTab"
+			role="tab"
+			tabindex="-1"
+			>Documents</a
+		>
+	</li>
+	<li className="col-6 col-sm-3 dropdown nav-item">
+		<a
+			aria-expanded="false"
+			aria-haspopup="true"
+			className="dropdown-toggle nav-link"
+			data-toggle="dropdown"
+			href="#1"
+			role="button"
+		>
+			Configuration
+			<svg
+				className="lexicon-icon lexicon-icon-caret-bottom"
+				focusable="false"
+				role="presentation"
+			>
+				<use href="/images/icons/icons.svg#caret-bottom" />
+			</svg>
+		</a>
+		<ul className="dropdown-menu dropdown-menu-indicator-end">
+			<li>
+				<a
+					aria-controls="navTabsGridSetup"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navTabsGridSetup"
+					id="navTabsGridSetupTab"
+					role="tab"
+				>
+					Setup
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator-end"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a
+					aria-controls="navTabsGridSupportedClients"
+					aria-selected="false"
+					className="dropdown-item"
+					data-toggle="tab"
+					href="#navTabsGridSupportedClients"
+					id="navTabsGridSupportedClientsTab"
+					role="tab"
+				>
+					Supported Clients
+					<span
+						aria-hidden="true"
+						className="dropdown-item-indicator-end"
+					>
+						<svg
+							className="lexicon-icon lexicon-icon-check"
+							focusable="false"
+							role="presentation"
+						>
+							<use href="/images/icons/icons.svg#check" />
+						</svg>
+					</span>
+				</a>
+			</li>
+		</ul>
+	</li>
+</ul>
+<div className="tab-content">
+	<div
+		aria-labelledby="navTabsGridFieldsTab"
+		className="active fade show tab-pane"
+		id="navTabsGridFields"
+		role="tabpanel"
+	>
+		Single origin, extra id beans, eu to go, skinny americano ut aftertaste
+		sugar. At americano, viennese variety iced grounds, grinder froth and
+		pumpkin spice aromatic. Cultivar aged lungo, grounds café au lait,
+		skinny, blue mountain, in variety sugar shop roast. Wings, blue mountain
+		affogato organic cappuccino java plunger pot. Single shot variety
+		pumpkin spice seasonal skinny barista carajillo robust cream.
+	</div>
+	<div
+		aria-labelledby="navTabsGridSettingsTab"
+		className="fade tab-pane"
+		id="navTabsGridSettings"
+		role="tabpanel"
+	>
+		Iced, crema, coffee id kopi-luwak coffee variety. Skinny extraction, id
+		trifecta qui trifecta grinder. Barista robusta arabica breve ut skinny
+		milk beans macchiato carajillo espresso. Cultivar single shot brewed,
+		coffee steamed to go wings to go cortado. Grinder, siphon coffee acerbic
+		espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="navTabsGridDocumentsTab"
+		className="fade tab-pane"
+		id="navTabsGridDocuments"
+		role="tabpanel"
+	>
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="navTabsGridSetupTab"
+		className="fade tab-pane"
+		id="navTabsGridSetup"
+		role="tabpanel"
+	>
+		Skinny extraction, id trifecta qui trifecta grinder. Barista robusta
+		arabica breve ut skinny milk beans macchiato carajillo espresso.
+		Cultivar single shot brewed, coffee steamed to go wings to go cortado.
+		Grinder, siphon coffee acerbic espresso cinnamon crema breve.
+	</div>
+	<div
+		aria-labelledby="navTabsGridSupportedClientsTab"
+		className="fade tab-pane"
+		id="navTabsGridSupportedClients"
+		role="tabpanel"
+	>
+		At americano, viennese variety iced grounds, grinder froth and pumpkin
+		spice aromatic. Cultivar aged lungo, grounds café au lait, skinny, blue
+		mountain, in variety sugar shop roast. Wings, blue mountain affogato
+		organic cappuccino java plunger pot. Single shot variety pumpkin spice
+		seasonal skinny barista carajillo robust cream.
+	</div>
+</div>
+```
+
+## Add Nav Underline
+
+To re-add `nav-underline` styles in your theme, copy and paste the variable code below in to your theme's `_clay_variables.scss` file.
+
+### Classic
+
+```css
+// Nav Underline Link Highlight
+
+$nav-underline-link-highlight-content: null !default;
+$nav-underline-link-highlight-height: null !default;
+$nav-underline-link-highlight-bottom: 0 !default;
+$nav-underline-link-highlight-left: 0 !default;
+$nav-underline-link-highlight-right: 0 !default;
+$nav-underline-link-highlight-top: null !default;
+
+$nav-underline-link-active-highlight: #5791ff !default;
+$nav-underline-link-active-content: '' !default;
+$nav-underline-link-active-highlight-height: 0.125rem !default; // 2px
+
+$nav-underline-link-disabled-highlight: null !default;
+
+// .nav-underline
+
+$nav-underline-font-size: null !default;
+
+$nav-underline-link-highlight-palette: null !default;
+
+$nav-underline-link-color: #6b6c7e !default;
+$nav-underline-link-padding-x: null !default;
+$nav-underline-link-padding-y: null !default;
+
+$nav-underline-link-hover-color: null !default;
+
+$nav-underline-link-active-color: #272833 !default;
+
+$nav-underline-link-disabled-color: #a7a9bc !default;
+
+// .nav-underline .nav-link[aria-expanded='true']
+
+$nav-underline-link-show: () !default;
+$nav-underline-link-show: map-deep-merge(
+	(
+		color: $nav-underline-link-active-color,
+		after: (
+			content: $nav-underline-link-active-content,
+			height: $nav-underline-link-active-highlight-height,
+		),
+	),
+	$nav-underline-link-show
+);
+
+$nav-underline-link: () !default;
+$nav-underline-link: map-deep-merge(
+	(
+		border-radius: 1px,
+		color: $nav-underline-link-color,
+		font-weight: 600,
+		line-height: 1,
+		padding-bottom: 0.5625rem,
+		padding-left: $nav-underline-link-padding-x,
+		padding-right: $nav-underline-link-padding-x,
+		padding-top: 0.5625rem,
+		transition: box-shadow 0.15s ease-in-out,
+		after: (
+			bottom: $nav-underline-link-highlight-bottom,
+			content: $nav-underline-link-highlight-content,
+			display: block,
+			height: $nav-underline-link-highlight-height,
+			position: absolute,
+			left: $nav-underline-link-highlight-left,
+			right: $nav-underline-link-highlight-right,
+			top: $nav-underline-link-highlight-top,
+			width: auto,
+		),
+		hover: (
+			color: $nav-underline-link-hover-color,
+		),
+		focus: (
+			box-shadow: #{0 0 0 0.125rem #fff,
+			0 0 0 0.25rem #80acff},
+			color: $nav-underline-link-hover-color,
+			outline: 0,
+		),
+		active-class: (
+			color: $nav-underline-link-active-color,
+			after: (
+				background-color: $nav-underline-link-active-highlight,
+				content: $nav-underline-link-active-content,
+				height: $nav-underline-link-active-highlight-height,
+			),
+		),
+		show: $nav-underline-link-show,
+		disabled: (
+			box-shadow: none,
+			color: $nav-underline-link-disabled-color,
+			after: (
+				background-color: $nav-underline-link-disabled-highlight,
+			),
+		),
+	),
+	$nav-underline-link
+);
+
+// .nav-underline
+
+$nav-underline: () !default;
+$nav-underline: map-deep-merge(
+	(
+		font-size: $nav-underline-font-size,
+		nav-link: $nav-underline-link,
+	),
+	$nav-underline
+);
+
+$nav-palette: () !default;
+$nav-palette: map-deep-merge(
+	(
+		nav-underline: $nav-underline,
+	),
+	$nav-palette
+);
+```
+
+### Styled
+
+```css
+// Nav Underline Link Highlight
+
+$nav-underline-link-highlight-content: null !default;
+$nav-underline-link-highlight-height: null !default;
+$nav-underline-link-highlight-bottom: 0 !default;
+$nav-underline-link-highlight-left: 0.5rem !default;
+$nav-underline-link-highlight-right: 0.5rem !default;
+$nav-underline-link-highlight-top: null !default;
+
+$nav-underline-link-active-highlight: #47a0ff !default;
+$nav-underline-link-active-content: '' !default;
+$nav-underline-link-active-highlight-height: 0.1875rem !default;
+
+$nav-underline-link-disabled-highlight: null !default;
+
+// .nav-underline
+
+$nav-underline-font-size: null !default;
+
+$nav-underline-link-highlight-palette: null !default;
+
+$nav-underline-link-color: null !default;
+$nav-underline-link-padding-x: null !default;
+$nav-underline-link-padding-y: null !default;
+
+$nav-underline-link-hover-color: null !default;
+
+$nav-underline-link-active-color: null !default;
+
+$nav-underline-link-disabled-color: null !default;
+
+// .nav-underline .nav-link[aria-expanded='true']
+
+$nav-underline-link-show: () !default;
+$nav-underline-link-show: map-deep-merge(
+	(
+		color: $nav-underline-link-active-color,
+		after: (
+			content: $nav-underline-link-active-content,
+			height: $nav-underline-link-active-highlight-height
+		)
+	),
+	$nav-underline-link-show
+);
+
+$nav-underline-link: () !default;
+$nav-underline-link: map-deep-merge(
+	(
+		color: $nav-underline-link-color,
+		padding-bottom: $nav-underline-link-padding-y,
+		padding-left: $nav-underline-link-padding-x,
+		padding-right: $nav-underline-link-padding-x,
+		padding-top: $nav-underline-link-padding-y,
+		after: (
+			bottom: $nav-underline-link-highlight-bottom,
+			content: $nav-underline-link-highlight-content,
+			display: block,
+			height: $nav-underline-link-highlight-height,
+			position: absolute,
+			left: $nav-underline-link-highlight-left,
+			right: $nav-underline-link-highlight-right,
+			top: $nav-underline-link-highlight-top,
+			width: auto
+		),
+		hover: (
+			color: $nav-underline-link-hover-color
+		),
+		focus: (
+			color: $nav-underline-link-hover-color
+		),
+		active-class: (
+			color: $nav-underline-link-active-color,
+			after: (
+				background-color: $nav-underline-link-active-highlight,
+				content: $nav-underline-link-active-content,
+				height: $nav-underline-link-active-highlight-height
+			)
+		),
+		show: $nav-underline-link-show,
+		disabled: (
+			color: $nav-underline-link-disabled-color,
+			after: (
+				background-color: $nav-underline-link-disabled-highlight
+			)
+		)
+	),
+	$nav-underline-link
+);
+
+// .nav-underline
+
+$nav-underline: () !default;
+$nav-underline: map-deep-merge(
+	(
+		font-size: $nav-underline-font-size,
+		nav-link: $nav-underline-link
+	),
+	$nav-underline
+);
+
+$nav-palette: () !default;
+$nav-palette: map-deep-merge(
+	(
+		nav-underline: $nav-underline
+	),
+	$nav-palette
+);
+```

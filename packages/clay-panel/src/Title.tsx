@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-const ClayPanelTitle = ({
+export const Title = ({
 	children,
 	className,
 	...otherProps
@@ -16,5 +16,3 @@ const ClayPanelTitle = ({
 		</div>
 	);
 };
-
-export default ClayPanelTitle;

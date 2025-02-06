@@ -4,25 +4,42 @@ description: 'Forms obtain user data and transmit it to the system to either sto
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/forms/'
 packageNpm: '@clayui/form'
 storybookPath: 'design-system-components-input'
-alwaysActive: true
+packageUse: "import ClayForm, {ClayInput} from '@clayui/form';"
 ---
-
-import {Form, FormValidation, FormText} from '$packages/clay-form/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Validation](#validation)
--   [Group Caption](#group-caption)
-
-</div>
-</div>
 
 Use `ClayForm` components for composing forms.
 
 For controlling groups inside forms, use `ClayForm.Group` components like the code below:
 
-<Form />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form>
+					<Form.Group className="form-group-sm">
+						<label htmlFor="basicInput">Name</label>
+						<ClayInput placeholder="Name" type="text"></ClayInput>
+					</Form.Group>
+					<Form.Group className="form-group-sm">
+						<label htmlFor="basicInput">Description</label>
+						<textarea
+							className="form-control"
+							placeholder="Description"
+						></textarea>
+					</Form.Group>
+				</Form>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Validation
 
@@ -32,10 +49,105 @@ Use `ClayForm.FeedbackGroup` and `ClayForm.FeedbackItem` for creating custom fee
 
 `ClayForm.FeedbackIndicator` is used to apply an Icon on the feedback message, like the following example:
 
-<FormValidation />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form>
+					<Form.Group className="has-success">
+						<label htmlFor="basicInput">Name</label>
+						<ClayInput placeholder="Name" type="text"></ClayInput>
+						<Form.FeedbackGroup>
+							<Form.FeedbackItem>
+								This is a form-feedback-item.
+							</Form.FeedbackItem>
+							<Form.FeedbackItem>
+								<Form.FeedbackIndicator symbol="check-circle-full" />
+								This is a form-feedback-item with a check feedback
+								indicator.
+							</Form.FeedbackItem>
+						</Form.FeedbackGroup>
+					</Form.Group>
+					<Form.Group className="has-warning">
+						<label htmlFor="basicInput">Description</label>
+						<textarea
+							className="form-control"
+							placeholder="Description"
+						></textarea>
+						<Form.FeedbackGroup>
+							<Form.FeedbackItem>
+								This is a form-feedback-item.
+							</Form.FeedbackItem>
+							<Form.FeedbackItem>
+								<Form.FeedbackIndicator
+									spritemap={spritemap}
+									symbol="warning-full"
+								/>
+								This is a form-feedback-item with a warning feedback
+								indicator.
+							</Form.FeedbackItem>
+						</Form.FeedbackGroup>
+					</Form.Group>
+					<Form.Group className="has-error">
+						<label htmlFor="basicInput">Password</label>
+						<ClayInput
+							placeholder="Name"
+							type="password"
+						></ClayInput>
+						<Form.FeedbackGroup>
+							<Form.FeedbackItem>
+								This is a form-feedback-item.
+							</Form.FeedbackItem>
+							<Form.FeedbackItem>
+								<Form.FeedbackIndicator symbol="exclamation-full" />
+								This is a form-feedback-item with a error feedback
+								indicator.
+							</Form.FeedbackItem>
+						</Form.FeedbackGroup>
+					</Form.Group>
+				</Form>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Group Caption
 
 Use `ClayForm.Text` for creating a caption on Form Groups.
 
-<FormText />
+```jsx preview
+import {Provider} from '@clayui/core';
+import Form, {ClayInput} from '@clayui/form';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<Form>
+					<Form.Group className="has-success">
+						<label htmlFor="basicInput">Name</label>
+						<ClayInput placeholder="Name" type="text"></ClayInput>
+						<Form.FeedbackGroup>
+							<Form.FeedbackItem>
+								This is a form-feedback-item.
+							</Form.FeedbackItem>
+							<Form.Text>{''}</Form.Text>
+						</Form.FeedbackGroup>
+					</Form.Group>
+				</Form>
+			</div>
+		</Provider>
+	);
+}
+```

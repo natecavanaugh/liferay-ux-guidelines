@@ -24,7 +24,7 @@ import {useDnD} from './DragAndDrop';
 import {Icons, useAPI, useTreeViewContext} from './context';
 import {useItem} from './useItem';
 
-export interface ITreeViewItemProps
+interface ITreeViewItemProps
 	extends Omit<React.HTMLAttributes<HTMLLIElement>, 'children'> {
 	/**
 	 * Flag to set the node to the active state.
@@ -80,503 +80,516 @@ export interface ITreeViewItemProps
 
 const SpacingContext = React.createContext(0);
 
-export const TreeViewItem = React.forwardRef<
-	HTMLDivElement,
-	ITreeViewItemProps
->(function TreeViewItemInner(
-	{
-		actions,
-		children,
-		expandable,
-		isDragging,
-		overPosition,
-		overTarget,
-		...otherProps
-	}: ITreeViewItemProps,
-	ref
-) {
-	const spacing = useContext(SpacingContext);
-	const {
-		childrenRoot,
-		close,
-		dragAndDrop,
-		expandDoubleClick,
-		expandedKeys,
-		nestedKey,
-		onRenameItem,
-		onSelect,
-		open,
-		remove,
-		replace,
-		rootRef,
-		selection,
-		selectionMode,
-		toggle,
-	} = useTreeViewContext();
-	const [focus, setFocus] = useState(false);
-	const [loading, setLoading] = useState(false);
-	const {mode} = useDnD();
-	const item = useItem();
-	const clickCapturedRef = useRef(false);
-	const api = useAPI();
+export const Item = React.forwardRef<HTMLDivElement, ITreeViewItemProps>(
+	function TreeViewItemInner(
+		{
+			actions,
+			children,
+			expandable,
+			isDragging,
+			overPosition,
+			overTarget,
+			...otherProps
+		}: ITreeViewItemProps,
+		ref
+	) {
+		const spacing = useContext(SpacingContext);
+		const {
+			childrenRoot,
+			close,
+			dragAndDrop,
+			expandDoubleClick,
+			expandedKeys,
+			nestedKey,
+			onRenameItem,
+			onSelect,
+			open,
+			remove,
+			replace,
+			rootRef,
+			selection,
+			selectionMode,
+			toggle,
+		} = useTreeViewContext();
+		const [focus, setFocus] = useState(false);
+		const [loading, setLoading] = useState(false);
+		const {mode} = useDnD();
+		const item = useItem();
+		const clickCapturedRef = useRef(false);
+		const api = useAPI();
 
-	const load = api[2];
+		const load = api[2];
 
-	const [left, right, ...otherElements] = React.Children.toArray(children);
+		const [left, right, ...otherElements] =
+			React.Children.toArray(children);
 
-	const group =
-		// @ts-ignore
-		right?.type?.displayName === 'ClayTreeViewGroup' ? right : null;
+		const group =
+			// @ts-ignore
+			right?.type?.displayName === 'ClayTreeViewGroup' ? right : null;
 
-	useEffect(() => {
-		if (focus) {
-			const onClick = () => {
-				if (!clickCapturedRef.current) {
-					setFocus(false);
-				}
-
-				clickCapturedRef.current = false;
-			};
-
-			document.addEventListener('focus', onClick, true);
-			document.addEventListener('mousedown', onClick);
-
-			return () => {
-				document.removeEventListener('focus', onClick, true);
-				document.removeEventListener('mousedown', onClick);
-			};
-		}
-	}, [focus]);
-
-	const loadMore = useCallback(() => {
-		if (group) {
-			return;
-		}
-
-		const promise = load.loadMore(item.key, item, true);
-
-		if (promise) {
-			setLoading(true);
-			promise.then(() => setLoading(false));
-		}
-	}, [item, group, load.loadMore]);
-
-	const hasItemStack =
-		typeof left !== 'string' && group && React.isValidElement(left);
-
-	const itemStackProps = hasItemStack
-		? (left as React.ReactElement).props
-		: {};
-
-	// The ownership of TreeView properties changes according to the component
-	// declaration that helps in inferring the visual intuition of which
-	// component is Node.
-	const propsOwnership = group ? 'item' : 'node';
-
-	const itemProps = propsOwnership === 'item' ? otherProps : {};
-	const nodeProps = propsOwnership === 'node' ? otherProps : {};
-
-	const hasChildren =
-		nestedKey && item[nestedKey] && item[nestedKey].length > 0;
-
-	const isExpand =
-		expandable ||
-		itemStackProps.expandable ||
-		(childrenRoot.current ? hasChildren : group);
-
-	const focusWithinProps = useFocusWithin({
-		disabled:
-			itemStackProps.disabled ||
-			nodeProps.disabled ||
-			mode === 'keyboard',
-		id: item.key,
-	});
-	const labelId = useId();
-	const ariaOwns = useId();
-
-	const isNonDraggrable =
-		itemStackProps.draggable === false || nodeProps.draggable;
-
-	if (!group && nestedKey && item[nestedKey] && childrenRoot.current) {
-		return React.cloneElement(
-			childrenRoot.current(removeItemInternalProps(item), ...api),
-			{
-				actions,
-				isDragging,
-				overPosition,
-				overTarget,
-				ref,
-			}
-		);
-	}
-
-	return (
-		<SpacingContext.Provider value={spacing + 24}>
-			<li
-				{...itemProps}
-				className={classNames('treeview-item', itemProps.className, {
-					'treeview-item-dragging': isDragging,
-				})}
-				role="none"
-			>
-				<ItemIndicator
-					labelId={labelId}
-					target={{dropPosition: 'top', key: item.key}}
-				/>
-				<div
-					{...itemStackProps}
-					{...nodeProps}
-					{...focusWithinProps}
-					aria-expanded={
-						group ? expandedKeys.has(item.key) : undefined
+		useEffect(() => {
+			if (focus) {
+				const onClick = () => {
+					if (!clickCapturedRef.current) {
+						setFocus(false);
 					}
-					aria-labelledby={labelId}
-					aria-owns={ariaOwns}
+
+					clickCapturedRef.current = false;
+				};
+
+				document.addEventListener('focus', onClick, true);
+				document.addEventListener('mousedown', onClick);
+
+				return () => {
+					document.removeEventListener('focus', onClick, true);
+					document.removeEventListener('mousedown', onClick);
+				};
+			}
+		}, [focus]);
+
+		const loadMore = useCallback(() => {
+			if (group) {
+				return;
+			}
+
+			const promise = load.loadMore(item.key, item, true);
+
+			if (promise) {
+				setLoading(true);
+				promise.then(() => setLoading(false));
+			}
+		}, [item, group, load.loadMore]);
+
+		const hasItemStack =
+			typeof left !== 'string' && group && React.isValidElement(left);
+
+		const itemStackProps = hasItemStack
+			? (left as React.ReactElement).props
+			: {};
+
+		// The ownership of TreeView properties changes according to the component
+		// declaration that helps in inferring the visual intuition of which
+		// component is Node.
+		const propsOwnership = group ? 'item' : 'node';
+
+		const itemProps = propsOwnership === 'item' ? otherProps : {};
+		const nodeProps = propsOwnership === 'node' ? otherProps : {};
+
+		const hasChildren =
+			nestedKey && item[nestedKey] && item[nestedKey].length > 0;
+
+		const isExpand =
+			expandable ||
+			itemStackProps.expandable ||
+			(childrenRoot.current ? hasChildren : group);
+
+		const focusWithinProps = useFocusWithin({
+			disabled:
+				itemStackProps.disabled ||
+				nodeProps.disabled ||
+				mode === 'keyboard',
+			id: item.key,
+		});
+		const labelId = useId();
+		const ariaOwns = useId();
+
+		const isNonDraggrable =
+			itemStackProps.draggable === false || nodeProps.draggable;
+
+		if (!group && nestedKey && item[nestedKey] && childrenRoot.current) {
+			return React.cloneElement(
+				childrenRoot.current(removeItemInternalProps(item), ...api),
+				{
+					actions,
+					isDragging,
+					overPosition,
+					overTarget,
+					ref,
+				}
+			);
+		}
+
+		return (
+			<SpacingContext.Provider value={spacing + 24}>
+				<li
+					{...itemProps}
 					className={classNames(
-						'treeview-link',
-						itemStackProps.className,
-						nodeProps.className,
+						'treeview-item',
+						itemProps.className,
 						{
-							active:
-								(selectionMode === 'single' &&
-									selection.selectedKeys.has(item.key)) ||
-								itemStackProps.active ||
-								nodeProps.active,
-							collapsed: group && expandedKeys.has(item.key),
-							disabled:
-								itemStackProps.disabled || nodeProps.disabled,
-							focus,
-							'treeview-dropping-middle':
-								overTarget && overPosition === 'middle',
-							'treeview-no-hover':
-								itemStackProps.noHover || nodeProps.noHover,
+							'treeview-item-dragging': isDragging,
 						}
 					)}
-					data-dnd={dragAndDrop ? !isNonDraggrable : undefined}
-					data-dnd-dropping={
-						overTarget && overPosition ? 'true' : undefined
-					}
-					data-id={
-						typeof item.key === 'number'
-							? `number,${item.key}`
-							: `string,${item.key}`
-					}
-					disabled={itemStackProps.disabled || nodeProps.disabled}
-					onBlur={(event) => {
-						if (
-							actions &&
-							event.relatedTarget &&
-							!item.itemRef.current?.contains(
-								event.relatedTarget as HTMLElement
-							)
-						) {
-							setFocus(false);
+					role="none"
+				>
+					<ItemIndicator
+						labelId={labelId}
+						target={{dropPosition: 'top', key: item.key}}
+					/>
+					<div
+						{...itemStackProps}
+						{...nodeProps}
+						{...focusWithinProps}
+						aria-expanded={
+							group ? expandedKeys.has(item.key) : undefined
 						}
-					}}
-					onClick={(event) => {
-						if (itemStackProps.disabled || nodeProps.disabled) {
-							return;
-						}
-
-						// Any click that happened outside the item does not trigger the
-						// node expansion. For example click on a DropDown item.
-						if (
-							!item.itemRef.current?.contains(
-								event.target as Node
-							)
-						) {
-							return;
-						}
-
-						if (hasItemStack && itemStackProps.onClick) {
-							itemStackProps.onClick(event);
-						}
-
-						if (nodeProps.onClick) {
-							(
-								nodeProps.onClick as unknown as (
-									event: React.MouseEvent<
-										HTMLDivElement,
-										MouseEvent
-									>
-								) => void
-							)(event);
-						}
-
-						if (event.defaultPrevented) {
-							return;
-						}
-
-						// event.detail it has no type but is an existing property of the
-						// element to know how many clicks were triggered.
-						// https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
-						// @ts-ignore
-						if (expandDoubleClick && event.detail !== 2) {
-							return;
-						}
-
-						if (selectionMode === 'single') {
-							selection.toggleSelection(item.key);
-
-							if (onSelect) {
-								onSelect(removeItemInternalProps(item));
+						aria-labelledby={labelId}
+						aria-owns={ariaOwns}
+						className={classNames(
+							'treeview-link',
+							itemStackProps.className,
+							nodeProps.className,
+							{
+								active:
+									(selectionMode === 'single' &&
+										selection.selectedKeys.has(item.key)) ||
+									itemStackProps.active ||
+									nodeProps.active,
+								collapsed: group && expandedKeys.has(item.key),
+								disabled:
+									itemStackProps.disabled ||
+									nodeProps.disabled,
+								focus,
+								'treeview-dropping-middle':
+									overTarget && overPosition === 'middle',
+								'treeview-no-hover':
+									itemStackProps.noHover || nodeProps.noHover,
 							}
+						)}
+						data-dnd={dragAndDrop ? !isNonDraggrable : undefined}
+						data-dnd-dropping={
+							overTarget && overPosition ? 'true' : undefined
 						}
-
-						if (group) {
-							toggle(item.key);
-						} else {
-							loadMore();
+						data-id={
+							typeof item.key === 'number'
+								? `number,${item.key}`
+								: `string,${item.key}`
 						}
-					}}
-					onFocus={(event) => {
-						if (focusWithinProps.onFocus) {
-							focusWithinProps.onFocus(event);
-						}
-
-						if (actions) {
-							setFocus(true);
-							clickCapturedRef.current = true;
-						}
-					}}
-					onKeyDown={(event) => {
-						if (itemStackProps.disabled || nodeProps.disabled) {
-							return;
-						}
-
-						if (hasItemStack && itemStackProps.onKeyDown) {
-							itemStackProps.onKeyDown(event);
-						}
-
-						if (nodeProps.onKeyDown) {
-							(
-								nodeProps.onKeyDown as unknown as (
-									event: React.KeyboardEvent<HTMLDivElement>
-								) => void
-							)(event);
-						}
-
-						if (event.defaultPrevented || event.key === Keys.Tab) {
-							return;
-						}
-
-						// We call `preventDefault` after checking if it was ignored
-						// because the behavior is different when the developer sets
-						// `onKeyDown` it can ignore the default behavior of the browser
-						// and the default behavior of the TreeView when this is not done
-						// by default we ignore the default browser behavior by default.
-						event.preventDefault();
-
-						const {key} = event;
-
-						switch (key) {
-							case Keys.Left:
-								if (
-									!close(item.key) &&
-									item.parentItemRef?.current
-								) {
-									item.parentItemRef.current.focus();
-								}
-								break;
-							case Keys.Right:
-								if (!group) {
-									const promise = load.loadMore(
-										item.key,
-										item
-									);
-
-									if (promise) {
-										setLoading(true);
-										promise.then(() => setLoading(false));
-									} else {
-										return;
-									}
-								}
-
-								if (!open(item.key) && item.itemRef.current) {
-									const group =
-										item.itemRef.current.parentElement?.querySelector<HTMLDivElement>(
-											'.treeview-group'
-										);
-									const firstItemElement =
-										group?.querySelector<HTMLDivElement>(
-											'.treeview-link:not(.disabled)'
-										);
-
-									firstItemElement?.focus();
-								} else {
-									item.itemRef.current?.focus();
-								}
-								break;
-							case Keys.Backspace:
-							case Keys.Del: {
-								remove(item.indexes);
-								item.parentItemRef.current?.focus();
-								break;
+						disabled={itemStackProps.disabled || nodeProps.disabled}
+						onBlur={(event) => {
+							if (
+								actions &&
+								event.relatedTarget &&
+								!item.itemRef.current?.contains(
+									event.relatedTarget as HTMLElement
+								)
+							) {
+								setFocus(false);
 							}
-							case Keys.Home: {
-								const firstListElement = rootRef.current
-									?.firstElementChild as HTMLLinkElement;
-								const linkElement =
-									firstListElement.firstElementChild as HTMLDivElement;
-
-								linkElement.focus();
-								break;
+						}}
+						onClick={(event) => {
+							if (itemStackProps.disabled || nodeProps.disabled) {
+								return;
 							}
-							case Keys.End: {
-								const lastListElement = rootRef.current
-									?.lastElementChild as HTMLLinkElement;
-								const linkElement =
-									lastListElement.firstElementChild as HTMLDivElement;
 
-								linkElement.focus();
-								break;
+							// Any click that happened outside the item does not trigger the
+							// node expansion. For example click on a DropDown item.
+							if (
+								!item.itemRef.current?.contains(
+									event.target as Node
+								)
+							) {
+								return;
 							}
-							case Keys.Spacebar: {
+
+							if (hasItemStack && itemStackProps.onClick) {
+								itemStackProps.onClick(event);
+							}
+
+							if (nodeProps.onClick) {
+								(
+									nodeProps.onClick as unknown as (
+										event: React.MouseEvent<
+											HTMLDivElement,
+											MouseEvent
+										>
+									) => void
+								)(event);
+							}
+
+							if (event.defaultPrevented) {
+								return;
+							}
+
+							// event.detail it has no type but is an existing property of the
+							// element to know how many clicks were triggered.
+							// https://developer.mozilla.org/en-US/docs/Web/API/UIEvent/detail
+							// @ts-ignore
+							if (expandDoubleClick && event.detail !== 2) {
+								return;
+							}
+
+							if (selectionMode === 'single') {
 								selection.toggleSelection(item.key);
 
 								if (onSelect) {
 									onSelect(removeItemInternalProps(item));
 								}
-								break;
 							}
-							case Keys.R.toLowerCase():
-							case Keys.R:
-							case Keys.F2: {
-								if (onRenameItem) {
-									onRenameItem({...item})
-										.then((newItem) => {
-											replace(item.indexes, {
-												...newItem,
-												index: item['index'],
-												indexes: item.indexes,
-												itemRef: item.itemRef,
-												key: item.key,
-												parentItemRef:
-													item.parentItemRef,
-											});
 
-											item.itemRef.current?.focus();
-										})
-										.catch((error) => {
-											console.error(error);
-										});
-								}
-								break;
+							if (group) {
+								toggle(item.key);
+							} else {
+								loadMore();
 							}
-							default:
-								break;
-						}
-					}}
-					onMouseDown={() => {
-						clickCapturedRef.current = true;
-					}}
-					onTouchStart={() => {
-						clickCapturedRef.current = true;
-					}}
-					ref={isNonDraggrable ? undefined : ref}
-					role="treeitem"
-					style={{
-						...(itemStackProps?.style ?? {}),
-						...(nodeProps?.style ?? {}),
-						paddingLeft: `${
-							spacing + (isExpand || loading ? 0 : 24)
-						}px`,
-					}}
-				>
-					<ItemIndicator
-						labelId={labelId}
-						target={{dropPosition: 'middle', key: item.key}}
-					/>
-					<span
-						className="c-inner"
+						}}
+						onFocus={(event) => {
+							if (focusWithinProps.onFocus) {
+								focusWithinProps.onFocus(event);
+							}
+
+							if (actions) {
+								setFocus(true);
+								clickCapturedRef.current = true;
+							}
+						}}
+						onKeyDown={(event) => {
+							if (itemStackProps.disabled || nodeProps.disabled) {
+								return;
+							}
+
+							if (hasItemStack && itemStackProps.onKeyDown) {
+								itemStackProps.onKeyDown(event);
+							}
+
+							if (nodeProps.onKeyDown) {
+								(
+									nodeProps.onKeyDown as unknown as (
+										event: React.KeyboardEvent<HTMLDivElement>
+									) => void
+								)(event);
+							}
+
+							if (
+								event.defaultPrevented ||
+								event.key === Keys.Tab
+							) {
+								return;
+							}
+
+							// We call `preventDefault` after checking if it was ignored
+							// because the behavior is different when the developer sets
+							// `onKeyDown` it can ignore the default behavior of the browser
+							// and the default behavior of the TreeView when this is not done
+							// by default we ignore the default browser behavior by default.
+							event.preventDefault();
+
+							const {key} = event;
+
+							switch (key) {
+								case Keys.Left:
+									if (
+										!close(item.key) &&
+										item.parentItemRef?.current
+									) {
+										item.parentItemRef.current.focus();
+									}
+									break;
+								case Keys.Right:
+									if (!group) {
+										const promise = load.loadMore(
+											item.key,
+											item
+										);
+
+										if (promise) {
+											setLoading(true);
+											promise.then(() =>
+												setLoading(false)
+											);
+										} else {
+											return;
+										}
+									}
+
+									if (
+										!open(item.key) &&
+										item.itemRef.current
+									) {
+										const group =
+											item.itemRef.current.parentElement?.querySelector<HTMLDivElement>(
+												'.treeview-group'
+											);
+										const firstItemElement =
+											group?.querySelector<HTMLDivElement>(
+												'.treeview-link:not(.disabled)'
+											);
+
+										firstItemElement?.focus();
+									} else {
+										item.itemRef.current?.focus();
+									}
+									break;
+								case Keys.Backspace:
+								case Keys.Del: {
+									remove(item.indexes);
+									item.parentItemRef.current?.focus();
+									break;
+								}
+								case Keys.Home: {
+									const firstListElement = rootRef.current
+										?.firstElementChild as HTMLLinkElement;
+									const linkElement =
+										firstListElement.firstElementChild as HTMLDivElement;
+
+									linkElement.focus();
+									break;
+								}
+								case Keys.End: {
+									const lastListElement = rootRef.current
+										?.lastElementChild as HTMLLinkElement;
+									const linkElement =
+										lastListElement.firstElementChild as HTMLDivElement;
+
+									linkElement.focus();
+									break;
+								}
+								case Keys.Spacebar: {
+									selection.toggleSelection(item.key);
+
+									if (onSelect) {
+										onSelect(removeItemInternalProps(item));
+									}
+									break;
+								}
+								case Keys.R.toLowerCase():
+								case Keys.R:
+								case Keys.F2: {
+									if (onRenameItem) {
+										onRenameItem({...item})
+											.then((newItem) => {
+												replace(item.indexes, {
+													...newItem,
+													index: item['index'],
+													indexes: item.indexes,
+													itemRef: item.itemRef,
+													key: item.key,
+													parentItemRef:
+														item.parentItemRef,
+												});
+
+												item.itemRef.current?.focus();
+											})
+											.catch((error) => {
+												console.error(error);
+											});
+									}
+									break;
+								}
+								default:
+									break;
+							}
+						}}
+						onMouseDown={() => {
+							clickCapturedRef.current = true;
+						}}
+						onTouchStart={() => {
+							clickCapturedRef.current = true;
+						}}
+						ref={isNonDraggrable ? undefined : ref}
+						role="treeitem"
 						style={{
-							marginLeft: `-${
+							...(itemStackProps?.style ?? {}),
+							...(nodeProps?.style ?? {}),
+							paddingLeft: `${
 								spacing + (isExpand || loading ? 0 : 24)
 							}px`,
 						}}
-						tabIndex={-2}
 					>
-						{typeof left === 'string' && !right ? (
-							<Layout.ContentRow>
-								{!isNonDraggrable && (
-									<Drag
-										labelId={labelId}
-										tabIndex={focusWithinProps.tabIndex}
-									/>
-								)}
+						<ItemIndicator
+							labelId={labelId}
+							target={{dropPosition: 'middle', key: item.key}}
+						/>
+						<span
+							className="c-inner"
+							style={{
+								marginLeft: `-${
+									spacing + (isExpand || loading ? 0 : 24)
+								}px`,
+							}}
+							tabIndex={-2}
+						>
+							{typeof left === 'string' && !right ? (
+								<Layout.ContentRow>
+									{!isNonDraggrable && (
+										<Drag
+											labelId={labelId}
+											tabIndex={focusWithinProps.tabIndex}
+										/>
+									)}
 
-								<Layout.ContentCol expand>
-									<span
-										className="component-text"
-										id={labelId}
-										tabIndex={-1}
-									>
-										{left}
-									</span>
-								</Layout.ContentCol>
+									<Layout.ContentCol expand>
+										<span
+											className="component-text"
+											id={labelId}
+											tabIndex={-1}
+										>
+											{left}
+										</span>
+									</Layout.ContentCol>
 
-								{actions && (
-									<Actions
-										tabIndex={focusWithinProps.tabIndex}
-									>
-										{actions}
-									</Actions>
-								)}
-							</Layout.ContentRow>
-						) : group ? (
-							React.cloneElement(left as React.ReactElement, {
-								actions,
-								expandable: isExpand,
-								isNonDraggrable,
-								labelId,
-								onClick: undefined,
-								onLoadMore: !group ? loadMore : undefined,
-								tabIndex: focusWithinProps.tabIndex,
-							})
-						) : (
-							<TreeViewItemStack
-								actions={actions}
-								disabled={nodeProps.disabled}
-								expandable={isExpand}
-								isNonDraggrable={isNonDraggrable}
-								labelId={labelId}
-								loading={loading}
-								onLoadMore={!group ? loadMore : undefined}
-								tabIndex={focusWithinProps.tabIndex}
-							>
-								{children}
-							</TreeViewItemStack>
-						)}
-					</span>
-				</div>
-
-				<ItemIndicator
-					labelId={labelId}
-					target={{dropPosition: 'bottom', key: item.key}}
-				/>
-
-				{group &&
-					React.cloneElement(group as React.ReactElement, {
-						'aria-labelledby': labelId,
-						id: ariaOwns,
-					})}
-
-				{left && group && Boolean(otherElements.length) && (
-					<div
-						style={{
-							paddingLeft: `${spacing + 24}px`,
-						}}
-					>
-						{otherElements}
+									{actions && (
+										<Actions
+											tabIndex={focusWithinProps.tabIndex}
+										>
+											{actions}
+										</Actions>
+									)}
+								</Layout.ContentRow>
+							) : group ? (
+								React.cloneElement(left as React.ReactElement, {
+									actions,
+									expandable: isExpand,
+									isNonDraggrable,
+									labelId,
+									onClick: undefined,
+									onLoadMore: !group ? loadMore : undefined,
+									tabIndex: focusWithinProps.tabIndex,
+								})
+							) : (
+								<ItemStack
+									actions={actions}
+									disabled={nodeProps.disabled}
+									expandable={isExpand}
+									isNonDraggrable={isNonDraggrable}
+									labelId={labelId}
+									loading={loading}
+									onLoadMore={!group ? loadMore : undefined}
+									tabIndex={focusWithinProps.tabIndex}
+								>
+									{children}
+								</ItemStack>
+							)}
+						</span>
 					</div>
-				)}
-			</li>
-		</SpacingContext.Provider>
-	);
-});
 
-TreeViewItem.displayName = 'ClayTreeViewItem';
+					<ItemIndicator
+						labelId={labelId}
+						target={{dropPosition: 'bottom', key: item.key}}
+					/>
+
+					{group &&
+						React.cloneElement(group as React.ReactElement, {
+							'aria-labelledby': labelId,
+							id: ariaOwns,
+						})}
+
+					{left && group && Boolean(otherElements.length) && (
+						<div
+							style={{
+								paddingLeft: `${spacing + 24}px`,
+							}}
+						>
+							{otherElements}
+						</div>
+					)}
+				</li>
+			</SpacingContext.Provider>
+		);
+	}
+);
+
+Item.displayName = 'ClayTreeViewItem';
 
 interface ITreeViewItemStackProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
@@ -673,7 +686,7 @@ function Expander({expanderIcons}: ExpanderProps) {
 	);
 }
 
-export function TreeViewItemStack({
+export function ItemStack({
 	actions,
 	children,
 	disabled,
@@ -843,7 +856,7 @@ export function TreeViewItemStack({
 	);
 }
 
-TreeViewItemStack.displayName = 'TreeViewItemStack';
+ItemStack.displayName = 'TreeViewItemStack';
 
 type TreeViewItemActionsProps = {
 	children: React.ReactElement;

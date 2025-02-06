@@ -6,7 +6,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const ClayAlertFooter = ({
+export const ClayAlertFooter = ({
 	children,
 	className,
 	...otherProps
@@ -18,4 +18,4 @@ const ClayAlertFooter = ({
 	);
 };
 
-export default ClayAlertFooter;
+ClayAlertFooter.displayName = 'ClayAlertFooter';

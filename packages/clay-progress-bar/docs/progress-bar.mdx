@@ -3,28 +3,39 @@ title: 'Progress Bar'
 description: 'Progress bar indicates the percentage completed of a task.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/progress-bars/'
 packageNpm: '@clayui/progress-bar'
+packageUse: "import ProgressBar from '@clayui/progress-bar';"
+packageTypes: ['clay-progress-bar/src/index.tsx']
 ---
-
-import {
-	ProgressBar,
-	ProgressBarFeedback,
-	ProgressBarStatus,
-} from '$packages/clay-progress-bar/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Status](#status)
--   [Feedback](#feedback)
-
-</div>
-</div>
 
 As long as the process is running, the progress bar grows continuously from 0% to 100%.
 
-If you need to communicate the progress of a certain set of actions. You should use the [Multi Step Nav](/docs/components/multi-step-nav.html) component.
+If you need to communicate the progress of a certain set of actions. You should use the [Multi Step Nav](/docs/components/multi-step-nav) component.
 
-<ProgressBar />
+```jsx preview
+import {Provider} from '@clayui/core';
+import ProgressBar from '@clayui/progress-bar';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<ProgressBar value={50} />
+
+					<ProgressBar value={100} />
+
+					<ProgressBar value={20} />
+
+					<ProgressBar value={20} />
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Status
 
@@ -34,10 +45,70 @@ When [`value`](#api-value) is 100, the color of the progress bar will be styled 
 
 Also, you can use [`warn`](#api-warn) property to set the color of the progress bar fixed on `warning`.
 
-<ProgressBarStatus />
+```jsx preview
+import {Provider} from '@clayui/core';
+import ProgressBar from '@clayui/progress-bar';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<ProgressBar value={0} />
+
+					<ProgressBar value={50} />
+
+					<ProgressBar value={100} />
+
+					<ProgressBar value={50} warn />
+
+					<ProgressBar value={100} warn />
+				</>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Feedback
 
 Use [`feedback`](#api-feedback) property to provide the same visual feedback to all items wrapped by `ClayProgressBar`.
 
-<ProgressBarFeedback />
+```jsx preview
+import {Provider} from '@clayui/core';
+import ProgressBar from '@clayui/progress-bar';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<>
+					<ProgressBar feedback value={99}>
+						<div className="progress-group-addon">
+							99% Completed
+						</div>
+					</ProgressBar>
+
+					<ProgressBar feedback value={100}>
+						<div className="progress-group-addon">
+							100% Completed
+						</div>
+					</ProgressBar>
+
+					<ProgressBar feedback value={99} warn>
+						<div className="progress-group-addon">
+							99% Completed
+						</div>
+					</ProgressBar>
+				</>
+			</div>
+		</Provider>
+	);
+}
+```

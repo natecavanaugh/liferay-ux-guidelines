@@ -1,42 +1,90 @@
 ---
-title: 'Dropdown Menu'
+title: 'DropDown Menu'
 description: 'A dropdown menu displays a list of options for the element that triggers it.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/dropdowns/'
 packageNpm: '@clayui/drop-down'
+packageUse: "import DropDown from '@clayui/drop-down';"
+packageTypes:
+    [
+        'clay-drop-down/src/DropDown.tsx',
+        'clay-drop-down/src/Action.tsx',
+        'clay-drop-down/src/Item.tsx',
+        'clay-drop-down/src/ItemList.tsx',
+        'clay-drop-down/src/Section.tsx',
+        'clay-drop-down/src/Group.tsx',
+        'clay-drop-down/src/Help.tsx',
+        'clay-drop-down/src/Caption.tsx',
+        'clay-drop-down/src/DropDownWithDrilldown.tsx',
+    ]
 ---
-
-import {
-	DropDown,
-	DropDownExample,
-	DropDownWithItems,
-	DropDownWithDrilldown,
-} from '$packages/clay-drop-down/docs/index';
-
-<div class="nav-toc-absolute">
-<div class="nav-toc">
-
--   [Example](#example)
--   [Introduction](#introduction)
--   [Content](#content)
-    -   [Static](#static)
-    -   [Dynamic](#dynamic)
--   [Filter](#filter)
-    -   [Value](#value)
--   [Without Trigger](#without-trigger)
--   [Variants](#variants)
-    -   [Icon](#icon)
-    -   [With Items](#with-items)
-        -   [Customizable Trigger Icon](#customizable-trigger-icon)
-        -   [Cascading Menu](#cascading-menu)
-    -   [Drilldown](#drilldown)
--   [Caveats](#caveats)
-
-</div>
-</div>
 
 ## Example
 
-<DropDownExample />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DropDown from '@clayui/drop-down';
+import Button from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+const items = [
+	{
+		children: [
+			{id: 2, name: 'Apple'},
+			{id: 3, name: 'Banana'},
+			{id: 4, name: 'Mangos'},
+		],
+		id: 1,
+		name: 'Fruit',
+	},
+	{
+		children: [
+			{id: 6, name: 'Potatoes'},
+			{id: 7, name: 'Tomatoes'},
+			{id: 8, name: 'Onions'},
+		],
+		id: 5,
+		name: 'Vegetable',
+	},
+];
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DropDown
+					filterKey="name"
+					trigger={<Button>Select</Button>}
+					triggerIcon="caret-bottom"
+				>
+					<DropDown.Search placeholder="Type to filter" />
+					<DropDown.ItemList items={items}>
+						{(item) => (
+							<DropDown.Group
+								header={item.name}
+								items={item.children}
+								key={item.name}
+							>
+								{(item) => (
+									<DropDown.Item
+										key={item.name}
+										onClick={() => {
+											// logic stuff...
+										}}
+									>
+										{item.name}
+									</DropDown.Item>
+								)}
+							</DropDown.Group>
+						)}
+					</DropDown.ItemList>
+				</DropDown>
+			</div>
+		</Provider>
+	);
+}
+```
 
 ## Introduction
 
@@ -126,7 +174,7 @@ Compositing for dynamic content becomes simpler and also provides the same featu
 
 ## Filter
 
-The filter in a Menu works OOTB, just declaring the `<DropDown.Search />` component in the composition, as in the examples shown for static and dynamic content. The Filter can be done by DropDown itself as well as the developer can control the filter and make his own filter rule.
+The filter in a Menu works OOTB, just declaring the `<DropDown.Search>` component in the composition, as in the examples shown for static and dynamic content. The Filter can be done by DropDown itself as well as the developer can control the filter and make his own filter rule.
 
 ```jsx
 function Example() {
@@ -174,7 +222,7 @@ If you just need to set an initial value, just use the `defaultValue` property.
 
 ### Value
 
-DropDown filters items according to the value rendered as `children` of `<DropDown.Item />`, when there are more detailed compositions in the item, the filter will not work because it cannot determine which value to use to filter, in this scenario configure the item's value using the `textValue` property.
+DropDown filters items according to the value rendered as `children` of `<DropDown.Item>`, when there are more detailed compositions in the item, the filter will not work because it cannot determine which value to use to filter, in this scenario configure the item's value using the `textValue` property.
 
 ```jsx
 <DropDown filterKey="name" trigger={<Button>Click Me</Button>}>
@@ -192,11 +240,11 @@ DropDown filters items according to the value rendered as `children` of `<DropDo
 
 ## Without Trigger
 
-You may want to create a trigger that is not necessarily in the same tree as DropDown, due to HTML markup issues, for these cases you can use `<ClayDropDown.Menu />`.
+You may want to create a trigger that is not necessarily in the same tree as DropDown, due to HTML markup issues, for these cases you can use `<ClayDropDown.Menu>`.
 
-Using `<ClayDropDown.Menu />` allows you to better control the state of DropDown but you will have to deal with visibility, focus management, and other details.
+Using `<ClayDropDown.Menu>` allows you to better control the state of DropDown but you will have to deal with visibility, focus management, and other details.
 
-<div class="clay-site-alert alert alert-warning">
+<div className="clay-site-alert alert alert-warning">
 	As a recommendation only use this component as a last resort, it doesn't
 	provide some OOTB features like focus control or accessibility at all.
 </div>
@@ -261,7 +309,102 @@ The default value is `null`.
 
 Allows you to create a simple DropDown, through its API you are able to create a Menu with groups of checkboxes and radios, links, buttons, search, caption, etc.
 
-<DropDownWithItems />
+```jsx preview
+import {Provider} from '@clayui/core';
+import DropDown from '@clayui/drop-down';
+import Button from '@clayui/button';
+import React, {useState} from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+const items = [
+	{
+		label: 'clickable',
+		onClick: (event) => event.preventDefault(),
+	},
+	{
+		type: 'divider',
+	},
+	{
+		items: [
+			{
+				label: 'one',
+				type: 'radio',
+				value: 'one',
+			},
+			{
+				label: 'two',
+				type: 'radio',
+				value: 'two',
+			},
+		],
+		label: 'radio',
+		name: 'radio',
+		onChange: (value) => alert('New Radio checked'),
+		type: 'radiogroup',
+	},
+	{
+		items: [
+			{
+				checked: true,
+				label: 'checkbox',
+				onChange: () => alert('checkbox changed'),
+				type: 'checkbox',
+			},
+			{
+				checked: true,
+				label: 'checkbox 1',
+				onChange: () => alert('checkbox changed'),
+				type: 'checkbox',
+			},
+		],
+		label: 'checkbox',
+		type: 'group',
+	},
+	{
+		href: '#',
+		label: 'linkable',
+	},
+];
+
+export default function App() {
+	const [value, setValue] = useState();
+
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<DropDown
+					filterKey="name"
+					trigger={<Button>Select</Button>}
+					triggerIcon="caret-bottom"
+				>
+					<DropDown.Search placeholder="Type to filter" />
+					<DropDown.ItemList items={items}>
+						{(item) => (
+							<DropDown.Group
+								header={item.name}
+								items={item.children}
+								key={item.name}
+							>
+								{(item) => (
+									<DropDown.Item
+										key={item.name}
+										onClick={() => {
+											// logic stuff...
+										}}
+									>
+										{item.name}
+									</DropDown.Item>
+								)}
+							</DropDown.Group>
+						)}
+					</DropDown.ItemList>
+				</DropDown>
+			</div>
+		</Provider>
+	);
+}
+```
 
 #### Customizable Trigger Icon
 
@@ -297,11 +440,49 @@ const items = [
 
 A Drilldown menu allows the user to navigate to and/or select an element from a contextual list. It can be triggered by a dropdown button.
 
-<DropDownWithDrilldown />
+```jsx preview
+import {Provider} from '@clayui/core';
+import {ClayDropDownWithDrilldown} from '@clayui/drop-down';
+import Button from '@clayui/button';
+import React from 'react';
+
+import '@clayui/css/lib/css/atlas.css';
+
+export default function App() {
+	return (
+		<Provider spritemap="/public/icons.svg">
+			<div className="p-4">
+				<ClayDropDownWithDrilldown
+					defaultActiveMenu="x0a3"
+					menus={{
+						x0a3: [
+							{href: '#', title: 'Hash Link'},
+							{type: 'divider'},
+							{onClick: () => alert('test'), title: 'Alert!'},
+							{type: 'divider'},
+							{child: 'x0a4', title: 'Subnav'},
+						],
+						x0a4: [
+							{href: '#', title: '2nd hash link'},
+							{child: 'x0a5', title: 'Subnav'},
+						],
+						x0a5: [
+							{title: 'The'},
+							{type: 'divider'},
+							{title: 'End'},
+						],
+					}}
+					trigger={<Button>{'Click Me'}</Button>}
+				/>
+			</div>
+		</Provider>
+	);
+}
+```
 
 The way the Drilldown component links the menus is done via reference, the menu needs a unique `id`.
 
-```js{expanded}
+```js
 const menus = {
 	of23: [{title: 'First'}],
 };
@@ -309,7 +490,7 @@ const menus = {
 
 From the `id` you are able to link to another menu using the `child` property.
 
-```js{expanded}
+```js
 const menus = {
 	of23: [{title: 'First', child: 'of09'}],
 	of09: [{title: 'Three'}],
@@ -319,7 +500,7 @@ const menus = {
 If you want to add separators between your menu items, it's possible to do so, by
 using an item that has this shape `{type: 'divider'}`.
 
-```js{expanded}
+```js
 const menus = {
 	of23: [
 		{title: 'First', child: 'of09'},
@@ -330,7 +511,7 @@ const menus = {
 };
 ```
 
-<div class="clay-site-alert alert alert-warning">
+<div className="clay-site-alert alert alert-warning">
 	An important thing to have in mind, is that the `DropDownWithDrilldown`
 	component, will render its menus in the order that they are specified. This
 	means that if you specify the menus in the wrong order, the menu animation
