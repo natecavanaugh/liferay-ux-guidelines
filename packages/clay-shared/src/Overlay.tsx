@@ -118,14 +118,16 @@ export function Overlay({
 			onHide('blur');
 		},
 		onInteractStart: (event) => {
-			if (unsuppressCallbackRef.current) {
-				unsuppressCallbackRef.current();
-				unsuppressCallbackRef.current = null;
-			}
+			if (overlayStack[overlayStack.length - 1] === menuRef) {
+				if (unsuppressCallbackRef.current) {
+					unsuppressCallbackRef.current();
+					unsuppressCallbackRef.current = null;
+				}
 
-			if (overlayStack[overlayStack.length - 1] === menuRef && isModal) {
-				event.stopPropagation();
-				event.preventDefault();
+				if (isModal) {
+					event.stopPropagation();
+					event.preventDefault();
+				}
 			}
 		},
 		ref: portalRef ?? menuRef,
