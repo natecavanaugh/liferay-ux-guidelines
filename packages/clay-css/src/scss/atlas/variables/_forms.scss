@@ -408,6 +408,7 @@ $form-control-select-palette: map-deep-merge(
 	(
 		form-control-select-secondary: (
 			background-color: $white,
+			border-color: $secondary-l0,
 			color: $gray-600,
 			hover: (
 				color: $gray-600,
@@ -425,6 +426,9 @@ $form-control-select-palette: map-deep-merge(
 				background-color: $gray-200,
 				background-image: clay-icon(caret-double-l, $gray-900),
 				color: $gray-900,
+			),
+			'&:not(select)': (
+				width: min-content,
 			),
 		),
 	),

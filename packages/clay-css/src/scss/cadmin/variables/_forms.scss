@@ -1266,6 +1266,7 @@ $cadmin-form-control-select-palette: map-deep-merge(
 	(
 		form-control-select-secondary: (
 			background-color: $cadmin-white,
+			border-color: $cadmin-secondary-l0,
 			color: $cadmin-gray-600,
 			hover: (
 				color: $cadmin-gray-600,
@@ -1283,6 +1284,9 @@ $cadmin-form-control-select-palette: map-deep-merge(
 				background-color: $cadmin-gray-200,
 				background-image: clay-icon(caret-double-l, $cadmin-gray-900),
 				color: $cadmin-gray-900,
+			),
+			'&:not(select)': (
+				width: min-content,
 			),
 		),
 	),
