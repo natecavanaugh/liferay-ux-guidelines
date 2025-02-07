@@ -72,10 +72,10 @@ export const useCurrentTime = (
 			const date = setDate(new Date(), {hours, minutes});
 
 			if (typeof hours !== 'string') {
-				hours = formatDate(date, 'HH');
-
 				if (use12Hours) {
-					hours = formatDate(setDate(new Date(), {hours}), 'hh');
+					hours = formatDate(date, 'hh');
+				} else {
+					hours = formatDate(date, 'HH');
 				}
 			}
 
@@ -91,7 +91,7 @@ export const useCurrentTime = (
 
 			return value;
 		},
-		[]
+		[use12Hours]
 	);
 
 	return [currentTime, setCurrentTime] as const;
